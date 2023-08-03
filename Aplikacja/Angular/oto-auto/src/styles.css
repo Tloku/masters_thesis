@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+
+    --main-100: #FFEBEB;
+    --main-200: #EBA6A6;
+    --main-300: #EE7676;
+    --main-400: #E74A4A;
+    --main-500: #DD1B16;
+    --main-600: #C3100D;
+    --main-700: #A40704;
+    --main-800: #750402;
+    --main-900: #3D0200;
+
+    --green-100: #EBFFEF;
+    --green-200: #A7EBB6;
+    --green-300: #77ED91;
+    --green-400: #49E56C;
+    --green-500: #16DD42;
+    --green-600: #0EC436;
+    --green-700: #03A326;
+    --green-800: #02751C;
+    --green-900: #003D0D;
+
+    --orange-100: #FFF4EB;
+    --orange-200: #EBC7A7;
+    --orange-300: #EDAF77;
+    --orange-400: #E59449;
+    --orange-500: #DD7616;
+    --orange-600: #C4650E;
+    --orange-700: #A35003;
+    --orange-800: #753A02;
+    --orange-900: #3D1D00;
+
+    --blue-100: #EBF6FF;
+    --blue-200: #A7CEEB;
+    --blue-300: #77BBED;
+    --blue-400: #49A4E5;
+    --blue-500: #1689DD;
+    --blue-600: #0E78C4;
+    --blue-700: #0360A3;
+    --blue-800: #024575;
+    --blue-900: #00233D;
+
+    --yellow-100: #FFFFEB;
+    --yellow-200: #E9EBA7;
+    --yellow-300: #EBED77;
+    --yellow-400: #E2E549;
+    --yellow-500: #D9DD16;
+    --yellow-600: #C1C40E;
+    --yellow-700: #A0A303;
+    --yellow-800: #737502;
+    --yellow-900: #3C3D00;
+
+    --secondary-100: #FBF6F6;
+    --secondary-200: #D6CDCE;
+    --secondary-300: #B2ABAC;
+    --secondary-400: #9B9092;
+    --secondary-500: #7C5058;
+    --secondary-600: #4F4143;
+    --secondary-700: #3E3032;
+    --secondary-800: #3C2A2D;
+    --secondary-900: #0E0406;
+}
