@@ -40,7 +40,7 @@ ul li {
     padding: 8px;
     border: none;
     cursor: pointer;
-    width: 7vw;
+    min-width: 7vw;
     user-select: none;
     color: var(--main-900);
 }
@@ -55,7 +55,7 @@ ul li:not(:last-child):hover {
 
 ul li:last-child {
     border-radius: 3px;
-    width: 10vw;
+    min-width: 10vw;
     margin-left: 1vw;
     margin-right: 2vw;
     color: var(--main-100);

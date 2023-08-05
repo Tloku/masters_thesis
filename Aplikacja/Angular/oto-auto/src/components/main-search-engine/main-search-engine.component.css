@@ -6,4 +6,42 @@
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: right 20px bottom -300px;
+    display: flex;
+}
+
+.content {
+    width: 600px;
+    height: 42vh;
+    margin-left: 7vw;
+    margin-top: 3vh;
+    box-shadow: 0px 1px 3px var(--secondary-800);
+    background-color: var(--main-100);
+}
+
+:host ::ng-deep .p-tabview .p-tabview-panels {
+    flex-grow: 1 !important;
+    background-color: var(--secondary-100);
+}
+
+:host ::ng-deep .p-tabview {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    color: var(--main-400);
+    border-color: var(--main-400);
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav,
+:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link  {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--secondary-100);
+    border-color: var(--secondary-200);
+    color: var(--secondary-500);
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:focus {
+    box-shadow: inset 0 0 0 0.2rem var(--main-200);
 }

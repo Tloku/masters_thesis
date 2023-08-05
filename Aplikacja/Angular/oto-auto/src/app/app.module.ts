@@ -5,10 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from 'src/components/navbar/navbar.component';
 import { MainSearchEngineComponent } from 'src/components/main-search-engine/main-search-engine.component';
+import { TabViewModule } from 'primeng/tabview';
+import { CarSearchFormComponent } from 'src/components/forms/car-search-form/car-search-form.component';
+import { MotocycleSearchFormComponent } from 'src/components/forms/motocycle-search-form-component/motocycle-search-form.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, MainSearchEngineComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    MainSearchEngineComponent,
+    CarSearchFormComponent,
+    MotocycleSearchFormComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, TabViewModule],
   providers: [],
   bootstrap: [AppComponent],
 })
