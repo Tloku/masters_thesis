@@ -1,3 +1,17 @@
-<div>
-    Dzien dobry samochod
+<div class="car-form-wrapper">
+    <form [formGroup]="formGroup">
+        <div class="car-form-container">
+            <span class="p-float-label">
+                <p-dropdown inputId="body-type" [editable]="true">
+                </p-dropdown>
+                <label for="body-type">Typ nadwozia</label>
+            </span>
+
+            <span class="p-float-label">
+                <p-dropdown inputId="brand" [editable]="true">
+            </p-dropdown>
+                <label for="brand">Marka pojazdu</label>
+            </span>
+        </div>
+    </form>
 </div>

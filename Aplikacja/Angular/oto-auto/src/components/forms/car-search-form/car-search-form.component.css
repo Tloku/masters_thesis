@@ -1,0 +1,21 @@
+.car-form-wrapper {
+    margin: 3px;
+    padding:3px;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    width: 12vw;
+}
+
+:host ::ng-deep .p-dropdown {
+    border-color: var(--main-900);
+    background-color: var(--secondary-100);
+}
+
+:host ::ng-deep .p-dropdown:not(.p-disabled):hover {
+    border-color: var(--main-200);
+}
+
+:host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+    box-shadow: 0 0 0 0.2rem var(--main-100);
+    border-color: var(--main-300);
+}
