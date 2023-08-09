@@ -1,33 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from 'src/components/navbar/navbar.component';
 import { MainSearchEngineComponent } from 'src/components/main-search-engine/main-search-engine.component';
-import { TabViewModule } from 'primeng/tabview';
-import { CarSearchFormComponent } from 'src/components/forms/car-search-form/car-search-form.component';
-import { MotocycleSearchFormComponent } from 'src/components/forms/motocycle-search-form-component/motocycle-search-form.component';
+import { AppFormsModule } from 'src/components/forms/app-forms.module';
 import { MatIconModule } from '@angular/material/icon';
-import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    MainSearchEngineComponent,
-    CarSearchFormComponent,
-    MotocycleSearchFormComponent,
-  ],
+  declarations: [AppComponent, NavbarComponent, MainSearchEngineComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DropdownModule,
-    TabViewModule,
+    AppFormsModule,
     MatIconModule,
-    FormsModule,
-    ReactiveFormsModule,
+    TabViewModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

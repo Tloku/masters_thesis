@@ -12,6 +12,69 @@
             </p-dropdown>
                 <label for="brand">Marka pojazdu</label>
             </span>
+            
+            <span class="p-float-label">
+                <p-dropdown inputId="model" [editable]="true">
+                </p-dropdown>
+                <label for="model">Model pojazdu</label>
+            </span>
+            
+            <span class="p-float-label">
+                <p-dropdown inputId="generation" [editable]="true">
+                </p-dropdown>
+                <label for="generation">Generacja</label>
+            </span>
+
+            <div class="range">
+                <span class="label">Cena</span>
+                <span class="short">
+                    <p-dropdown placeholder="Od" inputId="price-from" [editable]="true">
+                    </p-dropdown>
+                </span>
+                
+                <span class="short">
+                    <p-dropdown placeholder="Do" class="short"  inputId="price-to" [editable]="true">
+                    </p-dropdown>
+                </span>
+            </div> 
+
+
+            <div class="range">
+                <span class="label">Rok produkcji</span>
+                <span class="short">
+                    <p-dropdown placeholder="Od" class="short" inputId="year-from" [editable]="true">
+                    </p-dropdown>
+                </span>
+
+                <span class="short">
+                    <p-dropdown placeholder="Do" class="short" inputId="year-to" [editable]="true">
+                    </p-dropdown>
+                </span>
+            </div>
+
+            <span class="p-float-label">
+                <p-dropdown inputId="fuel-type" [editable]="true">
+                </p-dropdown>
+                <label for="fuel-type">Rodzaj paliwa</label>
+            </span>
+            
+            <div class="range">
+                <span class="label">Przebieg</span>
+                <span class="short">
+                    <p-dropdown placeholder="Od" class="short" inputId="mileage-from" [editable]="true">
+                    </p-dropdown>
+                </span>
+            
+                <span class="short">
+                    <p-dropdown placeholder="Do" class="short" inputId="mileage-to" [editable]="true">
+                    </p-dropdown>
+                </span>
+            </div>
+
+            <p-button class="advanced-search" label="Wyszukiwanie zaawansowane"></p-button>
+
+            <p-button class="show-offers" label="Pokaż ogłoszenia"></p-button>
+
         </div>
     </form>
 </div>

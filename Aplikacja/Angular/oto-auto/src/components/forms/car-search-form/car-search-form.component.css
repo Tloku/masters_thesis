@@ -1,14 +1,35 @@
 .car-form-wrapper {
     margin: 3px;
     padding:3px;
+    width: 100%;
+}
+
+.car-form-container {
+    width: 100%;
     display: grid;
-    /* grid-template-columns: 1fr 1fr; */
-    width: 12vw;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 30px;
+    margin-left: 2px;
+}
+
+:host ::ng-deep .p-float-label {
+    display: block;
+    width: 250px;
+}
+
+.car-form-container .range {
+    display: flex;
+    gap: 30px;
+}
+
+.short {
+    width: 110px;
 }
 
 :host ::ng-deep .p-dropdown {
-    border-color: var(--main-900);
+    border-color: transparent;
     background-color: var(--secondary-100);
+    box-shadow: 0 0 0 1px var(--main-800);
 }
 
 :host ::ng-deep .p-dropdown:not(.p-disabled):hover {
@@ -18,4 +39,17 @@
 :host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
     box-shadow: 0 0 0 0.2rem var(--main-100);
     border-color: var(--main-300);
+}
+
+.range .label {
+    font-size: 0.75em;
+    position: absolute;
+    transform: translateY(-21px) translateX(8px);
+    z-index: 1000;
+    color: gray;
+}
+
+
+:host ::ng-deep .p-button .advanced-search {
+    background-color: transparent;
 }
