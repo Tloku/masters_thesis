@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: oto-auto-angular-deployment
+  # namespace: frontend-apps
+  labels:
+    app: oto-moto-angular
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oto-auto-angular
+  template:
+    metadata:
+      labels:
+        app: oto-auto-angular
+    spec:
+      containers:
+        - name: oto-auto-angular
+          image: tloku/oto-moto-angular:v.1.0.0
+          ports:
+          - containerPort: 4200
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: oto-auto-angular-service
+  # namespace: frontend-apps
+
+spec:
+  selector:
+    app: oto-auto-angular
+  ports:
+    - protocol: TCP
+      port: 4200
+      targetPort: 4200
+
+  
