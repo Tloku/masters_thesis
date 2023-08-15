@@ -4,7 +4,7 @@ kind: Deployment
 
 metadata:
   name: oto-auto-angular-deployment
-  # namespace: frontend-apps
+  namespace: frontend-apps
   labels:
     app: oto-moto-angular
 
@@ -20,9 +20,9 @@ spec:
     spec:
       containers:
         - name: oto-auto-angular
-          image: tloku/oto-moto-angular:v.1.0.0
+          image: tloku/oto-auto-angular:v.1.0.1
           ports:
-          - containerPort: 4200
+          - containerPort: 80
 
 ---
 
@@ -32,14 +32,34 @@ kind: Service
 
 metadata:
   name: oto-auto-angular-service
-  # namespace: frontend-apps
+  namespace: frontend-apps
 
 spec:
   selector:
     app: oto-auto-angular
   ports:
     - protocol: TCP
-      port: 4200
-      targetPort: 4200
+      port: 80
+      targetPort: 80
 
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: oto-auto-angular-load-balancer
+  namespace: frontend-apps
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: oto-auto-angular
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30001
   

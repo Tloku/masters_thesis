@@ -4,7 +4,7 @@ kind: Ingress
 
 metadata:
   name: angular-ingress
-  # namespace: frontend-apps
+  namespace: frontend-apps
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 
@@ -20,4 +20,4 @@ spec:
           service:
             name: oto-auto-angular-service
             port:
-              number: 4200
+              number: 80

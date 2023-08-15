@@ -1,17 +1,13 @@
-FROM node:20-alpine
+FROM node:20-alpine as build-stage
 
+WORKDIR /app
 
-ARG directory=/usr/src/app
-
-RUN mkdir -p ${directory}
-
-COPY . ${directory}
-
-WORKDIR ${directory}
+COPY . .
 
 RUN npm install
-RUN npm run build
+RUN npm run build --prod
 
-EXPOSE 4200
+FROM nginx:alpine
+COPY --from=build-stage /app/dist/oto-auto /usr/share/nginx/html
 
-ENTRYPOINT [ "npm", "start" ]
+
