@@ -6,6 +6,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+    padding: 0;
 
     --main-100: #FFEBEB;
     --main-200: #EBA6A6;

@@ -7,9 +7,17 @@ import { MainSearchEngineComponent } from 'src/components/main-search-engine/mai
 import { AppFormsModule } from 'src/components/forms/app-forms.module';
 import { MatIconModule } from '@angular/material/icon';
 import { TabViewModule } from 'primeng/tabview';
+import { AwardedOfferComponent } from 'src/components/awarded-offer/awarded-offer.component';
+import { MainPageComponent } from 'src/pages/main/main-page.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, MainSearchEngineComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    MainSearchEngineComponent,
+    AwardedOfferComponent,
+    MainPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

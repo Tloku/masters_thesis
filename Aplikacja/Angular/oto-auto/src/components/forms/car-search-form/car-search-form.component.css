@@ -50,6 +50,18 @@
 }
 
 
-:host ::ng-deep .p-button .advanced-search {
+:host ::ng-deep .advanced-search .p-button {
     background-color: transparent;
+    color: var(--main-500);
+    border: none;
+}
+
+
+:host ::ng-deep .advanced-search .p-button:hover {
+    background-color: var(--secondary-200) !important;
+    color: var(--main-600) !important;
+}
+
+:host ::ng-deep .show-offers .p-button {
+    background-color: var(--main-500) !important;
 }
