@@ -2,12 +2,10 @@
     background-color: var(--main-100);
     display: flex;
     width: 100%;
-    height: 4em;
     box-shadow: 0px 1px 2px var(--secondary-800);
 }
 
 .navigation .logo {
-    position: fixed;
     color: transparent;
     min-width: 16vw;
     text-align: center;
