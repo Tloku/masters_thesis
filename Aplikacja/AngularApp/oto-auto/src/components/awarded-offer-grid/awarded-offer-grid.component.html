@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <span class="awarded-offers-label">Wyróżnione oferty</span>
+    <div class="offers">
+        <ng-container *ngFor="let offer of offers$ | async">
+            <awarded-offer [offer]="offer"></awarded-offer>
+        </ng-container>
+    </div>
+</div>

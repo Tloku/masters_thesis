@@ -9,14 +9,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { TabViewModule } from 'primeng/tabview';
 import { AwardedOfferComponent } from 'src/components/awarded-offer/awarded-offer.component';
 import { MainPageComponent } from 'src/pages/main/main-page.component';
+import { AwardedOfferGridComponent } from 'src/components/awarded-offer-grid/awarded-offer-grid.component';
+import { FooterComponent } from 'src/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    FooterComponent,
     MainSearchEngineComponent,
     AwardedOfferComponent,
     MainPageComponent,
+    AwardedOfferGridComponent,
   ],
   imports: [
     BrowserModule,
