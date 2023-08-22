@@ -25,6 +25,7 @@ yarn-error.log
 
 # Visual Studio Code
 angular
+.angular
 .vscode/*
 .vscode/
 !.vscode/settings.json
