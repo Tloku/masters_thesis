@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\oto-auto-c-sharp-server.props" />
+</Project>

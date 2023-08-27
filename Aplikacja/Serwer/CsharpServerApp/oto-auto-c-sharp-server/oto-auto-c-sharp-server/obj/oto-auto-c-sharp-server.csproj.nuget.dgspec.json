@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/tloku/Desktop/Projekty/masters_thesis/Aplikacja/Serwer/CsharpServerApp/oto-auto-c-sharp-server/oto-auto-c-sharp-server/oto-auto-c-sharp-server.csproj": {}
+    "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj": {}
   },
   "projects": {
-    "/home/tloku/Desktop/Projekty/masters_thesis/Aplikacja/Serwer/CsharpServerApp/oto-auto-c-sharp-server/oto-auto-c-sharp-server/oto-auto-c-sharp-server.csproj": {
+    "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/tloku/Desktop/Projekty/masters_thesis/Aplikacja/Serwer/CsharpServerApp/oto-auto-c-sharp-server/oto-auto-c-sharp-server/oto-auto-c-sharp-server.csproj",
+        "projectUniqueName": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
         "projectName": "oto-auto-c-sharp-server",
-        "projectPath": "/home/tloku/Desktop/Projekty/masters_thesis/Aplikacja/Serwer/CsharpServerApp/oto-auto-c-sharp-server/oto-auto-c-sharp-server/oto-auto-c-sharp-server.csproj",
-        "packagesPath": "/home/tloku/.nuget/packages/",
-        "outputPath": "/home/tloku/Desktop/Projekty/masters_thesis/Aplikacja/Serwer/CsharpServerApp/oto-auto-c-sharp-server/oto-auto-c-sharp-server/obj/",
+        "projectPath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
+        "packagesPath": "C:\\Users\\tloki\\.nuget\\packages\\",
+        "outputPath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/tloku/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tloki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +39,30 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
