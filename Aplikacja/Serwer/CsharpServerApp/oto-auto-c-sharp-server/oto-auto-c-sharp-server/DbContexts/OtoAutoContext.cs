@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.Entities;
+using DriveType = oto_auto_c_sharp_server.Entities.DriveType;
 
 namespace oto_auto_c_sharp_server.DbContexts;
 
@@ -14,4 +15,10 @@ public class OtoAutoContext : DbContext
     public DbSet<BodyType> BodyType { get; set; } = null!;
     public DbSet<FuelType> FuelType { get; set; } = null!;
     public DbSet<TransmissionType> TransmissionType { get; set; } = null!;
+    public DbSet<Dealer> Dealer { get; set; } = null!;
+    public DbSet<EquipmentType> EquipmentType { get; set; } = null!;
+    public DbSet<Equipment> Equipment { get; set; } = null!;
+    public DbSet<CarStatus> CarStatus { get; set; } = null!;
+    public DbSet<DriveType> DriveType { get; set; } = null!;
+    public DbSet<VehicleType> VehicleType { get; set; } = null!;
 }

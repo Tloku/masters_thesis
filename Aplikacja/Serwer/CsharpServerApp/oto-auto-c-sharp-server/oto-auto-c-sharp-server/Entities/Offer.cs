@@ -24,6 +24,8 @@ public class Offer
     [Required]
     public string Currency { get; set; }
     
+    public string Description { get; set; }
+    
     [ForeignKey("VehicleId")]
     public Vehicle VehicleInOffer { get; set; }
     

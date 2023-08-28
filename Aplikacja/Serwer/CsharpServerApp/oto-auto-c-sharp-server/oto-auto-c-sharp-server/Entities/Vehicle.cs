@@ -9,7 +9,8 @@ public class Vehicle
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     
-    public string VehicleType { get; set; }
+    [ForeignKey("VehicleTypeId")]
+    public VehicleType VehicleType { get; set; }
     
     public bool IsImported { get; set; }
     
@@ -18,8 +19,6 @@ public class Vehicle
     public string Brand { get; set; }
     
     public string Model { get; set; }
-    
-    public string Version { get; set; }
     
     public string Generation { get; set; }
     
@@ -35,11 +34,12 @@ public class Vehicle
     [ForeignKey("TransmissionId")]
     public TransmissionType TransmissionType { get; set; }
     
-    public string DriveType { get; set; }
+    [ForeignKey("DriveId")]
+    public DriveType DriveType { get; set; }
     
     public float CityFuelUsage { get; set; }
     
-    public float onTheRoadFuelUsage { get; set; }
+    public float OnTheRoadFuelUsage { get; set; }
 
     [ForeignKey("BodyId")]
     public BodyType BodyType { get; set; }
@@ -58,24 +58,24 @@ public class Vehicle
     
     public bool RegisteredInPoland { get; set; }
     
-    public bool hasCrashed { get; set; }
+    public bool HasCrashed { get; set; }
     
-    public string status { get; set; }
+    [ForeignKey("CarStatusId")]
+    public CarStatus Status { get; set; }
 
-    public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string version, string generation, string yearOfProduction, string mileage, string mileageUnit, string driveType, float cityFuelUsage, float onTheRoadFuelUsage, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed, string status)
+    public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string generation, string yearOfProduction, string mileage, string mileageUnit, DriveType driveType, float cityFuelUsage, float onTheRoadFuelUsage, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed, CarStatus status)
     {
         IsImported = isImported;
         HasRegistrationNumber = hasRegistrationNumber;
         Brand = brand;
         Model = model;
-        Version = version;
         Generation = generation;
         YearOfProduction = yearOfProduction;
         Mileage = mileage;
         MileageUnit = mileageUnit;
         DriveType = driveType;
         CityFuelUsage = cityFuelUsage;
-        this.onTheRoadFuelUsage = onTheRoadFuelUsage;
+        OnTheRoadFuelUsage = onTheRoadFuelUsage;
         Co2Emission = co2Emission;
         DoorsNumber = doorsNumber;
         SitsNumber = sitsNumber;
@@ -83,7 +83,7 @@ public class Vehicle
         ColorType = colorType;
         OriginCountry = originCountry;
         RegisteredInPoland = registeredInPoland;
-        this.hasCrashed = hasCrashed;
-        this.status = status;
+        HasCrashed = hasCrashed;
+        Status = status;
     }
 }
