@@ -16,7 +16,7 @@ public class Dealer
     
     public string Address { get; set; }
     
-    public ICollection<Offer> Offers { get; set; } = new List<Offer>();
+    public ICollection<Offer> Offers { get; } = new List<Offer>();
 
     public Dealer(string name, string phoneNumber, bool isPrivate)
     {

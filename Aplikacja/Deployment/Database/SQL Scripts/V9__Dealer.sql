@@ -3,7 +3,7 @@ create table Dealer (
 	name VARCHAR(50),
 	site_url VARCHAR(10000),
 	phone_number VARCHAR(50),
-	is_private VARCHAR(50),
+	is_private boolean,
 	address VARCHAR(50),
 	PRIMARY KEY (id)
 ); 

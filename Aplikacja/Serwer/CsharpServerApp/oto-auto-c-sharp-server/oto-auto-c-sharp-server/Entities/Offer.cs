@@ -26,8 +26,13 @@ public class Offer
     
     public string Description { get; set; }
     
-    [ForeignKey("VehicleId")]
-    public Vehicle VehicleInOffer { get; set; }
+    public int VehicleId { get; set; }
+    
+    public Vehicle Vehicle { get; set; }
+    
+    public int DealerId { get; set; }
+    
+    public Dealer Dealer { get; set; }
     
     public Offer(string name, DateTime creationDate, DateTime expirationDate, string price, string currency)
     {

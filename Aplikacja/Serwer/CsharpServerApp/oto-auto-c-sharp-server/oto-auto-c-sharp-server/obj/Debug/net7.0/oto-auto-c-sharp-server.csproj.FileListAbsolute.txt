@@ -58,3 +58,8 @@ D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\ot
 D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\oto-auto-c-sharp-server.pdb
 D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\oto-auto-c-sharp-server.genruntimeconfig.cache
 D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\ref\oto-auto-c-sharp-server.dll
+D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\Microsoft.OpenApi.dll
+D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\oto-auto-c-sharp-server.MvcApplicationPartsAssemblyInfo.cs

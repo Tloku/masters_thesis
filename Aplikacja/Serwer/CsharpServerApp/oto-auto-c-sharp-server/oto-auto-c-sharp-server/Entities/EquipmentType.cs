@@ -11,6 +11,8 @@ public class EquipmentType
     
     public string Type { get; set; }
 
+    public ICollection<Equipment> Equipments { get; } = new List<Equipment>();
+
     public EquipmentType(string type)
     {
         Type = type;

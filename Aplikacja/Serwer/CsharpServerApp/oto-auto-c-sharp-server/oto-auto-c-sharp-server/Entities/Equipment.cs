@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace oto_auto_c_sharp_server.Entities;
 
 public class Equipment
@@ -8,12 +6,12 @@ public class Equipment
     
     public string Name { get; set; }
     
-    [ForeignKey("EquipmentTypeId")]
+    public int EquipmentTypeId { get; set; }
+    
     public EquipmentType EquipmentType { get; set; }
 
-    public Equipment(string name, EquipmentType equipmentType)
+    public Equipment(string name)
     {
         Name = name;
-        EquipmentType = equipmentType;
     }
 }

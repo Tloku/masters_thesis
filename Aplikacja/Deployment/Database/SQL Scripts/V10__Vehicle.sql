@@ -1,8 +1,8 @@
 create table Vehicle (
 	id SERIAL NOT NULL,
 	vehicleTypeId INT,
-	is_imported VARCHAR(50),
-	has_registration_number VARCHAR(50),
+	is_imported boolean,
+	has_registration_number boolean,
 	brand VARCHAR(50),
 	model VARCHAR(50),
 	generation VARCHAR(50),
@@ -21,8 +21,8 @@ create table Vehicle (
 	color VARCHAR(50),
 	color_type VARCHAR(50),
 	origin_country VARCHAR(50),
-	registered_in_poland VARCHAR(50),
-	has_crashed VARCHAR(50),
+	registered_in_poland boolean,
+	has_crashed boolean,
 	carStatusId INT,
 	PRIMARY KEY (id)
 );
