@@ -22,7 +22,7 @@ public class VehicleRepository: IVehicleRepository
     public async Task<IEnumerable<Vehicle>> GetVehiclesByBrandAsync(string brand)
     {
         return await _context.Vehicle
-            .Where(vehicle => vehicle.Brand == brand)
+            .Where(vehicle => vehicle.Brand.ToLower().Equals(brand.ToLower()))
             .ToListAsync();
     }
 }

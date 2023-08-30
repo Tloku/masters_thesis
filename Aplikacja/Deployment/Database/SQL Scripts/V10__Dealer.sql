@@ -1,13 +1,3 @@
-create table Dealer (
-	id SERIAL NOT NULL,
-	name VARCHAR(50),
-	site_url VARCHAR(10000),
-	phone_number VARCHAR(50),
-	is_private boolean,
-	address VARCHAR(50),
-	PRIMARY KEY (id)
-); 
-
 insert into Dealer (name, site_url, phone_number, is_private, address) values ('Vandervort-Wilderman', 'http://slashdot.org/tempus/vel/pede/morbi/porttitor/lorem.jsp?odio=habitasse&curabitur=platea&convallis=dictumst&duis=morbi&consequat=vestibulum&dui=velit&nec=id&nisi=pretium&volutpat=iaculis&eleifend=diam&donec=erat&ut=fermentum&dolor=justo&morbi=nec&vel=condimentum&lectus=neque&in=sapien&quam=placerat&fringilla=ante&rhoncus=nulla&mauris=justo&enim=aliquam&leo=quis&rhoncus=turpis&sed=eget&vestibulum=elit&sit=sodales&amet=scelerisque&cursus=mauris&id=sit&turpis=amet&integer=eros&aliquet=suspendisse&massa=accumsan&id=tortor&lobortis=quis&convallis=turpis&tortor=sed&risus=ante&dapibus=vivamus&augue=tortor&vel=duis&accumsan=mattis&tellus=egestas&nisi=metus&eu=aenean&orci=fermentum&mauris=donec&lacinia=ut&sapien=mauris&quis=eget&libero=massa&nullam=tempor&sit=convallis&amet=nulla&turpis=neque&elementum=libero&ligula=convallis&vehicula=eget', '746-216-9076', false, '1 Summer Ridge Lane');
 insert into Dealer (name, site_url, phone_number, is_private, address) values ('Bartoletti-DuBuque', 'http://geocities.com/sapien/urna/pretium.aspx?sed=natoque&nisl=penatibus&nunc=et&rhoncus=magnis&dui=dis&vel=parturient&sem=montes&sed=nascetur&sagittis=ridiculus&nam=mus&congue=vivamus&risus=vestibulum&semper=sagittis&porta=sapien&volutpat=cum&quam=sociis&pede=natoque&lobortis=penatibus&ligula=et&sit=magnis&amet=dis&eleifend=parturient&pede=montes&libero=nascetur&quis=ridiculus&orci=mus&nullam=etiam&molestie=vel&nibh=augue&in=vestibulum&lectus=rutrum&pellentesque=rutrum&at=neque&nulla=aenean&suspendisse=auctor&potenti=gravida&cras=sem&in=praesent&purus=id&eu=massa&magna=id&vulputate=nisl&luctus=venenatis&cum=lacinia&sociis=aenean&natoque=sit&penatibus=amet&et=justo&magnis=morbi&dis=ut&parturient=odio&montes=cras&nascetur=mi&ridiculus=pede&mus=malesuada&vivamus=in&vestibulum=imperdiet&sagittis=et&sapien=commodo&cum=vulputate&sociis=justo&natoque=in&penatibus=blandit&et=ultrices&magnis=enim&dis=lorem&parturient=ipsum&montes=dolor&nascetur=sit&ridiculus=amet&mus=consectetuer&etiam=adipiscing&vel=elit&augue=proin&vestibulum=interdum', '254-499-8248', true, '23 Holmberg Circle');
 insert into Dealer (name, site_url, phone_number, is_private, address) values ('Jones-Bayer', 'http://deliciousdays.com/non/mattis/pulvinar/nulla/pede/ullamcorper.aspx?in=luctus&libero=et&ut=ultrices&massa=posuere&volutpat=cubilia&convallis=curae&morbi=donec&odio=pharetra&odio=magna&elementum=vestibulum&eu=aliquet&interdum=ultrices', '584-211-8275', false, '28982 Moland Hill');

@@ -1,9 +1,3 @@
-create table body_type (
-	id SERIAL NOT NULL,
-	type VARCHAR(50) UNIQUE,
-	PRIMARY KEY (id)
-);
-
 insert into body_type (type) values ('SUV');
 insert into body_type (type) values ('Kombi');
 insert into body_type (type) values ('Coupe');
