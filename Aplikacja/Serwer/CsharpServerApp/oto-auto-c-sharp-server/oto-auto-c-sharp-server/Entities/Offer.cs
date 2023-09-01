@@ -3,33 +3,38 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace oto_auto_c_sharp_server.Entities;
 
+[Table("offer")]
 public class Offer
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("id")]
     public int Id { get; set; }
     
-    [Required]
+    [Column("name")]
     public string Name { get; set; }
-    
-    [Required]
+
+    [Column("creation_date")]
     public DateTime CreationDate { get; set; }
     
-    [Required]
+    [Column("expiration_date")]
     public DateTime ExpirationDate { get; set; }
     
-    [Required]
+    [Column("price")]
     public string Price { get; set; }
     
-    [Required]
+    [Column("currency")]
     public string Currency { get; set; }
     
+    [Column("description")]
     public string Description { get; set; }
     
+    [Column("vehicle_id")]
     public int VehicleId { get; set; }
     
     public Vehicle Vehicle { get; set; }
     
+    [Column("dealer_id")]
     public int DealerId { get; set; }
     
     public Dealer Dealer { get; set; }

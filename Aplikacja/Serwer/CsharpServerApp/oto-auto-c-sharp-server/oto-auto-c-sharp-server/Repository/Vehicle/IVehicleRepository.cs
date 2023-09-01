@@ -1,6 +1,6 @@
-using oto_auto_c_sharp_server.Entities;
 
-namespace oto_auto_c_sharp_server.Repository;
+namespace oto_auto_c_sharp_server.Repository.Vehicle;
+using Vehicle = oto_auto_c_sharp_server.Entities.Vehicle;
 
 public interface IVehicleRepository
 {

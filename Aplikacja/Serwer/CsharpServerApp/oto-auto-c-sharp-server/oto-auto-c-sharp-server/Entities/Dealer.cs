@@ -3,17 +3,27 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace oto_auto_c_sharp_server.Entities;
 
+[Table("dealer")]
 public class Dealer
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("id")]
     public int Id { get; set; }
+    
+    [Column("name")]
     public string Name { get; set; }
     
+    [Column("site_url")]
     public string SiteUrl { get; set; }
+    
+    [Column("phone_number")]
     public string PhoneNumber { get; set; }
+    
+    [Column("is_private")]
     public bool IsPrivate { get; set; }
     
+    [Column("address")]
     public string Address { get; set; }
     
     public ICollection<Offer> Offers { get; } = new List<Offer>();

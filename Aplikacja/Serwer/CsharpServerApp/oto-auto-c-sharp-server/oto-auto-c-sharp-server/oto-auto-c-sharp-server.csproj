@@ -24,7 +24,27 @@
       </PackageReference>
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+
+
+
+
+
+
+
+
+
+    <ItemGroup>
+      <Folder Include="Logic\Dealers\Exceptions\" />
+      <Folder Include="Logic\Offers\Exceptions\" />
+      <Folder Include="Logic\Others\Exceptions\" />
     </ItemGroup>
+
+
+
+    </ItemGroup>
+
+
+
 
 
 

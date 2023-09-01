@@ -1,24 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using oto_auto_c_sharp_server.Entities;
-using oto_auto_c_sharp_server.Repository;
 
-namespace oto_auto_c_sharp_server.Controllers;
+namespace oto_auto_c_sharp_server.Logic.Vehicles.Api;
 
 [ApiController]
 [Route("api/vehicle")]
-public class VehicleController: ControllerBase
+class VehicleController: ControllerBase
 {
-    private readonly IVehicleRepository _vehicleRepository;
+    private readonly IVehicleAdapter _vehicleAdapter;
     
-    public VehicleController(IVehicleRepository vehicleRepository)
+    public VehicleController(IVehicleAdapter vehicleAdapter)
     {
-        _vehicleRepository = vehicleRepository;
+        _vehicleAdapter = vehicleAdapter;
     }
 
     [HttpGet()]
     public async Task<ActionResult<IEnumerable<Vehicle>>> GetAllVehicles()
     {
-        var vehicles = await _vehicleRepository.GetVehiclesAsync();
+        var vehicles = await _vehicleAdapter.GetVehiclesAsync();
         return Ok(vehicles);
     }
     
@@ -30,7 +29,7 @@ public class VehicleController: ControllerBase
             return BadRequest("Given brand is empty");
         }
         
-        var vehicles = await _vehicleRepository.GetVehiclesByBrandAsync(brand);
+        var vehicles = await _vehicleAdapter.GetVehiclesByBrandAsync(brand);
         return Ok(vehicles);
     }
     
