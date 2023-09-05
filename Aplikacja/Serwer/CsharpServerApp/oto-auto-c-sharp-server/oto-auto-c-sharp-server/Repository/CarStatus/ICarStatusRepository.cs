@@ -4,5 +4,5 @@ using CarStatus  = oto_auto_c_sharp_server.Entities.CarStatus;
 
 public interface ICarStatusRepository
 {
-    
+    Task<IEnumerable<CarStatus>> GetCarStatuses();
 }

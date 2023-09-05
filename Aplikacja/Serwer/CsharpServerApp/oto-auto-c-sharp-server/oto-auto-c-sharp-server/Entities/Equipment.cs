@@ -17,7 +17,7 @@ public class Equipment
     [Column("equipment_type_id")]
     public int EquipmentTypeId { get; set; }
     
-    public EquipmentType EquipmentType { get; set; }
+    public virtual EquipmentType EquipmentType { get; set; }
 
     public Equipment(string name)
     {

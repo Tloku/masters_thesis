@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.BodyType;
@@ -10,5 +11,10 @@ public class BodyTypeRepository: IBodyTypeRepository
     public BodyTypeRepository(OtoAutoContext context)
     {
         _context = context;
+    }
+
+    public async Task<IEnumerable<BodyType>> GetBodyTypes()
+    {
+        return await _context.BodyType.ToListAsync();
     }
 }

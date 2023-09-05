@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.CarStatus;
@@ -11,5 +12,9 @@ public class CarStatusRepository: ICarStatusRepository
     {
         _context = context;
     }
-    
+
+    public async Task<IEnumerable<CarStatus>> GetCarStatuses()
+    {
+        return await _context.CarStatus.ToListAsync();
+    }
 }

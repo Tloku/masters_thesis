@@ -3,5 +3,5 @@ using FuelType = oto_auto_c_sharp_server.Entities.FuelType;
 
 public interface IFuelTypeRepository
 {
-    
+    Task<IEnumerable<FuelType>> GetFuelTypes();
 }

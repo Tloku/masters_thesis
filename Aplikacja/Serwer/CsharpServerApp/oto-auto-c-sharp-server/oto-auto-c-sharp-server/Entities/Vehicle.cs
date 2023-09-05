@@ -68,34 +68,36 @@ public class Vehicle
     [Column("body_type_id")]
     public int BodyTypeId { get; set; }
     
-    public BodyType BodyType { get; set; }
+    public virtual BodyType BodyType { get; set; }
     
     [Column("car_status_id")]
     public int CarStatusId { get; set; }
     
-    public CarStatus CarStatus { get; set; }
+    public virtual CarStatus CarStatus { get; set; }
     
     [Column("fuel_type_id")]
     public int FuelTypeId { get; set; }
     
-    public FuelType  FuelType { get; set; }
+    public virtual FuelType FuelType { get; set; }
 
     [Column("transmission_type_id")]
     public int TransmissionTypeId { get; set; }
     
-    public TransmissionType TransmissionType { get; set; }
+    public virtual TransmissionType TransmissionType { get; set; }
     
     [Column("drive_type_id")]
     public int DriveTypeId { get; set; }
     
-    public DriveType DriveType { get; set; }
+    public virtual DriveType DriveType { get; set; }
     
     [Column("vehicle_type_id")]
     public int VehicleTypeId { get; set; }
     
-    public VehicleType VehicleType { get; set; }
+    public virtual VehicleType VehicleType { get; set; }
 
-    public Offer? Offer { get; set; }
+    public virtual Offer? Offer { get; set; }
+
+    public virtual ICollection<Vehicle> Vehicles { get; } = new List<Vehicle>();
 
     public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string generation, string yearOfProduction, string mileage, string mileageUnit, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed)
     {

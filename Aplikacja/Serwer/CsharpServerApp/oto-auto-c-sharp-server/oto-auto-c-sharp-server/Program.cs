@@ -5,7 +5,7 @@ using oto_auto_c_sharp_server.Logic.Dealers.Api;
 using oto_auto_c_sharp_server.Logic.Offers;
 using oto_auto_c_sharp_server.Logic.Offers.Api;
 using oto_auto_c_sharp_server.Logic.Others;
-using oto_auto_c_sharp_server.Logic.Types.Api;
+using oto_auto_c_sharp_server.Logic.Others.Api;
 using oto_auto_c_sharp_server.Logic.Vehicles;
 using oto_auto_c_sharp_server.Logic.Vehicles.Api;
 using oto_auto_c_sharp_server.Repository.BodyType;

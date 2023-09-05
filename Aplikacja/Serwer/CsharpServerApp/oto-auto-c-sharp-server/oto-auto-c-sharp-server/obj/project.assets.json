@@ -2646,11 +2646,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
+      "projectUniqueName": "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
       "projectName": "oto-auto-c-sharp-server",
-      "projectPath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
+      "projectPath": "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
       "packagesPath": "C:\\Users\\tloki\\.nuget\\packages\\",
-      "outputPath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\obj\\",
+      "outputPath": "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tloki\\AppData\\Roaming\\NuGet\\NuGet.Config",

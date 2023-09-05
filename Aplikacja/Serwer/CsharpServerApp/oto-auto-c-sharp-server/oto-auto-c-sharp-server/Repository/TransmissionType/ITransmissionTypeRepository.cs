@@ -3,5 +3,5 @@ using TransmissionType = oto_auto_c_sharp_server.Entities.TransmissionType;
 
 public interface ITransmissionTypeRepository
 {
-   
+    Task<IEnumerable<TransmissionType>> GetTransmissionTypes();
 }
