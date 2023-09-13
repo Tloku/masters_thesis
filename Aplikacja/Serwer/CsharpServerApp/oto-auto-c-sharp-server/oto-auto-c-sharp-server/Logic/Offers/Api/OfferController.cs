@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using oto_auto_c_sharp_server.Entities;
 
 namespace oto_auto_c_sharp_server.Logic.Offers.Api;
 
@@ -11,5 +12,12 @@ class OfferController: ControllerBase
     OfferController(IOfferAdapter offerAdapter)
     {
         _offerAdapter = offerAdapter;
+    }
+
+    [HttpGet()]
+    public async Task<ActionResult<IEnumerable<Offer>>> GetAllOffers()
+    {
+        var offers = await _offerAdapter.GetAllOffers();
+        return Ok(offers);
     }
 }

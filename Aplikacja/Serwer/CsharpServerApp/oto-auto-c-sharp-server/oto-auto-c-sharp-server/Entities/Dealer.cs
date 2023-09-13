@@ -26,7 +26,9 @@ public class Dealer
     [Column("address")]
     public string Address { get; set; }
     
-    public ICollection<Offer> Offers { get; } = new List<Offer>();
+    public virtual ICollection<Offer> Offers { get; } = new List<Offer>();
+    
+    
 
     public Dealer(string name, string phoneNumber, bool isPrivate)
     {

@@ -3,5 +3,5 @@ using Offer = oto_auto_c_sharp_server.Entities.Offer;
 
 public interface IOfferRepository
 {
-    
+    Task<IEnumerable<Offer>> GetAllOffers();
 }

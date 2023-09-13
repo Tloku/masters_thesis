@@ -32,12 +32,12 @@ public class Offer
     [Column("vehicle_id")]
     public int VehicleId { get; set; }
     
-    public Vehicle Vehicle { get; set; }
+    public virtual Vehicle Vehicle { get; set; }
     
     [Column("dealer_id")]
     public int DealerId { get; set; }
     
-    public Dealer Dealer { get; set; }
+    public virtual Dealer Dealer { get; set; }
     
     public Offer(string name, DateTime creationDate, DateTime expirationDate, string price, string currency)
     {

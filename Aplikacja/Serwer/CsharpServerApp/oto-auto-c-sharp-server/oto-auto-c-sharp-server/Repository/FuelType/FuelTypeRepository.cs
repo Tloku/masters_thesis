@@ -1,9 +1,10 @@
+using System.Data.Entity;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.FuelType;
 using FuelType = oto_auto_c_sharp_server.Entities.FuelType;
 
-public class FuelTypeRepository: IFuelTypeRepository
+class FuelTypeRepository: IFuelTypeRepository
 {
     private readonly OtoAutoContext _context;
 
@@ -11,5 +12,9 @@ public class FuelTypeRepository: IFuelTypeRepository
     {
         _context = context;
     }
-    
+
+    public async Task<IEnumerable<FuelType>> GetFuelTypes()
+    {
+        return await _context.FuelType.ToListAsync();
+    }
 }

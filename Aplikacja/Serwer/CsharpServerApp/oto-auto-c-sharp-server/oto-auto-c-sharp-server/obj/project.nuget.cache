@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AA2CKpQCJG1fvdy37JwaxQe8G78G1NM4vV45swy92XL1GnoK3/hpZE6f7+5f6wjMcCRRVl41Arinik9mlXvpQA==",
+  "dgSpecHash": "yh/wFAW/ofBSey0Qo0EaSZJb/H9+3+nY4zD4fpU5enfwc+wbrpPjUvZu/38JTGVngi2NWplATATYzZbf4/K0PA==",
   "success": true,
-  "projectFilePath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
+  "projectFilePath": "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tloki\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\tloki\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

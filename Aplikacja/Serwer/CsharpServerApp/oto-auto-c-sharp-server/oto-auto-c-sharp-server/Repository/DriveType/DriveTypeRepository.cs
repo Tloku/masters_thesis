@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.DriveType;
@@ -10,5 +11,10 @@ public class DriveTypeRepository: IDriveTypeRepository
     public DriveTypeRepository(OtoAutoContext context)
     {
         _context = context;
+    }
+
+    public async Task<IEnumerable<DriveType>> GetDriveTypes()
+    {
+        return await _context.DriveType.ToListAsync();
     }
 }

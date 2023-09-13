@@ -1,4 +1,5 @@
-using oto_auto_c_sharp_server.Logic.Types.Api;
+using oto_auto_c_sharp_server.Entities;
+using oto_auto_c_sharp_server.Logic.Others.Api;
 using oto_auto_c_sharp_server.Repository.BodyType;
 using oto_auto_c_sharp_server.Repository.CarStatus;
 using oto_auto_c_sharp_server.Repository.DriveType;
@@ -7,10 +8,11 @@ using oto_auto_c_sharp_server.Repository.EquipmentType;
 using oto_auto_c_sharp_server.Repository.FuelType;
 using oto_auto_c_sharp_server.Repository.TransmissionType;
 using oto_auto_c_sharp_server.Repository.VehicleType;
+using DriveType = oto_auto_c_sharp_server.Entities.DriveType;
 
 namespace oto_auto_c_sharp_server.Logic.Others;
 
-public class OthersMediator: IOthersAdapter
+class OthersMediator: IOthersAdapter
 {
     private readonly IBodyTypeRepository _bodyTypeRepository;
     private readonly ICarStatusRepository _carStatusRepository;
@@ -40,5 +42,55 @@ public class OthersMediator: IOthersAdapter
         _fuelTypeRepository = fuelTypeRepository;
         _transmissionTypeRepository = transmissionTypeRepository;
         _vehicleTypeRepository = vehicleTypeRepository;
+    }
+
+    public async Task<IEnumerable<BodyType>> GetBodyTypes()
+    {
+        return await _bodyTypeRepository.GetBodyTypes();
+    }
+
+    public async Task<IEnumerable<CarStatus>> GetCarStatuses()
+    {
+        return await _carStatusRepository.GetCarStatuses();
+    }
+
+    public async Task<IEnumerable<DriveType>> GetDriveTypes()
+    {
+        return await _driveTypeRepository.GetDriveTypes();
+    }
+
+    public async Task<IEnumerable<Equipment>> GetEquipments()
+    {
+        return await _equipmentRepository.GetEquipments();
+    }
+
+    public async Task<IEnumerable<EquipmentType>> GetEquipmentTypes()
+    {
+        return await _equipmentTypeRepository.GetEquipmentTypes();
+    }
+
+    public async Task<IEnumerable<FuelType>> GetFuelTypes()
+    {
+        return await _fuelTypeRepository.GetFuelTypes();
+    }
+
+    public async Task<IEnumerable<TransmissionType>> GetTransmissionTypes()
+    {
+        return await _transmissionTypeRepository.GetTransmissionTypes();
+    }
+
+    public async Task<IEnumerable<VehicleType>> GetVehicleTypes()
+    {
+        return await _vehicleTypeRepository.GetVehicleTypes();
+    }
+
+    public async Task<EquipmentType> GetEquipmentsByType(string type)
+    {
+        if (string.IsNullOrEmpty(type))
+        {
+            throw new BadHttpRequestException("Given equipment type is null or empty");
+        }
+
+        return await _equipmentTypeRepository.GetEquipmentTypeWithEquipmentsByType(type);
     }
 }
