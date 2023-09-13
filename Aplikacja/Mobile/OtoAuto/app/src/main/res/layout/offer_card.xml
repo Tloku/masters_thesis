@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="300dp"
+    android:background="@color/lightGrey"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="220dp"
+        android:id="@+id/offerMainImage"
+        android:src="@drawable/ic_launcher_background"
+        />
+
+    <TextView
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="BMW X2 Pierwszy właściciel"
+        android:textStyle="bold"
+        android:id="@+id/offerTitleTextView"
+        />
+
+    <LinearLayout
+        android:layout_marginStart="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019"
+            style="@style/OfferCardInfo"
+            android:id="@+id/yearOfProductionTextView"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 728 km"
+            style="@style/OfferCardInfo"
+            android:id="@+id/mileageTextView"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diesel"
+            style="@style/OfferCardInfo"
+            android:id="@+id/fuelTypeTextView"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 995 cm3"
+            style="@style/OfferCardInfo"
+            android:id="@+id/engineCapacityTextView"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginStart="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="145140"
+            style="@style/OfferCardPrice"
+            android:id="@+id/offerPriceTextView"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PLN"
+            style="@style/OfferCardCurrency"
+            android:id="@+id/offerCurrencyTextView"
+        />
+    </LinearLayout>
+</LinearLayout>
