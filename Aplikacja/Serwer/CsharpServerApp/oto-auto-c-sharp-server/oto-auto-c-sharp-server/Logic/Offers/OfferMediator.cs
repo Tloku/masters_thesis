@@ -17,4 +17,9 @@ class OfferMediator : IOfferAdapter
     {
         return await _offerRepository.GetAllOffers();
     }
+
+    public async Task<IEnumerable<Offer>> GetOffersWithVehicles()
+    {
+        return await _offerRepository.GetOffersWithVehicles();
+    }
 }

@@ -5,7 +5,7 @@ namespace oto_auto_c_sharp_server.Logic.Vehicles.Api;
 
 [ApiController]
 [Route("api/vehicle")]
-class VehicleController: ControllerBase
+public class VehicleController: ControllerBase
 {
     private readonly IVehicleAdapter _vehicleAdapter;
     

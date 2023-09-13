@@ -35,6 +35,9 @@ public class Vehicle
     [Column("mileage_unit")]
     public string MileageUnit { get; set; }
 
+    [Column("engine_capacity")]
+    public int EngineCapacity { get; set; }
+    
     [Column("city_fuel_usage")]
     public double CityFuelUsage { get; set; }
     
@@ -96,10 +99,13 @@ public class Vehicle
     public virtual VehicleType VehicleType { get; set; }
 
     public virtual Offer? Offer { get; set; }
+    
+    [Column("dealer_id")]
+    public int DealerId { get; set; }
 
-    public virtual ICollection<Vehicle> Vehicles { get; } = new List<Vehicle>();
+    public virtual Dealer Dealer { get; set; }
 
-    public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string generation, string yearOfProduction, string mileage, string mileageUnit, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed)
+    public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string generation, string yearOfProduction, string mileage, string mileageUnit, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed, int engineCapacity)
     {
         IsImported = isImported;
         HasRegistrationNumber = hasRegistrationNumber;
@@ -117,9 +123,10 @@ public class Vehicle
         OriginCountry = originCountry;
         RegisteredInPoland = registeredInPoland;
         HasCrashed = hasCrashed;
+        EngineCapacity = engineCapacity;
     }
 
-    public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string generation, string yearOfProduction, string mileage, string mileageUnit, float cityFuelUsage, float onTheRoadFuelUsage, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed)
+    public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string generation, string yearOfProduction, string mileage, string mileageUnit, float cityFuelUsage, float onTheRoadFuelUsage, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed, int engineCapacity)
     {
         IsImported = isImported;
         HasRegistrationNumber = hasRegistrationNumber;
@@ -139,5 +146,6 @@ public class Vehicle
         OriginCountry = originCountry;
         RegisteredInPoland = registeredInPoland;
         HasCrashed = hasCrashed;
+        EngineCapacity = engineCapacity;
     }
 }

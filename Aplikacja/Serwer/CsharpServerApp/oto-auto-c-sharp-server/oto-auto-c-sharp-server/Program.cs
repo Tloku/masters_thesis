@@ -31,7 +31,8 @@ builder.Services.AddControllers();
 builder.Services.AddControllers(options =>
 {
     options.ReturnHttpNotAcceptable = true;
-}).AddNewtonsoftJson();
+}).AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = 
+    Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 builder.Services.AddCors(c =>
 {

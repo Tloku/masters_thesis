@@ -7,11 +7,11 @@ namespace oto_auto_c_sharp_server.Logic.Others.Api;
 
 [ApiController]
 [Route("api/types")]
-class OthersController: ControllerBase
+public class OthersController: ControllerBase
 {
     private readonly IOthersAdapter _othersAdapter;
 
-    OthersController(IOthersAdapter othersAdapter)
+    public OthersController(IOthersAdapter othersAdapter)
     {
         _othersAdapter = othersAdapter;
     }

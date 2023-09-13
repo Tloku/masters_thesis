@@ -5,11 +5,11 @@ namespace oto_auto_c_sharp_server.Logic.Offers.Api;
 
 [ApiController]
 [Route("api/offer")]
-class OfferController: ControllerBase
+public class OfferController: ControllerBase
 {
     private readonly IOfferAdapter _offerAdapter;
 
-    OfferController(IOfferAdapter offerAdapter)
+    public OfferController(IOfferAdapter offerAdapter)
     {
         _offerAdapter = offerAdapter;
     }
@@ -18,6 +18,13 @@ class OfferController: ControllerBase
     public async Task<ActionResult<IEnumerable<Offer>>> GetAllOffers()
     {
         var offers = await _offerAdapter.GetAllOffers();
+        return Ok(offers);
+    }
+
+    [HttpGet("with_vehicles")]
+    public async Task<ActionResult<IEnumerable<Offer>>> GetOffersWithVehicles()
+    {
+        var offers = await _offerAdapter.GetOffersWithVehicles();
         return Ok(offers);
     }
 }

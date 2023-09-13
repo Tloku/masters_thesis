@@ -3,7 +3,7 @@ package org.masters_thesis.otoauto.components
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import org.masters_thesis.otoauto.OfferCardService
+import org.masters_thesis.otoauto.service.OfferCardService
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 
 class OfferCardComponent(var model: OfferCardComponentModel) {

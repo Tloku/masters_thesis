@@ -5,11 +5,11 @@ namespace oto_auto_c_sharp_server.Logic.Dealers.Api;
 
 [ApiController]
 [Route("api/dealer")]
-class DealerController: ControllerBase
+public class DealerController: ControllerBase
 {
     private readonly IDealerAdapter _dealerAdapter;
 
-    DealerController(IDealerAdapter dealerAdapter)
+    public DealerController(IDealerAdapter dealerAdapter)
     {
         _dealerAdapter = dealerAdapter;
     }

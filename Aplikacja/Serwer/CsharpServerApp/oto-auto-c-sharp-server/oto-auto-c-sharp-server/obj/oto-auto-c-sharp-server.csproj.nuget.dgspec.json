@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj": {}
+    "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj": {}
   },
   "projects": {
-    "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj": {
+    "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
+        "projectUniqueName": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
         "projectName": "oto-auto-c-sharp-server",
-        "projectPath": "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
+        "projectPath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
         "packagesPath": "C:\\Users\\tloki\\.nuget\\packages\\",
-        "outputPath": "D:\\Studia\\magisterka\\masters_thesis\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\obj\\",
+        "outputPath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tloki\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.4, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Formatters.Json": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",

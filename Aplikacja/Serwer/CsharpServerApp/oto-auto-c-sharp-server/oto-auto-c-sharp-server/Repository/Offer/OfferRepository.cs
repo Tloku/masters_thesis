@@ -1,4 +1,5 @@
-using System.Data.Entity;
+
+using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.Offer;
@@ -16,5 +17,20 @@ class OfferRepository: IOfferRepository
     public async Task<IEnumerable<Offer>> GetAllOffers()
     {
         return await _context.Offer.ToListAsync();
+    }
+
+    public async Task<Offer?> GetOfferWithVehicle(int offerId)
+    {
+        return await _context.Offer
+            .Include(o => o.Vehicle)
+            .Where(o => o.Id == offerId)
+            .FirstOrDefaultAsync();
+    }
+
+    public async Task<IEnumerable<Offer>> GetOffersWithVehicles()
+    {
+        return await _context.Offer
+            .Include(o => o.Vehicle)
+            .ToListAsync();
     }
 }

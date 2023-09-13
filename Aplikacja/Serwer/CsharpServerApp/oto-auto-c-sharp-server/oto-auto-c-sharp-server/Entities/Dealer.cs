@@ -28,6 +28,8 @@ public class Dealer
     
     public virtual ICollection<Offer> Offers { get; } = new List<Offer>();
     
+    public virtual ICollection<Vehicle> Vehicles { get; } = new List<Vehicle>();
+    
     
 
     public Dealer(string name, string phoneNumber, bool isPrivate)
