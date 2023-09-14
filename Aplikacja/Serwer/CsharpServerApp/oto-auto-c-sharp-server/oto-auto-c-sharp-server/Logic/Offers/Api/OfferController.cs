@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using oto_auto_c_sharp_server.Entities;
+using oto_auto_c_sharp_server.Logic.Offers.Models;
 
 namespace oto_auto_c_sharp_server.Logic.Offers.Api;
 
@@ -26,5 +27,19 @@ public class OfferController: ControllerBase
     {
         var offers = await _offerAdapter.GetOffersWithVehicles();
         return Ok(offers);
+    }
+    
+    [HttpGet("with_vehicle/{offerId}")]
+    public async Task<ActionResult<Offer>> GetOfferWithVehicleByOfferId(int offerId)
+    {
+        var offer = await _offerAdapter.GetOfferWithVehicleByOfferId(offerId);
+        return Ok(offer);
+    }
+
+    [HttpGet("awarded")]
+    public async Task<ActionResult<List<OfferCardComponentModel>>> GetAwardedOffersCardComponentModel()
+    {
+        var awardedOffers = await _offerAdapter.GetAwardedOffers();
+        return Ok(awardedOffers);
     }
 }

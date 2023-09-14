@@ -128,3 +128,5 @@ D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-
 D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\oto-auto-c-sharp-server.pdb
 D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\oto-auto-c-sharp-server.genruntimeconfig.cache
 D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\ref\oto-auto-c-sharp-server.dll
+D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\AutoMapper.dll
+D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

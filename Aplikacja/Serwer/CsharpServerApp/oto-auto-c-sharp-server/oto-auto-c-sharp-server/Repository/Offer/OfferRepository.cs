@@ -19,7 +19,7 @@ class OfferRepository: IOfferRepository
         return await _context.Offer.ToListAsync();
     }
 
-    public async Task<Offer?> GetOfferWithVehicle(int offerId)
+    public async Task<Offer?> GetOfferWithVehicleByOfferId(int offerId)
     {
         return await _context.Offer
             .Include(o => o.Vehicle)
@@ -31,6 +31,14 @@ class OfferRepository: IOfferRepository
     {
         return await _context.Offer
             .Include(o => o.Vehicle)
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<Offer>> GetAwardedOffers()
+    {
+        return await _context.Offer
+            .Include(o => o.Vehicle)
+            .Take(100)
             .ToListAsync();
     }
 }

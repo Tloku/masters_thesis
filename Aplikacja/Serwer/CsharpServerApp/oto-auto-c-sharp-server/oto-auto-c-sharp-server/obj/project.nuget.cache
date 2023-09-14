@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "W506Q+eYxJ6NwyHWzRQ3k2l6NFmL5nEPymSFqDtA2F40TL/dbtAjEOx41x/G+QJ0jRVCAI4MIRvaWDppGBUbKQ==",
+  "dgSpecHash": "hBOhI3nS/AQss8LgZ4Xc+P7oAqj/Q50De/mJ+McEs0NVQnRz2VTBIKCbMF5u7wTt13etMZIi/WKVH7xRvGwNxA==",
   "success": true,
   "projectFilePath": "D:\\Studia\\Magisterka\\Aplikacja\\Serwer\\CsharpServerApp\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server\\oto-auto-c-sharp-server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tloki\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\tloki\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\tloki\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\tloki\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\tloki\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

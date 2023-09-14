@@ -5,7 +5,9 @@ public interface IOfferRepository
 {
     Task<IEnumerable<Offer>> GetAllOffers();
 
-    public Task<Offer?> GetOfferWithVehicle(int offerId);
+    public Task<Offer?> GetOfferWithVehicleByOfferId(int offerId);
     
     public Task<IEnumerable<Offer>> GetOffersWithVehicles();
+    
+    public Task<IEnumerable<Offer>> GetAwardedOffers();
 }

@@ -6,10 +6,10 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>oto_auto_c_sharp_server</RootNamespace>
     </PropertyGroup>
-
-
-
+    
     <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
       <PackageReference Include="EntityFramework" Version="6.4.4" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.10" />
@@ -29,14 +29,5 @@
       <Folder Include="Logic\Offers\Exceptions\" />
       <Folder Include="Logic\Others\Exceptions\" />
     </ItemGroup>
-
-
-
-
-
-
-
-
-
 
 </Project>

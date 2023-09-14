@@ -1,0 +1,31 @@
+package org.masters_thesis.otoauto.model
+
+data class VehicleModel(
+    var id: Int,
+    var isImported: Boolean,
+    var hasRegistrationNumber: Boolean,
+    var brand: String,
+    var model: String,
+    var generation: String,
+    var yearOfProduction: String,
+    var mileage: String,
+    var mileageUnit: String,
+    var engineCapacity: Int,
+    var cityFuelUsage: Double,
+    var onTheRoadFuelUsage: Double,
+    var co2Emission: Int,
+    var doorsNumber: Int,
+    var sitsNumber: Int,
+    var color: String,
+    var colorType: String,
+    var originCountry: String,
+    var registeredInPoland: Boolean,
+    var hasCrashed: Boolean,
+    var bodyTypeId: Int,
+    var carStatusId: Int,
+    var fuelTypeId: Int,
+    var transmissionTypeId: Int,
+    var driveTypeId: Int,
+    var vehicleTypeId: Int,
+    var dealerId: Int
+)
