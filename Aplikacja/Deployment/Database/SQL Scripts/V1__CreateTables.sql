@@ -38,6 +38,13 @@ CREATE TABLE Fuel_type (
   type varchar(50) NOT NULL UNIQUE, 
   PRIMARY KEY (id));
 
+CREATE TABLE Vehicle_Image (
+  id SERIAL NOT NULL,
+  path_to_image varchar(300) NOT NULL,
+  is_main_image boolean NOT NULL,
+  offer_id int4 NOT NULL,
+  PRIMARY KEY (id));
+
 CREATE TABLE Offer (
   id              SERIAL NOT NULL, 
   name            varchar(50) NOT NULL, 
@@ -91,6 +98,8 @@ CREATE TABLE Vehicle (
   dealer_id               int4 NOT NULL, 
   PRIMARY KEY (id));
 
+
+ALTER TABLE Vehicle_Image ADD CONSTRAINT FKVehicleImage0001 FOREIGN KEY (offer_id) REFERENCES Offer (id);
 ALTER TABLE Equipment ADD CONSTRAINT FKEquipment40620 FOREIGN KEY (equipment_type_id) REFERENCES Equipment_type (id);
 ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle827666 FOREIGN KEY (Body_type_id) REFERENCES Body_type (id);
 ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle661275 FOREIGN KEY (Drive_type_id) REFERENCES Drive_type (id);
