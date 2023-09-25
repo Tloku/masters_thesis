@@ -28,6 +28,7 @@
       <Folder Include="Logic\Dealers\Exceptions\" />
       <Folder Include="Logic\Offers\Exceptions\" />
       <Folder Include="Logic\Others\Exceptions\" />
+      <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
     </ItemGroup>
 
 </Project>

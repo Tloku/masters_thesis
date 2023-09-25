@@ -10,4 +10,6 @@ public interface IOfferAdapter
     Task<IEnumerable<Offer>> GetOffersWithVehicles();
     Task<Offer?> GetOfferWithVehicleByOfferId(int offerId);
     Task<List<OfferCardComponentModel>> GetAwardedOffers();
+
+    Task<OfferActivityComponentModel> GetOfferById(int offerId);
 }

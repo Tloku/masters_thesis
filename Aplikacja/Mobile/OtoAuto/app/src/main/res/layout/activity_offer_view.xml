@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OfferViewActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/lightGrey">
+        </androidx.viewpager2.widget.ViewPager2>
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/viewPager">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/OfferTitle"
+                android:text="asdfadsfasfafsd"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/OfferCardInfo"
+                    android:id="@+id/yearOfProductionTextView"
+                    android:text="213123231"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/OfferCardInfo"
+                    android:id="@+id/fuelTypeTextView"
+                    android:text="213123231"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/OfferCardInfo"
+                    android:id="@+id/engineCapacityTextView"
+                    android:text="213123231"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/OfferCardPrice"
+                    android:layout_marginStart="0dp"
+                    android:id="@+id/offerPriceTextView"
+                    android:text="162 000"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/OfferCardCurrency"
+                    android:id="@+id/offerCurrencyTextView"
+                    android:text="PLN"
+                    />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                style="@style/LinearLayoutGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/LinearLayoutRow"
+                >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rok produkcji"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="start"
+                        />
+
+                    <TextView
+                        style="@style/BlueTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2019"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:gravity="end"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/LinearLayoutRow">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Przebieg"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="start"
+                        />
+
+                    <TextView
+                        style="@style/BlueTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="99 999"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:gravity="end"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:text="km"
+                        style="@style/BlueTextView"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/LinearLayoutRow">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pojemność skokowa"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="start"
+                        />
+
+                    <TextView
+                        style="@style/BlueTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 968"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:gravity="end"/>
+
+                    <TextView
+                        style="@style/BlueTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:text="cm3"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/LinearLayoutRow">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rodzaj paliwa"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="start"
+                        />
+
+                    <TextView
+                        style="@style/BlueTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Diesel"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:gravity="end"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/vehicleDetailsList"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:paddingVertical="15dp"
+                android:scrollbars="none"
+                android:listSelector="@android:color/transparent"
+                android:focusableInTouchMode="false"
+                android:focusable="false">
+            </ListView>
+
+
+<!--  TODO wyposażenie, opis oferty, bottom bar z "Zadzwoń, wiadomość" -->
+<!--    <ListView>-->
+<!--                -->
+<!--            </ListView>-->
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

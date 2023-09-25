@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="OfferTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="OfferCardInfo">
         <item name="android:textSize">15sp</item>
         <item name="android:textStyle">italic</item>
@@ -19,4 +24,24 @@
         <item name="android:layout_marginStart">4dp</item>
         <item name="android:textColor">@color/priceTagColor</item>
     </style>
+
+    <style name="LinearLayoutGray">
+        <item name="android:background">@color/lightGrey</item>
+    </style>
+
+    <style name="LinearLayoutRow">
+        <item name="android:paddingVertical">3dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="BlueTextView">
+        <item name="android:textColor">@color/darkBlue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NavyTextView">
+        <item name="android:textColor">@color/navy</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

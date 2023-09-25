@@ -1,11 +1,14 @@
 package org.masters_thesis.otoauto.components.offerCardComponent
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.masters_thesis.otoauto.OfferViewActivity
 import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 
@@ -13,6 +16,7 @@ class OfferCardComponentAdapter(private val offerCards: List<OfferCardComponentM
     private val offerCardComponentService: OfferCardComponentService = OfferCardComponentService()
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        var parent = itemView.findViewById<LinearLayout>(R.id.offerCard);
         var offerCardMainImageView = itemView.findViewById<ImageView>(R.id.offerMainImage)
         var offerTitleTextView = itemView.findViewById<TextView>(R.id.offerTitleTextView)
         var yearOfProductionTextView = itemView.findViewById<TextView>(R.id.yearOfProductionTextView)
@@ -21,7 +25,6 @@ class OfferCardComponentAdapter(private val offerCards: List<OfferCardComponentM
         var engineCapacityTextView = itemView.findViewById<TextView>(R.id.engineCapacityTextView)
         var offerPriceTextView = itemView.findViewById<TextView>(R.id.offerPriceTextView)
         var offerCurrencyTextView = itemView.findViewById<TextView>(R.id.offerCurrencyTextView)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,14 +37,20 @@ class OfferCardComponentAdapter(private val offerCards: List<OfferCardComponentM
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val offerCardComponentModel: OfferCardComponentModel = offerCards[position] ?: return
 
-        offerCardComponentService.setOfferCardMainImage(holder.offerCardMainImageView);
-        holder.offerTitleTextView.text = offerCardComponentModel.offerTitle;
-        holder.yearOfProductionTextView.text = offerCardComponentModel.yearOfProduction;
-        holder.mileageTextView.text = offerCardComponentModel.mileage;
-        holder.fuelTypeTextView.text = offerCardComponentModel.fuelType;
-        holder.engineCapacityTextView.text = offerCardComponentModel.engineCapacity;
-        holder.offerPriceTextView.text = offerCardComponentModel.offerPrice;
-        holder.offerCurrencyTextView.text = offerCardComponentModel.offerCurrency;
+        offerCardComponentService.setOfferCardMainImage(holder.offerCardMainImageView, offerCardComponentModel.offerMainImage.imageBytes)
+        holder.offerTitleTextView.text = offerCardComponentModel.offerTitle
+        holder.yearOfProductionTextView.text = offerCardComponentModel.yearOfProduction
+        holder.mileageTextView.text = offerCardComponentModel.mileage
+        holder.fuelTypeTextView.text = offerCardComponentModel.fuelType
+        holder.engineCapacityTextView.text = offerCardComponentModel.engineCapacity
+        holder.offerPriceTextView.text = offerCardComponentModel.offerPrice
+        holder.offerCurrencyTextView.text = offerCardComponentModel.offerCurrency
+
+        holder.parent.setOnClickListener { v ->
+            val intent = Intent(v.context, OfferViewActivity::class.java)
+            intent.putExtra("offerId", offerCardComponentModel.offerId)
+            v.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

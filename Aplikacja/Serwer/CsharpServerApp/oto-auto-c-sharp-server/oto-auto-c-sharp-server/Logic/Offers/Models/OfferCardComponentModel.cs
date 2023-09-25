@@ -2,7 +2,8 @@ namespace oto_auto_c_sharp_server.Logic.Offers.Models;
 
 public class OfferCardComponentModel
 {
-    public Byte[] OfferImage { get; set; }
+    public int OfferId { get; set; }
+    public OfferImage OfferMainImage { get; set; }
     public string OfferTitle { get; set; }
     public string YearOfProduction { get; set; }
     public string Mileage { get; set; }

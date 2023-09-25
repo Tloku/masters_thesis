@@ -46,29 +46,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<OfferCardComponentModel?>>, t: Throwable) {
-                TODO("Not yet implemented")
+                println(t.printStackTrace());
             }
         })
     }
-
-//    private fun initOfferCard(): OfferCardComponentModel {
-//        var offerCardMainImageView = findViewById<ImageView>(R.id.offerMainImage)
-//        var offerTitleTextView = findViewById<TextView>(R.id.offerTitleTextView)
-//        var yearOfProductionTextView = findViewById<TextView>(R.id.yearOfProductionTextView)
-//        var mileageTextView = findViewById<TextView>(R.id.mileageTextView)
-//        var fuelTypeTextView = findViewById<TextView>(R.id.fuelTypeTextView)
-//        var engineCapacityTextView = findViewById<TextView>(R.id.engineCapacityTextView)
-//        var offerPriceTextView = findViewById<TextView>(R.id.offerPriceTextView)
-//        var offerCurrencyTextView = findViewById<TextView>(R.id.offerCurrencyTextView)
-//        return OfferCardComponentModel(
-//            offerCardMainImageView,
-//            offerTitleTextView,
-//            yearOfProductionTextView,
-//            mileageTextView,
-//            fuelTypeTextView,
-//            engineCapacityTextView,
-//            offerPriceTextView,
-//            offerCurrencyTextView
-//        )
-//    }
 }

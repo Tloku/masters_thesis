@@ -42,4 +42,11 @@ public class OfferController: ControllerBase
         var awardedOffers = await _offerAdapter.GetAwardedOffers();
         return Ok(awardedOffers);
     }
+
+    [HttpGet("{offerId}")]
+    public async Task<ActionResult<Offer>> GetOfferById(int offerId)
+    {
+        var offer = await _offerAdapter.GetOfferById(offerId);
+        return Ok(offer);
+    }
 }

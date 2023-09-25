@@ -24,7 +24,24 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.OfferPrice,
                 opt => opt.MapFrom(src => src.Price))
             .ForMember(dest => dest.OfferCurrency,
-                opt => opt.MapFrom(src => src.Currency));
+                opt => opt.MapFrom(src => src.Currency))
+            .ForMember(dest => dest.OfferId,  
+                opt => opt.MapFrom(src => src.Id));
+
+        CreateMap<Offer, OfferActivityComponentModel>()
+            .ForMember(dest => dest.Mileage,
+                opt => opt.MapFrom(src => src.Vehicle.Mileage + " " + src.Vehicle.MileageUnit))
+            .ForMember(dest => dest.OfferId,
+                opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.OfferPrice,
+                opt => opt.MapFrom(src => src.Price + " " + src.Currency))
+            .ForMember(dest => dest.OfferTitle,
+                opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.YearOfProduction,
+                opt => opt.MapFrom(src => src.Vehicle.YearOfProduction))
+            .ForMember(dest => dest.FuelType,
+                opt => opt.MapFrom(src => src.Vehicle.FuelTypeId));
+
 
     }
 }

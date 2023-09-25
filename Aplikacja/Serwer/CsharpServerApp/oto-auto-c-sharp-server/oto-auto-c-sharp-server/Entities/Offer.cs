@@ -39,6 +39,8 @@ public class Offer
     
     public virtual Dealer Dealer { get; set; }
     
+    public virtual ICollection<VehicleImage> VehicleImages { get; } = new List<VehicleImage>();
+    
     public Offer(string name, DateTime creationDate, DateTime expirationDate, string price, string currency)
     {
         Name = name;
