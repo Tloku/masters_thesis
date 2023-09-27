@@ -44,7 +44,7 @@ public class OfferController: ControllerBase
     }
 
     [HttpGet("{offerId}")]
-    public async Task<ActionResult<Offer>> GetOfferById(int offerId)
+    public async Task<ActionResult<OfferActivityComponentModel>> GetOfferById(int offerId)
     {
         var offer = await _offerAdapter.GetOfferById(offerId);
         return Ok(offer);

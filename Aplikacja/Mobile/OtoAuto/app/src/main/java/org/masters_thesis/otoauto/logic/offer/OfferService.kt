@@ -1,11 +1,12 @@
 package org.masters_thesis.otoauto.logic.offer
 
+import org.masters_thesis.otoauto.model.OfferActivityComponentModel
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 import org.masters_thesis.otoauto.model.OfferModel
 import retrofit2.Call
 
 
-class OfferCardService {
+class OfferService {
     private val offerMediator: OfferMediator = OfferMediator()
 
 
@@ -15,6 +16,14 @@ class OfferCardService {
 
     fun getAwardedOffersCall(): Call<List<OfferCardComponentModel?>> {
         return offerMediator.getAwardedOffers();
+    }
+
+    fun getOfferById(id: Int): Call<OfferActivityComponentModel?> {
+        if (id < 0)  {
+            throw RuntimeException("Id should be positive number")
+        }
+
+        return offerMediator.getOfferById(id)
     }
 
 //    fun setOfferCardData(model: OfferCardComponentModel, offer: OfferModel?) {

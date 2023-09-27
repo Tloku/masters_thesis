@@ -19,7 +19,7 @@ class VehicleImagesPagerAdapter(private val images: List<OfferImage>) : Recycler
         parent: ViewGroup,
         viewType: Int
     ): VehicleImagesPagerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_offer_view, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.vehicle_images_pager, parent, false)
         return VehicleImagesPagerViewHolder(view)
     }
 
@@ -27,7 +27,7 @@ class VehicleImagesPagerAdapter(private val images: List<OfferImage>) : Recycler
         val image = images[position]
         val imageView = holder.itemView.findViewById<ImageView>(R.id.vehicleImagePagerItem)
         val imageBytesDecoded = Base64.getDecoder().decode(image.imageBytes)
-        val bmp: Bitmap = BitmapFactory.decodeByteArray(imageBytesDecoded, 0, imageBytesDecoded.size);
+        val bmp: Bitmap = BitmapFactory.decodeByteArray(imageBytesDecoded, 0, imageBytesDecoded.size)
         imageView.setImageBitmap(bmp);
     }
 

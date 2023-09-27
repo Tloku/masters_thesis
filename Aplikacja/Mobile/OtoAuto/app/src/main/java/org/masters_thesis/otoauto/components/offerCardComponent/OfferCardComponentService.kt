@@ -16,10 +16,6 @@ class OfferCardComponentService() {
     }
 
     fun setOfferCardMainImage(mainImageView: ImageView, imageBytes: String) {
-        if (imageBytes == null) {
-            return
-        }
-
         val imageBytesDecoded = Base64.getDecoder().decode(imageBytes)
         var bmp: Bitmap = BitmapFactory.decodeByteArray(imageBytesDecoded, 0, imageBytesDecoded.size);
         mainImageView.setImageBitmap(bmp);

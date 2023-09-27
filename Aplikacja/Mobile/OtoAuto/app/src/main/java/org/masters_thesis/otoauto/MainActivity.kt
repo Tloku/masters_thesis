@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.masters_thesis.otoauto.components.offerCardComponent.OfferCardComponentAdapter
 import org.masters_thesis.otoauto.components.offerCardComponent.OfferCardComponentService
-import org.masters_thesis.otoauto.logic.offer.OfferCardService
+import org.masters_thesis.otoauto.logic.offer.OfferService
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,7 +14,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private val offerCardComponentService: OfferCardComponentService = OfferCardComponentService()
-    private val offerCardService: OfferCardService = OfferCardService()
+    private val offerCardService: OfferService = OfferService()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

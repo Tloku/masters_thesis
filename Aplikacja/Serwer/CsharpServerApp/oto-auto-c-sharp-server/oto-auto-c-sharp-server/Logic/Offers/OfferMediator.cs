@@ -12,6 +12,7 @@ class OfferMediator : IOfferAdapter
 {
     private readonly IOfferRepository _offerRepository;
     private readonly IMapper _mapper;
+    private readonly OfferService _service = new();
     
     public OfferMediator(IOfferRepository offerRepository, IMapper mapper)
     {
@@ -61,23 +62,30 @@ class OfferMediator : IOfferAdapter
             .ToList();
 
 
-        CreateVehicleDetailsRows(offer.Vehicle);
+        var vehicleDetailsRow = CreateVehicleDetailsRows(offer.Vehicle);
 
-        return null;
+        offerActivityComponentModel.OfferImages = offerImages;
+        offerActivityComponentModel.VehicleAttributes = vehicleDetailsRow;
+
+        return offerActivityComponentModel;
     }
     
     private IEnumerable<VehicleDetailsRow> CreateVehicleDetailsRows(Vehicle vehicle)
     {
         var vehicleDetailsRow = new List<VehicleDetailsRow>();
-        var type = typeof(VehicleAttributes);
-        foreach (var p in type.GetFields( BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic))
+        var vehicleAttributeType = typeof(VehicleAttributes);
+        var vehicleType = vehicle.GetType();
+        
+        foreach (var p in vehicleAttributeType.GetFields( BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic))
         {
-            var v = p.GetValue(null); 
-            
-            Console.WriteLine(p.Name + " " + v);
+            var label = (string) p.GetValue(null)!;
+            var propertyInfo = vehicleType.GetProperty(p.Name);
+            var value = propertyInfo?.GetValue(vehicle);
+            var valueToSave = _service.MapSpecificValues(p.Name, value);
+            vehicleDetailsRow.Add(new VehicleDetailsRow(label, valueToSave));
         }
 
-        return null;
+        return vehicleDetailsRow;
     }
     
     private OfferCardComponentModel SetOfferCardComponentModelFromOfferEntity(Offer offer)

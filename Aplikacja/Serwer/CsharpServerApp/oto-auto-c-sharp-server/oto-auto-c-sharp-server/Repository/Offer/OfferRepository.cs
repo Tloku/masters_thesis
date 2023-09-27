@@ -46,7 +46,9 @@ class OfferRepository: IOfferRepository
             .Skip(offset)
             .Take(10)
             .Include(o => o.Vehicle)
-            .Include(o => o.VehicleImages)
+            .Include(o => 
+                o.VehicleImages
+                    .Where(v => v.PathToImage != null))
             .ToListAsync();
     }
 

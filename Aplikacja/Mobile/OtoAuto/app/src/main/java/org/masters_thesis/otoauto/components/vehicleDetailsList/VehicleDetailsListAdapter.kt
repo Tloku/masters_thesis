@@ -18,7 +18,6 @@ class VehicleDetailsListAdapter(private val context: Context, private val vehicl
         val view = inflater.inflate(R.layout.vehicle_details_list_row, null)
         val textViewAttribute = view.findViewById<TextView>(R.id.rowAttribute)
         val textViewValue = view.findViewById<TextView>(R.id.rowValue)
-        view.minimumHeight = count * 30;
         textViewAttribute.text = vehicleDetailsRow.attribute
         textViewValue.text = vehicleDetailsRow.value
         return view

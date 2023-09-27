@@ -19,6 +19,6 @@ public static class VehicleAttributes
     public static readonly string HasCrashed = "Powypadkowy";
     public static readonly string BodyType = "Typ nadwozia";
     public static readonly string CarStatus = "Stan";
-    public static readonly string TransmissionType = "Napęd";
-    public static readonly string DriveType = "Skrzynia biegów";
+    public static readonly string DriveType = "Napęd";
+    public static readonly string TransmissionType = "Skrzynia biegów";
 }

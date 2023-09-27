@@ -40,7 +40,9 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.YearOfProduction,
                 opt => opt.MapFrom(src => src.Vehicle.YearOfProduction))
             .ForMember(dest => dest.FuelType,
-                opt => opt.MapFrom(src => src.Vehicle.FuelTypeId));
+                opt => opt.MapFrom(src => src.Vehicle.FuelType.Type))
+            .ForMember(dest => dest.EngineCapacity,
+                opt => opt.MapFrom(src => src.Vehicle.EngineCapacity + " cm3"));
 
 
     }

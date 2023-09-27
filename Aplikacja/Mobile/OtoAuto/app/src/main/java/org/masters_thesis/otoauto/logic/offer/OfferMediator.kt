@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.masters_thesis.otoauto.BuildConfig
 import org.masters_thesis.otoauto.logic.offer.api.OfferController
+import org.masters_thesis.otoauto.model.OfferActivityComponentModel
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 import org.masters_thesis.otoauto.model.OfferModel
 import retrofit2.Call
@@ -32,6 +33,14 @@ class OfferMediator: OfferAdapter {
     override fun getAwardedOffers(): Call<List<OfferCardComponentModel?>> {
         return try {
             offerController.getAwardedOffers()
+        } catch (ex: Exception) {
+            throw RuntimeException()
+        }
+    }
+
+    override fun getOfferById(id: Int): Call<OfferActivityComponentModel?> {
+        return try{
+            offerController.getOfferById(id);
         } catch (ex: Exception) {
             throw RuntimeException()
         }
