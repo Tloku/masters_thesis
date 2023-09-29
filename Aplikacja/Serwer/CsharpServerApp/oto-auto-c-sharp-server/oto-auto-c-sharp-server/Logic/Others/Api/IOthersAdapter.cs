@@ -14,4 +14,6 @@ public interface IOthersAdapter
     Task<IEnumerable<TransmissionType>> GetTransmissionTypes();
     Task<IEnumerable<VehicleType>> GetVehicleTypes();
     Task<EquipmentType> GetEquipmentsByType(string type);
+    Task<IEnumerable<Equipment>> GetVehicleEquipmentByVehicleId(int vehicleId);
+    Task<IEnumerable<string>> GetEquipmentsNameByVehicleId(int vehicleId);
 }

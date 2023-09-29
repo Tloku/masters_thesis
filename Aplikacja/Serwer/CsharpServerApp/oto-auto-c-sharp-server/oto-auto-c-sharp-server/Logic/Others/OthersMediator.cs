@@ -7,6 +7,7 @@ using oto_auto_c_sharp_server.Repository.Equipment;
 using oto_auto_c_sharp_server.Repository.EquipmentType;
 using oto_auto_c_sharp_server.Repository.FuelType;
 using oto_auto_c_sharp_server.Repository.TransmissionType;
+using oto_auto_c_sharp_server.Repository.VehicleEquipment;
 using oto_auto_c_sharp_server.Repository.VehicleType;
 using DriveType = oto_auto_c_sharp_server.Entities.DriveType;
 
@@ -22,6 +23,7 @@ class OthersMediator: IOthersAdapter
     private readonly IFuelTypeRepository _fuelTypeRepository;
     private readonly ITransmissionTypeRepository _transmissionTypeRepository;
     private readonly IVehicleTypeRepository _vehicleTypeRepository;
+    private readonly IVehicleEquipmentRepository _vehicleEquipmentRepository;
 
     public OthersMediator(
         IBodyTypeRepository bodyTypeRepository,
@@ -31,8 +33,8 @@ class OthersMediator: IOthersAdapter
         IEquipmentTypeRepository equipmentTypeRepository,
         IFuelTypeRepository fuelTypeRepository,
         ITransmissionTypeRepository transmissionTypeRepository,
-        IVehicleTypeRepository vehicleTypeRepository
-        )
+        IVehicleTypeRepository vehicleTypeRepository,
+        IVehicleEquipmentRepository vehicleEquipmentRepository)
     {
         _bodyTypeRepository = bodyTypeRepository;
         _carStatusRepository = carStatusRepository;
@@ -42,8 +44,27 @@ class OthersMediator: IOthersAdapter
         _fuelTypeRepository = fuelTypeRepository;
         _transmissionTypeRepository = transmissionTypeRepository;
         _vehicleTypeRepository = vehicleTypeRepository;
+        _vehicleEquipmentRepository = vehicleEquipmentRepository;
     }
 
+    public async Task<IEnumerable<Equipment>> GetVehicleEquipmentByVehicleId(int vehicleId)
+    {
+        var vehicleEquipment = await _vehicleEquipmentRepository.GetVehicleEquipmentByVehicleId(vehicleId);
+
+        return vehicleEquipment
+            .Select(e => e.Equipment)
+            .ToList();
+    }
+
+    public async Task<IEnumerable<string>> GetEquipmentsNameByVehicleId(int vehicleId)
+    {
+        var equipments = await GetVehicleEquipmentByVehicleId(vehicleId);
+
+        return equipments
+            .Select(e => e.Name)
+            .ToList();
+    }
+    
     public async Task<IEnumerable<BodyType>> GetBodyTypes()
     {
         return await _bodyTypeRepository.GetBodyTypes();

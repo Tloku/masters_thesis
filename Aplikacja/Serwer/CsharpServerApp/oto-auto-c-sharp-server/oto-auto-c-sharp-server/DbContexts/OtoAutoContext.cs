@@ -22,4 +22,5 @@ public class OtoAutoContext : DbContext
     public DbSet<DriveType> DriveType { get; set; } = null!;
     public DbSet<VehicleType> VehicleType { get; set; } = null!;
     public DbSet<VehicleImage> VehicleImage { get; set; } = null!;
+    public DbSet<VehicleEquipment> VehicleEquipment { get; set; } = null!;
 }

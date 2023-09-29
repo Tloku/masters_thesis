@@ -3,6 +3,7 @@ using AutoMapper;
 using oto_auto_c_sharp_server.Entities;
 using oto_auto_c_sharp_server.Logic.Offers.Api;
 using oto_auto_c_sharp_server.Logic.Offers.Models;
+using oto_auto_c_sharp_server.Logic.Others.Api;
 using oto_auto_c_sharp_server.Repository.Offer;
 using oto_auto_c_sharp_server.Utils;
 
@@ -13,11 +14,13 @@ class OfferMediator : IOfferAdapter
     private readonly IOfferRepository _offerRepository;
     private readonly IMapper _mapper;
     private readonly OfferService _service = new();
+    private readonly IOthersAdapter _othersAdapter;
     
-    public OfferMediator(IOfferRepository offerRepository, IMapper mapper)
+    public OfferMediator(IOfferRepository offerRepository, IMapper mapper, IOthersAdapter othersAdapter)
     {
         _offerRepository = offerRepository;
         _mapper = mapper;
+        _othersAdapter = othersAdapter;
     }
     
     public async Task<IEnumerable<Offer>> GetAllOffers()
@@ -47,25 +50,21 @@ class OfferMediator : IOfferAdapter
     public async Task<OfferActivityComponentModel> GetOfferById(int offerId)
     {
         var offer = await _offerRepository.GetOfferById(offerId);
-        return SetOfferActivityComponentModelFromOffer(offer);
+        return await SetOfferActivityComponentModelFromOffer(offer);
     }
 
-    private OfferActivityComponentModel SetOfferActivityComponentModelFromOffer(Offer offer)
+    private async Task<OfferActivityComponentModel> SetOfferActivityComponentModelFromOffer(Offer offer)
     {
         var offerActivityComponentModel = _mapper.Map<OfferActivityComponentModel>(offer);
-        var offerImages = offer.VehicleImages
+        offerActivityComponentModel.Equipments = await _othersAdapter.GetEquipmentsNameByVehicleId(offer.Vehicle.Id);
+        offerActivityComponentModel.VehicleAttributes = CreateVehicleDetailsRows(offer.Vehicle);
+        offerActivityComponentModel.OfferImages = offer.VehicleImages
             .Select(image => new OfferImage
             {
                 ImageBytes = ImageLoader.LoadImageFromPath(image.PathToImage),
                 IsMainImage = image.IsMainImage
             })
             .ToList();
-
-
-        var vehicleDetailsRow = CreateVehicleDetailsRows(offer.Vehicle);
-
-        offerActivityComponentModel.OfferImages = offerImages;
-        offerActivityComponentModel.VehicleAttributes = vehicleDetailsRow;
 
         return offerActivityComponentModel;
     }

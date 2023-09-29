@@ -44,4 +44,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="ListStyles">
+        <item name="android:paddingVertical">15dp</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
 </resources>

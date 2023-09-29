@@ -13,7 +13,7 @@ public class OfferService
     {
         if (vehicleDetailsNames.Contains(pName))
         {
-            return GetValueOfGivenObjectFromRepository(pName, value);
+            return GetValueOfGivenObjectFromRepository(value);
         }
 
         if (value is bool boolVal)
@@ -24,7 +24,7 @@ public class OfferService
         return value.ToString();
     }
 
-    private string GetValueOfGivenObjectFromRepository(string pName, object? value)
+    private string GetValueOfGivenObjectFromRepository(object? value)
     {
         if (value is BodyType or DriveType or TransmissionType)
         {

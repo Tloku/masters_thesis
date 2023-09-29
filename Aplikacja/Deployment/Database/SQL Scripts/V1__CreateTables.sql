@@ -98,9 +98,17 @@ CREATE TABLE Vehicle (
   dealer_id               int4 NOT NULL, 
   PRIMARY KEY (id));
 
+CREATE TABLE Vehicle_Equipment (
+  id SERIAL NOT NULL,
+  vehicle_id int4 NOT NULL,
+  equipment_id int4 NOT NULL,
+  PRIMARY KEY (id)
+);
+
 
 ALTER TABLE Vehicle_Image ADD CONSTRAINT FKVehicleImage0001 FOREIGN KEY (offer_id) REFERENCES Offer (id);
 ALTER TABLE Equipment ADD CONSTRAINT FKEquipment40620 FOREIGN KEY (equipment_type_id) REFERENCES Equipment_type (id);
+ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle827667 FOREIGN KEY (equipment_id) REFERENCES Equipment (id);
 ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle827666 FOREIGN KEY (Body_type_id) REFERENCES Body_type (id);
 ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle661275 FOREIGN KEY (Drive_type_id) REFERENCES Drive_type (id);
 ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle736379 FOREIGN KEY (Vehicle_type_id) REFERENCES Vehicle_type (id);
@@ -112,3 +120,5 @@ ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle881540 FOREIGN KEY (dealer_id) REFER
 ALTER TABLE Offer ADD CONSTRAINT FKOffer221307 FOREIGN KEY (Dealer_id) REFERENCES Dealer (id);
 ALTER TABLE Offer ADD CONSTRAINT FKOffer327532 FOREIGN KEY (Vehicle_id) REFERENCES Vehicle (id);
 ALTER TABLE Vehicle ADD CONSTRAINT FKVehicle404831 FOREIGN KEY (Dealer_id) REFERENCES Dealer (id);
+ALTER TABLE Vehicle_Equipment ADD CONSTRAINT FKVehcileEquipment1 FOREIGN KEY (vehicle_id) REFERENCES Vehicle (id);
+ALTER TABLE Vehicle_Equipment ADD CONSTRAINT FKVehcileEquipment2 FOREIGN KEY (equipment_id) REFERENCES Equipment (id);

@@ -18,6 +18,7 @@ using oto_auto_c_sharp_server.Repository.FuelType;
 using oto_auto_c_sharp_server.Repository.Offer;
 using oto_auto_c_sharp_server.Repository.TransmissionType;
 using oto_auto_c_sharp_server.Repository.Vehicle;
+using oto_auto_c_sharp_server.Repository.VehicleEquipment;
 using oto_auto_c_sharp_server.Repository.VehicleImage;
 using oto_auto_c_sharp_server.Repository.VehicleType;
 
@@ -65,6 +66,7 @@ builder.Services.AddScoped<ICarStatusRepository, CarStatusRepository>();
 builder.Services.AddScoped<IDriveTypeRepository, DriveTypeRepository>();
 builder.Services.AddScoped<IFuelTypeRepository, FuelTypeRepository>();
 builder.Services.AddScoped<IVehicleImageRepository, VehicleImageRepository>();
+builder.Services.AddScoped<IVehicleEquipmentRepository, VehicleEquipmentRepository>();
 
 var app = builder.Build();
 

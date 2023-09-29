@@ -196,19 +196,54 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:paddingTop="10dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detale"/>
+
             <ListView
                 android:id="@+id/vehicleDetailsList"
                 android:layout_width="match_parent"
-                android:layout_height="570dp"
-                android:paddingVertical="15dp"
-                android:scrollbars="none"
-                android:listSelector="@android:color/transparent"
-                android:focusableInTouchMode="false"
-                android:focusable="false">
+                android:layout_height="510dp"
+                style="@style/ListStyles">
             </ListView>
 
+            <TextView
+                android:paddingVertical="10dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wyposażenie"/>
 
-<!--  TODO wyposażenie, opis oferty, bottom bar z "Zadzwoń, wiadomość" -->
+            <ListView
+                android:id="@+id/vehicleEquipmentList"
+                android:layout_width="match_parent"
+                android:layout_height="430dp"
+                style="@style/ListStyles">
+            </ListView>
+
+            <TextView
+                android:paddingVertical="10dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Opis"/>
+
+            <TextView
+                android:id="@+id/offerDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp" />
+
+
+
+
+
+<!--  TODO bottom bar z "Zadzwoń, wiadomość" -->
 <!--    <ListView>-->
 <!--                -->
 <!--            </ListView>-->

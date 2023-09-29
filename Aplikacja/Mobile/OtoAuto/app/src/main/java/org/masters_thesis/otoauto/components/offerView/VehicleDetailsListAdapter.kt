@@ -1,4 +1,4 @@
-package org.masters_thesis.otoauto.components.vehicleDetailsList
+package org.masters_thesis.otoauto.components.offerView
 
 import android.content.Context
 import android.view.LayoutInflater

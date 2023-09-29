@@ -1,4 +1,4 @@
-package org.masters_thesis.otoauto.components.vehicleImagesPager
+package org.masters_thesis.otoauto.components.offerView
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

@@ -37,6 +37,8 @@ public class AutoMapperProfile : Profile
                 opt => opt.MapFrom(src => src.Price + " " + src.Currency))
             .ForMember(dest => dest.OfferTitle,
                 opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.OfferDescription,
+                opt => opt.MapFrom(src => src.Description))
             .ForMember(dest => dest.YearOfProduction,
                 opt => opt.MapFrom(src => src.Vehicle.YearOfProduction))
             .ForMember(dest => dest.FuelType,
