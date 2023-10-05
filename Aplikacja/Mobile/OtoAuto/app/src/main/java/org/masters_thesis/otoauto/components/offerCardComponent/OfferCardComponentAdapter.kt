@@ -1,6 +1,7 @@
 package org.masters_thesis.otoauto.components.offerCardComponent
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +37,7 @@ class OfferCardComponentAdapter(private val offerCards: List<OfferCardComponentM
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val offerCardComponentModel: OfferCardComponentModel = offerCards[position] ?: return
-
+        Log.w("Offer component","ImageBytes of offer with id: " + offerCardComponentModel.offerId)
         offerCardComponentService.setOfferCardMainImage(holder.offerCardMainImageView, offerCardComponentModel.offerMainImage.imageBytes)
         holder.offerTitleTextView.text = offerCardComponentModel.offerTitle
         holder.yearOfProductionTextView.text = offerCardComponentModel.yearOfProduction

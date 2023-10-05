@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,246 +7,276 @@
     tools:context=".OfferViewActivity">
 
     <RelativeLayout
+        android:id="@+id/footer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/lightGrey">
-        </androidx.viewpager2.widget.ViewPager2>
-
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/lightBlue"
+        >
 
         <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@+id/viewPager">
-
-            <TextView
-                android:id="@+id/offerTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/OfferTitle"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:id="@+id/callButton"
                 />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/OfferCardInfo"
-                    android:id="@+id/yearOfProductionTextView"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/OfferCardInfo"
-                    android:id="@+id/fuelTypeTextView"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/OfferCardInfo"
-                    android:id="@+id/engineCapacityTextView"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/OfferCardPrice"
-                    android:layout_marginStart="0dp"
-                    android:id="@+id/offerPriceTextView"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/OfferCardCurrency"
-                    android:id="@+id/offerCurrencyTextView"
-                    />
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                style="@style/LinearLayoutGray"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    style="@style/LinearLayoutRow"
-                >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rok produkcji"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="start"
-                        />
-
-                    <TextView
-                        android:id="@+id/yearOfProductionTextView2"
-                        style="@style/BlueTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:gravity="end"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    style="@style/LinearLayoutRow">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Przebieg"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="start"
-                        />
-
-                    <TextView
-                        style="@style/BlueTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/mileageTextView"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:gravity="end"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    style="@style/LinearLayoutRow">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pojemność skokowa"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="start"
-                        />
-
-                    <TextView
-                        style="@style/BlueTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:id="@+id/engineCapacityTextView2"
-                        android:layout_marginStart="8dp"
-                        android:gravity="end"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    style="@style/LinearLayoutRow">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rodzaj paliwa"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="start"
-                        />
-
-                    <TextView
-                        style="@style/BlueTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/fuelTypeTextView2"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:gravity="end"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:paddingTop="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Detale"/>
-
-            <ListView
-                android:id="@+id/vehicleDetailsList"
-                android:layout_width="match_parent"
-                android:layout_height="510dp"
-                style="@style/ListStyles">
-            </ListView>
-
-            <TextView
-                android:paddingVertical="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wyposażenie"/>
-
-            <ListView
-                android:id="@+id/vehicleEquipmentList"
-                android:layout_width="match_parent"
-                android:layout_height="430dp"
-                style="@style/ListStyles">
-            </ListView>
-
-            <TextView
-                android:paddingVertical="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Opis"/>
-
-            <TextView
-                android:id="@+id/offerDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp" />
-
-
-
-
-
-<!--  TODO bottom bar z "Zadzwoń, wiadomość" -->
-<!--    <ListView>-->
-<!--                -->
-<!--            </ListView>-->
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:id="@+id/msgButton"
+                />
         </LinearLayout>
+
     </RelativeLayout>
-</ScrollView>
+
+
+    <ScrollView
+        android:layout_above="@+id/footer"
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/lightGrey">
+            </androidx.viewpager2.widget.ViewPager2>
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/viewPager">
+
+                <TextView
+                    android:id="@+id/offerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/OfferTitle"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/OfferCardInfo"
+                        android:id="@+id/yearOfProductionTextView"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/OfferCardInfo"
+                        android:id="@+id/fuelTypeTextView"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/OfferCardInfo"
+                        android:id="@+id/engineCapacityTextView"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/OfferCardPrice"
+                        android:layout_marginStart="0dp"
+                        android:id="@+id/offerPriceTextView"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/OfferCardCurrency"
+                        android:id="@+id/offerCurrencyTextView"
+                        />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    style="@style/LinearLayoutGray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        style="@style/LinearLayoutRow"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rok produkcji"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="start"
+                            />
+
+                        <TextView
+                            android:id="@+id/yearOfProductionTextView2"
+                            style="@style/BlueTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:gravity="end"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        style="@style/LinearLayoutRow">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Przebieg"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="start"
+                            />
+
+                        <TextView
+                            style="@style/BlueTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/mileageTextView"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:gravity="end"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        style="@style/LinearLayoutRow">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pojemność skokowa"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="start"
+                            />
+
+                        <TextView
+                            style="@style/BlueTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/engineCapacityTextView2"
+                            android:layout_marginStart="8dp"
+                            android:gravity="end"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        style="@style/LinearLayoutRow">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rodzaj paliwa"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="start"
+                            />
+
+                        <TextView
+                            style="@style/BlueTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fuelTypeTextView2"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:gravity="end"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:paddingTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detale"/>
+
+                <ListView
+                    android:id="@+id/vehicleDetailsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="510dp"
+                    style="@style/ListStyles">
+                </ListView>
+
+                <TextView
+                    android:paddingVertical="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wyposażenie"/>
+
+                <ListView
+                    android:id="@+id/vehicleEquipmentList"
+                    android:layout_width="match_parent"
+                    android:layout_height="430dp"
+                    style="@style/ListStyles">
+                </ListView>
+
+                <TextView
+                    android:paddingVertical="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opis"/>
+
+                <TextView
+                    android:id="@+id/offerDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp" />
+
+                <!--  TODO bottom bar z "Zadzwoń, wiadomość" -->
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
