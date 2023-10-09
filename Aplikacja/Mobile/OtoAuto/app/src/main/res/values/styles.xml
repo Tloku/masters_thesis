@@ -26,7 +26,7 @@
     </style>
 
     <style name="LinearLayoutGray">
-        <item name="android:background">@color/lightGrey</item>
+        <item name="android:background">@color/lightGray</item>
     </style>
 
     <style name="LinearLayoutRow">
@@ -52,4 +52,10 @@
         <item name="android:focusable">false</item>
     </style>
 
+    <style name="FooterLayout">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@color/gray</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

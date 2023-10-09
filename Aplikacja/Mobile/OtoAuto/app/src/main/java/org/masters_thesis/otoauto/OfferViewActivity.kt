@@ -1,11 +1,19 @@
 package org.masters_thesis.otoauto
 
+import android.Manifest
+import android.Manifest.permission.CALL_PHONE
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import org.masters_thesis.otoauto.components.offerView.VehicleDetailsListAdapter
 import org.masters_thesis.otoauto.components.offerView.VehicleEquipmentListAdapter
@@ -19,16 +27,36 @@ import retrofit2.Response
 class OfferViewActivity : AppCompatActivity() {
     private val offerService: OfferService = OfferService()
     private var offerId: Int = 0
+    private lateinit var callButton: Button
+    private lateinit var smsButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_offer_view)
         offerId = intent.getIntExtra("offerId", 1)
+        initCallButton()
+        initSmsButton()
         val offersCall = offerService.getOfferById(offerId)
-        val detailListView = initDetailListView();
-        val equipmentListView = initEquipmentListView();
+        val detailListView = initDetailListView()
+        val equipmentListView = initEquipmentListView()
         val vehicleViewPager = findViewById<ViewPager2>(R.id.viewPager)
         handleRequestCall(offersCall, detailListView,equipmentListView, vehicleViewPager)
+    }
+
+    private fun initCallButton() {
+        callButton = findViewById(R.id.callButton);
+
+        callButton.setOnClickListener {
+            makePhoneCall()
+        }
+    }
+
+    private fun initSmsButton() {
+        smsButton = findViewById(R.id.msgButton)
+
+        smsButton.setOnClickListener {
+            sendSms()
+        }
     }
 
     private fun initDetailListView(): ListView {
@@ -103,5 +131,27 @@ class OfferViewActivity : AppCompatActivity() {
         mileageTextView.text = offerActivityComponentModel.mileage
         val descriptionTextView = findViewById<TextView>(R.id.offerDescription)
         descriptionTextView.text = offerActivityComponentModel.offerDescription
+    }
+
+    private fun makePhoneCall() {
+        if (ContextCompat.checkSelfPermission(this, CALL_PHONE) != PackageManager.PERMISSION_GRANTED ) {
+            ActivityCompat.requestPermissions(this, arrayOf(CALL_PHONE),1)
+        }
+
+        val phoneNumber = "517287948"
+        val phoneIntent = Intent(Intent.ACTION_CALL);
+        phoneIntent.data = Uri.parse("tel:$phoneNumber");
+        startActivity(phoneIntent);
+    }
+
+    private fun sendSms() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED ) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS),1)
+        }
+
+        val sendIntent = Intent(Intent.ACTION_VIEW)
+        sendIntent.data = (Uri.parse("smsto:517287948"))
+        sendIntent.putExtra("sms_body", "Cześć, Interesuje mnie kupno twojego samochodu!")
+        startActivity(sendIntent)
     }
 }

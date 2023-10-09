@@ -2,9 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lightGrey">#FFEDEDED</color>
+    <color name="lightGray">#FFEDEDED</color>
+    <color name="gray">#E0E0E0</color>
     <color name="priceTagColor">#D10D0D</color>
     <color name="navy">#001e37</color>
     <color name="darkBlue">#04447A</color>
     <color name="lightBlue">#83C2F8</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

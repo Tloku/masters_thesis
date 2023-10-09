@@ -9,31 +9,28 @@
     <RelativeLayout
         android:id="@+id/footer"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/lightBlue"
-        >
+        android:layout_height="55dp"
+        style="@style/FooterLayout">
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:background="@drawable/call_button_style"
+            android:text="@string/callButtonLabel"
+            android:textColor="@color/lightBlue"
+            app:backgroundTint="@null"
+            android:id="@+id/callButton"
+            android:layout_marginEnd="15dp"
+            />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:background="@color/white"
-                android:id="@+id/callButton"
-                />
-
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:background="@color/white"
-                android:id="@+id/msgButton"
-                />
-        </LinearLayout>
-
+        <Button
+            android:layout_toEndOf="@+id/callButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            app:backgroundTint="@null"
+            android:text="@string/sendSmsButtonLabel"
+            android:background="@drawable/msg_button_style"
+            android:id="@+id/msgButton"
+            />
     </RelativeLayout>
 
 
@@ -51,7 +48,7 @@
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/lightGrey">
+                android:background="@color/lightGray">
             </androidx.viewpager2.widget.ViewPager2>
 
 
