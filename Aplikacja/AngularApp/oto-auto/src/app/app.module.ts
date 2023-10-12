@@ -11,6 +11,14 @@ import { AwardedOfferComponent } from 'src/components/awarded-offer/awarded-offe
 import { MainPageComponent } from 'src/pages/main/main-page.component';
 import { AwardedOfferGridComponent } from 'src/components/awarded-offer-grid/awarded-offer-grid.component';
 import { FooterComponent } from 'src/components/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxsModule } from '@ngxs/store';
+import { OfferState } from 'src/store/states/offer.state';
+import { OfferRestService } from 'src/api/rest-service/offer.rest-service';
+import {GalleriaModule} from 'primeng/galleria';
+import { VehicleImagesGalleryComponent } from 'src/components/vehicle-images-gallery/vehicle-images-gallery.component';
+import { OfferViewComponent } from 'src/pages/offer-view/offer-view.component';
+import { OfferDetailsComponent } from 'src/components/offer-details/offer-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +29,9 @@ import { FooterComponent } from 'src/components/footer/footer.component';
     AwardedOfferComponent,
     MainPageComponent,
     AwardedOfferGridComponent,
+    VehicleImagesGalleryComponent,
+    OfferViewComponent,
+    OfferDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,8 +39,11 @@ import { FooterComponent } from 'src/components/footer/footer.component';
     AppFormsModule,
     MatIconModule,
     TabViewModule,
+    HttpClientModule,
+    GalleriaModule,
+    NgxsModule.forRoot([OfferState])
   ],
-  providers: [],
+  providers: [OfferRestService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

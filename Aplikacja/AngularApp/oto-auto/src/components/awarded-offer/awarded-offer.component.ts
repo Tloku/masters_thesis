@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OfferCardData } from 'src/models/offer-card-data/offer-card-data.model';
+import { Router } from '@angular/router';
+import { OfferCardComponentModel } from 'src/store/model/offer-card-component.model';
 
 @Component({
   selector: 'awarded-offer',
@@ -7,6 +8,11 @@ import { OfferCardData } from 'src/models/offer-card-data/offer-card-data.model'
   styleUrls: ['./awarded-offer.component.css'],
 })
 export class AwardedOfferComponent {
-  @Input() offer?: OfferCardData;
- 
+  @Input() offer?: OfferCardComponentModel;
+
+  constructor(private _router: Router) {}
+
+  onOfferClick(): void {
+    this._router.navigateByUrl('/offer/' + this.offer?.offerId);
+  } 
 }

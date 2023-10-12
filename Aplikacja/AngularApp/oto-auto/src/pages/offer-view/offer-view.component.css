@@ -1,0 +1,30 @@
+.offer-view-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: auto;
+    margin-top: 5vh;
+    justify-content: space-between;
+}
+
+.offer-view-details {
+    display: flex;
+    width: 65%;
+    height: fit-content;
+    justify-content: center;
+    background-color: black;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+.gallery {
+    align-self: center;
+}
+
+.offer-view-price {
+    display: flex;
+    width: 30%;
+    height: fit-content;
+    min-height: 100px;
+    background-color: black;
+}   
