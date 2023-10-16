@@ -1,3 +1,9 @@
 <div class="offer-details-wrapper">
-    
+    <h2 class="title">Szczegóły</h2>
+    <div class="vehicle-details-wrapper">
+        <div *ngFor="let row of offerDetails$ | async" class="vehicle-details-row">
+            <span class="attribute">{{ row.attribute }}</span>
+            <span class="value">{{ row.value }}</span>
+        </div>
+    </div>
 </div>

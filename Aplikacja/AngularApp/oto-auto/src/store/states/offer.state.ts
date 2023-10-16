@@ -10,6 +10,7 @@ import { GetAwardedOffersResponse } from "src/api/models/get-awarded-offers-resp
     name: "offerCards",
     defaults: {
         offerCardsComponent: [],
+        offerImages: [],
         offer: {
             offerId: 0,
             offerImages: [],
@@ -70,7 +71,7 @@ export class OfferState {
     @Action(GetOfferByIdSuccess)
     getOfferByIdSuccess(ctx: StateContext<OfferCardComponentStateModel>, action: GetOfferByIdSuccess) {
         const state = ctx.getState()
-
+        
         ctx.setState({
             ...state,
             offer: action.offer

@@ -1,9 +1,19 @@
 
 <div class="gallery-wrapper">
-    <!-- <p-galleria [value]="(vehicleImages$ | async) as vehicleImages">
-        <ng-template pTemplate="vehicleImages" let-item>
-            <img [src]="item.imageBytes" />
+    <p-galleria 
+        [value]="(vehicleImages$ | async) || undefined" 
+        [containerStyle]="{ 'max-width': '700px', 'max-height': '500px' }"
+        [showItemNavigators]="true"
+        [numVisible]="4"
+    >
+        <ng-template pTemplate="item" let-item>
+            <img  src="{{'data:image/jpg;base64,' + item.imageBytes}}" width="550" height="400"/>
         </ng-template>
-    </p-galleria> -->
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+                <img src="{{'data:image/jpg;base64,' + item.imageBytes}}" width="150" height="100"  />
+            </div>
+        </ng-template>
+    </p-galleria>
 </div>
 
