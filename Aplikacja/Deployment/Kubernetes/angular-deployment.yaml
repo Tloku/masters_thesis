@@ -1,7 +1,5 @@
 apiVersion: apps/v1
-
 kind: Deployment
-
 metadata:
   name: oto-auto-angular-deployment
   namespace: frontend-apps
@@ -27,13 +25,10 @@ spec:
 ---
 
 apiVersion: v1
-
 kind: Service
-
 metadata:
   name: oto-auto-angular-service
   namespace: frontend-apps
-
 spec:
   selector:
     app: oto-auto-angular
@@ -46,13 +41,10 @@ spec:
 ---
 
 apiVersion: v1
-
 kind: Service
-
 metadata:
   name: oto-auto-angular-load-balancer
   namespace: frontend-apps
-
 spec:
   type: LoadBalancer
   selector:

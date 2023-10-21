@@ -49,4 +49,4 @@ public class OfferController: ControllerBase
         var offer = await _offerAdapter.GetOfferById(offerId);
         return Ok(offer);
     }
-}
+}   
