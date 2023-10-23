@@ -1,2 +1,2 @@
-insert into vehicle_type (type) values ('car');
-insert into vehicle_type (type) values ('motorcycle');
+insert into Vehicle_type (type) values ('car');
+insert into Vehicle_type (type) values ('motorcycle');

@@ -1,9 +1,8 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: oto-auto-db
+  name: oto-auto-db-statefulset
 spec:
-  serviceName: oto-auto-db-service
   selector:
     matchLabels:
       app: oto-auto-db
@@ -13,6 +12,7 @@ spec:
       labels:
         app: oto-auto-db
     spec:
+      hostname: oto-auto-db
       containers:
         - name: oto-auto-db
           image: postgres:15.4
@@ -21,11 +21,9 @@ spec:
             - name: POSTGRES_USER
               value: dominik
             - name: POSTGRES_PASSWORD
-              value: 12345
+              value: '12345'
             - name: POSTGRES_DB
               value: oto_auto
-            - name: PGDATA
-              value: /data/postgres
           ports: 
             - containerPort: 5432
           volumeMounts:

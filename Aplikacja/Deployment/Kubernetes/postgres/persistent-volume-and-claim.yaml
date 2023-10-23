@@ -24,4 +24,3 @@ spec:
   resources:
     requests:
       storage: 300Mi
-  # volumeName: oto-auto-db-pv

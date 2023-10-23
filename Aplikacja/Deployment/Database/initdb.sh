@@ -19,16 +19,15 @@ SCRIPTS=(
 )
 
 # Set PostgreSQL connection parameters
-POSTGRES_HOST="postgres"
-POSTGRES_PORT="8090"
+POSTGRES_HOST="oto-auto-db-svc "
 POSTGRES_USER="dominik"
-POSTGRES_PASSWORD="12345"
+# POSTGRES_PASSWORD="12345"
 POSTGRES_DB="oto_auto"
 
 # Loop through and execute the SQL scripts
 for SCRIPT in "${SCRIPTS[@]}"; do
   echo "Running script: $SCRIPT"
-  psql -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER -d $POSTGRES_DB -a -f ./SQL_Scripts/$SCRIPT
+  psql -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB -a -f ./$SCRIPT
 done
 
 echo "All scripts executed successfully"
