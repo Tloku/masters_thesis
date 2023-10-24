@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: oto-auto-db-master
+spec:
+  serviceName: "oto-auto-db-master-svc"
+  selector:
+    matchLabels:
+      app: oto-auto-db
+      role: master
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: oto-auto-db
+        role: master
+    spec:
+      initContainers:
+        - name: create-replication-user
+          image: postgres:15.4
+          command: ["/bin/sh", "-c"]
+          args:
+            - cp /etc/config/create_replication_user.sh /tmp/ && chmod +x /tmp/create_replication_user.sh && /tmp/create_replication_user.sh
+          volumeMounts:
+            - name: replication-user-script
+              mountPath: /etc/config
+      containers:
+        - name: oto-auto-db-master
+          image: postgres:15.4
+          imagePullPolicy: "IfNotPresent"
+          env:
+            - name: POSTGRES_USER
+              value: dominik
+            - name: POSTGRES_PASSWORD
+              value: '12345'
+            - name: POSTGRES_DB
+              value: oto_auto
+          ports: 
+            - containerPort: 5432
+          volumeMounts:
+            - name: oto-auto-data
+              mountPath: /var/lib/postgresql/data
+            - name: oto-auto-db-master-config
+              mountPath: /var/lib/postgresql/data/postgresql.conf
+              subPath: postgresql.conf
+              readOnly: false
+            - name: oto-auto-db-master-config
+              mountPath: /var/lib/postgresql/data/pg_hba.conf
+              subPath: pg_hba.conf
+              readOnly: false
+      volumes:
+        - name: oto-auto-data
+          persistentVolumeClaim:
+            claimName: oto-auto-db-master-pvc
+        - name: oto-auto-db-master-config
+          configMap:
+            name: oto-auto-db-master-config
+        - name: replication-config
+          configMap:
+            name: replication-user-script
