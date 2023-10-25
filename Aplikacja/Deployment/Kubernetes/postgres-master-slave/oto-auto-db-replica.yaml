@@ -32,14 +32,14 @@ spec:
             - name: oto-auto-data
               mountPath: /var/lib/postgresql/data
               readOnly: false
-            - name: oto-auto-db-replica-config
-              mountPath: /var/lib/postgresql/data/postgresql.conf
-              subPath: postgresql.conf
-              readOnly: false
+            # - name: oto-auto-db-replica-config
+            #   mountPath: /var/lib/postgresql/data/postgresql.conf
+            #   subPath: postgresql.conf
+            #   readOnly: false
       volumes:
         - name: oto-auto-data
           persistentVolumeClaim:
             claimName: oto-auto-db-replica-pvc
-        - name: oto-auto-db-replica-config
-          configMap:
-            name: oto-auto-db-replica-config
+        # - name: oto-auto-db-replica-config
+        #   configMap:
+        #     name: oto-auto-db-replica-config

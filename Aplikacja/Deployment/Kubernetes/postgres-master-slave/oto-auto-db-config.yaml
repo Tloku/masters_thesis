@@ -7,11 +7,9 @@ data:
     listen_addresses = '*'
     max_wal_senders = 3
     wal_level = replica
-    ...
 
   pg_hba.conf: |+
     host replication replica_user oto-auto-db-replica-svc trust
-    ...
 
 ---
 
@@ -23,8 +21,6 @@ data:
   postgresql.conf: |+
     hot_standby = 'on'
     primary_conninfo = 'host=oto-auto-db-master-svc port=5432 user=replication_user password=12345'
-    ...
-
 
 ---
 

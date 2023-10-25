@@ -22,7 +22,7 @@ spec:
           args:
             - cp /etc/config/create_replication_user.sh /tmp/ && chmod +x /tmp/create_replication_user.sh && /tmp/create_replication_user.sh
           volumeMounts:
-            - name: replication-user-script
+            - name: replication-config
               mountPath: /etc/config
       containers:
         - name: oto-auto-db-master
