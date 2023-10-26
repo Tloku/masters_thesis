@@ -1,3 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: hostpath
+provisioner: docker.io/hostpath
+reclaimPolicy: Retain
+
+---
+
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -39,6 +48,8 @@ spec:
   resources:
     requests:
       storage: 500Mi
+  securityContext:
+    fsGroup: 999
 
 ---
 
@@ -53,3 +64,5 @@ spec:
   resources:
     requests:
       storage: 500Mi  
+  securityContext:
+    fsGroup: 999
