@@ -48,8 +48,6 @@ spec:
   resources:
     requests:
       storage: 500Mi
-  securityContext:
-    fsGroup: 999
 
 ---
 
@@ -64,5 +62,3 @@ spec:
   resources:
     requests:
       storage: 500Mi  
-  securityContext:
-    fsGroup: 999

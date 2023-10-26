@@ -24,6 +24,13 @@ spec:
       #     volumeMounts:
       #       - name: replication-config
       #         mountPath: /etc/config
+      initContainers: 
+        - name: privelege-initdb
+          image: postgres:15.4  
+          command: ["sh", "-c", "chown -R 999:999 /oto_auto_data && chmod -R 0700 /oto_auto_data && su postgres -c initdb /oto_auto_data"]  
+          volumeMounts:
+            - name: oto-auto-data
+              mountPath: /oto_auto_data
       containers:
         - name: oto-auto-db-master
           image: postgres:15.4
@@ -38,9 +45,6 @@ spec:
               value: oto_auto
             - name: PG_DATA
               value: /oto_auto_data
-          securityContext: 
-            runAsUser: 999
-            runAsGroup: 999
           ports: 
             - containerPort: 5432
           volumeMounts:
