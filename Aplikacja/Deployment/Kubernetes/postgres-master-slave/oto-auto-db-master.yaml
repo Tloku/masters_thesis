@@ -15,15 +15,6 @@ spec:
         app: oto-auto-db
         role: master
     spec:
-      # initContainers:
-      #   - name: create-replication-user
-      #     image: postgres:15.4
-      #     command: ["/bin/sh", "-c"]
-      #     args:
-      #       - cp /etc/config/create_replication_user.sh /tmp/ && chmod +x /tmp/create_replication_user.sh && /tmp/create_replication_user.sh
-      #     volumeMounts:
-      #       - name: replication-config
-      #         mountPath: /etc/config
       initContainers: 
         - name: privelege-initdb
           image: postgres:15.4  
