@@ -1,26 +1,38 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: oto-auto-db-pv
+  name: pv-master
 spec:
-  storageClassName: hostpath
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  storageClassName: manual
   hostPath:
-    path: "/var/data"
+    path: "/customFolder"
 
 ---
 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: oto-auto-db-pvc
-spec:
-  storageClassName: hostpath
+  name: volume-master-claim
+spec: 
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 300Mi
+      storage: 500Mi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: volume-replica-claim
+spec: 
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi

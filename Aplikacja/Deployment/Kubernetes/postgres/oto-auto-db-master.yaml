@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: oto-auto-db-master
+spec: 
+  serviceName: "db-master-svc"
+  selector:
+    matchLabels:
+      app: oto-auto-db 
+      role: master
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: oto-auto-db
+        role: master
+    spec:
+      initContainers:
+        - name: init
+          image: postgres:15.0
+          command: [ "bash", "-c" ]
+          args:
+          - |
+            #create archive directory
+            mkdir -p /primary/archive && chown -R 999:999 /primary/archive
+          volumeMounts:
+          - name: oto-auto-db-master
+            mountPath: /primary/data
+            readOnly: false
+      containers:
+        - name: oto-auto-db-master
+          image: postgres:15.0
+          imagePullPolicy: "IfNotPresent"
+          args: ["-c", "config_file=/primary/config/postgresql.conf"]
+          env:
+            - name: POSTGRES_USER
+              value: dominik
+            - name: POSTGRES_PASSWORD
+              value: '12345'
+            - name: POSTGRES_DB
+              value: oto_auto
+            - name: PGDATA
+              value: "/primary/data/pgdata"
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: config
+              mountPath: /primary/config
+              readOnly: false
+            - name: oto-auto-db-master
+              mountPath: /primary/data
+              readOnly: false
+            - name: oto-auto-db-master
+              mountPath: /primary/archive
+      volumes:
+        - name: config
+          configMap:
+            name: master-config
+            defaultMode: 0755
+        - name: oto-auto-db-master
+          persistentVolumeClaim:
+            claimName: volume-master-claim
