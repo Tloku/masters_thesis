@@ -9,12 +9,10 @@ Po uruchomieniu, w celu łatwiejszego przeglądania tego, co się dzieje w naszy
 Następnie poleceniem kubectl apply -f budujemy kolejno:
 
 ~~~~
-~~~~
 kubectl apply -f persistent-volume-and-claim.yaml
 kubectl apply -f oto-auto-db-svc.yaml
 kubectl apply -f config.yaml
 kubectl apply -f oto-auto-db-master.yaml
-~~~~
 ~~~~
 
 Po uruchomieniu statefulset master musimy stworzyć w tej bazie użytkownika obsługującego replikowanie danych.
