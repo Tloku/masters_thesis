@@ -1,10 +1,14 @@
 Aby uruchomić replikowalne bazy danych postgresql należy najpierw uruchomić minikube poleceniem
 
-```minikube start```
+~~~~
+minikube start
+~~~~
 
 Po uruchomieniu, w celu łatwiejszego przeglądania tego, co się dzieje w naszym cluster, można uruchomić konsole minikube poleceniem
 
-```minikube dashboard```
+~~~~
+minikube dashboard
+~~~~
 
 Następnie poleceniem kubectl apply -f budujemy kolejno:
 
@@ -19,35 +23,51 @@ Po uruchomieniu statefulset master musimy stworzyć w tej bazie użytkownika obs
 
 Wchodzimy do poda poleceniem:
 
-```kubectl exec -it oto-auto-db-master-0 -- bash```
+~~~~
+kubectl exec -it oto-auto-db-master-0 -- bash
+~~~~
 
 Następnie wchodzimy do psql
 
-```psql -U dominik -d oto_auto```
+~~~~
+psql -U dominik -d oto_auto
+~~~~
 
 i wykonujemy polecenie
 
-```CREATE ROLE replica_user WITH REPLICATION LOGIN PASSWORD '12345';```
+~~~~
+CREATE ROLE replica_user WITH REPLICATION LOGIN PASSWORD '12345';
+~~~~
 
 Następnie wychodzimy z poda używając komend
 
-```\q```
+~~~~
+\q
+~~~~
 
 i 
 
-```exit```
+~~~~
+exit
+~~~~
 
 po dodaniu użytkownika musimy zrestartować statefulset, w celu zapisania zmian
 
-```kubectl rollout restart statefulset oto-auto-db-master```
+~~~~
+kubectl rollout restart statefulset oto-auto-db-master
+~~~~
 
 po wykonaniu restartu możemy zbudować repliki
 
-```kubectl apply -f oto-auto-db-replica.yaml```
+~~~~
+kubectl apply -f oto-auto-db-replica.yaml
+~~~~
 
 Teraz możemy sprawdzić używając komendy 
 
-```kubectl logs oto-auto-db-replica-0```
+~~~~
+kubectl logs oto-auto-db-replica-0
+~~~~
 
 czy pod repliki są w trybie streamowania danych. W logach powinno znaleźć się takie zdanie
 
