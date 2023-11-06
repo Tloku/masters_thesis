@@ -23,6 +23,18 @@ spec:
           - |
             #create archive directory
             mkdir -p /primary/archive && chown -R 999:999 /primary/archive
+
+            echo "EL ES /"
+            ls /
+            echo "EL ES ~"
+            ls ~
+
+            echo "EL ES ~/desktop"
+            ls ~/Desktop
+
+            cp ~/Desktop/Projekty/masters_thesis/Aplikacja/Deployment/Database/SQL_Scripts /Database/SQL_Scripts
+            cp ~/Desktop/Projekty/masters_thesis/Aplikacja/Deployment/Database/initdb.sh /Database
+
           volumeMounts:
           - name: oto-auto-db-master
             mountPath: /primary/data
