@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Define the order in which SQL scripts should be executed
 SCRIPTS=(
   "V1__CreateTables.sql"
   "V2__BodyType.sql"
@@ -15,22 +14,17 @@ SCRIPTS=(
   "V11__Vehicle.sql"
   "V12__Offer.sql"
   "V13__VehicleImages.sql"
-  "V14__VehicleEquipment.sql"
+  "V14__Vehicle_Equipment.sql"
 )
 
-# Set PostgreSQL connection parameters
-POSTGRES_HOST="oto-auto-db-svc "
 POSTGRES_USER="dominik"
-# POSTGRES_PASSWORD="12345"
 POSTGRES_DB="oto_auto"
 
-# Loop through and execute the SQL scripts
 for SCRIPT in "${SCRIPTS[@]}"; do
   echo "Running script: $SCRIPT"
-  psql -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB -a -f ./$SCRIPT
+  psql -U $POSTGRES_USER -d $POSTGRES_DB -a -f ./$SCRIPT
 done
 
 echo "All scripts executed successfully"
 
-# Keep the container running
 tail -f /dev/null

@@ -1,3 +1,5 @@
+# Stawianie baz danych na kubernetesie
+
 Aby uruchomić replikowalne bazy danych postgresql należy najpierw uruchomić minikube poleceniem
 
 ~~~~
@@ -74,3 +76,33 @@ czy pod repliki są w trybie streamowania danych. W logach powinno znaleźć si�
 ```started streaming WAL from primary at 0/5000000 on timeline 1```
 
 Następnie możemy przetestować działanie replikacji. Po dokonaniu zmian na bazie master, zmiany powinny pojawić się też w replikach.
+
+
+# Wykonanie skryptów bazy danych na podzie oto-auto-db-master-0
+
+Aby wykonać skrypty na bazie najpierw musimy przekopiwać folder ze skryptami znajdujący się w folderze Database. Robimy to skryptem
+
+~~~~
+kubectl cp ~/Desktop/Projekty/masters_thesis/Aplikacja/Deployment/Database/SQL_Scripts/  oto-auto-db-master-0:/
+~~~~
+
+Musimy też przekopiować skrypt, który wykona nasze sql'owe skrypty
+
+~~~~
+kubectl cp ~/Desktop/Projekty/masters_thesis/Aplikacja/Deployment/Database/initdb.sh  oto-auto-db-master-0:/SQL_Scripts
+~~~~
+
+Następnie wchodzimy na poda oto-auto-db-master-0
+
+~~~~
+kubectl exec -it oto-auto-db-master-0 -- bash
+~~~~
+
+Wchodzimy do folderu /SQL_Scripts i wykonujemy dwa polecenia
+
+~~~~
+chmod +x initdb.sh
+./initdb.sh
+~~~~
+
+Teraz powinny wykonywać się skrypty. Po zakończeniu możemy sprawdzić na replikach, czy dane się przekopiowały. Po tym kroku nasza baza jest już gotowa do użytkowania.

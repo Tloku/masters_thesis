@@ -16,17 +16,6 @@ spec:
         role: master
     spec:
       initContainers:
-        - name: copy-folder
-          image: busybox:1.34.0
-          command: 
-            - "sh"
-            - "-c"
-            - "cp ~/Desktop/Projekty/masters_thesis/Aplikacja/Deployment/Database/SQL_Scripts /Database/SQL_Scripts"
-            - "cp ~/Desktop/Projekty/masters_thesis/Aplikacja/Deployment/Database/initdb.sh /Database"
-          volumeMounts:
-            - name: oto-auto-db-master
-              mountPath: /Database/SQL_Scripts 
-              readOnly: false
         - name: init-archive
           image: postgres:15.0
           command: [ "bash", "-c" ]
