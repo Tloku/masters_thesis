@@ -7,21 +7,22 @@ using Offer = oto_auto_c_sharp_server.Entities.Offer;
 
 class OfferRepository: IOfferRepository
 {
-    private readonly OtoAutoContext _context;
-
-    public OfferRepository(OtoAutoContext context)
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
+    public OfferRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 
     public async Task<IEnumerable<Offer>> GetAllOffers()
     {
-        return await _context.Offer.ToListAsync();
+        return await _replicaContext.Offer.ToListAsync();
     }
 
     public async Task<Offer?> GetOfferWithVehicleByOfferId(int offerId)
     {
-        return await _context.Offer
+        return await _replicaContext.Offer
             .Include(o => o.Vehicle)
             .Include(o => o.VehicleImages)
             .Where(o => o.Id == offerId)
@@ -30,7 +31,7 @@ class OfferRepository: IOfferRepository
 
     public async Task<IEnumerable<Offer>> GetOffersWithVehicles()
     {
-        return await _context.Offer
+        return await _replicaContext.Offer
             .Include(o => o.Vehicle)
             .Include(o => o.VehicleImages)
             .ToListAsync();
@@ -38,11 +39,11 @@ class OfferRepository: IOfferRepository
 
     public async Task<IEnumerable<Offer>> GetAwardedOffers()
     {
-        var total = _context.Offer.Count();
+        var total = _replicaContext.Offer.Count();
         Random r = new Random();
         var offset = r.Next(0, total - 10);
         
-        return await _context.Offer
+        return await _replicaContext.Offer
             .Skip(offset)
             .Take(10)
             .Include(o => o.Vehicle)
@@ -54,7 +55,7 @@ class OfferRepository: IOfferRepository
 
     public async Task<Offer?> GetOfferById(int offerId)
     {
-        return await _context.Offer
+        return await _replicaContext.Offer
             .Where(o => o.Id == offerId)
             .Include(o => o.Vehicle)
             .Include(o => o.VehicleImages)

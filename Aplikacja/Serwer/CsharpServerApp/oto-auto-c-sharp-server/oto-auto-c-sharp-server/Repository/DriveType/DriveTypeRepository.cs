@@ -6,15 +6,17 @@ using DriveType = oto_auto_c_sharp_server.Entities.DriveType;
 
 public class DriveTypeRepository: IDriveTypeRepository
 {
-    private readonly OtoAutoContext _context;
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
 
-    public DriveTypeRepository(OtoAutoContext context)
+    public DriveTypeRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 
     public async Task<IEnumerable<DriveType>> GetDriveTypes()
     {
-        return await _context.DriveType.ToListAsync();
+        return await _replicaContext.DriveType.ToListAsync();
     }
 }

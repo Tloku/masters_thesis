@@ -4,9 +4,25 @@ using DriveType = oto_auto_c_sharp_server.Entities.DriveType;
 
 namespace oto_auto_c_sharp_server.DbContexts;
 
-public class OtoAutoContext : DbContext
+public class MasterContext : OtoAutoContext<MasterContext>
 {
-    public OtoAutoContext(DbContextOptions<OtoAutoContext> options) : base(options)
+    public MasterContext(DbContextOptions<MasterContext> options) : base(options)
+    {
+        
+    }
+}
+
+public class ReplicaContext : OtoAutoContext<ReplicaContext>
+{
+    public ReplicaContext(DbContextOptions<ReplicaContext> options) : base(options)
+    {
+        
+    }
+}
+
+public class OtoAutoContext<T> : DbContext where T : DbContext
+{
+    public OtoAutoContext(DbContextOptions<T> options) : base(options)
     {
     }
 

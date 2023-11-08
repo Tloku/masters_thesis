@@ -6,15 +6,17 @@ using TransmissionType = oto_auto_c_sharp_server.Entities.TransmissionType;
 
 class TransmissionTypeRepository: ITransmissionTypeRepository
 {
-    private readonly OtoAutoContext _context;
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
 
-    public TransmissionTypeRepository(OtoAutoContext context)
+    public TransmissionTypeRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 
     public async Task<IEnumerable<TransmissionType>> GetTransmissionTypes()
     {
-        return await _context.TransmissionType.ToListAsync();
+        return await _replicaContext.TransmissionType.ToListAsync();
     }
 }

@@ -6,21 +6,23 @@ using EquipmentType = oto_auto_c_sharp_server.Entities.EquipmentType;
 
 class EquipmentTypeRepository: IEquipmentTypeRepository
 {
-    private readonly OtoAutoContext _context;
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
 
-    public EquipmentTypeRepository(OtoAutoContext context)
+    public EquipmentTypeRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
     
     public async Task<IEnumerable<EquipmentType>> GetEquipmentTypes()
     {
-        return await _context.EquipmentType.ToListAsync();
+        return await _replicaContext.EquipmentType.ToListAsync();
     }
 
     public async Task<EquipmentType> GetEquipmentTypeWithEquipmentsByType(string type)
     {
-        return await _context.EquipmentType
+        return await _replicaContext.EquipmentType
             .Where(equipmentType => equipmentType.Type.ToLower().Equals(type.ToLower()))
             .Include(et => et.Equipments)
             .SingleAsync();

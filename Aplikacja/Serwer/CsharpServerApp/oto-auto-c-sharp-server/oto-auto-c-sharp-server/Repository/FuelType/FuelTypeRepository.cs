@@ -6,15 +6,17 @@ using FuelType = oto_auto_c_sharp_server.Entities.FuelType;
 
 class FuelTypeRepository: IFuelTypeRepository
 {
-    private readonly OtoAutoContext _context;
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
 
-    public FuelTypeRepository(OtoAutoContext context)
+    public FuelTypeRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 
     public async Task<IEnumerable<FuelType>> GetFuelTypes()
     {
-        return await _context.FuelType.ToListAsync();
+        return await _replicaContext.FuelType.ToListAsync();
     }
 }

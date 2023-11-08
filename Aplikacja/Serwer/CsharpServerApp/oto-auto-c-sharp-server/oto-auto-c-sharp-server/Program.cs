@@ -45,9 +45,13 @@ builder.Services.AddCors(c =>
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddDbContext<OtoAutoContext>(options => 
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+builder.Services.AddDbContext<MasterContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("MasterConnection"))
     );
+
+builder.Services.AddDbContext<ReplicaContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ReplicaConnection"))
+);
 
 builder.Services.AddScoped<IVehicleAdapter, VehicleMediator>();
 builder.Services.AddScoped<IOfferAdapter, OfferMediator>();

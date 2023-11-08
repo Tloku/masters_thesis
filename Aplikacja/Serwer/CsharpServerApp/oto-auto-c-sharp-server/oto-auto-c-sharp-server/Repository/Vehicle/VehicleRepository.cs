@@ -6,21 +6,23 @@ using Vehicle = oto_auto_c_sharp_server.Entities.Vehicle;
 public class VehicleRepository: IVehicleRepository
 {
 
-    private readonly OtoAutoContext _context;
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
 
-    public VehicleRepository(OtoAutoContext context)
+    public VehicleRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
     
     public async Task<IEnumerable<Vehicle>> GetVehiclesAsync()
     {
-        return await _context.Vehicle.ToListAsync();
+        return await _replicaContext.Vehicle.ToListAsync();
     }
 
     public async Task<IEnumerable<Vehicle>> GetVehiclesByBrandAsync(string brand)
     {
-        return await _context.Vehicle
+        return await _replicaContext.Vehicle
             .Where(vehicle => vehicle.Brand.ToLower().Equals(brand.ToLower()))
             .ToListAsync();
     }

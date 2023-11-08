@@ -6,21 +6,22 @@ using Dealer = oto_auto_c_sharp_server.Entities.Dealer;
 
 class DealerRepository: IDealerRepository
 {
-    private readonly OtoAutoContext _context;
-
-    public DealerRepository(OtoAutoContext context)
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
+    public DealerRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 
     public async Task<IEnumerable<Dealer>> GetAllDealers()
     {
-        return await _context.Dealer.ToListAsync();
+        return await _replicaContext.Dealer.ToListAsync();
     }
 
     public async Task<Dealer> GetDealerById(int id)
     {
-        return await _context.Dealer
+        return await _replicaContext.Dealer
             .Where(dealer => dealer.Id == id)
             .SingleAsync();
     }

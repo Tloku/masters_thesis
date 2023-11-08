@@ -4,10 +4,12 @@ namespace oto_auto_c_sharp_server.Repository.VehicleImage;
 
 public class VehicleImageRepository: IVehicleImageRepository
 {
-    private readonly OtoAutoContext _context;
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
 
-    public VehicleImageRepository(OtoAutoContext context)
+    public VehicleImageRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 }

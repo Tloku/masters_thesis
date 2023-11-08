@@ -6,15 +6,16 @@ using CarStatus  = oto_auto_c_sharp_server.Entities.CarStatus;
 
 public class CarStatusRepository: ICarStatusRepository
 {
-    private readonly OtoAutoContext _context;
-
-    public CarStatusRepository(OtoAutoContext context)
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
+    public CarStatusRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 
     public async Task<IEnumerable<CarStatus>> GetCarStatuses()
     {
-        return await _context.CarStatus.ToListAsync();
+        return await _replicaContext.CarStatus.ToListAsync();
     }
 }

@@ -6,15 +6,16 @@ using VehicleType = oto_auto_c_sharp_server.Entities.VehicleType;
 
 class VehicleTypeRepository: IVehicleTypeRepository
 {
-    private readonly OtoAutoContext _context;
-
-    public VehicleTypeRepository(OtoAutoContext context)
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
+    public VehicleTypeRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
 
     public async Task<IEnumerable<VehicleType>> GetVehicleTypes()
     {
-        return await _context.VehicleType.ToListAsync();
+        return await _replicaContext.VehicleType.ToListAsync();
     }
 }

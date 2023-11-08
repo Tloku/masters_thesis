@@ -8,16 +8,18 @@ using VehicleEquipment = oto_auto_c_sharp_server.Entities.VehicleEquipment;
 
 public class VehicleEquipmentRepository: IVehicleEquipmentRepository
 {
-    private readonly OtoAutoContext _context;
+    private readonly MasterContext _masterContext;
+    private readonly ReplicaContext _replicaContext;
 
-    public VehicleEquipmentRepository(OtoAutoContext context)
+    public VehicleEquipmentRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _replicaContext = replicaContext;
     }
     
     public async Task<IEnumerable<VehicleEquipment>> GetVehicleEquipmentByVehicleId(int vehicleId)
     {
-        return await _context.VehicleEquipment
+        return await _replicaContext.VehicleEquipment
             .Where(ve => ve.Vehicle.Id == vehicleId)
             .Include(v => v.Equipment)
             .ToListAsync();
