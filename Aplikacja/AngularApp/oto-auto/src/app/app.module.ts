@@ -19,6 +19,8 @@ import {GalleriaModule} from 'primeng/galleria';
 import { VehicleImagesGalleryComponent } from 'src/components/vehicle-images-gallery/vehicle-images-gallery.component';
 import { OfferViewComponent } from 'src/pages/offer-view/offer-view.component';
 import { OfferDetailsComponent } from 'src/components/offer-details/offer-details.component';
+import { CreateOfferComponent } from 'src/pages/create-offer/create-offer.component';
+import { CreateOfferFormComponent } from 'src/components/forms/create-offer-form/create-offer-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { OfferDetailsComponent } from 'src/components/offer-details/offer-detail
     AwardedOfferGridComponent,
     VehicleImagesGalleryComponent,
     OfferViewComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    CreateOfferComponent,
   ],
   imports: [
     BrowserModule,

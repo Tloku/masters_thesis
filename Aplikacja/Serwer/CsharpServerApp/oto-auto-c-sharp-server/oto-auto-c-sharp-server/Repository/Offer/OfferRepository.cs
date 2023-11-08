@@ -9,6 +9,7 @@ class OfferRepository: IOfferRepository
 {
     private readonly MasterContext _masterContext;
     private readonly ReplicaContext _replicaContext;
+    
     public OfferRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
         _masterContext = masterContext;

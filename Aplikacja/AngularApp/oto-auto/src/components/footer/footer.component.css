@@ -3,3 +3,7 @@
     height: 50vh;
     background-color: var(--main-200);
 }
+
+p {
+    margin-block-start: 0;
+}

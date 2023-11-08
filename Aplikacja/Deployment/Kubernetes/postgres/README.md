@@ -106,3 +106,17 @@ chmod +x initdb.sh
 ~~~~
 
 Teraz powinny wykonywać się skrypty. Po zakończeniu możemy sprawdzić na replikach, czy dane się przekopiowały. Po tym kroku nasza baza jest już gotowa do użytkowania.
+
+
+
+# Połącznenie się na localhoscie z bazą znajdującą się w minikubie
+
+Aby połączyć się z bazą danych na minikubie musimy mieć service'y, które będą przekierowywać nas do statefulsetów. Następnym krokiem jest port-forwardowanie query z localhosta na minikube.
+Robi się to komendą:
+
+~~~~
+kubectl port-forward service/db-master-svc 8090:5432
+kubectl port-forward service/db-replica-svc 8091:5432
+~~~~
+
+Po wykonaniu tych komend nasz serwer (jeśli properties jest ustawione prawidłowo) powinien łączyć się z naszymi bazami danych.

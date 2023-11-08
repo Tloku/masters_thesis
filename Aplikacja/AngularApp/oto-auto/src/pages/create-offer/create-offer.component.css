@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+.form-component {
+    min-height: 90vh;
+    width: 65%;
+    height: fit-content;
+    border-right: 1px solid var(--main-500);
+    box-shadow: 6px 0 3px -2px var(--secondary-400);
+    z-index: 100;
+}
+
+.tips-component {
+    min-height: 90vh;
+    width: 35%;
+    height: fit-content;
+    background-color: var(--main-100);
+}

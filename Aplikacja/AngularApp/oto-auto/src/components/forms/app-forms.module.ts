@@ -4,11 +4,12 @@ import { MotocycleSearchFormComponent } from 'src/components/forms/motocycle-sea
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { CreateOfferFormComponent } from './create-offer-form/create-offer-form.component';
 
 @NgModule({
-  declarations: [CarSearchFormComponent, MotocycleSearchFormComponent],
+  declarations: [CarSearchFormComponent, MotocycleSearchFormComponent, CreateOfferFormComponent],
   imports: [DropdownModule, FormsModule, ReactiveFormsModule, ButtonModule],
-  exports: [CarSearchFormComponent, MotocycleSearchFormComponent],
+  exports: [CarSearchFormComponent, MotocycleSearchFormComponent, CreateOfferFormComponent],
   providers: [],
 })
 export class AppFormsModule {}
