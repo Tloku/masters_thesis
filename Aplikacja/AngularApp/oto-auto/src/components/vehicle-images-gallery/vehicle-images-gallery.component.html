@@ -7,11 +7,11 @@
         [numVisible]="4"
     >
         <ng-template pTemplate="item" let-item>
-            <img  src="{{'data:image/jpg;base64,' + item.imageBytes}}" width="550" height="400"/>
+            <img  style="object-fit: contain;" src="{{'data:image/jpg;base64,' + item.imageBytes}}" width="550" height="400"/>
         </ng-template>
         <ng-template pTemplate="thumbnail" let-item>
             <div class="grid grid-nogutter justify-content-center">
-                <img src="{{'data:image/jpg;base64,' + item.imageBytes}}" width="150" height="100"  />
+                <img class="gallery-image" src="{{'data:image/jpg;base64,' + item.imageBytes}}" width="150" height="100"  />
             </div>
         </ng-template>
     </p-galleria>

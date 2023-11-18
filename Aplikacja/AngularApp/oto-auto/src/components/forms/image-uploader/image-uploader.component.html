@@ -1,0 +1,43 @@
+<div class="wrapper" imgDragDrop (draggedFiles)="onDraggedFile($event)">
+    <div class="image-drop-zone" *ngIf="!offerImagesData().length"> 
+        <div class="button">
+            <input
+                type="file"
+                #fileDropRef 
+                id="fileDropRef"
+                multiple
+            />
+            <label for="fileDropRef">Dodaj zdjęcia</label>
+
+            <h4>lub upuść pliki tutaj</h4>
+        </div>
+       
+        <div class="info-label">
+            <h6>Dodaj do 40 zdjęć w formatach jpg, png lub gif</h6>
+        </div>     
+    </div>
+
+
+    <div class="not-empty-image-list" *ngIf="offerImagesData().length > 0">
+        <ng-template class="images-template" ngFor let-item [ngForOf]="offerImagesData()" let-i="index">
+            <div class="image-container">
+                <img 
+                class="uploaded-car-pic"
+                src="{{item}}"
+                alt="car"
+                >
+                <div *ngIf="i==0" class="main-pic">Główne</div>
+            </div>
+        </ng-template>
+
+        <div class="upload-file-button">
+            <input
+                type="file"
+                #fileDropListRef 
+                id="fileDropListRef"
+                multiple
+            />
+            <label for="fileDropListRef">+</label>
+        </div>
+    </div>
+</div>

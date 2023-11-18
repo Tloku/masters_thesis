@@ -1,10 +1,122 @@
 <div class="wrapper">
-    <form>
+    <form [formGroup]="form!">
         <div class="title">
             <h1>Stwórz ogłoszenie</h1> 
-    
-            <p-dropdown [style]="{'width':'100%'}"  inputId="vehicleType" placeholder="Wybierz rodzaj pojazdu"></p-dropdown>
+            <p-dropdown formControlName="vehicleType" [style]="{'width':'100%'}"  inputId="vehicleType" placeholder="Wybierz rodzaj pojazdu"></p-dropdown>
         </div>
 
+        <div class="vehicle-details">
+            <h1>Dane pojazdu</h1>
+
+            <div class="main-features">
+                <h2>Cechy główne</h2>
+                <div class="row">
+                    <h3>Uszkodzony</h3>
+                    <p-selectButton styleClass="main-feature-button" formControlName="destroyed" [options]="stateOptions" [(ngModel)]="value"></p-selectButton>
+                </div>
+                <div class="row">
+                    <h3>Importowany</h3>
+                    <p-selectButton formControlName="imported" [options]="stateOptions2" [(ngModel)]="value2"></p-selectButton>
+                </div>
+            </div>
+
+            <div class="basic-info">
+                <h2>Informacje podstawowe</h2>
+
+                <div class="row">                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="vin" formControlName="vin" />
+                        <label htmlFor="vin">VIN</label>
+                    </span>
+                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="mileage" formControlName="mileage" />
+                        <label htmlFor="mileage">Przebieg</label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="technical-data">
+                <h2>Dane techniczne</h2>
+
+                <div class="row">                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="yearOfProduction" formControlName="yearOfProduction" />
+                        <label htmlFor="yearOfProduction">Rok produkcji</label>
+                    </span>
+                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="brand" formControlName="brand" />
+                        <label htmlFor="brand">Marka pojazdu</label>
+                    </span>
+                </div>
+
+                <div class="row">                      
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="model" formControlName="model" />
+                        <label htmlFor="model">Model pojazdu</label>
+                    </span>
+
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="fuelType" formControlName="fuelType" />
+                        <label htmlFor="fuelType">Rodzaj paliwa</label>
+                    </span>
+                </div>
+
+                <div class="row">                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="horsepower" formControlName="horsepower" />
+                        <label htmlFor="horsepower">Moc</label>
+                    </span>
+                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="engineCapacity" formControlName="engineCapacity" />
+                        <label htmlFor="engineCapacity">Pojemność skokowa</label>
+                    </span>
+                </div>
+
+                <div class="row">                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="numberOfDoors" formControlName="numberOfDoors" />
+                        <label htmlFor="numberOfDoors">Liczba drzwi</label>
+                    </span>
+                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="transmission" formControlName="transmission" />
+                        <label htmlFor="transmission">Skrzynia biegów</label>
+                    </span>
+                </div>
+
+                <div class="row">                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="version" formControlName="version" />
+                        <label htmlFor="version">Wersja</label>
+                    </span>
+                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="generation" formControlName="generation" />
+                        <label htmlFor="generation">Generacja</label>
+                    </span>
+                </div>
+
+                <div class="row">                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="bodyType" formControlName="bodyType" />
+                        <label htmlFor="bodyType">Typ nadwozia</label>
+                    </span>
+                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="color" formControlName="color" />
+                        <label htmlFor="color">Kolor</label>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="image-form">
+                <h2>Zdjęcia</h2>
+                <image-uploader></image-uploader>
+            </div>
+        </div>
     </form>
 </div>

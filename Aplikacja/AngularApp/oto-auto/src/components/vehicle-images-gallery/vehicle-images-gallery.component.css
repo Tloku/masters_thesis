@@ -4,3 +4,7 @@
     z-index: 1000;
     user-select: none;
 }
+
+.gallery-image {
+    object-fit: cover !important;
+}

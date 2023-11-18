@@ -13,4 +13,8 @@ export class NavbarComponent {
   onCreateOfferClick(): void {
     this._router.navigateByUrl('/new-offer');
   } 
+
+  navigateToMainPage(): void {
+    this._router.navigateByUrl('/');
+  }
 }

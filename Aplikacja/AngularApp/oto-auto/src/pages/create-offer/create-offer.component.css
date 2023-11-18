@@ -16,6 +16,6 @@
 .tips-component {
     min-height: 90vh;
     width: 35%;
-    height: fit-content;
+    height: auto;
     background-color: var(--main-100);
 }
