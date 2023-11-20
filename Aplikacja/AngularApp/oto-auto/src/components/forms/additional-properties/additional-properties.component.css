@@ -1,0 +1,96 @@
+:host ::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--secondary-300); 
+}
+
+:host ::ng-deep .p-accordion .p-accordion-content {
+    border-radius: 0;
+    border: none;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
+    box-shadow: none;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-content,
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link,
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link,
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
+    background-color: transparent;
+}
+
+.technical-data .row {
+    display: flex;
+    padding-bottom: 20px;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--secondary-300);
+}
+
+.technical-data .row h3 {
+    font-size: 1.05em;
+    font-weight: lighter;
+    flex: 0 0 auto;
+    margin-right: auto;
+}
+
+.technical-data .row .p-selectbutton {
+    margin-left: auto;
+}
+
+.additional-technical-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vh;
+    padding: 3vh 0;
+}
+
+.additional-technical-data .row {
+    width: 100%;
+    display: flex;
+    gap: 2vw;
+}
+
+
+.additional-technical-data .row .p-float-label {
+    width: 50% !important;
+}
+
+
+.equipment-wrapper {
+    height: fit-content;
+}
+
+.equipment-checkbox-wrapper {
+    width: 48%;
+    height: 5vh;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid var(--secondary-300);
+    padding-left: 1vw;
+}
+
+:host ::ng-deep .equipment-wrapper .p-accordion .p-accordion-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vh;
+}
+
+:host ::ng-deep .p-checkbox,
+:host ::ng-deep .p-checkbox .p-checkbox-box {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+:host ::ng-deep .p-checkbox {
+    margin-right: 1vw !important;
+}
+
+:host ::ng-deep .p-checkbox .p-checkbox-box {
+    border-color: var(--main-300);
+}

@@ -50,47 +50,7 @@
     width: 100%;
     height: fit-content;
     padding: 15px;
-    display: grid;
-    gap: 2vh;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto auto;
-    position: relative;
 }
-
-.not-empty-image-list .images-template {
-    position: relative;
-}
-
-.not-empty-image-list .image-container  .uploaded-car-pic {
-    width: 9vw;
-    height: 14vh;
-    object-fit: cover;
-    border-radius: 5px;
-    position: relative;
-    -webkit-user-drag: none;
-}
-
-.not-empty-image-list > .image-container .uploaded-car-pic:first-child {
-    grid-row: span 2;
-    grid-column: span 2;
-    width: 19vw;
-    height: 29vh;
-    z-index: 1; 
-}
-
-/* .not-empty-image-list { */
-    /* position: absolute; */
-    /* width: fit-content;
-    height: fit-content;
-    background-color: var(--blue-300);
-    padding: 4px;
-    border-radius: 4px;
-    font-size: 0.7em;
-    font-weight: 600;
-    z-index: 999;
-    bottom: 20px;
-    left: 20px;
-} */
 
 .not-empty-image-list .upload-file-button label {
     width: 9vw;
@@ -102,26 +62,77 @@
     border-radius: 5px;
     font-size: 2em;
     font-weight: bold;
+} 
+
+ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    gap: 2vh;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
 }
 
-.not-empty-image-list .on-image-hover {
-    width: 100%;
-    transition: all 0.2s ease;
+.not-empty-image-list .image-container .uploaded-car-pic {
+    width: 9vw;
+    height: 14vh;
+    object-fit: cover;
+    border-radius: 5px;
+    -webkit-user-drag: none;
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+}
+
+.not-empty-image-list .main-image-container .uploaded-car-pic {
+    width: 19vw;
+    height: 29vh;
+    grid-column: span 2;
+    grid-row: span 2;
+    object-fit: cover;
+    border-radius: 5px;
+    -webkit-user-drag: none;
+}
+
+/*.main-image {
+    display: inherit;
+    position: relative;
+}
+
+.not-empty-image-list .image {
+    display: inherit;
+}
+
+.not-empty-image-list .image .uploaded-car-pic {
+    width: 9vw;
+    height: 14vh;
+    object-fit: cover;
+    border-radius: 5px;
+    grid-row: span 1    ;
+    grid-column: span 1;
+    -webkit-user-drag: none;
+}
+
+.not-empty-image-list .main-image .uploaded-car-pic {
+    -webkit-user-drag: none;
+    grid-row: span 2;
+    grid-column: span 2;
+    object-fit: cover;
+    width: 19vw;
+    height: 29vh;
+    z-index: 1; 
 }
 
 .main-pic {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 5%;
-    transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px;
     border-radius: 5px;
     text-transform: uppercase;
     z-index: 999;
 }
-
-.image-container {
-    position: relative;
-    display: inline-block
-}
+*/

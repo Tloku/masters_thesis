@@ -1,5 +1,7 @@
+using AutoMapper;
 using oto_auto_c_sharp_server.Entities;
 using oto_auto_c_sharp_server.Logic.Others.Api;
+using oto_auto_c_sharp_server.Logic.Others.Models;
 using oto_auto_c_sharp_server.Repository.BodyType;
 using oto_auto_c_sharp_server.Repository.CarStatus;
 using oto_auto_c_sharp_server.Repository.DriveType;
@@ -24,6 +26,7 @@ class OthersMediator: IOthersAdapter
     private readonly ITransmissionTypeRepository _transmissionTypeRepository;
     private readonly IVehicleTypeRepository _vehicleTypeRepository;
     private readonly IVehicleEquipmentRepository _vehicleEquipmentRepository;
+    private readonly IMapper _mapper;
 
     public OthersMediator(
         IBodyTypeRepository bodyTypeRepository,
@@ -34,7 +37,9 @@ class OthersMediator: IOthersAdapter
         IFuelTypeRepository fuelTypeRepository,
         ITransmissionTypeRepository transmissionTypeRepository,
         IVehicleTypeRepository vehicleTypeRepository,
-        IVehicleEquipmentRepository vehicleEquipmentRepository)
+        IVehicleEquipmentRepository vehicleEquipmentRepository,
+        IMapper mapper
+        )
     {
         _bodyTypeRepository = bodyTypeRepository;
         _carStatusRepository = carStatusRepository;
@@ -45,6 +50,7 @@ class OthersMediator: IOthersAdapter
         _transmissionTypeRepository = transmissionTypeRepository;
         _vehicleTypeRepository = vehicleTypeRepository;
         _vehicleEquipmentRepository = vehicleEquipmentRepository;
+        _mapper = mapper;
     }
 
     public async Task<IEnumerable<Equipment>> GetVehicleEquipmentByVehicleId(int vehicleId)
@@ -85,9 +91,10 @@ class OthersMediator: IOthersAdapter
         return await _equipmentRepository.GetEquipments();
     }
 
-    public async Task<IEnumerable<EquipmentType>> GetEquipmentTypes()
+    public async Task<IEnumerable<EquipmentTypeDto>> GetEquipmentTypes()
     {
-        return await _equipmentTypeRepository.GetEquipmentTypes();
+        var equipmentTypes =  await _equipmentTypeRepository.GetEquipmentTypes();
+        return _mapper.Map<IEnumerable<EquipmentTypeDto>>(equipmentTypes);
     }
 
     public async Task<IEnumerable<FuelType>> GetFuelTypes()

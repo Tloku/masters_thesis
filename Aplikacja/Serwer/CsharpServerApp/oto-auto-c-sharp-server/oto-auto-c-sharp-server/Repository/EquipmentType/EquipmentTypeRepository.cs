@@ -1,4 +1,4 @@
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.EquipmentType;
@@ -17,7 +17,9 @@ class EquipmentTypeRepository: IEquipmentTypeRepository
     
     public async Task<IEnumerable<EquipmentType>> GetEquipmentTypes()
     {
-        return await _replicaContext.EquipmentType.ToListAsync();
+        return await _replicaContext.EquipmentType
+            .Include(et => et.Equipments)
+            .ToListAsync();
     }
 
     public async Task<EquipmentType> GetEquipmentTypeWithEquipmentsByType(string type)

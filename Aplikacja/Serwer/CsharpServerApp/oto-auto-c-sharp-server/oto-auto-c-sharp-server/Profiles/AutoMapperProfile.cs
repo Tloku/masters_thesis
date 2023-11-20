@@ -1,6 +1,7 @@
 using AutoMapper;
 using oto_auto_c_sharp_server.Entities;
 using oto_auto_c_sharp_server.Logic.Offers.Models;
+using oto_auto_c_sharp_server.Logic.Others.Models;
 
 namespace oto_auto_c_sharp_server.Profiles;
 
@@ -47,5 +48,16 @@ public class AutoMapperProfile : Profile
                 opt => opt.MapFrom(src => src.Vehicle.EngineCapacity + " cm3"));
 
 
+        CreateMap<EquipmentType, EquipmentTypeDto>()
+            .ForMember(dest => dest.Equipments,
+                opt => opt.MapFrom(src => src.Equipments))
+            .ForMember(dest => dest.Type,
+                opt => opt.MapFrom(src => src.Type));
+        
+        CreateMap<Equipment, EquipmentDto>()
+            .ForMember(dest => dest.Id,
+                opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.Name,
+                opt => opt.MapFrom(src => src.Name));
     }
 }

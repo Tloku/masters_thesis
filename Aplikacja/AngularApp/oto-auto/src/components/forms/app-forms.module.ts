@@ -10,6 +10,11 @@ import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { ImageDragAndDropDirective } from 'src/directives/image-drag-and-drop';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { AccordionModule } from 'primeng/accordion';
+import { AdditionalPropertiesComponent } from './additional-properties/additional-properties.component';
+import { CheckboxModule } from 'primeng/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +22,8 @@ import { ImageDragAndDropDirective } from 'src/directives/image-drag-and-drop';
     MotocycleSearchFormComponent,
     CreateOfferFormComponent,
     ImageUploaderComponent,
-    ImageDragAndDropDirective
+    ImageDragAndDropDirective,
+    AdditionalPropertiesComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +32,10 @@ import { ImageDragAndDropDirective } from 'src/directives/image-drag-and-drop';
     ReactiveFormsModule,
     ButtonModule,
     SelectButtonModule,
-    InputTextModule
+    InputTextModule,
+    InputTextareaModule,
+    AccordionModule,
+    CheckboxModule,
   ],
   exports: [
     CarSearchFormComponent,

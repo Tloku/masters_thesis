@@ -3,22 +3,29 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 5vh
+    gap: 5vh;
+    position: relative;
 }
-
 
 .vehicle-details h1 {
     font-size: 1.5em;
     font-style: bold;
 }
 
-.main-features {
+.vehicle-details {
+    margin: 3vh auto;
+}
+
+.main-features,
+.vehicle-description,
+.price {
     display: flex;
     flex-direction: column;
     gap: 3vh;
 }
 
-.main-features .row {
+.main-features .row,
+.price .row {   
     display: flex;
     padding-bottom: 20px;
     height: 50px;
@@ -27,13 +34,16 @@
     border-bottom: 1px solid var(--secondary-300);
 }
 
-.main-features .row h3 {
+.main-features .row h3,
+.price .row h3 {
     font-size: 1.05em;
     font-weight: lighter;
 }
 
 .main-features .row h3,
-.main-features .row .p-selectbutton {
+.main-features .row .p-selectbutton,
+.price .row h3,
+.price .row .p-selectbutton {
     flex: 0 0 auto;
 }
 
@@ -96,25 +106,39 @@
     gap: 2vw;
 }
 
-.basic-info .row .p-float-label {
-    width: 50% !important;
-}
-
-.technical-data h2 {
+.technical-data h2,
+.additional-properties h2,
+.price h2,
+.dealer-data h2 {
     padding-bottom: 2vh;
 }
 
-.technical-data .row {
+.technical-data .row,
+.dealer-data .row {
     width: 100%;
     display: flex;
     gap: 2vw;
     margin-bottom: 4vh;
 }
 
-.technical-data .row .p-float-label {
+.technical-data .row .p-float-label,
+.dealer-data .row .p-float-label,
+.dealer-data .half-row .p-float-label,
+.basic-info .row .p-float-label {
     width: 50% !important;
 }
 
+.dealer-data .half-row {
+    margin-right: 2vw !important; 
+}
+
 .image-form {
-    padding-bottom: 5vh;
+    padding-bottom: 2vh;
+}
+
+
+.price-input-row {
+    width: 50%;
+    display: flex;
+    gap: 1vw;
 }

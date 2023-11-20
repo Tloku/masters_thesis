@@ -5,6 +5,7 @@
 }
 
 .form-component {
+    position: relative;
     min-height: 90vh;
     width: 65%;
     height: fit-content;
@@ -19,3 +20,14 @@
     height: auto;
     background-color: var(--main-100);
 }
+
+
+.wrapper .form-component .footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: var(--secondary-100);
+    border: 1px solid var(--secondary-300);
+  }

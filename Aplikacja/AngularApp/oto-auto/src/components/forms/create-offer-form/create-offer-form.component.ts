@@ -9,8 +9,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class CreateOfferFormComponent {
     stateOptions: any[] = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
     stateOptions2: any[] = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
+    stateOptions3: any[] = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
     value: boolean = false;
     value2: boolean = false;
+    value3: boolean = false;
     form = new FormGroup({
         vehicleType: new FormControl(),
         destroyed: new FormControl(),
@@ -29,5 +31,13 @@ export class CreateOfferFormComponent {
         generation: new FormControl(),
         bodyType: new FormControl(),
         color: new FormControl(),
+        title: new FormControl(),
+        description: new FormControl(),
+        price: new FormControl(),
+        currency: new FormControl(),
+        name: new FormControl(),
+        address: new FormControl(),
+        phoneNumber: new FormControl(),
+        net: new FormControl(),
     })
 }

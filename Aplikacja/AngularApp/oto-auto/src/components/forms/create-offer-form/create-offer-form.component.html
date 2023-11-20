@@ -117,6 +117,71 @@
                 <h2>Zdjęcia</h2>
                 <image-uploader></image-uploader>
             </div>
+
+            <div class="vehicle-description">
+                <h2>Opis pojazdu</h2>
+                            
+                <span class="p-float-label">
+                    <input [style]="{'width':'100%'}"  pInputText id="title" formControlName="title" />
+                    <label htmlFor="title">Tytuł ogłoszenia</label>
+                </span>
+                    
+                <span class="p-float-label">
+                    <textarea  rows="8" [style]="{'width':'100%'}" pInputTextarea id="description" formControlName="description" [autoResize]="true"></textarea>
+                    <label htmlFor="description">Opis pojazdu</label>
+                </span>
+            </div>
+
+
+            <div class="additional-properties">
+                <h2>Wyświetl dodatkowe szczegóły</h2>
+
+                <additional-properties></additional-properties>
+            </div>
+
+
+            <div class="price">
+                <h2>Cena</h2>
+                <div class="row">
+                    <h3>Cena netto</h3>
+                    <p-selectButton styleClass="net-button" formControlName="net" [options]="stateOptions3" [(ngModel)]="value3"></p-selectButton>
+                </div>
+
+                <div class="price-input-row">
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="price" formControlName="price" />
+                        <label htmlFor="price">Cena</label>
+                    </span>
+
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="currency" formControlName="currency" />
+                        <label htmlFor="currency">Waluta</label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="dealer-data">
+                <h2>Dane sprzedającego</h2>
+
+                <div class="row">
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}" pInputText id="name" formControlName="name" />
+                        <label htmlFor="name">Twoje imię</label>
+                    </span>
+
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="address" formControlName="address" />
+                        <label htmlFor="address">Adres</label>
+                    </span>
+                </div>
+
+                <div class="half-row">
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="phoneNumber" formControlName="phoneNumber" />
+                        <label htmlFor="phoneNumber">Numer telefonu</label>
+                    </span>
+                </div>
+            </div>
         </div>
     </form>
 </div>

@@ -1,6 +1,7 @@
 using System.Collections;
 using Microsoft.AspNetCore.Mvc;
 using oto_auto_c_sharp_server.Entities;
+using oto_auto_c_sharp_server.Logic.Others.Models;
 using DriveType = oto_auto_c_sharp_server.Entities.DriveType;
 
 namespace oto_auto_c_sharp_server.Logic.Others.Api;
@@ -52,10 +53,10 @@ public class OthersController: ControllerBase
     }
     
     [HttpGet("equipment_types")]
-    public async Task<ActionResult<IEnumerable<EquipmentType>>> GetEquipmentTypes()
+    public async Task<ActionResult<GetEquipmentResponse>> GetEquipmentTypes()
     {
         var equipmentTypes = await _othersAdapter.GetEquipmentTypes();
-        return Ok(equipmentTypes);
+        return Ok(new GetEquipmentResponse(equipmentTypes));
     }
     
     [HttpGet("fuel")]

@@ -20,6 +20,11 @@ import { VehicleImagesGalleryComponent } from 'src/components/vehicle-images-gal
 import { OfferViewComponent } from 'src/pages/offer-view/offer-view.component';
 import { OfferDetailsComponent } from 'src/components/offer-details/offer-details.component';
 import { CreateOfferComponent } from 'src/pages/create-offer/create-offer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { EquipmentState } from 'src/store/states/equipment.state';
+import { EquimpentRestService } from 'src/api/rest-service/equipment.rest-service';
+import { CreateOfferFooterComponent } from 'src/components/create-offer-footer/create-offer-footer.component';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,7 @@ import { CreateOfferComponent } from 'src/pages/create-offer/create-offer.compon
     OfferViewComponent,
     OfferDetailsComponent,
     CreateOfferComponent,
+    CreateOfferFooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +49,11 @@ import { CreateOfferComponent } from 'src/pages/create-offer/create-offer.compon
     TabViewModule,
     HttpClientModule,
     GalleriaModule,
-    NgxsModule.forRoot([OfferState])
+    BrowserAnimationsModule,
+    ButtonModule,
+    NgxsModule.forRoot([OfferState, EquipmentState])
   ],
-  providers: [OfferRestService],
+  providers: [OfferRestService, EquimpentRestService  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

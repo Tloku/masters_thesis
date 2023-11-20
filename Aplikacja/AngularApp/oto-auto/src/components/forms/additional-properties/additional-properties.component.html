@@ -1,0 +1,60 @@
+<div class="additional-properties-wrapper">
+    <p-accordion [multiple]="true">
+        <p-accordionTab header="Dane techniczne" iconPos="end">
+            <div class="technical-data">
+                <div class="row">
+                    <h3>Kierownica po prawej (anglik)</h3>
+                    <p-selectButton 
+                        styleClass="techincal-data-button"
+                        [options]="stateOptions"
+                        [(ngModel)]="value"></p-selectButton>
+                </div>
+            </div>
+
+            <div class="additional-technical-data">
+                <div class="row">                      
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="drive" />
+                        <label htmlFor="model">Napęd</label>
+                    </span>
+
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="emission" />
+                        <label htmlFor="emission">Emisja CO2</label>
+                    </span>
+                </div>
+
+                <div class="row">                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="colorType"/>
+                        <label htmlFor="colorType">Rodzaj koloru</label>
+                    </span>
+                    
+                    <span class="p-float-label">
+                        <input [style]="{'width':'100%'}"  pInputText id="numberOfSeats" />
+                        <label htmlFor="numberOfSeats">Liczba miejsc</label>
+                    </span>
+                </div>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="Wyposażenie" iconPos="end">
+            <div class="equipment-wrapper">
+                <p-accordion [multiple]="true">
+                    <ng-container *ngFor="let equipmentType of equipmentTypes$ | async">
+                        <p-accordionTab iconPos="end" header="{{ equipmentType.type }}">
+                            <ng-container class="equipment-wrapper" *ngFor="let equipment of equipmentType.equipments ">
+                                <div class="equipment-checkbox-wrapper">
+                                    <p-checkbox inputId="equipment-name"></p-checkbox>
+                                     <label for="equipment-name">{{ equipment.name }}</label>
+                                </div>  
+                            </ng-container>
+                        </p-accordionTab>
+                    </ng-container>
+                </p-accordion>
+
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="Historia" iconPos="end">
+        </p-accordionTab>
+    </p-accordion>
+</div>

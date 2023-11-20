@@ -19,25 +19,38 @@
 
 
     <div class="not-empty-image-list" *ngIf="offerImagesData().length > 0">
-        <ng-template class="images-template" ngFor let-item [ngForOf]="offerImagesData()" let-i="index">
-            <div class="image-container">
-                <img 
-                class="uploaded-car-pic"
-                src="{{item}}"
-                alt="car"
-                >
-                <div *ngIf="i==0" class="main-pic">Główne</div>
-            </div>
-        </ng-template>
+        <ol>
+            <li *ngFor="let item of offerImagesData(); let i=index">
+                {{i}}
 
-        <div class="upload-file-button">
-            <input
-                type="file"
-                #fileDropListRef 
-                id="fileDropListRef"
-                multiple
-            />
-            <label for="fileDropListRef">+</label>
-        </div>
+                <div *ngIf="i == 0" class="main-image-container">
+                    <img 
+                    class="uploaded-car-pic"
+                    src="{{item}}"
+                    alt="car"
+                    >
+                </div>
+
+                <div *ngIf="i != 0" class="image-container">
+                    <img 
+                    class="uploaded-car-pic"
+                    src="{{item}}"
+                    alt="car"
+                    >
+                </div>
+            </li>
+
+            <li>
+                <div class="upload-file-button">
+                    <input
+                        type="file"
+                        #fileDropListRef 
+                        id="fileDropListRef"
+                        multiple
+                    />
+                    <label for="fileDropListRef">+</label>
+                </div>
+            </li>
+        </ol>
     </div>
 </div>
