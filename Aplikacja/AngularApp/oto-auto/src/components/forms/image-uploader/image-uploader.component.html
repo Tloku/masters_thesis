@@ -21,8 +21,6 @@
     <div class="not-empty-image-list" *ngIf="offerImagesData().length > 0">
         <ol>
             <li *ngFor="let item of offerImagesData(); let i=index">
-                {{i}}
-
                 <div *ngIf="i == 0" class="main-image-container">
                     <img 
                     class="uploaded-car-pic"

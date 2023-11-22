@@ -1,50 +1,93 @@
+import { FormArray, FormControl, FormGroup } from "@angular/forms"
 import { EquipmentType } from "../equipment-type"
 
 export interface CreateOfferFormStateModel {
-    createOfferForm: {
-        model?: {
-            vehicleType: number
-            hasCrashed: boolean
-            isImported: boolean
-            vin: number
-            mileage: string
-            yearOfProduction: string
-            brand: string
-            model: string
-            fuelType: string
-            horsePower: number
-            engineCapacity: number
-            numberOFDoors: number
-            transmission: string
-            version: string
-            generation: string
-            bodyType: string
-            color: string
-        
-            offerImages: OfferImagesForm[]
-        
-            title: string
-            description: string
-            wheelOnTheRight: string
-            co2Emission: string
-            colorType: string
-        
-            additionalProperties: EquipmentType[]
-        
-            price: string
-            isNet: boolean
-        
-            dealerName: string
-            dealerAddress: string
-            phoneNumber: string
-        }
-    }
-
+    dealerDataForm?: DealerDataForm,
+    offerImages?: OfferImagesForm[]
+    priceDataFrom?: PriceDataForm,
+    equipmentTypeForm?: EquipmentTypeForm,
+    additionalTechnicalDataForm?: AdditionalTechnicalDataForm,
+    vehicleDescription?: VehicleDescriptionForm,
+    technicalDataForm?: TechnicalDataForm,
+    vehicleType?: VehicleTypeForm,
+    basicInfo?: BasicInfoForm,
+    mainFeatures?: MainFeaturesForm
 }
 
 export interface OfferImagesForm {
     name: string
     blob: string
-    isMain: boolean
+    isMainImage: boolean
 }
 
+export interface DealerDataForm {
+    name: FormControl<string | null>,
+    address: FormControl<string | null>,
+    phoneNumber: FormControl<string | null>,
+}
+
+export interface PriceDataForm {
+    net: FormControl<boolean| null>
+    price: FormControl<string | null>,
+    currency: FormControl<string | null>
+}
+
+export interface VehicleDescriptionForm {
+    title: FormControl<string | null>,
+    description: FormControl<string | null>,
+}
+
+export interface TechnicalDataForm {
+    yearOfProduction: FormControl<string | null>,
+    brand: FormControl<string | null>,
+    model: FormControl<string | null>,
+    fuelType: FormControl<string | null>,
+    horsePower: FormControl<string | null>,
+    engineCapacity: FormControl<string | null>,
+    numberOfDoors: FormControl<string | null>,
+    transmission: FormControl<string | null>,
+    version: FormControl<string | null>,
+    generation: FormControl<string | null>,
+    bodyType: FormControl<string | null>,
+    color: FormControl<string | null>,
+}
+
+export interface VehicleTypeForm {
+    vehicleType: FormControl<string | null>,
+}
+
+export interface BasicInfoForm {
+    vin: FormControl<string | null>,
+    mileage: FormControl<string | null>
+}
+
+export interface MainFeaturesForm {
+    destroyed: FormControl<boolean | null>,
+    imported: FormControl<boolean | null>
+}
+
+export interface EquipmentValuesForm {
+    values: FormArray
+}
+
+export interface EquipmentItemsForm {
+    id: number
+    name: string,
+    value: boolean
+}
+
+export interface EquipmentForm {
+    type: string,
+    equipments: FormGroup
+}
+
+export interface AdditionalTechnicalDataForm {
+    drive: FormControl<string | null>,
+    emission: FormControl<string | null>,
+    colorType: FormControl<string | null>,
+    numberOfSeats: FormControl<string | null>
+}
+
+export interface EquipmentTypeForm {
+    equipmentTypes: FormArray
+}

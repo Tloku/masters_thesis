@@ -1,9 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Select, Store } from "@ngxs/store";
-import { Observable, map } from "rxjs";
+import { Observable, debounce, debounceTime, map, tap } from "rxjs";
 import { Equipment } from "src/api/models/equipment";
 import { EquipmentType } from "src/api/models/equipment-type";
+import { AdditionalTechnicalDataForm, EquipmentForm, EquipmentItemsForm, EquipmentTypeForm, EquipmentValuesForm } from "src/api/models/form/create-offer-form";
+import { UpdateAdditionalTechnicalDataForm, UpdateEquipmentTypeForm } from "src/store/actions/create-offer-form.actions";
 import { GetEquipmentTypes } from "src/store/actions/equipment-actions";
 import { EquipmentSelector } from "src/store/selectors/equipment.selector";
 
@@ -26,7 +28,7 @@ export class AdditionalPropertiesComponent implements OnInit {
     technicalDataForm!: FormGroup;
     additionalTechnicalDataForm!: FormGroup;
 
-    equipmentForm: FormGroup = this._fb.group({
+    equipmentForm: FormGroup = this._fb.group<EquipmentTypeForm>({
         equipmentTypes: this._fb.array([])
     })
 
@@ -44,9 +46,6 @@ export class AdditionalPropertiesComponent implements OnInit {
         this._store.dispatch(new GetEquipmentTypes());
         this.technicalDataForm = this._createTechnicalDataForm();
         this.additionalTechnicalDataForm = this._createAdditionalTechnicalData()
-        // this.equipmentFormGroupArray.push(equipmentFormToPush.get("equipments") as FormGroup)  
-
-        this.equipmentForm.valueChanges.subscribe(value => console.log(value))
 
         this.equipmentTypes$.pipe(
             map((equipmentTypes: EquipmentType[]) => {
@@ -56,10 +55,19 @@ export class AdditionalPropertiesComponent implements OnInit {
                 })
             })
         ).subscribe()
+
+        this.equipmentForm.valueChanges.pipe(
+            tap((value: EquipmentTypeForm) => this._store.dispatch(new UpdateEquipmentTypeForm(value))) 
+        ).subscribe()
+
+        this.additionalTechnicalDataForm.valueChanges.pipe(
+            debounceTime(300),
+            tap((value: AdditionalTechnicalDataForm) => this._store.dispatch(new UpdateAdditionalTechnicalDataForm(value)))
+        ).subscribe()
     }
 
     private _createAdditionalTechnicalData(): FormGroup {
-        return this._fb.group({
+        return this._fb.group<AdditionalTechnicalDataForm>({
             drive: this._fb.control<string>('', [Validators.required]),
             emission: this._fb.control<string>('', [Validators.required]),
             colorType: this._fb.control<string>('', [Validators.required]),
@@ -74,9 +82,9 @@ export class AdditionalPropertiesComponent implements OnInit {
     }
 
     private _createEquipmentForm(equipmentTypes: EquipmentType): FormGroup {
-        var equipmentForm: FormGroup = this._fb.group({
+        var equipmentForm: FormGroup = this._fb.group<EquipmentForm>({
             type: equipmentTypes.type,
-            equipments: this._fb.group({
+            equipments: this._fb.group<EquipmentValuesForm>({
                 values: this._fb.array([])
             })
         })
@@ -86,10 +94,10 @@ export class AdditionalPropertiesComponent implements OnInit {
         equipmentTypes.equipments.forEach(
             (equipment: Equipment) => {
                 let formArray = equipmentFormGroup.get('values') as FormArray;
-                formArray.push(this._fb.group({
+                formArray.push(this._fb.group<EquipmentItemsForm>({
                     id: equipment.id,
                     name: equipment.name,
-                    value: [false]
+                    value: false
                 }))
             }
         )
@@ -105,7 +113,6 @@ export class AdditionalPropertiesComponent implements OnInit {
   }
 
   getFormControl(control: AbstractControl | null): FormControl {
-    debugger;
     if (control instanceof FormControl) {
       return control;
     }

@@ -65,32 +65,14 @@
 }
 
 .equipment-checkbox-wrapper {
-    width: 48%;
-    height: 5vh;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border: 1px solid var(--secondary-300);
-    padding-left: 1vw;
-}
-
-:host ::ng-deep .equipment-wrapper .p-accordion .p-accordion-content {
     display: flex;
     flex-wrap: wrap;
     gap: 2vh;
 }
 
-:host ::ng-deep .p-checkbox,
-:host ::ng-deep .p-checkbox .p-checkbox-box {
-    width: 30px !important;
-    height: 30px !important;
-}
-
-:host ::ng-deep .p-checkbox {
-    margin-right: 1vw !important;
-}
-
-:host ::ng-deep .p-checkbox .p-checkbox-box {
-    border-color: var(--main-300);
+.equipment-checkbox {
+    width: 48%;
+    border: 1px solid var(--secondary-300);
+    padding: 10px;
+    border-radius: 5px;
 }

@@ -3,7 +3,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 3vh;
     position: relative;
 }
 
@@ -16,9 +16,9 @@
     margin: 3vh auto;
 }
 
-.main-features,
-.vehicle-description,
-.price {
+.main-features form,
+.vehicle-description form,
+.price form {
     display: flex;
     flex-direction: column;
     gap: 3vh;

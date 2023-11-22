@@ -1,28 +1,31 @@
 <div class="wrapper">
-    <form [formGroup]="form!">
-        <div class="title">
+    <div class="title">
+        <form [formGroup]="vehicleTypeForm">
             <h1>Stwórz ogłoszenie</h1> 
-            <p-dropdown formControlName="vehicleType" [style]="{'width':'100%'}"  inputId="vehicleType" placeholder="Wybierz rodzaj pojazdu"></p-dropdown>
-        </div>
+            <p-dropdown [options]="vehicleTypeOptions" formControlName="vehicleType" [style]="{'width':'100%'}"  inputId="vehicleType" placeholder="Wybierz rodzaj pojazdu"></p-dropdown>
+        </form>
+    </div>
 
-        <div class="vehicle-details">
-            <h1>Dane pojazdu</h1>
+    <div class="vehicle-details">
+        <h1>Dane pojazdu</h1>
 
-            <div class="main-features">
+        <div class="main-features">
+            <form [formGroup]="mainFeaturesForm">
                 <h2>Cechy główne</h2>
                 <div class="row">
                     <h3>Uszkodzony</h3>
-                    <p-selectButton styleClass="main-feature-button" formControlName="destroyed" [options]="stateOptions" [(ngModel)]="value"></p-selectButton>
+                    <p-selectButton styleClass="main-feature-button" formControlName="destroyed" [options]="stateOptions"></p-selectButton>
                 </div>
                 <div class="row">
                     <h3>Importowany</h3>
-                    <p-selectButton formControlName="imported" [options]="stateOptions2" [(ngModel)]="value2"></p-selectButton>
+                    <p-selectButton formControlName="imported" [options]="stateOptions"></p-selectButton>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <div class="basic-info">
-                <h2>Informacje podstawowe</h2>
-
+        <div class="basic-info">
+            <h2>Informacje podstawowe</h2>
+            <form [formGroup]="basicInfoForm">
                 <div class="row">                    
                     <span class="p-float-label">
                         <input [style]="{'width':'100%'}"  pInputText id="vin" formControlName="vin" />
@@ -34,10 +37,13 @@
                         <label htmlFor="mileage">Przebieg</label>
                     </span>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <div class="technical-data">
-                <h2>Dane techniczne</h2>
+        <div class="technical-data">
+            <h2>Dane techniczne</h2>
+
+            <form [formGroup]="technicalDataForm">
 
                 <div class="row">                    
                     <span class="p-float-label">
@@ -65,7 +71,7 @@
 
                 <div class="row">                    
                     <span class="p-float-label">
-                        <input [style]="{'width':'100%'}"  pInputText id="horsepower" formControlName="horsepower" />
+                        <input [style]="{'width':'100%'}"  pInputText id="horsepower" formControlName="horsePower" />
                         <label htmlFor="horsepower">Moc</label>
                     </span>
                     
@@ -110,78 +116,83 @@
                         <label htmlFor="color">Kolor</label>
                     </span>
                 </div>
-            </div>
+            </form>
+        </div>
 
 
-            <div class="image-form">
-                <h2>Zdjęcia</h2>
-                <image-uploader></image-uploader>
-            </div>
+        <div class="image-form">
+            <h2>Zdjęcia</h2>
+            <image-uploader></image-uploader>
+        </div>
 
-            <div class="vehicle-description">
-                <h2>Opis pojazdu</h2>
-                            
+        <div class="vehicle-description">
+            <h2>Opis pojazdu</h2>
+                        
+            <form [formGroup]="vehicleDescriptionForm">
                 <span class="p-float-label">
                     <input [style]="{'width':'100%'}"  pInputText id="title" formControlName="title" />
                     <label htmlFor="title">Tytuł ogłoszenia</label>
                 </span>
-                    
+                
                 <span class="p-float-label">
                     <textarea  rows="8" [style]="{'width':'100%'}" pInputTextarea id="description" formControlName="description" [autoResize]="true"></textarea>
                     <label htmlFor="description">Opis pojazdu</label>
                 </span>
-            </div>
+            </form>
+        </div>
 
 
-            <div class="additional-properties">
-                <h2>Wyświetl dodatkowe szczegóły</h2>
+        <div class="additional-properties">
+            <h2>Wyświetl dodatkowe szczegóły</h2>
+            <additional-properties></additional-properties>
+        </div>
 
-                <additional-properties></additional-properties>
-            </div>
 
+        <div class="price">
+            <h2>Cena</h2>
 
-            <div class="price">
-                <h2>Cena</h2>
+            <form [formGroup]="priceDataForm">
                 <div class="row">
                     <h3>Cena netto</h3>
-                    <p-selectButton styleClass="net-button" formControlName="net" [options]="stateOptions3" [(ngModel)]="value3"></p-selectButton>
+                    <p-selectButton styleClass="net-button" formControlName="net" [options]="stateOptions"></p-selectButton>
                 </div>
-
+                
                 <div class="price-input-row">
                     <span class="p-float-label">
                         <input [style]="{'width':'100%'}"  pInputText id="price" formControlName="price" />
                         <label htmlFor="price">Cena</label>
                     </span>
-
+                    
                     <span class="p-float-label">
                         <input [style]="{'width':'100%'}"  pInputText id="currency" formControlName="currency" />
                         <label htmlFor="currency">Waluta</label>
                     </span>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <div class="dealer-data">
-                <h2>Dane sprzedającego</h2>
-
+        <div class="dealer-data">
+            <h2>Dane sprzedającego</h2>
+            <form [formGroup]="dealerDataForm">
                 <div class="row">
                     <span class="p-float-label">
                         <input [style]="{'width':'100%'}" pInputText id="name" formControlName="name" />
                         <label htmlFor="name">Twoje imię</label>
                     </span>
-
+                    
                     <span class="p-float-label">
                         <input [style]="{'width':'100%'}"  pInputText id="address" formControlName="address" />
                         <label htmlFor="address">Adres</label>
                     </span>
                 </div>
-
+                
                 <div class="half-row">
                     <span class="p-float-label">
                         <input [style]="{'width':'100%'}"  pInputText id="phoneNumber" formControlName="phoneNumber" />
                         <label htmlFor="phoneNumber">Numer telefonu</label>
                     </span>
                 </div>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
