@@ -25,6 +25,8 @@ import { EquipmentState } from 'src/store/states/equipment.state';
 import { EquimpentRestService } from 'src/api/rest-service/equipment.rest-service';
 import { CreateOfferFooterComponent } from 'src/components/create-offer-footer/create-offer-footer.component';
 import { ButtonModule } from 'primeng/button';
+import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+import { CreateOfferFormState } from 'src/store/states/create-offer-form.state';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { ButtonModule } from 'primeng/button';
     GalleriaModule,
     BrowserAnimationsModule,
     ButtonModule,
-    NgxsModule.forRoot([OfferState, EquipmentState])
+    NgxsModule.forRoot([OfferState, EquipmentState, CreateOfferFormState]),
+    NgxsFormPluginModule.forRoot()
   ],
   providers: [OfferRestService, EquimpentRestService  ],
   bootstrap: [AppComponent],
