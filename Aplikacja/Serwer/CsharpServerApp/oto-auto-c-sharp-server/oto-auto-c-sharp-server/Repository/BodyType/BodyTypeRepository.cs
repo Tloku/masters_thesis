@@ -1,4 +1,4 @@
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.BodyType;
@@ -13,6 +13,13 @@ public class BodyTypeRepository: IBodyTypeRepository
     {
         _replicaContext = replicaContext;
         _masterContext = masterContext;
+    }
+
+    public async Task<BodyType?> GetBodyTypeByType(string bodyType)
+    {
+        return await _replicaContext.BodyType
+            .Where(bt => bt.Type.Equals(bodyType))
+            .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<BodyType>> GetBodyTypes()

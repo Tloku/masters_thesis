@@ -1,0 +1,44 @@
+.offer-view-price-wrapper {
+    width: 20vw;
+    min-height: 50px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-view-price-wrapper .offer-title h2 {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+}
+
+.offer-view-price-wrapper .offer-title {
+    padding: 10px 0;
+}
+
+.offer-info {
+    font-size: 1em;
+    font-weight: bolder;
+}
+
+.offer-view-price-wrapper .offer-price {
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding: 10px 0;
+    margin-top: 8px;
+    color: var(--main-500);
+    align-self: flex-start;
+}
+
+.loan-wrapper {
+    width: 100%;
+    padding: 20px 10px;
+    background-color: var(--main-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loan-wrapper .value span {
+    font-size: 1.1em;
+    font-weight: bolder;
+}

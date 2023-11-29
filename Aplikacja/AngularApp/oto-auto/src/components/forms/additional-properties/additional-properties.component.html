@@ -46,13 +46,31 @@
             <div class="equipment-wrapper">
                 <form [formGroup]="equipmentForm">
                     <p-accordion [multiple]="true">
-                        <div class="equipment-wrapper" formArrayName="equipmentTypes">
-                            <ng-container *ngFor="let equipmentForm of getEquipmentTypesFromEquipmentForm().controls; let i = index" [formGroupName]="i">
-                                <p-accordionTab iconPos="end" header="{{ equipmentForm.get('type')!.value }}">
+                        <div 
+                            class="equipment-wrapper"
+                            formArrayName="equipmentTypes">
+                            <ng-container 
+                                *ngFor="let equipmentForm of getEquipmentTypesFromEquipmentForm().controls; let i = index"
+                                [formGroupName]="i"
+                            >
+                                <p-accordionTab 
+                                    iconPos="end"
+                                    header="{{ equipmentForm.get('type')!.value }}"
+                                >
                                     <ng-container formGroupName="equipments"> 
-                                        <div class="equipment-checkbox-wrapper" formArrayName="values" *ngIf="equipmentForm.get('equipments')?.get('values') instanceof FormArray">
-                                            <div class="equipment-checkbox" *ngFor="let equipment of getFormArrayControls(equipmentForm.get('equipments')!.get('values')); let j = index" [formGroupName]="j">
-                                                <input type="checkbox" [formControl]="getFormControl(equipment.get('value'))" />
+                                        <div 
+                                            class="equipment-checkbox-wrapper"
+                                            formArrayName="values"
+                                            *ngIf="equipmentForm.get('equipments')?.get('values') instanceof FormArray"
+                                        >
+                                            <div 
+                                                class="equipment-checkbox"
+                                                *ngFor="let equipment of getFormArrayControls(equipmentForm.get('equipments')!.get('values')); let j = index" 
+                                                [formGroupName]="j"
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    [formControl]="getFormControl(equipment.get('value'))" />
                                                 <label>
                                                     {{ equipment.get('name')!.value }}
                                                 </label>

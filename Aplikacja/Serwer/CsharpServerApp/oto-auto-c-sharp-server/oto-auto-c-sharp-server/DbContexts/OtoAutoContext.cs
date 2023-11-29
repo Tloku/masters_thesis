@@ -31,7 +31,7 @@ public class OtoAutoContext<T> : DbContext where T : DbContext
     public DbSet<BodyType> BodyType { get; set; } = null!;
     public DbSet<FuelType> FuelType { get; set; } = null!;
     public DbSet<TransmissionType> TransmissionType { get; set; } = null!;
-    public DbSet<Dealer> Dealer { get; set; } = null!;
+    public DbSet<Dealer?> Dealer { get; set; } = null!;
     public DbSet<EquipmentType> EquipmentType { get; set; } = null!;
     public DbSet<Equipment> Equipment { get; set; } = null!;
     public DbSet<CarStatus> CarStatus { get; set; } = null!;

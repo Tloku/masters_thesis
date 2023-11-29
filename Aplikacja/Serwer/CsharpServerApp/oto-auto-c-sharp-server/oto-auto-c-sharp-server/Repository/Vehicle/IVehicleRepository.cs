@@ -7,4 +7,5 @@ public interface IVehicleRepository
     Task<IEnumerable<Vehicle>> GetVehiclesAsync();
 
     Task<IEnumerable<Vehicle>> GetVehiclesByBrandAsync(string brand);
+    Task<int> CreateVehicle(Vehicle newVehicle);
 }

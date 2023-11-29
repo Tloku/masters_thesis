@@ -14,12 +14,12 @@ class DealerMediator: IDealerAdapter
         _dealerRepository = dealerRepository;
     }
     
-    public Task<IEnumerable<Dealer>> GetAllDealers()
+    public Task<IEnumerable<Dealer?>> GetAllDealers()
     {
         return _dealerRepository.GetAllDealers();
     }
 
-    public Task<Dealer> GetDealerById(int id)
+    public Task<Dealer?> GetDealerById(int id)
     {
         if (id < 0)
         {

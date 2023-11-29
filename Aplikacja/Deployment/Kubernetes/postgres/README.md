@@ -105,6 +105,13 @@ chmod +x initdb.sh
 ./initdb.sh
 ~~~~
 
+Możliwe, że pojawi się błąd związany z interpreterem basha. Należy wtedy wykonać komendę
+
+~~~~
+sed -i -e 's/\r$//' initdb.sh
+~~~~
+
+
 Teraz powinny wykonywać się skrypty. Po zakończeniu możemy sprawdzić na replikach, czy dane się przekopiowały. Po tym kroku nasza baza jest już gotowa do użytkowania.
 
 

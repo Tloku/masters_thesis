@@ -12,4 +12,10 @@ public class VehicleImageRepository: IVehicleImageRepository
         _masterContext = masterContext;
         _replicaContext = replicaContext;
     }
+
+    public async Task CreateVehicleImages(IEnumerable<Entities.VehicleImage> vehicleImages)
+    {
+        _masterContext.VehicleImage.AddRange(vehicleImages);
+        await _masterContext.SaveChangesAsync();
+    }
 }

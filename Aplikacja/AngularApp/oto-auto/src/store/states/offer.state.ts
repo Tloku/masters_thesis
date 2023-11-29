@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
 import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../model/offer-card-component.model";
-import { GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../actions/offer-actions";
+import { CreateOffer, CreateOfferFailure, CreateOfferSuccess, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../actions/offer-actions";
 import { OfferRestService } from "src/api/rest-service/offer.rest-service";
 import { catchError, map } from "rxjs";
-import { GetAwardedOffersResponse } from "src/api/models/get-awarded-offers-response";
+import { CreateOfferResponse } from "src/api/models/create-offer-response";
+import { Router } from "@angular/router";
+import { MessageService } from "primeng/api";
 
 @State<OfferCardComponentStateModel>({
     name: "offerCards",
@@ -30,7 +32,11 @@ import { GetAwardedOffersResponse } from "src/api/models/get-awarded-offers-resp
 @Injectable()
 export class OfferState {
 
-    constructor(private _restService: OfferRestService) {}
+    constructor(
+        private router: Router,
+        private _restService: OfferRestService,
+        private _messageService: MessageService,
+        ) {}
 
 
     @Action(GetAwardedOffers)
@@ -83,4 +89,20 @@ export class OfferState {
         console.log(action.error);
     }
 
+
+    @Action(CreateOffer)
+    createOffer(ctx: StateContext<OfferCardComponentStateModel>, action: CreateOffer) {
+
+        return this._restService.createOffer(action.createOfferForm)
+            .pipe(
+                map((response: CreateOfferResponse) => ctx.dispatch(new CreateOfferSuccess(response.offerId))),
+                catchError(error => ctx.dispatch(new CreateOfferFailure(error)))
+            )
+    }
+
+    @Action(CreateOfferSuccess)
+    createOfferSuccess(ctx: StateContext<OfferCardComponentStateModel>, action: CreateOfferSuccess) {
+        this._messageService.add({ key: 'toast', severity: 'success', summary: 'Oferta utworzona', detail: 'Udało się utworzyć twoją ofertę!' });
+        this.router.navigateByUrl("/offer/" + action.offerId);
+    }
 }

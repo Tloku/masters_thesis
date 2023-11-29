@@ -3,6 +3,8 @@ using Offer = oto_auto_c_sharp_server.Entities.Offer;
 
 public interface IOfferRepository
 {
+    Task<int> CreateOffer(Offer offer);
+    
     Task<IEnumerable<Offer>> GetAllOffers();
 
     Task<Offer?> GetOfferWithVehicleByOfferId(int offerId);

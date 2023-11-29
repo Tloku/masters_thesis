@@ -9,11 +9,18 @@ class OfferRepository: IOfferRepository
 {
     private readonly MasterContext _masterContext;
     private readonly ReplicaContext _replicaContext;
-    
+
     public OfferRepository(MasterContext masterContext, ReplicaContext replicaContext)
     {
         _masterContext = masterContext;
         _replicaContext = replicaContext;
+    }
+
+    public async Task<int> CreateOffer(Offer offer)
+    {
+        var newOffer = _masterContext.Add(offer);
+        await _masterContext.SaveChangesAsync();
+        return newOffer.Entity.Id;
     }
 
     public async Task<IEnumerable<Offer>> GetAllOffers()
@@ -43,7 +50,7 @@ class OfferRepository: IOfferRepository
         var total = _replicaContext.Offer.Count();
         Random r = new Random();
         var offset = r.Next(0, total - 10);
-        
+       
         return await _replicaContext.Offer
             .Skip(offset)
             .Take(10)

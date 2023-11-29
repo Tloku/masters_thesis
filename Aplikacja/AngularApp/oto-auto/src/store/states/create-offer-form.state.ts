@@ -8,7 +8,7 @@ import { UpdateAdditionalTechnicalDataForm, UpdateBasicInfoForm, UpdateDealerDat
     defaults: {
         dealerDataForm: undefined,
         offerImages: undefined,
-        priceDataFrom: undefined,
+        priceDataForm: undefined,
         equipmentTypeForm: undefined,
         additionalTechnicalDataForm: undefined,
         vehicleDescription: undefined,
@@ -24,7 +24,7 @@ export class CreateOfferFormState {
     @Action(UpdateBasicInfoForm)
     updateBasicInfoForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateBasicInfoForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
             basicInfo: action.basicInfo
@@ -34,7 +34,7 @@ export class CreateOfferFormState {
     @Action(UpdateDealerDataForm)
     updateDealerDataForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateDealerDataForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
             dealerDataForm: action.dealerDataForm
@@ -64,17 +64,17 @@ export class CreateOfferFormState {
     @Action(UpdatePriceDataForm)
     updatePriceDataForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdatePriceDataForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
-            priceDataFrom: action.priceDataForm
+            priceDataForm: action.priceDataForm
         })
     }
 
     @Action(UpdateAdditionalTechnicalDataForm)
     updateAdditionalTechnicalDataForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateAdditionalTechnicalDataForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
             additionalTechnicalDataForm: action.additionalTechnicalData
@@ -84,7 +84,7 @@ export class CreateOfferFormState {
     @Action(UpdateEquipmentTypeForm)
     updateEquipmentTypeForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateEquipmentTypeForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
             equipmentTypeForm: action.equipmentTypes
@@ -94,7 +94,7 @@ export class CreateOfferFormState {
     @Action(UpdateVehicleDescriptionForm)
     updateVehicleDescriptionForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateVehicleDescriptionForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
             vehicleDescription: action.vehicleDescription
@@ -104,7 +104,7 @@ export class CreateOfferFormState {
     @Action(UpdateTechnicalDataForm)
     updateTechnicalDataForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateTechnicalDataForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
             technicalDataForm: action.technicalData
@@ -115,7 +115,7 @@ export class CreateOfferFormState {
     updateVehicleTypeForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateVehicleTypeForm) {
         const state = ctx.getState();
 
-        debugger;
+        
         ctx.setState({
             ...state,
             vehicleType: action.vehicleType
@@ -125,7 +125,7 @@ export class CreateOfferFormState {
     @Action(UpdateMainFeaturesForm)
     updateMainFeaturesForm(ctx: StateContext<CreateOfferFormStateModel>, action: UpdateMainFeaturesForm) {
         const state = ctx.getState();
-        debugger;
+        
         ctx.setState({
             ...state,
             mainFeatures: action.mainFeatures

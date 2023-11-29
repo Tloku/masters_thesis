@@ -1,5 +1,6 @@
 import { GetAwardedOffersResponse } from "src/api/models/get-awarded-offers-response"
 import { OfferActivityComponentModel, OfferCardComponentModel } from "../model/offer-card-component.model"
+import { CreateOfferFormStateModel } from "src/api/models/form/create-offer-form"
 
 export class GetAwardedOffers {
     static readonly type: string = '[Get Awarded Offers] Get awarded offers'
@@ -29,4 +30,19 @@ export class GetOfferByIdSuccess {
 export class GetOfferByIdFailure {
     static readonly type: string = "[Get Offer By Id] Get Offer by id failure"
     constructor(public error: any) {}
+}
+
+export class CreateOffer {
+    static readonly type: string = "[Create Offer] Create offer"
+    constructor(public createOfferForm: CreateOfferFormStateModel) {} 
+}
+
+export class CreateOfferSuccess {
+    static readonly type: string = "[Create Offer] Create offer Success"
+    constructor(public offerId: number) {} 
+}
+
+export class CreateOfferFailure {
+    static readonly type: string = "[Create Offer] Create offer failure"
+    constructor(public error: any) {} 
 }

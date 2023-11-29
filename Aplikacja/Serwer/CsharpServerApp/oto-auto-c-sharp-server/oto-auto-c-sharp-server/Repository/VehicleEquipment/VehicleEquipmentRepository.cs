@@ -24,4 +24,10 @@ public class VehicleEquipmentRepository: IVehicleEquipmentRepository
             .Include(v => v.Equipment)
             .ToListAsync();
     }
+
+    public async Task CreateVehicleEquipments(IEnumerable<VehicleEquipment> vehicleEquipments)
+    {
+        _masterContext.VehicleEquipment.AddRange(vehicleEquipments);
+        await _masterContext.SaveChangesAsync();
+    }
 }

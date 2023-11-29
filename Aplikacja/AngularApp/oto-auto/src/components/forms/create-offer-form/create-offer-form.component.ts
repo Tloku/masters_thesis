@@ -29,7 +29,6 @@ export class CreateOfferFormComponent implements OnInit {
     private _store: Store
   ) {}
 
-
   ngOnInit(): void {
     this.vehicleTypeForm = this._createVehicleTypeForm();
     this.mainFeaturesForm = this._createMainFeaturesForm();
@@ -118,7 +117,7 @@ export class CreateOfferFormComponent implements OnInit {
 
   private _createVehicleTypeForm(): FormGroup {
     return this._fb.group<VehicleTypeForm>({
-      vehicleType: this._fb.control<string>('')
+      type: this._fb.control<string>('')
     })
   }
 

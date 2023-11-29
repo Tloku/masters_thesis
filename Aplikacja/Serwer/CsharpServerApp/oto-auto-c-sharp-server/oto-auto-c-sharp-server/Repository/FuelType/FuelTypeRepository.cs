@@ -1,4 +1,4 @@
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.FuelType;
@@ -13,6 +13,13 @@ class FuelTypeRepository: IFuelTypeRepository
     {
         _masterContext = masterContext;
         _replicaContext = replicaContext;
+    }
+
+    public async Task<FuelType?> GetFuelTypeByType(string type)
+    {
+        return await _replicaContext.FuelType
+            .Where(ft => ft.Type.Equals(type))
+            .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<FuelType>> GetFuelTypes()

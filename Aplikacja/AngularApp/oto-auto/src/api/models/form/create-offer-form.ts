@@ -4,7 +4,7 @@ import { EquipmentType } from "../equipment-type"
 export interface CreateOfferFormStateModel {
     dealerDataForm?: DealerDataForm,
     offerImages?: OfferImagesForm[]
-    priceDataFrom?: PriceDataForm,
+    priceDataForm?: PriceDataForm,
     equipmentTypeForm?: EquipmentTypeForm,
     additionalTechnicalDataForm?: AdditionalTechnicalDataForm,
     vehicleDescription?: VehicleDescriptionForm,
@@ -53,7 +53,7 @@ export interface TechnicalDataForm {
 }
 
 export interface VehicleTypeForm {
-    vehicleType: FormControl<string | null>,
+    type: FormControl<string | null>,
 }
 
 export interface BasicInfoForm {

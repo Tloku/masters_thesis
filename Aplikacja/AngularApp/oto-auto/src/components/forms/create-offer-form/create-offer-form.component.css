@@ -3,6 +3,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    
     gap: 3vh;
     position: relative;
 }
@@ -21,6 +22,7 @@
 .price form {
     display: flex;
     flex-direction: column;
+    
     gap: 3vh;
 }
 
@@ -31,6 +33,7 @@
     height: 50px;
     align-items: center;
     justify-content: space-between;
+    
     border-bottom: 1px solid var(--secondary-300);
 }
 
@@ -103,6 +106,7 @@
 .basic-info .row {
     width: 100%;
     display: flex;
+    
     gap: 2vw;
 }
 
@@ -117,6 +121,7 @@
 .dealer-data .row {
     width: 100%;
     display: flex;
+    
     gap: 2vw;
     margin-bottom: 4vh;
 }

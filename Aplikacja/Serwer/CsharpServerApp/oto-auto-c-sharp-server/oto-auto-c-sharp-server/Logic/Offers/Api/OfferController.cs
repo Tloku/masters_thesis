@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using oto_auto_c_sharp_server.Entities;
 using oto_auto_c_sharp_server.Logic.Offers.Models;
+using oto_auto_c_sharp_server.Logic.Offers.Models.CreateOffer;
 
 namespace oto_auto_c_sharp_server.Logic.Offers.Api;
 
@@ -48,5 +49,12 @@ public class OfferController: ControllerBase
     {
         var offer = await _offerAdapter.GetOfferById(offerId);
         return Ok(offer);
+    }
+
+    [HttpPost("create")]
+    public async Task<ActionResult<CreateOfferResponse>> CreateOffer(CreateOfferRequest request)
+    {
+        var offerId = await _offerAdapter.CreateOffer(request);
+        return Ok(offerId);
     }
 }   

@@ -8,15 +8,6 @@ CREATE TABLE Car_status (
   status varchar(50) NOT NULL UNIQUE, 
   PRIMARY KEY (id));
 
-CREATE TABLE Dealer (
-  id           SERIAL NOT NULL, 
-  name         varchar(50) NOT NULL, 
-  site_url     varchar(2000), 
-  phone_number varchar(13) NOT NULL, 
-  is_private   boolean NOT NULL, 
-  address      varchar(50), 
-  PRIMARY KEY (id));
-
 CREATE TABLE Drive_type (
   id   SERIAL NOT NULL, 
   type varchar(50) NOT NULL UNIQUE, 
@@ -38,25 +29,6 @@ CREATE TABLE Fuel_type (
   type varchar(50) NOT NULL UNIQUE, 
   PRIMARY KEY (id));
 
-CREATE TABLE Vehicle_Image (
-  id SERIAL NOT NULL,
-  path_to_image varchar(300) NOT NULL,
-  is_main_image boolean NOT NULL,
-  offer_id int4 NOT NULL,
-  PRIMARY KEY (id));
-
-CREATE TABLE Offer (
-  id              SERIAL NOT NULL, 
-  name            varchar(50) NOT NULL, 
-  creation_date   date NOT NULL, 
-  expiration_date date NOT NULL, 
-  price           varchar(20) NOT NULL, 
-  currency        varchar(5) NOT NULL, 
-  description     varchar(300), 
-  Dealer_id       int4 NOT NULL, 
-  Vehicle_id      int4 NOT NULL, 
-  PRIMARY KEY (id));
-
 CREATE TABLE Transmission_type (
   id   SERIAL NOT NULL, 
   type varchar(50) NOT NULL UNIQUE, 
@@ -65,6 +37,15 @@ CREATE TABLE Transmission_type (
 CREATE TABLE Vehicle_type (
   id   SERIAL NOT NULL, 
   type varchar(50) NOT NULL UNIQUE, 
+  PRIMARY KEY (id));
+
+CREATE TABLE Dealer (
+  id           SERIAL NOT NULL, 
+  name         varchar(50) NOT NULL, 
+  site_url     varchar(2000), 
+  phone_number varchar(13) NOT NULL, 
+  is_private   boolean NOT NULL, 
+  address      varchar(50), 
   PRIMARY KEY (id));
 
 CREATE TABLE Vehicle (
@@ -94,16 +75,37 @@ CREATE TABLE Vehicle (
   Car_status_id           int4 NOT NULL, 
   Transmission_type_id    int4 NOT NULL, 
   Fuel_type_id            int4 NOT NULL, 
-  Equipment_type_id       int4 NOT NULL, 
+  Equipment_type_id       int4, 
   dealer_id               int4 NOT NULL, 
   PRIMARY KEY (id));
 
+  
 CREATE TABLE Vehicle_Equipment (
   id SERIAL NOT NULL,
   vehicle_id int4 NOT NULL,
   equipment_id int4 NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE Offer (
+  id              SERIAL NOT NULL, 
+  name            varchar(50) NOT NULL, 
+  creation_date   date NOT NULL, 
+  expiration_date date NOT NULL, 
+  price           varchar(20) NOT NULL, 
+  currency        varchar(5) NOT NULL, 
+  description     varchar(300), 
+  Dealer_id       int4 NOT NULL, 
+  Vehicle_id      int4 NOT NULL, 
+  PRIMARY KEY (id));
+
+CREATE TABLE Vehicle_Image (
+  id SERIAL NOT NULL,
+  path_to_image varchar(300) NOT NULL,
+  is_main_image boolean NOT NULL,
+  offer_id int4 NOT NULL,
+PRIMARY KEY (id));
+
 
 
 ALTER TABLE Vehicle_Image ADD CONSTRAINT FKVehicleImage0001 FOREIGN KEY (offer_id) REFERENCES Offer (id);

@@ -8,4 +8,4 @@ public class GetEquipmentResponse
     }
 
     public IEnumerable<EquipmentTypeDto> EquipmentTypes { get; }
-}
+}    

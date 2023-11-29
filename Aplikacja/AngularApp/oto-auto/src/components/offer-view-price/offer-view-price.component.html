@@ -1,0 +1,31 @@
+<div class="offer-view-price-wrapper" *ngIf="offer$ | async as offer">
+    <div class="offer-title">
+        <h2>
+            {{ offer.offerTitle }}
+        </h2>
+    </div>
+
+    <div class="offer-info">
+        <span> {{ offer.yearOfProduction }} </span>
+        <span> {{ offer.mileage }} </span>
+        <span> {{ offer.fuelType }} </span>
+        <span> {{ offer.engineCapacity }} </span>
+    </div>
+
+    <span class="offer-price"> {{ offer.offerPrice }} PLN </span>
+
+    <div class="loan-wrapper" *ngIf="offer.offerPrice">
+        <div class="value">
+            Lub od <br>
+            <span>
+                {{ getNumberFromString(offer.offerPrice) / 12  }} PLN
+            </span> /mc
+        </div>
+
+        <div>
+            <p-button
+                label="Sprawdź stawkę"
+            ></p-button>
+        </div>
+    </div>
+</div>

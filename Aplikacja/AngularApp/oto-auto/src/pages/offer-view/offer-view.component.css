@@ -1,9 +1,9 @@
 .offer-view-wrapper {
     display: flex;
-    flex-wrap: wrap;
     width: 60%;
     margin: auto;
     margin-top: 5vh;
+    padding-bottom: 5vh;
     justify-content: space-between;
 }
 
@@ -21,9 +21,5 @@
 }
 
 .offer-view-price {
-    display: flex;
-    width: 30%;
-    height: fit-content;
-    min-height: 100px;
-    background-color: black;
-}   
+    margin-left: 2vw;
+}

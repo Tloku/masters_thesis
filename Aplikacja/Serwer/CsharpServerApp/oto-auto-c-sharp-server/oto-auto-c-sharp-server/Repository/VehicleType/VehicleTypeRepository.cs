@@ -1,4 +1,4 @@
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.VehicleType;
@@ -12,6 +12,13 @@ class VehicleTypeRepository: IVehicleTypeRepository
     {
         _masterContext = masterContext;
         _replicaContext = replicaContext;
+    }
+
+    public async Task<VehicleType?> GetVehicleTypeByType(string type)
+    {
+        return await _replicaContext.VehicleType
+            .Where(vt => vt.Type.Equals(type))
+            .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<VehicleType>> GetVehicleTypes()

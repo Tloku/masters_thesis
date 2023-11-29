@@ -26,4 +26,11 @@ public class VehicleRepository: IVehicleRepository
             .Where(vehicle => vehicle.Brand.ToLower().Equals(brand.ToLower()))
             .ToListAsync();
     }
+
+    public async Task<int> CreateVehicle(Vehicle newVehicle)
+    {
+        var vehicle = _masterContext.Vehicle.Add(newVehicle);
+        await _masterContext.SaveChangesAsync();
+        return vehicle.Entity.Id;
+    }
 }

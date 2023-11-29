@@ -1,4 +1,5 @@
-using System.Data.Entity;
+
+using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.DriveType;
@@ -13,6 +14,13 @@ public class DriveTypeRepository: IDriveTypeRepository
     {
         _masterContext = masterContext;
         _replicaContext = replicaContext;
+    }
+    
+    public async Task<DriveType?> GetDriveTypeByType(string type)
+    {
+        return await _replicaContext.DriveType
+            .Where(dt => dt.Type.Equals(type))
+            .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<DriveType>> GetDriveTypes()

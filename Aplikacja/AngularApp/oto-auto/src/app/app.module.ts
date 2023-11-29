@@ -27,6 +27,9 @@ import { CreateOfferFooterComponent } from 'src/components/create-offer-footer/c
 import { ButtonModule } from 'primeng/button';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { CreateOfferFormState } from 'src/store/states/create-offer-form.state';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { OfferViewPriceComponent } from 'src/components/offer-view-price/offer-view-price.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { CreateOfferFormState } from 'src/store/states/create-offer-form.state';
     OfferDetailsComponent,
     CreateOfferComponent,
     CreateOfferFooterComponent,
+    OfferViewPriceComponent
   ],
   imports: [
     BrowserModule,
@@ -53,10 +57,11 @@ import { CreateOfferFormState } from 'src/store/states/create-offer-form.state';
     GalleriaModule,
     BrowserAnimationsModule,
     ButtonModule,
+    ToastModule,
     NgxsModule.forRoot([OfferState, EquipmentState, CreateOfferFormState]),
     NgxsFormPluginModule.forRoot()
   ],
-  providers: [OfferRestService, EquimpentRestService  ],
+  providers: [OfferRestService, EquimpentRestService, MessageService ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -2,4 +2,9 @@
     width: 100%;
     height: fit-content;
     background-color: var(--secondary-100);
+    padding-top: 5vh;
+}
+
+.toast {
+    z-index: 10000000;
 }

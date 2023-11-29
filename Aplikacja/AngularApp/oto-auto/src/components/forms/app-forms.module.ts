@@ -14,9 +14,6 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { AccordionModule } from 'primeng/accordion';
 import { AdditionalPropertiesComponent } from './additional-properties/additional-properties.component';
 import { CheckboxModule } from 'primeng/checkbox';
-import { AsFormArrayPipe } from 'src/pipes/as-form-array';
-import { AsFormGroupPipe } from 'src/pipes/as-form-group';
-import { AsFormControlPipe } from 'src/pipes/as-form-control';
 
 
 @NgModule({
@@ -27,9 +24,6 @@ import { AsFormControlPipe } from 'src/pipes/as-form-control';
     ImageUploaderComponent,
     ImageDragAndDropDirective,
     AdditionalPropertiesComponent,
-    AsFormArrayPipe,
-    AsFormGroupPipe,
-    AsFormControlPipe
   ],
   imports: [
     CommonModule,

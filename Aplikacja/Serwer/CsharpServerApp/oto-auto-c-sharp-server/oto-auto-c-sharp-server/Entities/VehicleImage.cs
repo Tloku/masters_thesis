@@ -27,4 +27,8 @@ public class VehicleImage
         PathToImage = pathToImage;
         IsMainImage = isMainImage;
     }
+
+    public VehicleImage()
+    {
+    }
 }

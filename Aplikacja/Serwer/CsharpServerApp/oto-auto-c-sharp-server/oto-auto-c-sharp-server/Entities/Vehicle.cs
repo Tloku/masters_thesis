@@ -105,6 +105,8 @@ public class Vehicle
 
     public virtual Dealer Dealer { get; set; }
 
+    public Vehicle() {}
+    
     public Vehicle(bool isImported, bool hasRegistrationNumber, string brand, string model, string generation, string yearOfProduction, string mileage, string mileageUnit, int co2Emission, int doorsNumber, int sitsNumber, string color, string colorType, string originCountry, bool registeredInPoland, bool hasCrashed, int engineCapacity)
     {
         IsImported = isImported;

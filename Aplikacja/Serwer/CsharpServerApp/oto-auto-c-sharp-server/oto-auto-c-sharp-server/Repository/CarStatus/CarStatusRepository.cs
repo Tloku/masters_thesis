@@ -1,4 +1,4 @@
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
 
 namespace oto_auto_c_sharp_server.Repository.CarStatus;
@@ -17,5 +17,12 @@ public class CarStatusRepository: ICarStatusRepository
     public async Task<IEnumerable<CarStatus>> GetCarStatuses()
     {
         return await _replicaContext.CarStatus.ToListAsync();
+    }
+
+    public async Task<CarStatus?> GetCarStatus(string status)
+    {
+        return await _replicaContext.CarStatus
+            .Where(cs => cs.Status.Equals(status))
+            .FirstOrDefaultAsync();
     }
 }

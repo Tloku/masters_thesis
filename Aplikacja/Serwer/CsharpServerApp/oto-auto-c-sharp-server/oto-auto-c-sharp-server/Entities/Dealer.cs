@@ -32,7 +32,7 @@ public class Dealer
     
     
 
-    public Dealer(string name, string phoneNumber, bool isPrivate)
+    public Dealer(string? name, string phoneNumber, bool isPrivate)
     {
         Name = name;
         PhoneNumber = phoneNumber;
