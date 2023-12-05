@@ -30,8 +30,6 @@ public class Dealer
     
     public virtual ICollection<Vehicle> Vehicles { get; } = new List<Vehicle>();
     
-    
-
     public Dealer(string? name, string phoneNumber, bool isPrivate)
     {
         Name = name;

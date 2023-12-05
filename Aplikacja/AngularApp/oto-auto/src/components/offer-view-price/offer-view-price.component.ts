@@ -16,6 +16,10 @@ export class OfferViewPriceComponent {
     
 
     getNumberFromString(num: string): number {
-        return parseInt(num);
+        return parseInt(num.replace(" ", ""));
+    }
+
+    getLoanFromNumber(num: string): number {
+        return Math.round(this.getNumberFromString(num) / 12)
     }
 }

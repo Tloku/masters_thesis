@@ -119,6 +119,13 @@ Teraz powinny wykonywać się skrypty. Po zakończeniu możemy sprawdzić na rep
 # Połącznenie się na localhoscie z bazą znajdującą się w minikubie
 
 Aby połączyć się z bazą danych na minikubie musimy mieć service'y, które będą przekierowywać nas do statefulsetów. Następnym krokiem jest port-forwardowanie query z localhosta na minikube.
+
+Serwis replik jest typu load balancer. Load balancing nie będzie prawidłowo działał dla tego serwisu, ponieważ external IP będzie ciągle w statusie pending. By rozwiązać ten problem, należy użyć komendy
+
+~~~~
+minikube tunnel
+~~~~
+
 Robi się to komendą:
 
 ~~~~

@@ -12,13 +12,13 @@
         <span> {{ offer.engineCapacity }} </span>
     </div>
 
-    <span class="offer-price"> {{ offer.offerPrice }} PLN </span>
+    <span class="offer-price"> {{ offer.offerPrice }} </span>
 
     <div class="loan-wrapper" *ngIf="offer.offerPrice">
         <div class="value">
             Lub od <br>
             <span>
-                {{ getNumberFromString(offer.offerPrice) / 12  }} PLN
+                {{ getLoanFromNumber(offer.offerPrice)  }} PLN
             </span> /mc
         </div>
 

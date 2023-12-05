@@ -98,7 +98,7 @@ public class Vehicle
     
     public virtual VehicleType VehicleType { get; set; }
 
-    public virtual Offer? Offer { get; set; }
+    public virtual Offer? Offer { get; set; } //TODO delete
     
     [Column("dealer_id")]
     public int DealerId { get; set; }
