@@ -1,68 +1,66 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+    --main-100: #F6FAFB;
+    --main-200: #DCF5FC;
+    --main-300: #ABEAFB;
+    --main-400: #8AE4FC;
+    --main-500: #61DBFB;
+    --main-600: #35B6D8;
+    --main-700: #2185A0;
+    --main-800: #105668;
+    --main-900: #00303D;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+    --green-100: #EBFFEF;
+    --green-200: #D1FFDB;
+    --green-300: #ABFFBC;
+    --green-400: #8AFCA1;
+    --green-500: #61FA83;
+    --green-600: #36D85A;
+    --green-700: #20A13C;
+    --green-800: #106923;
+    --green-900: #003D0D;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    --orange-100: #FFEBEB;
+    --orange-200: #FFD1D1;
+    --orange-300: #FFABAB;
+    --orange-400: #FC8B8B;
+    --orange-500: #FA6161;
+    --orange-600: #D93636;
+    --orange-700: #871B1B;
+    --orange-800: #691010;
+    --orange-900: #3D0000;
+
+    --blue-100: #EBF6FF;
+    --blue-200: #D1ECFF;
+    --blue-300: #ABDCFF;
+    --blue-400: #8BCDFC;
+    --blue-500: #61BAFA;
+    --blue-600: #3694D9;
+    --blue-700: #206BA1;
+    --blue-800: #104369;
+    --blue-900: #00233D;
+
+    --yellow-100: #FFF8EB;
+    --yellow-200: #FFEFD1;
+    --yellow-300: #FFE2AB;
+    --yellow-400: #FCD68B;
+    --yellow-500: #FAC661;
+    --yellow-600: #D9A136;
+    --yellow-700: #A17520;
+    --yellow-800: #735316;
+    --yellow-900: #3D2800;
+
+    --secondary-100: #EBFBFF;
+    --secondary-200: #D7E5E8;
+    --secondary-300: #A9B9BD;
+    --secondary-400: #838F93;
+    --secondary-500: #687274;
+    --secondary-600: #455A5E;
+    --secondary-700: #25444A;
+    --secondary-800: #123E46;
+    --secondary-900: #00323D;
 }

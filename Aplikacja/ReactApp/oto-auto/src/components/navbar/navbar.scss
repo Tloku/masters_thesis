@@ -1,0 +1,83 @@
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--main-100);
+    display: flex;
+    width: 100%;
+    box-shadow: 0px 1px 2px var(--secondary-800);
+    margin-bottom: 1px;
+    z-index: 10000;
+
+
+    .logo {
+        color: transparent;
+        min-width: 250px;
+        text-align: center;
+        top: 8px;
+        margin: auto;
+        font-size: 40px;
+        font-weight: bolder;
+        font-style: italic;
+        -webkit-background-clip: text;
+        background-clip: text;
+        letter-spacing: 1px;
+        background-image: linear-gradient(109deg, rgba(89, 131, 252, 1) 16%, rgba(221, 27, 22, 1) 20%, rgba(89, 131, 252, 1) 40%, rgba(89, 131, 252, 1) 49%, rgba(221, 27, 22, 1) 67%, rgba(89, 131, 252, 1) 87%);
+        z-index: 999;
+        user-select: none;
+        overflow: hidden;
+        white-space: nowrap;
+    
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+
+ul {
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: flex-end;
+    align-items: center;
+
+    li {
+        font-weight: 600;
+        text-align: center;
+        display: block;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+        min-width: 7vw;
+        user-select: none;
+        color: var(--main-900);
+    
+    
+        &:not(:last-child):not(:nth-child(3)) {
+            border-right: 1px solid var(--secondary-800);
+        }
+
+        &:not(:last-child):hover {
+            background-color: var(--main-200);
+        }
+
+        &:last-child {
+            border-radius: 3px;
+            min-width: 10vw;
+            margin-left: 1vw;
+            margin-right: 2vw;
+            color: var(--main-100);
+            box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.2);
+            background-color: var(--main-500);
+            border-radius: 3px;
+        
+            &:hover {
+                background-color: var(--main-600);
+            }
+        }
+    }
+}

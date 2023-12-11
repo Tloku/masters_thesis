@@ -1,11 +1,21 @@
-<div class="offer-content" *ngIf="offer" (click)="onOfferClick()">
-    <img class="car-pic" src="{{'data:image/jpg;base64,' + offer.offerMainImage.imageBytes}}" alt="car">
-    <span class="offer-name">{{ offer.offerTitle }} </span>
+<div class="offer-content"
+    *ngIf="offer"
+    (click)="onOfferClick()">
+    <img 
+        class="car-pic"
+        src="{{'data:image/jpg;base64,' + offer.offerMainImage.imageBytes}}" 
+        alt="car">
+    <span 
+        class="offer-name">
+        {{ offer.offerTitle }}
+    </span>
     <div class="offer-info">
         <span> {{ offer.yearOfProduction }} </span>
         <span> {{ offer.mileage + " " + offer.mileageUnit }} </span>
         <span> {{ offer.fuelType }} </span>
         <span> {{ offer.engineCapacity + "cm3" }} </span>
     </div>
-    <span class="offer-price"> {{ offer.offerPrice + " " + offer.offerCurrency }} </span>
+    <span class="offer-price">
+         {{ offer.offerPrice + " " + offer.offerCurrency }} 
+    </span>
 </div>
