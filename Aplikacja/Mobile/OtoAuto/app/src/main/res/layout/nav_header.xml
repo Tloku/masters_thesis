@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@color/lightBlue"
+    android:gravity="bottom">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="OTOAUTO"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        android:drawablePadding="20dp"
+        app:drawableStartCompat="@drawable/user_circle" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:text="username@gmail.com"
+        android:textSize="15sp"
+        />
+</RelativeLayout>
