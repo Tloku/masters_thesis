@@ -20,7 +20,6 @@ export const MainSearchEngineComponent: React.FC = () => {
         return (
             <div className="header">
                 <TwoWheelerIcon />
-            
                 Motocykle
             </div>
         );
