@@ -271,8 +271,6 @@
                     android:id="@+id/offerDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp" />
-
-                <!--  TODO bottom bar z "Zadzwoń, wiadomość" -->
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
