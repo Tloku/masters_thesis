@@ -26,6 +26,12 @@
             android:name=".OfferViewActivity"
             android:exported="false" />
         <activity
+            android:name=".AddOfferActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FollowedOffersActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -1,5 +1,6 @@
 package org.masters_thesis.otoauto
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -88,7 +89,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
+        drawerLayout.closeDrawer(GravityCompat.START)
+        when (item.itemId) {
+            R.id.followed -> {
+                val intent = Intent(this, FollowedOffersActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.addOffer -> {
+                val intent = Intent(this, AddOfferActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
         return true;
     }
 }
