@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import org.masters_thesis.otoauto.OfferViewActivity
+import org.masters_thesis.otoauto.activities.OfferViewActivity
 import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 

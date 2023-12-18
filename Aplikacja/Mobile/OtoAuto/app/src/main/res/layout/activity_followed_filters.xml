@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activities.AddOfferActivity"
-    android:layout_centerInParent="true"
-    android:paddingTop="100dp">
+    tools:context=".activities.FollowedFiltersActivity"
+    android:paddingTop="70px"
+    >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dodaj ofertę"
+        android:text="Obserwowane filtry"
         />
 </LinearLayout>

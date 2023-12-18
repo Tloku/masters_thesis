@@ -1,4 +1,4 @@
-package org.masters_thesis.otoauto
+package org.masters_thesis.otoauto.activities
 
 import android.Manifest
 import android.Manifest.permission.CALL_PHONE
@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.components.offerView.VehicleDetailsListAdapter
 import org.masters_thesis.otoauto.components.offerView.VehicleEquipmentListAdapter
 import org.masters_thesis.otoauto.components.offerView.VehicleImagesPagerAdapter
