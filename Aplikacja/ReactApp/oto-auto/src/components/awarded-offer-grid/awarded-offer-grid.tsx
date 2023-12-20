@@ -4,6 +4,7 @@ import './awarded-offer-grid.scss'
 import { OfferCardComponentModel } from '../../redux/model/offer-card-component.model'
 import { AxiosResponse } from 'axios'
 import { AwardedOffer } from '../awarded-offer/awarded-offer'
+import React from 'react'
 
 
 export const AwardedOfferGridComponent: React.FC = () => {
@@ -21,11 +22,11 @@ export const AwardedOfferGridComponent: React.FC = () => {
             <span className="awarded-offers-label">Wyróżnione oferty</span>
             <div className="offers">
                 { offers && offers.map(
-                    (offer: OfferCardComponentModel) => {
-                        return <>
-                            <AwardedOffer key={offer.offerId} offer={offer} />
-                        </>
-                    }
+                    (offer: OfferCardComponentModel) => (
+                        <React.Fragment key={offer.offerId}>
+                            <AwardedOffer offer={offer} />
+                        </React.Fragment>
+                    )
                 )}    
             </div>
         </div>

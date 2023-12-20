@@ -1,7 +1,7 @@
 import React from "react"
 import './main-page.scss'
-import { MainSearchEngineComponent } from "../components/main-search-engine/main-search-engine"
-import { AwardedOfferGridComponent } from "../components/awarded-offer-grid/awarded-offer-grid"
+import { MainSearchEngineComponent } from "../../components/main-search-engine/main-search-engine"
+import { AwardedOfferGridComponent } from "../../components/awarded-offer-grid/awarded-offer-grid"
 
 
 export const MainPage: React.FC = () => {

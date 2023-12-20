@@ -20,10 +20,6 @@
     font-weight: bolder;
 }
 
-.offer-info span:not(:last-child)::after {
-    content: "\00B7"
-}
-
 .offer-view-price-wrapper .offer-price {
     font-size: 1.5em;
     font-weight: bolder;

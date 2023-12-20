@@ -24,7 +24,6 @@
     background-color: var(--main-100);
 }
 
-
 .p-tabview .p-tabview-panels {
     height: 200px;
     flex-grow: 1 !important;
@@ -37,12 +36,10 @@
     flex-direction: column;
 }
 
-
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
     color: var(--main-400);
-    border-color: var(--main-400);
-    // background-color: var(--main-100);
-    background-color: black;
+    // border-color: var(--main-400);
+    background-color: var(--main-100);
 }
 
 .p-tabview .p-tabview-nav,
