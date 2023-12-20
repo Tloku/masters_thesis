@@ -3,4 +3,7 @@
     <string name="details">Detale</string>
     <string name="callButtonLabel">Zadzwoń</string>
     <string name="sendSmsButtonLabel">Wyślij Sms</string>
+    <string name="close_nav">Zamknij nawigację</string>
+    <string name="open_nav">Otwórz nawigację</string>
+    <string name="body_type">Nadwozie</string>
 </resources>

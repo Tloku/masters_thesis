@@ -1,13 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.OtoAuto" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.OtoAuto" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/lightBlue</item>
     </style>
 
-    <style name="actionBar" parent="T">
+<!--    <style name="actionBar" parent="T">-->
 
-    </style>
+<!--    </style>-->
 
     <style name="Theme.OtoAuto" parent="Base.Theme.OtoAuto" />
 </resources>

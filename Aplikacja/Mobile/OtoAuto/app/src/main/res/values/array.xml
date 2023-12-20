@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="body_type_array">
+        <item>SUV</item>
+        <item>Kombi</item>
+        <item>Coupe</item>
+        <item>Van</item>
+        <item>Minivan</item>
+        <item>Kabriolet</item>
+        <item>Sedan</item>
+        <item>Hatchback</item>
+    </string-array>
+
+    <string-array name="brand_array">
+        <item>GMC</item>
+        <item>Maybach</item>
+        <item>Lincoln</item>
+        <item>Honda</item>
+        <item>Ram</item>
+        <item>Spyker</item>
+        <item>Morgan</item>
+        <item>Ford</item>
+        <item>Scion</item>
+        <item>Aptera</item>
+        <item>Maserati</item>
+        <item>Dodge</item>
+        <item>Studebaker</item>
+        <item>Chevrolet</item>
+        <item>Saturn</item>
+        <item>Infiniti</item>
+        <item>MINI</item>
+        <item>Bentley</item>
+        <item>Pontiac</item>
+        <item>Porsche</item>
+        <item>Alfa Romeo</item>
+        <item>Plymouth</item>
+        <item>Audi</item>
+        <item>Rolls-Royce</item>
+        <item>Jaguar</item>
+        <item>Lexus</item>
+        <item>Lotus</item>
+        <item>Kia</item>
+        <item>Lamborghini</item>
+        <item>Mercedes-Benz</item>
+        <item>Oldsmobile</item>
+        <item>Fiat</item>
+        <item>Land Rover</item>
+        <item>Jeep</item>
+        <item>Volvo</item>
+        <item>Buick</item>
+        <item>Acura</item>
+        <item>Cadillac</item>
+        <item>Nissan</item>
+        <item>Hyundai</item>
+        <item>Suzuki</item>
+        <item>Saab</item>
+        <item>Geo</item>
+        <item>Aston Martin</item>
+        <item>Mitsubishi</item>
+        <item>Subaru</item>
+        <item>Mazda</item>
+        <item>BMW</item>
+        <item>Volkswagen</item>
+        <item>Mercury</item>
+        <item>Eagle</item>
+        <item>Ferrari</item>
+        <item>Hummer</item>
+        <item>Chrysler</item>
+        <item>Toyota</item>
+        <item>Isuzu</item>
+    </string-array>
+
+    <string-array name="fuel_type_array">
+        <item>Benzyna</item>
+        <item>Diesel</item>
+        <item>LPG</item>
+        <item>Elektryk</item>
+    </string-array>
+</resources>

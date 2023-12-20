@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/filter_offers_component"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Czego szukasz?"
+        android:textStyle="bold"
+        android:textSize="19sp"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:textSize="16sp"
+        android:labelFor="@+id/body_type_spinner"
+        android:text="Nadwozie"
+        />
+
+    <Spinner
+        android:id="@+id/body_type_spinner"
+        style="@style/spinner"
+        android:entries="@array/body_type_array"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:textSize="16sp"
+        android:labelFor="@+id/brand_spinner"
+        android:text="Marka"
+        />
+
+    <Spinner
+        android:id="@+id/brand_spinner"
+        style="@style/spinner"
+        android:entries="@array/brand_array"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cena"
+        android:layout_marginHorizontal="15dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp">
+
+        <EditText
+            android:id="@+id/priceMin"
+            style="@style/minMaxEditText"
+            android:hint="Min"
+        />
+
+        <EditText
+            android:id="@+id/priceMax"
+            style="@style/minMaxEditText"
+            android:hint="Max"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rok produkcji"
+        android:layout_marginHorizontal="15dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp">
+
+        <EditText
+            android:id="@+id/yearMin"
+            style="@style/minMaxEditText"
+            android:hint="Min"
+            />
+
+        <EditText
+            android:id="@+id/yearMax"
+            style="@style/minMaxEditText"
+            android:hint="Max"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:textSize="16sp"
+        android:labelFor="@+id/fuel_type_spinner"
+        android:text="Rodzaj paliwa"
+        />
+
+    <Spinner
+        android:id="@+id/fuel_type_spinner"
+        style="@style/spinner"
+        android:entries="@array/fuel_type_array"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Przebieg"
+        android:layout_marginHorizontal="15dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp">
+
+        <EditText
+            android:id="@+id/mileageMin"
+            style="@style/minMaxEditText"
+            android:hint="Min"
+            />
+
+        <EditText
+            android:id="@+id/mileageMax"
+            style="@style/minMaxEditText"
+            android:hint="Max"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/filter_button"
+        android:layout_marginHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Pokaż wyniki"
+        />
+</LinearLayout>
