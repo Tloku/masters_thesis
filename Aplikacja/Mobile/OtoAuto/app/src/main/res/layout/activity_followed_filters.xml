@@ -6,11 +6,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.FollowedFiltersActivity"
     android:paddingTop="70px"
+    android:orientation="vertical"
+    android:paddingHorizontal="5dp"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Obserwowane filtry"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="10dp"
+        android:id="@+id/followedFiltersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listItem="@layout/followedFiltersListRow"/>
 </LinearLayout>
