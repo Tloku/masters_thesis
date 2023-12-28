@@ -1,11 +1,11 @@
 package org.masters_thesis.otoauto.logic.database
 
-import org.masters_thesis.otoauto.model.FollowedFiltersModel
+import org.masters_thesis.otoauto.model.FilterOffersModel
 
 interface IDBHelper {
-    fun addFollowedFilter(followedFilter: FollowedFiltersModel)
+    fun addFollowedFilter(followedFilter: FilterOffersModel)
 
     fun deleteFollowedFilter(id: Int)
 
-    fun getFollowedFilters(): List<FollowedFiltersModel>
+    fun getFollowedFilters(): List<FilterOffersModel>
 }

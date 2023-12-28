@@ -22,7 +22,7 @@ POSTGRES_DB="oto_auto"
 
 for SCRIPT in "${SCRIPTS[@]}"; do
   echo "Running script: $SCRIPT"
-  psql -U $POSTGRES_USER -d $POSTGRES_DB -a -f ./$SCRIPT
+  psql -U $POSTGRES_USER -d $POSTGRES_DB -a -f ./SQL_Scripts/$SCRIPT
 done
 
 echo "All scripts executed successfully"

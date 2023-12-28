@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import org.masters_thesis.otoauto.model.FollowedFiltersModel
+import org.masters_thesis.otoauto.model.FilterOffersModel
 
 class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, DATABASE_NAME, factory, 1), IDBHelper {
@@ -32,7 +32,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         onCreate(db)
     }
 
-    override fun addFollowedFilter(followedFilter: FollowedFiltersModel) {
+    override fun addFollowedFilter(followedFilter: FilterOffersModel) {
         val values = ContentValues()
 
         values.put(BODY_TYPE, followedFilter.bodyType)
@@ -57,14 +57,14 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         db.close()
     }
 
-    override fun getFollowedFilters(): List<FollowedFiltersModel> {
+    override fun getFollowedFilters(): List<FilterOffersModel> {
         val db = readableDatabase
         val cursor: Cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
         return getFollowedFiltersModelListFromCursor(cursor)
     }
 
-    private fun getFollowedFiltersModelListFromCursor(cursor: Cursor): List<FollowedFiltersModel> {
-        val followedFilterList = mutableListOf<FollowedFiltersModel>()
+    private fun getFollowedFiltersModelListFromCursor(cursor: Cursor): List<FilterOffersModel> {
+        val followedFilterList = mutableListOf<FilterOffersModel>()
 
         cursor.use { usedCursor ->
             while (usedCursor.moveToNext()) {
@@ -98,7 +98,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
                 index = usedCursor.getColumnIndex(MILEAGE_TO)
                 val mileageTo = usedCursor.getString(index)
 
-                followedFilterList.add(FollowedFiltersModel(
+                followedFilterList.add(FilterOffersModel(
                     id, bodyType, brand, priceFrom, priceTo, yearFrom, yearTo, fuelType, mileageFrom, mileageTo
                 ))
             }

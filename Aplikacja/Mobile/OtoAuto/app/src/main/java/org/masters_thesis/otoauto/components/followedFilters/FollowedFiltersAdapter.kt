@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.activities.FilteredOffersActivity
-import org.masters_thesis.otoauto.model.FollowedFiltersModel
+import org.masters_thesis.otoauto.model.FilterOffersModel
 
-class FollowedFiltersAdapter(private val followedFilters: List<FollowedFiltersModel>):
+class FollowedFiltersAdapter(private val followedFilters: List<FilterOffersModel>):
     RecyclerView.Adapter<FollowedFiltersAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

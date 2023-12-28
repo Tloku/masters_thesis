@@ -16,11 +16,13 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
+import com.google.gson.Gson
 import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.components.offerCardComponent.OfferCardComponentAdapter
 import org.masters_thesis.otoauto.components.offerCardComponent.OfferCardComponentService
 import org.masters_thesis.otoauto.logic.listeners.FilterComponentSpinnersListener
 import org.masters_thesis.otoauto.logic.offer.OfferService
+import org.masters_thesis.otoauto.model.FilterOffersModel
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,6 +37,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var bodyTypeSpinner: Spinner
     private lateinit var brandSpinner: Spinner
     private lateinit var fuelTypeSpinner: Spinner
+    private lateinit var priceFromEditText: EditText
+    private lateinit var priceToEditText: EditText
+    private lateinit var yearFromEditText: EditText
+    private lateinit var yearToEditText: EditText
+    private lateinit var mileageFromEditText: EditText
+    private lateinit var mileageToEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,18 +70,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun filterOffers() {
         val intent = Intent(this, FilteredOffersActivity::class.java)
+        val filtersModel = collectFiltersData()
+        intent.putExtra("filters", Gson().toJson(filtersModel))
         startActivity(intent)
     }
 
+    private fun collectFiltersData(): FilterOffersModel {
+        return FilterOffersModel(
+            null,
+                bodyType = bodyTypeSpinner.selectedItem.toString(),
+                brand = brandSpinner.selectedItem.toString(),
+                priceFrom = priceFromEditText.text.toString(),
+                priceTo = priceToEditText.text.toString(),
+                yearFrom = yearFromEditText.text.toString(),
+                yearTo = yearToEditText.text.toString(),
+                fuelType = fuelTypeSpinner.selectedItem.toString(),
+                mileageFrom = mileageFromEditText.text.toString(),
+                mileageTo = mileageToEditText.text.toString()
+            )
+    }
+
     private fun initEditTexts(filterComponent: View) {
-        val mileageMin = filterComponent.findViewById<EditText>(R.id.mileageMin)
-        val mileageMax = filterComponent.findViewById<EditText>(R.id.mileageMax)
+        mileageFromEditText = filterComponent.findViewById<EditText>(R.id.mileageMin)
+        mileageToEditText = filterComponent.findViewById<EditText>(R.id.mileageMax)
 
-        val yearMin = filterComponent.findViewById<EditText>(R.id.yearMin)
-        val yearMax = filterComponent.findViewById<EditText>(R.id.yearMax)
+        yearFromEditText = filterComponent.findViewById<EditText>(R.id.yearMin)
+        yearToEditText = filterComponent.findViewById<EditText>(R.id.yearMax)
 
-        val priceMin = filterComponent.findViewById<EditText>(R.id.priceMin)
-        val priceMax = filterComponent.findViewById<EditText>(R.id.priceMax)
+        priceFromEditText = filterComponent.findViewById<EditText>(R.id.priceMin)
+        priceToEditText = filterComponent.findViewById<EditText>(R.id.priceMax)
     }
 
     private fun initBodyTypeSpinner(filterComponent: View) {

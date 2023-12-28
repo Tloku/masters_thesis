@@ -1,7 +1,7 @@
 package org.masters_thesis.otoauto.model
 
-data class FollowedFiltersModel(
-    val id: Int,
+data class FilterOffersModel(
+    val id: Int?,
     val bodyType: String,
     val brand: String,
     val priceFrom: String,
