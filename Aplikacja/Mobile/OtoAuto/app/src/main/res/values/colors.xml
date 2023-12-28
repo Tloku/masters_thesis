@@ -9,5 +9,6 @@
     <color name="darkBlue">#04447A</color>
     <color name="lightBlue">#83C2F8</color>
     <color name="orange">#F44336</color>
+    <color name="red">#E91E2F</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>

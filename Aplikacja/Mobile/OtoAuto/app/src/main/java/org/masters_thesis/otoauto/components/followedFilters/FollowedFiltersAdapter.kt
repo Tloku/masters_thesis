@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,8 +12,9 @@ import com.google.gson.Gson
 import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.activities.FilteredOffersActivity
 import org.masters_thesis.otoauto.model.FilterOffersModel
+import kotlin.streams.toList
 
-class FollowedFiltersAdapter(private val followedFilters: List<FilterOffersModel>):
+class FollowedFiltersAdapter(private var followedFilters: MutableList<FilterOffersModel>, private val deleteFilter: (Int) -> Unit):
     RecyclerView.Adapter<FollowedFiltersAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -26,6 +28,7 @@ class FollowedFiltersAdapter(private val followedFilters: List<FilterOffersModel
         var fuelTypeTextView = parent.findViewById<TextView>(R.id.fuelType)
         var mileageFromTextView = parent.findViewById<TextView>(R.id.mileageFrom)
         var mileageToTextView = parent.findViewById<TextView>(R.id.mileageTo)
+        var deleteFilterButton = parent.findViewById<Button>(R.id.delete_followed_filter_button)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,6 +54,12 @@ class FollowedFiltersAdapter(private val followedFilters: List<FilterOffersModel
         holder.fuelTypeTextView.text = followedFilter.priceTo
         holder.mileageFromTextView.text = followedFilter.priceTo
         holder.mileageToTextView.text = followedFilter.priceTo
+
+        holder.deleteFilterButton.setOnClickListener { v ->
+            deleteFilter(followedFilter.id!!)
+            followedFilters.removeAt(position)
+            notifyItemRemoved(position)
+        }
 
         holder.parent.setOnClickListener { v ->
             val intent = Intent(v.context, FilteredOffersActivity::class.java)
