@@ -19,13 +19,13 @@ class FollowedFiltersAdapter(private val followedFilters: List<FilterOffersModel
         var parent = itemView.findViewById<LinearLayout>(R.id.followedFiltersListRow)
         var bodyTypeTextView = parent.findViewById<TextView>(R.id.bodyType)
         var brandTextView = parent.findViewById<TextView>(R.id.brand)
-        var priceFromTextView = parent.findViewById<TextView>(R.id.bodyType)
-        var priceToTextView = parent.findViewById<TextView>(R.id.bodyType)
-        var yearFromTextView = parent.findViewById<TextView>(R.id.bodyType)
-        var yearToTextView = parent.findViewById<TextView>(R.id.bodyType)
-        var fuelTypeTextView = parent.findViewById<TextView>(R.id.bodyType)
-        var mileageFromTextView = parent.findViewById<TextView>(R.id.bodyType)
-        var mileageToTextView = parent.findViewById<TextView>(R.id.bodyType)
+        var priceFromTextView = parent.findViewById<TextView>(R.id.priceFrom)
+        var priceToTextView = parent.findViewById<TextView>(R.id.priceTo)
+        var yearFromTextView = parent.findViewById<TextView>(R.id.yearFrom)
+        var yearToTextView = parent.findViewById<TextView>(R.id.yearTo)
+        var fuelTypeTextView = parent.findViewById<TextView>(R.id.fuelType)
+        var mileageFromTextView = parent.findViewById<TextView>(R.id.mileageFrom)
+        var mileageToTextView = parent.findViewById<TextView>(R.id.mileageTo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

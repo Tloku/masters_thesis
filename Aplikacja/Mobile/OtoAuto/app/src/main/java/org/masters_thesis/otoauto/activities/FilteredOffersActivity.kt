@@ -6,15 +6,18 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import org.masters_thesis.otoauto.R
+import org.masters_thesis.otoauto.components.followedFilters.FollowedFiltersService
 import org.masters_thesis.otoauto.logic.listeners.FilterComponentSpinnersListener
 import org.masters_thesis.otoauto.model.FilterOffersModel
 
 class FilteredOffersActivity: AppCompatActivity() {
     private lateinit var filterButton: Button
     private lateinit var filtersModel: FilterOffersModel
+    private var followedFilterService: FollowedFiltersService = FollowedFiltersService(this)
 
     private lateinit var bodyTypeSpinner: Spinner
     private lateinit var brandSpinner: Spinner
@@ -32,6 +35,32 @@ class FilteredOffersActivity: AppCompatActivity() {
         filtersModel = Gson().fromJson(intent.getStringExtra("filters"), FilterOffersModel::class.java)
         initFilterOfferComponent()
         setFiltersData(filtersModel)
+        initSaveFilterButton()
+    }
+
+    private fun initSaveFilterButton() {
+        val saveFilterButton: Button = findViewById(R.id.save_filters_button)
+
+        saveFilterButton.setOnClickListener { v ->
+            val filtersModel = collectFiltersData()
+            followedFilterService.addFollowedFilter(filtersModel)
+            Toast.makeText(this, "Dodano filtr", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun collectFiltersData(): FilterOffersModel {
+        return FilterOffersModel(
+            null,
+            bodyType = bodyTypeSpinner.selectedItem.toString(),
+            brand = brandSpinner.selectedItem.toString(),
+            priceFrom = priceFromEditText.text.toString(),
+            priceTo = priceToEditText.text.toString(),
+            yearFrom = yearFromEditText.text.toString(),
+            yearTo = yearToEditText.text.toString(),
+            fuelType = fuelTypeSpinner.selectedItem.toString(),
+            mileageFrom = mileageFromEditText.text.toString(),
+            mileageTo = mileageToEditText.text.toString()
+        )
     }
 
     private fun setFiltersData(filtersModel: FilterOffersModel) {

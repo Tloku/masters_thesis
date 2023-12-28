@@ -13,8 +13,6 @@
         android:orientation="vertical"
         >
 
-
-
         <include
             android:id="@+id/filter_offers_layout"
             layout="@layout/filter_offers_component"
@@ -25,6 +23,7 @@
             />
 
         <Button
+            android:id="@+id/save_filters_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
