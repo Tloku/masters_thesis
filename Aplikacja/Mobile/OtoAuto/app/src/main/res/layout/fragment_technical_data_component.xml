@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.addOffer.TechnicalDataComponent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dane techniczne"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/yearOfProductionEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Rok produkcji"
+            android:layout_weight="1"
+            />
+
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/brandEditText"
+            android:hint="Marka pojazdu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/modelEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Model pojazdu"
+            android:layout_weight="1"
+            />
+
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/fuelTypeEditText"
+            android:hint="Rodzaj paliwa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/horsePowerEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Moc"
+            android:layout_weight="1"
+            />
+
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/engineCapacityEditText"
+            android:hint="Pojemność"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/numberOfDoorsEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Liczba drzwi"
+            android:layout_weight="1"
+            />
+
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/driveTypeEditText"
+            android:hint="Skrzynia biegów"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/versionEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Wersja"
+            android:layout_weight="1"
+            />
+
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/generationEditText"
+            android:hint="Generacja"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/bodyTypeEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Typ nadwozia"
+            android:layout_weight="1"
+            />
+
+        <EditText  
+        style="@style/editText"
+            android:id="@+id/colorEditText"
+            android:hint="Kolor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+</LinearLayout>

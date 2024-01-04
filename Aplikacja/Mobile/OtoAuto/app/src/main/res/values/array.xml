@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="vehicle_type_array">
+        <item>Samochód osobowy</item>
+        <item>Motocykl</item>
+    </string-array>
+
+    <string-array name="yes_no_array">
+        <item>Tak</item>
+        <item>Nie</item>
+    </string-array>
+
     <string-array name="body_type_array">
         <item>SUV</item>
         <item>Kombi</item>

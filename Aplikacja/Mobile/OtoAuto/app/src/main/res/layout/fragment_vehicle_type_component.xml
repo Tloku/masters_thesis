@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".fragments.addOffer.VehicleTypeComponent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:textSize="16sp"
+        android:labelFor="@+id/vehicleTypeSpinner"
+        android:text="Wybierz rodzaj samochodu"
+        />
+
+    <Spinner
+        style="@style/spinner"
+        android:id="@+id/vehicleTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/vehicle_type_array"
+        android:layout_weight="1" />
+
+</LinearLayout>

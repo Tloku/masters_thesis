@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="OTOAUTO"
-        android:textSize="40sp"
+        android:textSize="38sp"
         android:textStyle="bold|italic"
         android:drawablePadding="20dp"
         app:drawableStartCompat="@drawable/user_circle" />

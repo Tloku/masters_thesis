@@ -1,16 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.AddOfferActivity"
-    android:layout_centerInParent="true"
-    android:paddingTop="100dp">
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dodaj ofertę"
-        />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        android:paddingTop="100dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Stwórz ogłoszenie"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/vehicleTypeFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.VehicleTypeComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mainFeaturesFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.MainFeaturesComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/basicInfoFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.BasicInfoComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/technicalDataFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.TechnicalDataComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/vehicleImagesFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.VehicleImagesComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/vehicleDescriptionFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.VehicleDescriptionComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/AdditionalPropertiesFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.AdditionalPropertiesComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/priceFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.PriceComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/dealerDataFragment"
+            android:name="org.masters_thesis.otoauto.fragments.addOffer.DealerDataComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
