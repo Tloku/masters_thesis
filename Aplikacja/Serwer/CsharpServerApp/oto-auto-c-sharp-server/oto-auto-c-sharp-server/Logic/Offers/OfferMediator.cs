@@ -173,7 +173,7 @@ class OfferMediator : IOfferAdapter
     {
         return request.EquipmentTypes
             .Select(
-                et => et.Equipments.Values
+                et => et.Equipment.Values
                     .Where(value => value.Value)
                     .ToList()
             ).ToList();

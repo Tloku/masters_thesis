@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("oto-auto-c-sharp-server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4edea120c612a314510c18c056ea8f6a82bb0e77")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d93196567b23a3e52ada444c7cb7e44842315f00")]
 [assembly: System.Reflection.AssemblyProductAttribute("oto-auto-c-sharp-server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("oto-auto-c-sharp-server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,3 +1,3 @@
 ﻿namespace oto_auto_c_sharp_server.Logic.Offers.Models.CreateOffer.Equipments;
 
-public record Equipments(IEnumerable<Values> Values);
+public record EquipmentType(string Type, Equipment Equipment);

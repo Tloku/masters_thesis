@@ -15,4 +15,11 @@
         android:layout_marginHorizontal="5dp"
         android:layout_marginVertical="10dp"
         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="10dp"
+        android:id="@+id/equipmentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listItem="@layout/vehicleEquipmentChips"/>
 </LinearLayout>
