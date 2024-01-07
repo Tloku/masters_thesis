@@ -1,4 +1,4 @@
-package org.masters_thesis.otoauto.components.additionalProperties
+package org.masters_thesis.otoauto.components.addOffer.additionalProperties
 
 import android.content.Context
 import android.view.LayoutInflater

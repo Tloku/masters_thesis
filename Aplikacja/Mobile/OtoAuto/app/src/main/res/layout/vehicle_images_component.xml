@@ -15,4 +15,22 @@
         android:layout_marginVertical="10dp"
         />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/addOfferViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:background="@color/lightGray" />
+
+    <Button
+        android:id="@+id/addImageButton"
+        android:layout_marginHorizontal="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/addVehicleImages"
+        android:layout_marginVertical="15dp"
+        >
+
+    </Button>
+
 </LinearLayout>

@@ -38,10 +38,6 @@ class OfferCardComponentAdapter(private val offerCards: List<OfferCardComponentM
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val offerCardComponentModel: OfferCardComponentModel = offerCards[position] ?: return
         Log.w("Offer component","ImageBytes of offer with id: " + offerCardComponentModel.offerId)
-        if (offerCardComponentModel.offerMainImage.imageBytes == null) {
-            return
-        }
-
         offerCardComponentService.setOfferCardMainImage(holder.offerCardMainImageView, offerCardComponentModel.offerMainImage.imageBytes)
         holder.offerTitleTextView.text = offerCardComponentModel.offerTitle
         holder.yearOfProductionTextView.text = offerCardComponentModel.yearOfProduction
