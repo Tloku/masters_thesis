@@ -1,5 +1,6 @@
 package org.masters_thesis.otoauto.logic.offer
 
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.masters_thesis.otoauto.BuildConfig
@@ -55,9 +56,13 @@ class OfferMediator: OfferAdapter {
             .addInterceptor(mHttpLoggingInterceptor)
             .build()
 
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+
         return Retrofit.Builder()
             .baseUrl(url)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .client(mOkHttpClient)
             .build()
     }

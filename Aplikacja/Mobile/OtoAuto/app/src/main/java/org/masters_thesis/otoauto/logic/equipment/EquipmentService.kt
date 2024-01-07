@@ -1,30 +1,26 @@
 package org.masters_thesis.otoauto.logic.equipment
 
 import org.masters_thesis.otoauto.logic.equipment.models.GetEquipmentResponse
+import org.masters_thesis.otoauto.model.equipments.Values
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.RuntimeException
+
 
 class EquipmentService {
     private val equipmentMediator: EquipmentMediator = EquipmentMediator()
 
 
-    fun getOfferCardCall() {
-        val call = equipmentMediator.getEquipmentTypes()
+    fun getEquipmentValues(): Call<GetEquipmentResponse?> {
+        return equipmentMediator.getEquipmentTypes()
+    }
 
-        call.enqueue(object : Callback<GetEquipmentResponse?> {
-            override fun onResponse(
-                call: Call<GetEquipmentResponse?>,
-                response: Response<GetEquipmentResponse?>
-            ) {
-                if (response.isSuccessful && response.body() != null) {
-
-                }
+    fun mapEquipmentResponseToValues(equipmentResponse: GetEquipmentResponse): MutableList<Values> {
+        return equipmentResponse.equipmentTypes
+            .flatMap { et -> et.equipments.map {
+                e -> Values(e.id, e.name, false)
             }
-
-            override fun onFailure(call: Call<GetEquipmentResponse?>, t: Throwable) {
-                
-            }
-        })
+        }.toMutableList()
     }
 }

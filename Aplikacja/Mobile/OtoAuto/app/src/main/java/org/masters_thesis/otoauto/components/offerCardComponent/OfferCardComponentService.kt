@@ -15,7 +15,7 @@ class OfferCardComponentService() {
         addSeparatorAfterTextView(listOf(offer.yearOfProduction, offer.mileage, offer.fuelType));
     }
 
-    fun setOfferCardMainImage(mainImageView: ImageView, imageBytes: String) {
+    fun setOfferCardMainImage(mainImageView: ImageView, imageBytes: String?) {
         val imageBytesDecoded = Base64.getDecoder().decode(imageBytes)
         var bmp: Bitmap = BitmapFactory.decodeByteArray(imageBytesDecoded, 0, imageBytesDecoded.size);
         mainImageView.setImageBitmap(bmp);

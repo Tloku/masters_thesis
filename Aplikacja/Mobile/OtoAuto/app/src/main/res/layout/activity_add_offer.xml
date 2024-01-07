@@ -1,88 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.AddOfferActivity"
     >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/addOfferToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="?attr/actionBarTheme"
+        />
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_marginHorizontal="10dp"
-        android:orientation="vertical"
-        android:paddingTop="100dp" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:text="Stwórz ogłoszenie"
-            />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/vehicleTypeFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.VehicleTypeComponent"
+        android:layout_centerInParent="true">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical"
+            android:paddingTop="75dp" >
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/mainFeaturesFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.MainFeaturesComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <include
+                layout="@layout/vehicle_type_component"
+                android:id="@+id/vehicleTypeComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/basicInfoFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.BasicInfoComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <include
+                android:id="@+id/mainFeaturesComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/main_features_component"
+                />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/technicalDataFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.TechnicalDataComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <include
+                android:id="@+id/basicInfoComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/basic_info_component"
+                />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/vehicleImagesFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.VehicleImagesComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <include
+                android:id="@+id/technicalDataComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/technical_data_component"
+                />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/vehicleDescriptionFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.VehicleDescriptionComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <include
+                android:id="@+id/vehicleImagesComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/vehicle_images_component"
+                />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/AdditionalPropertiesFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.AdditionalPropertiesComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <include
+                android:id="@+id/vehicleDescriptionComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/vehicle_description_component"
+                />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/priceFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.PriceComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <include
+                android:id="@+id/additionalPropertiesComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/additional_properties_component"
+                />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/dealerDataFragment"
-            android:name="org.masters_thesis.otoauto.fragments.addOffer.DealerDataComponent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            <include
+                android:id="@+id/priceComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/price_component"
+                />
+
+            <include
+                android:id="@+id/dealerDataComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/dealer_data_component"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Stwórz ofertę!"
+                android:background="@drawable/border_light_blue"
+                android:layout_margin="5dp"
             />
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

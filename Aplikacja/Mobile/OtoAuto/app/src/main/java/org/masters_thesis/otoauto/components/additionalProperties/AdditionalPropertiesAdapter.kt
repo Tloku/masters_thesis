@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.masters_thesis.otoauto.R
+import org.masters_thesis.otoauto.model.equipments.Values
 
-class AdditionalPropertiesAdapter(private val context: Context, private val equipment: HashMap<String, Boolean>): RecyclerView.Adapter<AdditionalPropertiesAdapter.ViewHolder>() {
+class AdditionalPropertiesAdapter(private val context: Context, private var equipment: MutableList<Values>): RecyclerView.Adapter<AdditionalPropertiesAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var parent = itemView.findViewById<LinearLayout>(R.id.vehicleEquipmentChips)
@@ -19,9 +21,9 @@ class AdditionalPropertiesAdapter(private val context: Context, private val equi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_additional_properties_component, parent, false)
+            .inflate(R.layout.vehicle_equipment_chips, parent, false)
 
-        return AdditionalPropertiesAdapter.ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -29,16 +31,23 @@ class AdditionalPropertiesAdapter(private val context: Context, private val equi
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val value = equipment.keys.elementAt(position)
-        holder.equipmentChip.text = value
-        holder.parent.setOnClickListener { v ->
-            val isSet: Boolean = !equipment.getValue(value)
-            equipment.put(value, isSet)
-            notifyItemChanged(position)
-            holder.parent.background = if (isSet)
-                ContextCompat.getDrawable(context, R.color.lightBlue) else
-                ContextCompat.getDrawable(context, R.color.lightGray)
+        var value = equipment[position]
+        holder.equipmentChip.text = value.name
+        holder.parent.background = if (value.value)
+            ContextCompat.getDrawable(context, R.drawable.border_light_blue) else
+            ContextCompat.getDrawable(context, R.drawable.border_light_gray)
 
+        holder.parent.setOnClickListener { v ->
+            value.value = !value.value;
+            holder.parent.background = if (value.value)
+                ContextCompat.getDrawable(context, R.drawable.border_light_blue) else
+                ContextCompat.getDrawable(context, R.drawable.border_light_gray)
+            notifyItemChanged(position)
         }
+    }
+
+    fun updateEquipmentList(values: MutableList<Values>) {
+        equipment = values
+        notifyItemRangeChanged(0, values.size)
     }
 }

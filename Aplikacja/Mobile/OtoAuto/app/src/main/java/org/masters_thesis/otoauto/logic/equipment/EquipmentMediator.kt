@@ -1,12 +1,13 @@
 package org.masters_thesis.otoauto.logic.equipment
 
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.masters_thesis.otoauto.BuildConfig
 import org.masters_thesis.otoauto.logic.equipment.api.EquipmentController
 import org.masters_thesis.otoauto.logic.equipment.models.GetEquipmentResponse
-import org.masters_thesis.otoauto.logic.offer.api.OfferController
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -37,9 +38,13 @@ class EquipmentMediator: EquipmentAdapter {
             .addInterceptor(mHttpLoggingInterceptor)
             .build()
 
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+
         return Retrofit.Builder()
             .baseUrl(url)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .client(mOkHttpClient)
             .build()
     }
