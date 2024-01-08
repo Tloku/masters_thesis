@@ -7,7 +7,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.gson.Gson
 import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.components.followedFilters.FollowedFiltersService
@@ -36,6 +38,21 @@ class FilteredOffersActivity: AppCompatActivity() {
         initFilterOfferComponent()
         setFiltersData(filtersModel)
         initSaveFilterButton()
+        setToolbar()
+    }
+
+    private fun setToolbar() {
+        val toolbar: Toolbar = findViewById(R.id.filteredOffersToolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.title = "Przefiltrowane ogłoszenia"
+        val actionBar: ActionBar? = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setDisplayShowHomeEnabled(true)
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun initSaveFilterButton() {

@@ -11,7 +11,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
@@ -37,11 +39,26 @@ class OfferViewActivity : AppCompatActivity() {
         offerId = intent.getIntExtra("offerId", 1)
         initCallButton()
         initSmsButton()
+        setToolbar()
         val offersCall = offerService.getOfferById(offerId)
         val detailListView = initDetailListView()
         val equipmentListView = initEquipmentListView()
         val vehicleViewPager = findViewById<ViewPager2>(R.id.viewPager)
         handleRequestCall(offersCall, detailListView,equipmentListView, vehicleViewPager)
+    }
+
+    private fun setToolbar() {
+        val toolbar: Toolbar = findViewById(R.id.offerViewToolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.title = "Ogłoszenie"
+        val actionBar: ActionBar? = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setDisplayShowHomeEnabled(true)
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun initCallButton() {
