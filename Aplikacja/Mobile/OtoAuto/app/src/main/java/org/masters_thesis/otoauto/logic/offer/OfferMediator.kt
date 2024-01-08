@@ -8,6 +8,8 @@ import org.masters_thesis.otoauto.logic.offer.api.OfferController
 import org.masters_thesis.otoauto.model.OfferActivityComponentModel
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 import org.masters_thesis.otoauto.model.OfferModel
+import org.masters_thesis.otoauto.model.createOffer.CreateOfferRequest
+import org.masters_thesis.otoauto.model.createOffer.CreateOfferResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -44,6 +46,14 @@ class OfferMediator: OfferAdapter {
             offerController.getOfferById(id);
         } catch (ex: Exception) {
             throw RuntimeException()
+        }
+    }
+
+    override fun createOffer(createOfferRequest: CreateOfferRequest): Call<CreateOfferResponse> {
+        return try {
+            offerController.createOffer(createOfferRequest)
+        } catch (ex: Exception) {
+            throw RuntimeException(ex.message)
         }
     }
 

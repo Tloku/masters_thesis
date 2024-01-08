@@ -4,10 +4,11 @@ import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -20,10 +21,28 @@ import androidx.viewpager2.widget.ViewPager2
 import org.masters_thesis.otoauto.R
 import org.masters_thesis.otoauto.components.addOffer.AddVehicleImagesPagerAdapter
 import org.masters_thesis.otoauto.components.addOffer.additionalProperties.AdditionalPropertiesAdapter
-import org.masters_thesis.otoauto.components.offerView.VehicleImagesPagerAdapter
+import org.masters_thesis.otoauto.components.offerCardComponent.OfferCardComponentAdapter
 import org.masters_thesis.otoauto.logic.equipment.EquipmentService
+import org.masters_thesis.otoauto.logic.equipment.models.EquipmentTypeDto
 import org.masters_thesis.otoauto.logic.equipment.models.GetEquipmentResponse
+import org.masters_thesis.otoauto.logic.offer.OfferService
+import org.masters_thesis.otoauto.model.OfferCardComponentModel
 import org.masters_thesis.otoauto.model.OfferImage
+import org.masters_thesis.otoauto.model.createOffer.AdditionalTechnicalDataForm
+import org.masters_thesis.otoauto.model.createOffer.BasicInfo
+import org.masters_thesis.otoauto.model.createOffer.CreateOfferRequest
+import org.masters_thesis.otoauto.model.createOffer.CreateOfferResponse
+import org.masters_thesis.otoauto.model.createOffer.DealerDataForm
+import org.masters_thesis.otoauto.model.createOffer.EquipmentTypeForm
+import org.masters_thesis.otoauto.model.createOffer.MainFeatures
+import org.masters_thesis.otoauto.model.createOffer.OfferImages
+import org.masters_thesis.otoauto.model.createOffer.PriceDataForm
+import org.masters_thesis.otoauto.model.createOffer.TechnicalDataForm
+import org.masters_thesis.otoauto.model.createOffer.VehicleDescription
+import org.masters_thesis.otoauto.model.createOffer.VehicleType
+import org.masters_thesis.otoauto.model.equipments.Equipment
+import org.masters_thesis.otoauto.model.equipments.EquipmentType
+import org.masters_thesis.otoauto.model.equipments.Values
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,15 +50,19 @@ import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStream
 import java.util.Base64
+import java.util.UUID
 
 
 class AddOfferActivity : AppCompatActivity() {
     private val equipmentService: EquipmentService = EquipmentService()
+    private val offerService: OfferService = OfferService()
     private lateinit var  additionalPropertiesAdapter: AdditionalPropertiesAdapter
     private lateinit var equipmentRecyclerView: RecyclerView;
     private lateinit var vehicleViewPager: ViewPager2
     private lateinit var imagePicker: ActivityResultLauncher<Intent>
     private lateinit var viewPagerAdapter: AddVehicleImagesPagerAdapter
+    private lateinit var equipmentTypesDto: List<EquipmentTypeDto>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +72,175 @@ class AddOfferActivity : AppCompatActivity() {
         setEquipmentRecyclerView()
         setVehicleImagesComponent()
         setToolbar()
+        setCreateOfferButton()
     }
+
+    private fun setCreateOfferButton() {
+        val createButton = findViewById<Button>(R.id.createOfferButton)
+
+        createButton.setOnClickListener { v ->
+            val request: CreateOfferRequest = prepareCreateOfferForm()
+            val call = offerService.createOffer(request)
+            call.enqueue(object : Callback<CreateOfferResponse> {
+                override fun onResponse(
+                    call: Call<CreateOfferResponse>,
+                    response: Response<CreateOfferResponse>
+                ) {
+                    if (response.isSuccessful && response.body() != null) {
+                        Toast.makeText(baseContext, "Utworzono ofertę", Toast.LENGTH_SHORT).show()
+                        onBackPressed()
+                    }
+                }
+
+                override fun onFailure(call: Call<CreateOfferResponse>, t: Throwable) {
+                    println(t.printStackTrace());
+                }
+            })
+        }
+    }
+
+    private fun prepareCreateOfferForm(): CreateOfferRequest {
+        val basicInfo: BasicInfo = getBasicInfo()
+        val dealerDataForm: DealerDataForm = getDealerDataForm()
+        val equipmentTypeForm: EquipmentTypeForm = getEquipmentTypeForm()
+        val mainFeatures: MainFeatures = getMainFeatures()
+        val offerImages: List<OfferImages> = getOfferImages()
+        val priceDataForm: PriceDataForm = getPriceDataForm()
+        val technicalDataForm: TechnicalDataForm = getTechnicalDataForm()
+        val vehicleDescription: VehicleDescription = getVehicleDescription()
+        val vehicleType: VehicleType = getVehicleType()
+
+        return CreateOfferRequest(
+            AdditionalTechnicalDataForm("black", "manual", "200", "5"),
+            basicInfo,
+            dealerDataForm,
+            equipmentTypeForm,
+            mainFeatures,
+            offerImages,
+            priceDataForm,
+            technicalDataForm,
+            vehicleDescription,
+            vehicleType
+        )
+    }
+
+    private fun getVehicleType(): VehicleType {
+        val vehicleTypeLayout: LinearLayout = findViewById(R.id.vehicleTypeComponent)
+        val vehicleTypeSpinner: Spinner = vehicleTypeLayout.findViewById(R.id.vehicleTypeSpinner)
+        return VehicleType(vehicleTypeSpinner.selectedItem.toString())
+    }
+
+    private fun getVehicleDescription(): VehicleDescription {
+        val vehicleDescriptionLayout: LinearLayout = findViewById(R.id.vehicleDescriptionComponent)
+        val description: EditText = vehicleDescriptionLayout.findViewById(R.id.descriptionEditText)
+        val title: EditText = vehicleDescriptionLayout.findViewById(R.id.titleEditText)
+        return VehicleDescription(title.text.toString(), description.text.toString())
+    }
+
+    private fun getTechnicalDataForm(): TechnicalDataForm {
+        val technicalDataLayout: LinearLayout = findViewById(R.id.technicalDataComponent)
+        val yearOfProduction: EditText = technicalDataLayout.findViewById(R.id.yearOfProductionEditText)
+        val brand: EditText = technicalDataLayout.findViewById(R.id.brandEditText)
+        val model: EditText = technicalDataLayout.findViewById(R.id.modelEditText)
+        val fuelType: EditText = technicalDataLayout.findViewById(R.id.fuelTypeEditText)
+        val horsePower: EditText = technicalDataLayout.findViewById(R.id.horsePowerEditText)
+        val engineCapacity: EditText = technicalDataLayout.findViewById(R.id.engineCapacityEditText)
+        val numberOfDoors: EditText = technicalDataLayout.findViewById(R.id.numberOfDoorsEditText)
+        val driveType: EditText = technicalDataLayout.findViewById(R.id.driveTypeEditText)
+        val version: EditText = technicalDataLayout.findViewById(R.id.versionEditText)
+        val generation: EditText = technicalDataLayout.findViewById(R.id.generationEditText)
+        val bodyType: EditText = technicalDataLayout.findViewById(R.id.bodyTypeEditText)
+        val color: EditText = technicalDataLayout.findViewById(R.id.colorEditText)
+
+        return TechnicalDataForm(
+            bodyType.text.toString(),
+            brand.text.toString(),
+            color.text.toString(),
+            engineCapacity.text.toString(),
+            fuelType.text.toString(),
+            generation.text.toString(),
+            horsePower.text.toString(),
+            model.text.toString(),
+            numberOfDoors.text.toString(),
+            driveType.text.toString(),
+            version.text.toString(),
+            yearOfProduction.text.toString()
+        )
+    }
+
+    private fun getPriceDataForm(): PriceDataForm {
+        val priceLayout: LinearLayout = findViewById(R.id.priceComponent)
+        val price: EditText = priceLayout.findViewById(R.id.priceEditText)
+        val currency: EditText = priceLayout.findViewById(R.id.currencyEditText)
+        return PriceDataForm(price.text.toString(), currency.text.toString(), true)
+    }
+
+    private fun getOfferImages(): List<OfferImages> {
+        val offerImages: List<OfferImage> =  viewPagerAdapter.getOfferImages()
+        return offerImages.map {
+            oi -> OfferImages(
+                UUID.randomUUID().toString(),
+                oi.imageBytes!!,
+                oi.isMainImage
+            )
+        }.toList()
+    }
+
+    private fun getMainFeatures(): MainFeatures {
+        val mainFeaturesLayout: LinearLayout = findViewById(R.id.mainFeaturesComponent)
+        val hasCrashedSpinner: Spinner = mainFeaturesLayout.findViewById(R.id.has_crashed_spinner)
+        val isImportedSpinner: Spinner = mainFeaturesLayout.findViewById(R.id.is_imported_spinner)
+
+        return MainFeatures(
+            hasCrashedSpinner.selectedItem.toString() == "Tak",
+            isImportedSpinner.selectedItem.toString() == "Tak"
+        )
+    }
+
+    private fun getEquipmentTypeForm(): EquipmentTypeForm {
+        val values: List<Values> = additionalPropertiesAdapter.getEquipmentValues()
+        val equipmentTypes: List<EquipmentType> = equipmentTypesDto.map {
+            etd ->
+                EquipmentType(etd.type, Equipment(
+                    etd.equipments.map {
+                            e -> Values(e.id, e.name, false)
+                    }.toList()
+                ))
+        }.toList()
+
+        equipmentTypes.map {
+            et -> et.equipment.values.map {
+                eqVal -> eqVal.value = values.first {
+                    v -> v.id == eqVal.id
+                }.value
+        }}
+
+        return EquipmentTypeForm(equipmentTypes)
+    }
+
+    private fun getDealerDataForm(): DealerDataForm {
+        val dealerDataLayout: LinearLayout = findViewById(R.id.dealerDataComponent)
+        val name: EditText = dealerDataLayout.findViewById(R.id.nameEditText)
+        val address: EditText = dealerDataLayout.findViewById(R.id.addressEditText)
+        val phoneNumber: EditText = dealerDataLayout.findViewById(R.id.phoneNumberEditText)
+
+        return DealerDataForm(
+            name.text.toString(),
+            address.text.toString(),
+            phoneNumber.text.toString()
+        )
+    }
+
+    private fun getBasicInfo(): BasicInfo {
+        val basicInfoLayout: LinearLayout = findViewById(R.id.basicInfoComponent)
+        val vin: EditText = basicInfoLayout.findViewById(R.id.vinEditText)
+        val mileage: EditText = basicInfoLayout.findViewById(R.id.mileageEditText)
+        return BasicInfo(
+            vin.text.toString(),
+            mileage.text.toString()
+        )
+    }
+
 
     private fun initVehicleImagesAdapter() {
         val imageComponent = findViewById<LinearLayout>(R.id.vehicleImagesComponent)
@@ -149,6 +340,7 @@ class AddOfferActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     val equipmentResponse: GetEquipmentResponse = response.body()!!
+                    equipmentTypesDto = equipmentResponse.equipmentTypes
                     val values = equipmentService.mapEquipmentResponseToValues(equipmentResponse)
                     additionalPropertiesAdapter.updateEquipmentList(values)
                 }

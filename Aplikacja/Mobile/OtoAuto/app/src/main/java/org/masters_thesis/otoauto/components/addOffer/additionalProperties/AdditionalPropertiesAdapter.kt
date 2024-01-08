@@ -50,4 +50,8 @@ class AdditionalPropertiesAdapter(private val context: Context, private var equi
         equipment = values
         notifyItemRangeChanged(0, values.size)
     }
+
+    fun getEquipmentValues(): List<Values> {
+        return equipment;
+    }
 }

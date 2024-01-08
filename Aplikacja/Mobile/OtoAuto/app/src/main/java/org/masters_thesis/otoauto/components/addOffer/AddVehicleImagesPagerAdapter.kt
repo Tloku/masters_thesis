@@ -40,4 +40,8 @@ class AddVehicleImagesPagerAdapter(private var images: MutableList<OfferImage>)
         this.images.addAll(images)
         notifyItemRangeChanged(0, this.images.size)
     }
+
+    fun getOfferImages(): List<OfferImage> {
+        return images;
+    }
 }

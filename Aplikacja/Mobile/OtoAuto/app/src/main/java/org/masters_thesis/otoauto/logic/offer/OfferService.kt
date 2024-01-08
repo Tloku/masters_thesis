@@ -3,6 +3,8 @@ package org.masters_thesis.otoauto.logic.offer
 import org.masters_thesis.otoauto.model.OfferActivityComponentModel
 import org.masters_thesis.otoauto.model.OfferCardComponentModel
 import org.masters_thesis.otoauto.model.OfferModel
+import org.masters_thesis.otoauto.model.createOffer.CreateOfferRequest
+import org.masters_thesis.otoauto.model.createOffer.CreateOfferResponse
 import retrofit2.Call
 
 
@@ -24,6 +26,10 @@ class OfferService {
         }
 
         return offerMediator.getOfferById(id)
+    }
+
+    fun createOffer(createOfferRequest: CreateOfferRequest): Call<CreateOfferResponse> {
+        return offerMediator.createOffer(createOfferRequest)
     }
 
 //    fun setOfferCardData(model: OfferCardComponentModel, offer: OfferModel?) {
