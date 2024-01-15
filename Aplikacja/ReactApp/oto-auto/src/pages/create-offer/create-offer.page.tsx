@@ -5,7 +5,7 @@ export const CreateOfferPage: React.FC = () => {
     
 
     return <>
-        <div className="wrapper">
+        <div className="create-offer-wrapper">
             <div className="form-component">
                 {/* <create-offer-form></create-offer-form> */}
 
