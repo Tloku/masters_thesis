@@ -7,7 +7,7 @@ import { AwardedOfferGridComponent } from "../../components/awarded-offer-grid/a
 export const MainPage: React.FC = () => {
 
     return <>
-        <div className="container">
+        <div className="main-page-container">
             <div className="search-engine">
                 <MainSearchEngineComponent />
             </div>

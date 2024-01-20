@@ -1,0 +1,183 @@
+.create-offer-form-wrapper {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    position: relative;
+
+
+    .vehicle-details {
+        margin: 3vh auto;
+        width: 100%;
+
+        h1 {
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+   
+        .basic-info {
+            h2 {
+                font-weight: 500;
+            }
+            
+            .row {
+                width: 100%;
+                display: flex;
+                gap: 2vw;
+
+
+                .p-float-label {
+                    width: 50% !important;
+                }
+                
+                .p-inputtext {
+                    width: 100% !important;
+                }
+            }    
+        }
+
+        .main-features  {
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 3vh;
+            }
+
+            h2 {
+                font-size: 1.1em;
+            }
+
+            .row {
+                display: flex;
+                padding-bottom: 20px;
+                height: 50px;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid var(--secondary-300);
+
+                h3 {
+                    font-size: 1.05em;
+                    font-weight: lighter;
+                    flex: 0 0 auto;
+                    margin-right: auto;
+                }
+
+                .p-selectbutton {
+                    flex: 0 0 auto;
+                    margin-left: auto;
+                }
+            }
+
+            
+        }
+    }
+
+    
+    .vehicle-description form,
+    .price form {
+        display: flex;
+        flex-direction: column;
+        gap: 3vh;
+    }
+    
+    .price .row {   
+        display: flex;
+        padding-bottom: 20px;
+        height: 50px;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--secondary-300);
+    }
+    
+    .price .row h3 {
+        font-size: 1.05em;
+        font-weight: lighter;
+    }
+    
+    .price .row h3,
+    .price .row .p-selectbutton {
+        flex: 0 0 auto;
+    }
+    
+    .technical-data h2,
+    .additional-properties h2,
+    .price h2,
+    .dealer-data h2 {
+        padding-bottom: 2vh;
+    }
+    
+    .technical-data .row,
+    .dealer-data .row {
+        width: 100%;
+        display: flex;
+        
+        gap: 2vw;
+        margin-bottom: 4vh;
+    }
+    
+    .technical-data .row .p-float-label,
+    .dealer-data .row .p-float-label,
+    .dealer-data .half-row .p-float-label {
+        width: 50% !important;
+    }
+    
+    .dealer-data .half-row {
+        margin-right: 2vw !important; 
+    }
+    
+    .image-form {
+        padding-bottom: 2vh;
+    }
+    
+    
+    .price-input-row {
+        width: 50%;
+        display: flex;
+        gap: 1vw;
+    }
+
+
+    .p-selectbutton .p-button {
+        width: 13vw !important;
+        height: 30px !important;
+        background-color: var(--main-100);
+        border-color: var(--main-300);
+        color: var(--secondary-500) !important;
+        text-align: start;
+        box-shadow: none;
+    }
+    
+    .p-selectbutton .p-button .p-button-label   {
+        font-weight: lighter !important;
+    }
+    
+    .p-selectbutton .p-button:first-of-type {
+        margin-right: 0.5vw;
+    }
+    
+    .p-buttonset .p-button:not(:last-child) { 
+        border: 1px solid #ced4da !important;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-color: var(--main-300) !important;
+    }
+    
+    .p-buttonset .p-button:last-of-type {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+    
+    .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
+        background-color: var(--main-100) !important;
+        border-color: var(--main-300) !important;
+        color: var(--secondary-500) !important;
+    }
+    
+    .p-selectbutton .p-button.p-highlight:hover,
+    .p-selectbutton .p-button.p-highlight {
+        background-color: var(--main-200) !important; 
+    } 
+    
+}
+

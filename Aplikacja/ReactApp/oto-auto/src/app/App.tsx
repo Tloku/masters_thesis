@@ -13,8 +13,8 @@ function App() {
     <PrimeReactProvider>
       <>
         <div className='root'>
-          <NavbarComponent />
           <BrowserRouter>
+          <NavbarComponent />
             <Routes>
               <Route path="/" element={<MainPage/>} />
               <Route path="/offer/:id" element={<OfferViewComponent />} />

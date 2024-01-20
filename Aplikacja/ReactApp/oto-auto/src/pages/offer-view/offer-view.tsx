@@ -1,25 +1,26 @@
 import "./offer-view.scss"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { OfferDetailsComponent } from "../../components/offer-details/offer-details"
 import { VehicleImagesGalleryComponent } from "../../components/vehicle-images-gallery/vehicle-images-gallery"
-import { OfferRestService } from "../../api/rest-service/offer-rest-service"
-import { AxiosResponse } from "axios"
-import { OfferActivityComponentModel } from "../../redux/model/offer-card-component.model"
 import { useParams } from "react-router-dom"
 import { OfferViewPriceComponent } from "../../components/offer-view-price/offer-view-price"
+import { useDispatch, useSelector } from "react-redux"
+import { getOfferById } from "../../redux/state/offerSlice"
+import { ThunkDispatch } from "redux-thunk"
+import { RootState } from "../../redux/store/store"
+import { AnyAction } from "@reduxjs/toolkit"
 
 export const OfferViewComponent: React.FC = () => {
     const params = useParams()
-    const [offer, setOffer] = useState<OfferActivityComponentModel | undefined>(undefined);
+    const offer = useSelector((state: RootState) => state.offerCard.offer);
+    const dispatch = useDispatch<ThunkDispatch<RootState, undefined, AnyAction>>();
 
     useEffect(() => {
         if (!params) 
             return
 
-        OfferRestService.getOfferById(parseInt(params.id!))
-          .then((response: AxiosResponse<OfferActivityComponentModel>) => {
-            setOffer(response.data as OfferActivityComponentModel);
-          })  
+        const id: number = parseInt(params.id!);
+        dispatch(getOfferById(id))
       }, [params])
 
     return <>

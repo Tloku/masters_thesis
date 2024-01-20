@@ -1,3 +1,4 @@
+import { CreateOfferFormComponent } from '../../components/forms/create-offer-form/create-offer-form';
 import './create-offer.page.scss'
 
 
@@ -7,11 +8,11 @@ export const CreateOfferPage: React.FC = () => {
     return <>
         <div className="create-offer-wrapper">
             <div className="form-component">
-                {/* <create-offer-form></create-offer-form> */}
+                <CreateOfferFormComponent></CreateOfferFormComponent>
 
-                <div className="footer">
+                {/* <div className="footer"> */}
                     {/* <create-offer-footer></create-offer-footer> */}
-                </div>    
+                {/* </div>     */}
             </div>
 
             <div className="tips-component">

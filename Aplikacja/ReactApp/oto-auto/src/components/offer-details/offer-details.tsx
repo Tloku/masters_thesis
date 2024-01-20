@@ -3,7 +3,6 @@ import './offer-details.scss'
 import { VehicleDetailsRow } from '../../models/vehicle-details-row'
 
 export const OfferDetailsComponent: React.FC<{vehicleAttributes: VehicleDetailsRow[]}> = ({vehicleAttributes}) => {
-    // const [offerDetails, setOfferDetails] = useState<VehicleDetailsRow[]>([])
 
     return <>
         <div className="offer-details-wrapper">

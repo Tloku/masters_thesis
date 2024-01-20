@@ -1,13 +1,16 @@
-.wrapper .awarded-offers-label {
-    width: 85%;
-    font-size: 2em;
-}
+.awarderd-offer-grid-wrapper {
 
-.wrapper .offers {
-    margin-top: 2vh;
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto;
-    row-gap: 3vh;
+    .awarded-offers-label {
+        width: 85%;
+        font-size: 2em;
+    }
+    
+    .offers {
+        margin-top: 2vh;
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: auto;
+        row-gap: 3vh;
+    }
 }

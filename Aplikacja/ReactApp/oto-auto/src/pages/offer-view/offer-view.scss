@@ -5,21 +5,22 @@
     margin-top: 5vh;
     padding-bottom: 5vh;
     justify-content: space-between;
-}
 
-.offer-view-details {
-    display: flex;
-    width: 65%;
-    height: fit-content;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5vh;
-}
+    
+    .offer-view-details {
+        display: flex;
+        width: 65%;
+        height: fit-content;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5vh;
+    }
 
-.gallery {
-    align-self: center;
-}
+    .gallery {
+        align-self: center;
+    }
 
-.offer-view-price {
-    margin-left: 2vw;
+    .offer-view-price {
+        margin-left: 2vw;
+    }
 }

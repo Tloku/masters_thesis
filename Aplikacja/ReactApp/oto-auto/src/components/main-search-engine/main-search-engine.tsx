@@ -33,7 +33,7 @@ export const MainSearchEngineComponent: React.FC = () => {
 
 
     return <>
-        <div className="container">
+        <div className="main-search-container">
             <div className="content">
                 <div className="form-content">
                     <TabView activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
