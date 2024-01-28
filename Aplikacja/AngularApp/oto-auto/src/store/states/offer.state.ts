@@ -7,6 +7,12 @@ import { catchError, map } from "rxjs";
 import { CreateOfferResponse } from "src/api/models/create-offer-response";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/api";
+import { RedisCacheService } from "src/services/cache/redis-cache-service";
+
+export enum RedisCacheKeys {
+    OFFER = "offer"
+}
+
 
 @State<OfferCardComponentStateModel>({
     name: "offerCards",
@@ -36,6 +42,7 @@ export class OfferState {
         private router: Router,
         private _restService: OfferRestService,
         private _messageService: MessageService,
+        private _redisCacheService: RedisCacheService
         ) {}
 
 
@@ -65,7 +72,13 @@ export class OfferState {
     }
 
     @Action(GetOfferById)
-    getOfferById(ctx: StateContext<OfferCardComponentStateModel>, action: GetOfferById) {
+    async getOfferById(ctx: StateContext<OfferCardComponentStateModel>, action: GetOfferById) {
+        const maybeOffer: OfferActivityComponentModel | undefined = await this._redisCacheService.get<OfferActivityComponentModel>(RedisCacheKeys.OFFER) 
+
+
+        if (maybeOffer) {
+            return ctx.dispatch(new GetOfferByIdSuccess(maybeOffer))
+        }
         
         return this._restService.getOfferById(action.offerId)
             .pipe(
