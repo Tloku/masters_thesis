@@ -130,4 +130,3 @@ D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-
 D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 D:\Studia\magisterka\masters_thesis\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-D:\Studia\Magisterka\Aplikacja\Serwer\CsharpServerApp\oto-auto-c-sharp-server\oto-auto-c-sharp-server\obj\Debug\net7.0\oto-auto-c-sharp-server.sourcelink.json

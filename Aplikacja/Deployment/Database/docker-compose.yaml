@@ -17,10 +17,7 @@ services:
   redis:
     image: redis:7.2.4
     restart: always
-    environment:
-      - REDIS_PASSWORD=12345
-      - REDIS_PORT=6379
-      - REDIS_DATABASES=1
+    command: redis-server --save 20 1 --loglevel warning --requirepass 12345
     volumes:
       - redis:/data/redis
     ports:

@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
 import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../model/offer-card-component.model";
-import { CreateOffer, CreateOfferFailure, CreateOfferSuccess, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../actions/offer-actions";
+import { CacheOfferDetails, CreateOffer, CreateOfferFailure, CreateOfferSuccess, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetCachedOfferByIdSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../actions/offer-actions";
 import { OfferRestService } from "src/api/rest-service/offer.rest-service";
-import { catchError, map } from "rxjs";
+import { catchError, concatMap, map, of } from "rxjs";
 import { CreateOfferResponse } from "src/api/models/create-offer-response";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/api";
 import { RedisCacheService } from "src/services/cache/redis-cache-service";
 
 export enum RedisCacheKeys {
-    OFFER = "offer"
+    OFFER = "offer:"
 }
 
 
@@ -72,29 +72,55 @@ export class OfferState {
     }
 
     @Action(GetOfferById)
-    async getOfferById(ctx: StateContext<OfferCardComponentStateModel>, action: GetOfferById) {
-        const maybeOffer: OfferActivityComponentModel | undefined = await this._redisCacheService.get<OfferActivityComponentModel>(RedisCacheKeys.OFFER) 
+    getOfferById(ctx: StateContext<OfferCardComponentStateModel>, action: GetOfferById) {
+        const offerId: number = action.offerId;
 
-
-        if (maybeOffer) {
-            return ctx.dispatch(new GetOfferByIdSuccess(maybeOffer))
-        }
-        
-        return this._restService.getOfferById(action.offerId)
+        return this._redisCacheService.get<OfferActivityComponentModel>(RedisCacheKeys.OFFER + offerId)
             .pipe(
-                map((offer: OfferActivityComponentModel) => ctx.dispatch(new GetOfferByIdSuccess(offer))),
-                catchError(error => ctx.dispatch(new GetOfferByIdFailure(error)))
-            )
+                map((redisResponse: OfferActivityComponentModel | undefined) => {
+                    if (redisResponse) {
+                        return ctx.dispatch(new GetCachedOfferByIdSuccess(redisResponse))
+                    }
+                    return this._restService.getOfferById(offerId)
+                        .pipe(
+                            map((offer: OfferActivityComponentModel) => ctx.dispatch(new GetOfferByIdSuccess(offer))),
+                            catchError(error => ctx.dispatch(new GetOfferByIdFailure(error)))
+                        )
+            }))
     }
 
     @Action(GetOfferByIdSuccess)
     getOfferByIdSuccess(ctx: StateContext<OfferCardComponentStateModel>, action: GetOfferByIdSuccess) {
         const state = ctx.getState()
         
+        ctx.dispatch(new CacheOfferDetails(action.offer));
+
         ctx.setState({
             ...state,
             offer: action.offer
         });
+    }
+
+    @Action(GetCachedOfferByIdSuccess)
+    GetCachedOfferByIdSuccess(ctx: StateContext<OfferCardComponentStateModel>, action: GetCachedOfferByIdSuccess) {
+        const state = ctx.getState()
+
+        ctx.setState({
+            ...state,
+            offer: action.offer
+        });
+    }
+
+    @Action(CacheOfferDetails)
+    cacheOfferDetails(ctx: StateContext<OfferActivityComponentModel>, action: CacheOfferDetails) {
+        return this._redisCacheService.set(RedisCacheKeys.OFFER + action.offer.offerId, action.offer)
+            .pipe(
+                map(() => console.log("Successfully cached offer details with offerId: " + action.offer.offerId)),
+                catchError((err: any) => {
+                    console.error("Couldn't cache offer details", err)
+                    return of();
+                })
+            )
     }
 
     @Action(GetOfferByIdFailure)

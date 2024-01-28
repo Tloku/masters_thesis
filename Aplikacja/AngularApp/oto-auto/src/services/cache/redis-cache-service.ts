@@ -1,42 +1,38 @@
-import { Injectable, OnInit } from "@angular/core";
-import { RedisClientType, createClient } from "redis";
+import { HttpClient } from "@angular/common/http";
+import { Injectable, } from "@angular/core";
+import { Observable, catchError, of } from "rxjs";
+
+
+export interface RedisRequest { 
+    key: string,
+    value?: Object
+}
 
 @Injectable({
     providedIn: "root"
 })
-export class RedisCacheService implements OnInit {
+export class RedisCacheService {
+    private _redisServerUrl: string = "http://localhost:3500";
 
-    client: RedisClientType | undefined; 
-
-    ngOnInit(): void {
-        this.client = createClient({
-            url: 'redis://localhost:6379/'
-        })
-    }
-
+    constructor(private _http: HttpClient) {}
     
-    async save(key: string, value: Object): Promise<void> {
-        if (!this.client) {
-            return;
-        }
-        
-        await this.client.connect()
-        this.client.set(key, JSON.stringify(value));
+    set(key: string, value: Object): Observable<any> {
+        return this._http.post(`${this._redisServerUrl}/set`, {key, value} as RedisRequest)
+            .pipe(
+                catchError((error) => {
+                    console.error(error);
+                    return of(undefined)
+                })
+            )
     }
 
-    async get<T>(key: string): Promise<T | undefined> {
-        if (!this.client) {
-            return undefined;
-        }
-
-        await this.client.connect()
-
-        const value: string | null = await this.client.get(key);
-
-        if (value) {
-            return JSON.parse(value) as T;
-        }
-
-        return undefined;
+    get<T>(key: string): Observable<T | undefined> {
+        return this._http.get<T>(`${this._redisServerUrl}/get/${key}`)
+            .pipe(
+                catchError((error) => {
+                    console.error(error);
+                    return of(undefined)
+                })
+            )
     } 
 }
