@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { debounceTime, tap } from 'rxjs';
 import { BasicInfoForm, DealerDataForm, MainFeaturesForm, PriceDataForm, TechnicalDataForm, VehicleDescriptionForm, VehicleTypeForm } from 'src/api/models/form/create-offer-form';

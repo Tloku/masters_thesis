@@ -14,25 +14,22 @@ services:
     ports:
       - "8090:5432"
 
-  pgadmin:
-    container_name: pgadmin_container
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+  redis:
+    image: redis:7.2.4
+    restart: always
+    command: redis-server --save 20 1 --loglevel warning --requirepass 12345
     volumes:
-      - pgadmin:/var/lib/pgadmin
+      - redis:/data/redis
     ports:
-      - "5050:80"
-    networks:
-      - postgres
-    restart: unless-stopped
+      - "6379:6379"
+    
 
 networks:
   postgres:
     driver: bridge
+  redis:
+    driver: bridge
 
 volumes:
   postgres:
-  pgadmin:
+  redis:

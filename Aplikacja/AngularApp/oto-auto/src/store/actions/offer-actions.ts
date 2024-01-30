@@ -46,3 +46,13 @@ export class CreateOfferFailure {
     static readonly type: string = "[Create Offer] Create offer failure"
     constructor(public error: any) {} 
 }
+
+export class CacheOfferDetails {
+    static readonly type: string = "[Cache Offer Details] Cache Offer Details"
+    constructor(public offer: OfferActivityComponentModel) {}
+}
+
+export class GetCachedOfferByIdSuccess {
+    static readonly type: string = "[Get Cached Offer By Id] Get Offer by id success"
+    constructor(public offer: OfferActivityComponentModel) {}
+}
