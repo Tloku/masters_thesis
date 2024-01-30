@@ -7,6 +7,9 @@ dist
 /out-tsc
 /bazel-out
 
+../../Serwer/CsharpServerApp/oto-auto-c-sharp-server/oto-auto-c-sharp-server/bin/
+../../Serwer/CsharpServerApp/oto-auto-c-sharp-server/oto-auto-c-sharp-server/obj/
+
 # Node
 node_modules
 /node_modules
