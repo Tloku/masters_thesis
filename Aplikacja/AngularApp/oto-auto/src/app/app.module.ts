@@ -30,6 +30,9 @@ import { CreateOfferFormState } from 'src/store/states/create-offer-form.state';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { OfferViewPriceComponent } from 'src/components/offer-view-price/offer-view-price.component';
+import { FilteredOffersPageComponent } from 'src/pages/filtered-offers/filtered-offers-page.component';
+import { FilteredOfferCardComponent } from 'src/components/filtered-offer-card/filtered-offer-card.component';
+import { FilteredOffersComponent } from 'src/components/filtered-offers/filtered-offers.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { OfferViewPriceComponent } from 'src/components/offer-view-price/offer-v
     OfferDetailsComponent,
     CreateOfferComponent,
     CreateOfferFooterComponent,
-    OfferViewPriceComponent
+    OfferViewPriceComponent,
+    FilteredOffersPageComponent,
+    FilteredOfferCardComponent,
+    FilteredOffersComponent
   ],
   imports: [
     BrowserModule,

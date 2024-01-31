@@ -3,7 +3,7 @@ import { Action, State, StateContext } from "@ngxs/store";
 import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../model/offer-card-component.model";
 import { CacheOfferDetails, CreateOffer, CreateOfferFailure, CreateOfferSuccess, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetCachedOfferByIdSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../actions/offer-actions";
 import { OfferRestService } from "src/api/rest-service/offer.rest-service";
-import { catchError, concatMap, map, of } from "rxjs";
+import { catchError, map, of } from "rxjs";
 import { CreateOfferResponse } from "src/api/models/create-offer-response";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/api";

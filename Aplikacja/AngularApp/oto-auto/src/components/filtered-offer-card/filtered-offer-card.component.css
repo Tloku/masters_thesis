@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 224px;
+    margin: 10px;
+    border: var(--secondary-300) solid 1px;
+    border-radius: 7px;
+}
+
+.car-pic {
+    width: 240px;
+    height: 180px;
+    margin: 15px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    object-fit: cover;
+}
