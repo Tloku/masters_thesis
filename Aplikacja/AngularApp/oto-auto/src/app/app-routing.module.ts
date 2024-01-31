@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'offer/:offerId', component: OfferViewComponent },
   { path: 'new-offer', component: CreateOfferComponent },
-  { path: 'browser', component: FilteredOffersPageComponent }
+  { path: 'browse', component: FilteredOffersPageComponent }
 ];
 
 @NgModule({

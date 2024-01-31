@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { OfferActivityComponentModel } from "src/store/model/offer-card-component.model";
 
 
 @Component({
@@ -8,4 +9,6 @@ import { Component } from "@angular/core";
 })
 export class FilteredOfferCardComponent {
     
+    public offer!: any;
+
 }

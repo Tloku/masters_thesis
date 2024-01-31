@@ -1,8 +1,95 @@
 <div class="wrapper">
     
-    <img 
-        class="car-pic"
-        src="../../assets/car-pic.jpg"
-        alt="car pic">
+    <div class="offer-preview">
+        <div>
+            <img 
+            class="car-pic"
+            src="../../assets/car-pic.jpg"
+            alt="car pic">
+        </div>
+
+        <div class="offer-info">
+            <h2>Offer title</h2>
+            <!-- <h2>{{ offer.offerTitle }}</h2> -->
+        
+            <p class="under-title">
+                <span> 2000 cm3 </span>
+                <span> 254 KM </span>
+                <span> 320i </span>
+                  <!-- <span> {{ offer.engineCapacity + "cm3" }} </span>
+                <span> {{ offer.horsePower + "KM" }} </span>
+                <span> {{ offer.model }} </span> -->
+            </p>
+
+            <p *ngIf="true" class="chip">
+                Wyróżnione
+            </p>
+
+            <p class="offer-basic-info">
+                <span> 
+                    <i class="material-symbols-outlined">
+                        add_road
+                    </i>
+                    200 000 km 
+                </span>
+                <span> 
+                    <i class="material-symbols-outlined">
+                        local_gas_station
+                    </i>
+                    Benzyna 
+                </span>
+                <span> 
+                    <i class="material-symbols-outlined">
+                        auto_transmission
+                    </i>
+                    Automatyczna
+                 </span>
+                <span>
+                    <i class="pi pi-calendar"></i> 
+                    2015 
+                </span>
+                <!-- <span> {{ offer.mileage + " km" }} </span>
+                <span> {{ offer.fuelType }} </span>
+                <span> {{ offer.driveType }} </span>
+                <span> {{ offer.yearOfProduction }} </span> -->
+            </p>
+
+            <p class="location">
+                Bielany Wrocławskie (Dolnośląskie)
+            </p>
+            <p class="duration">
+                Podbito 3 dni temu
+                <!-- {{ offer.durationInDays }} -->
+            </p>
+
+            <p class="dealer-type">
+                Prywatny sprzedawca
+                <!-- {{ offer.isPrivateDealer }} -->
+            </p>
+
+        </div>
+ 
+        <div class="offer-price">
+            <p class="price">
+                75 000 
+                <small>
+                    PLN
+                </small>
+                <!-- {{offer.price}} -->
+            </p>
+
+            <p class="link">Sprawdź możliwość finansowania</p>
+
+            <p class="favourite">
+                <i *ngIf="true" style="color: lightblue;" class="material-symbols-outlined">
+                    favorite
+                </i>
+                <i *ngIf="false" style="color: lightblue;" class="material-icons">
+                    favorite
+                </i>  
+            </p>
+        </div>
+    </div>
+    
 
 </div>

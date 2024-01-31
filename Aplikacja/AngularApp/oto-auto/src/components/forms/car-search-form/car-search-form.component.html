@@ -71,9 +71,9 @@
                 </span>
             </div>
 
-            <p-button class="advanced-search" label="Wyszukiwanie zaawansowane"></p-button>
+            <p-button (onClick)="goToBrowserPage()"  class="advanced-search" label="Wyszukiwanie zaawansowane"></p-button>
 
-            <p-button class="show-offers" label="Pokaż ogłoszenia"></p-button>
+            <p-button (onClick)="filterOffers()" class="show-offers" label="Pokaż ogłoszenia"></p-button>
 
         </div>
     </form>

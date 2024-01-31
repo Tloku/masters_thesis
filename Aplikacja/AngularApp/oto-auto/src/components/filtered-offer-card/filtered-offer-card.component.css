@@ -1,18 +1,123 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
+    min-width: 1000px;
     height: 224px;
     margin: 10px;
     border: var(--secondary-300) solid 1px;
     border-radius: 7px;
 }
 
+
+.offer-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
 .car-pic {
     width: 240px;
     height: 180px;
-    margin: 15px;
+    margin: 25px;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     object-fit: cover;
+}
+
+.offer-info {
+    min-width: 400px;
+    max-width: 700px;
+    width: fit-content;
+    height: 100%;
+}
+
+.offer-info h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-block-end: 0;
+}
+
+.offer-info .under-title > span:not(:last-child)::after {
+    content: "\00B7"
+}
+
+.offer-info .chip {
+    display: block;
+    width: fit-content;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background-color: var(--main-300);
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+.offer-basic-info {
+    font-size: 0.8em;
+    display: flex;
+    gap: 5px;
+    margin: 15px 0 !important;
+} 
+
+.offer-basic-info > span {
+    display: flex;
+    align-items: center;
+}
+
+.location, .duration, .dealer-type {
+    font-size: 0.7em;
+    margin: 5px 0 !important;
+}
+
+.offer-price {
+    margin-left: auto;
+    min-width: 250px;
+    max-width: 500px;
+    width: fit-content;
+    height: 100%;
+}
+
+.wrapper p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.offer-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 20px;
+    height: 220px;
+    margin-bottom: auto;
+}
+
+.offer-price .price {
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.offer-price .price > small {
+    position: relative;
+    top: -5px;
+    font-size: 0.65em;
+}
+
+.offer-price .link {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    text-align: end;
+}
+
+.offer-price .favourite {
+    margin-top: auto;
+}
+
+.offer-price .favourite > i {
+    user-select: none;
+    cursor: pointer;
 }
