@@ -57,4 +57,11 @@ public class OfferController: ControllerBase
         var offerId = await _offerAdapter.CreateOffer(request);
         return Ok(offerId);
     }
+
+    [HttpPost("/filtered")]
+    public async Task<ActionResult<IEnumerable<OfferPreview>>> GetFilteredOffers()
+    {
+        var offers = await _offerAdapter.GetFilteredOffers();
+        return Ok(offers);
+    }
 }   

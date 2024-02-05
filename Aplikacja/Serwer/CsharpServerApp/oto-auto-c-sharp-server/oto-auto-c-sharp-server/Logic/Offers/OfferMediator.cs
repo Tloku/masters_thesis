@@ -311,6 +311,11 @@ class OfferMediator : IOfferAdapter
                 ImageBytes = ImageLoader.LoadImageFromPath(image.PathToImage),
                 IsMainImage = image.IsMainImage
             })
+            .Select(image =>
+            {
+                image.ImageBytes ??= "";
+                return image;
+            })
             .FirstOrDefault();
         offerCardModel.OfferMainImage = offerImages ?? new OfferImage();
         return offerCardModel;
