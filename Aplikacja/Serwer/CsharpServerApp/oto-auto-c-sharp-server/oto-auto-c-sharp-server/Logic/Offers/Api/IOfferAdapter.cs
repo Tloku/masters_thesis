@@ -15,4 +15,6 @@ public interface IOfferAdapter
     Task<OfferActivityComponentModel> GetOfferById(int offerId);
 
     Task<CreateOfferResponse> CreateOffer(CreateOfferRequest request);
+
+    Task<IEnumerable<OfferPreview>> GetFilteredOffers();
 }

@@ -111,6 +111,15 @@ class OfferMediator : IOfferAdapter
         return new CreateOfferResponse(offerId);
     }
 
+    public async Task<IEnumerable<OfferPreview>> GetFilteredOffers()
+    {
+        var offers = await _offerRepository.GetAwardedOffers(); //TODO temporary solution
+
+        return offers
+            .Select(o => _service.MapOfferToOfferPreview(o))
+            .ToList();
+    }
+
     private async Task CreateOfferImages(int offerId, IEnumerable<OfferImages> requestOfferImages)
     {
         var vehicleImages = _offerImagesCreator.CreateVehicleImages(requestOfferImages, offerId);
@@ -145,14 +154,6 @@ class OfferMediator : IOfferAdapter
     private IEnumerable<VehicleEquipment> CreateVehicleEquipmentsFromValues(int vehicleId, List<List<Values>> values)
     {
         var vehicleEquipments = new List<VehicleEquipment>();
-        // var vehicleEquipments =
-        //     (from value in values
-        //         from equipment in value 
-        //         select new VehicleEquipment()
-        //             {
-        //                 EquipmentId = equipment.Id,
-        //                 VehicleId = vehicleId 
-        //             }).ToList();
         
         foreach (var value in values)
         {
@@ -218,8 +219,6 @@ class OfferMediator : IOfferAdapter
 
     private async Task SetTechnicalDataForm(Vehicle newVehicle, TechnicalDataForm requestTechnicalDataForm)
     {
-        // requestTechnicalDataForm.BodyType = "Sedan";
-        // requestTechnicalDataForm.FuelType = "Petrol";
         var bodyType = await _bodyTypeRepository.GetBodyTypeByType("Sedan");
         var fuelType = await _fuelTypeRepository.GetFuelTypeByType("Petrol");
         var transmissionType = await _transmissionTypeRepository.GetTransmissionTypeByType("automatic");
