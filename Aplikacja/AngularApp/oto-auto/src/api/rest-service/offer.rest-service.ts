@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { OfferActivityComponentModel, OfferCardComponentModel } from "src/store/model/offer-card-component.model";
 import { CreateOfferFormStateModel } from "../models/form/create-offer-form";
 import { CreateOfferResponse } from "../models/create-offer-response";
+import { OfferPreview } from "src/store/model/filtered-offers-state.model";
 
 @Injectable()
 export class OfferRestService {
@@ -23,6 +24,10 @@ export class OfferRestService {
 
     createOffer(form: CreateOfferFormStateModel): Observable<CreateOfferResponse> {
         return this._http.post<CreateOfferResponse>("http://localhost:5252/api/offer/create", form, {'headers': this._headers} )
+    }
+
+    getFilteredOffers(): Observable<OfferPreview[]> {
+        return this._http.post<OfferPreview[]>("http://localhost:5252/api/offer/filtered", {}, {'headers': this._headers})
     }
 
 }
