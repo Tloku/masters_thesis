@@ -1,7 +1,7 @@
 import { Selector } from "@ngxs/store";
-import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../model/offer-card-component.model";
-import { OfferState } from "../states/offer.state";
-import { OfferImage } from "../model/offer-image.model";
+import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../offer/offer-card-component.model";
+import { OfferState } from "./offer.state";
+import { OfferImage } from "../offer/offer-image.model";
 import { VehicleDetailsRow } from "../model/vehicle-details-row.model";
 
 export class OffersSelector {

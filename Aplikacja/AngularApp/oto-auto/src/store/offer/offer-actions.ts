@@ -1,5 +1,4 @@
-import { GetAwardedOffersResponse } from "src/api/models/get-awarded-offers-response"
-import { OfferActivityComponentModel, OfferCardComponentModel } from "../model/offer-card-component.model"
+import { OfferActivityComponentModel, OfferCardComponentModel } from "./offer-card-component.model"
 import { CreateOfferFormStateModel } from "src/api/models/form/create-offer-form"
 
 export class GetAwardedOffers {

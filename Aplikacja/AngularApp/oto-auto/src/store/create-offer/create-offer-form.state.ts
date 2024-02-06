@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
 import { CreateOfferFormStateModel } from "src/api/models/form/create-offer-form";
-import { UpdateAdditionalTechnicalDataForm, UpdateBasicInfoForm, UpdateDealerDataForm, UpdateEquipmentTypeForm, UpdateMainFeaturesForm, UpdateOfferImagesForm, UpdatePriceDataForm, UpdateTechnicalDataForm, UpdateVehicleTypeForm, UpdateVehicleDescriptionForm } from "../actions/create-offer-form.actions";
+import { UpdateAdditionalTechnicalDataForm, UpdateBasicInfoForm, UpdateDealerDataForm, UpdateEquipmentTypeForm, UpdateMainFeaturesForm, UpdateOfferImagesForm, UpdatePriceDataForm, UpdateTechnicalDataForm, UpdateVehicleTypeForm, UpdateVehicleDescriptionForm } from "./create-offer-form.actions";
 
 @State<CreateOfferFormStateModel>({
     name: 'createOffer',

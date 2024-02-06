@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
-import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../model/offer-card-component.model";
-import { CacheOfferDetails, CreateOffer, CreateOfferFailure, CreateOfferSuccess, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetCachedOfferByIdSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../actions/offer-actions";
+import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../offer/offer-card-component.model";
+import { CacheOfferDetails, CreateOffer, CreateOfferFailure, CreateOfferSuccess, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetCachedOfferByIdSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../offer/offer-actions";
 import { OfferRestService } from "src/api/rest-service/offer.rest-service";
 import { catchError, map, of } from "rxjs";
 import { CreateOfferResponse } from "src/api/models/create-offer-response";
@@ -117,7 +117,7 @@ export class OfferState {
             .pipe(
                 map(() => console.log("Successfully cached offer details with offerId: " + action.offer.offerId)),
                 catchError((err: any) => {
-                    console.error("Couldn't cache offer details", err)
+                    console.error("Couldn't cache offer details", err)          
                     return of();
                 })
             )

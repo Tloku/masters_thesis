@@ -1,5 +1,5 @@
 import { OfferImage } from "./offer-image.model";
-import { VehicleDetailsRow } from "./vehicle-details-row.model";
+import { VehicleDetailsRow } from "../model/vehicle-details-row.model";
 
 export interface OfferCardComponentModel {
     offerId: number;

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { debounceTime, tap } from 'rxjs';
 import { BasicInfoForm, DealerDataForm, MainFeaturesForm, PriceDataForm, TechnicalDataForm, VehicleDescriptionForm, VehicleTypeForm } from 'src/api/models/form/create-offer-form';
-import { UpdateBasicInfoForm, UpdateDealerDataForm, UpdateMainFeaturesForm, UpdatePriceDataForm, UpdateTechnicalDataForm, UpdateVehicleDescriptionForm, UpdateVehicleTypeForm } from 'src/store/actions/create-offer-form.actions';
+import { UpdateBasicInfoForm, UpdateDealerDataForm, UpdateMainFeaturesForm, UpdatePriceDataForm, UpdateTechnicalDataForm, UpdateVehicleDescriptionForm, UpdateVehicleTypeForm } from 'src/store/create-offer/create-offer-form.actions';
 
 @Component({
   selector: 'create-offer-form',

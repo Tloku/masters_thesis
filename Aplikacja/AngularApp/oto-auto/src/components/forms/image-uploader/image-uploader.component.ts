@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { BehaviorSubject, Observable, catchError, map, tap } from 'rxjs';
 import { OfferImagesForm } from 'src/api/models/form/create-offer-form';
-import { UpdateOfferImagesForm } from 'src/store/actions/create-offer-form.actions';
+import { UpdateOfferImagesForm } from 'src/store/create-offer/create-offer-form.actions';
 
 @Component({
   selector: 'image-uploader',

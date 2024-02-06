@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { Select } from "@ngxs/store";
 import { Observable } from "rxjs";
-import { OfferActivityComponentModel } from "src/store/model/offer-card-component.model";
-import { OffersSelector } from "src/store/selectors/offers.selector";
+import { OfferActivityComponentModel } from "src/store/offer/offer-card-component.model";
+import { OffersSelector } from "src/store/offer/offers.selector";
 
 @Component({
     selector: 'offer-view-price',

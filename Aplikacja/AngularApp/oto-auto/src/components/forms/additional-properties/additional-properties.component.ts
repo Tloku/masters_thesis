@@ -5,9 +5,9 @@ import { Observable, debounce, debounceTime, map, tap } from "rxjs";
 import { Equipment } from "src/api/models/equipment";
 import { EquipmentType } from "src/api/models/equipment-type";
 import { AdditionalTechnicalDataForm, EquipmentForm, EquipmentItemsForm, EquipmentTypeForm, EquipmentValuesForm } from "src/api/models/form/create-offer-form";
-import { UpdateAdditionalTechnicalDataForm, UpdateEquipmentTypeForm } from "src/store/actions/create-offer-form.actions";
-import { GetEquipmentTypes } from "src/store/actions/equipment-actions";
-import { EquipmentSelector } from "src/store/selectors/equipment.selector";
+import { UpdateAdditionalTechnicalDataForm, UpdateEquipmentTypeForm } from "src/store/create-offer/create-offer-form.actions";
+import { GetEquipmentTypes } from "src/store/equipment/equipment-actions";
+import { EquipmentSelector } from "src/store/equipment/equipment.selector";
 
 
 @Component({

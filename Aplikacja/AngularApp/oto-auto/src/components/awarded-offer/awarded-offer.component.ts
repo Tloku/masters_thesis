@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OfferCardComponentModel } from 'src/store/model/offer-card-component.model';
+import { OfferCardComponentModel } from 'src/store/offer/offer-card-component.model';
 
 @Component({
   selector: 'awarded-offer',

@@ -1,4 +1,4 @@
-import { OfferImage } from "./offer-image.model";
+import { OfferImage } from "../offer/offer-image.model";
 
 export interface FilteredOffersStateModel {
     filteredOffers?: OfferPreview[]

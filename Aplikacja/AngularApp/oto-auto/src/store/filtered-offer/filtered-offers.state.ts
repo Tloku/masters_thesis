@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
-import { FilteredOffersStateModel, OfferPreview } from "../model/filtered-offers-state.model";
-import { GetFilteredOffers, GetFilteredOffersSuccess } from "../actions/filtered-offers-state.model";
+import { FilteredOffersStateModel, OfferPreview } from "./filtered-offers-state.model";
+import { GetFilteredOffers, GetFilteredOffersSuccess } from "./filtered-offers-state.actions";
 import { OfferRestService } from "src/api/rest-service/offer.rest-service";
 import { catchError, map } from "rxjs";
 

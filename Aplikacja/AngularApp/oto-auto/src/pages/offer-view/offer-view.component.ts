@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 import { Store } from "@ngxs/store";
-import { GetOfferById } from "src/store/actions/offer-actions";
+import { GetOfferById } from "src/store/offer/offer-actions";
 
 
 @Component({

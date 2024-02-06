@@ -1,4 +1,4 @@
-import { OfferPreview } from "../model/filtered-offers-state.model"
+import { OfferPreview } from "./filtered-offers-state.model"
 
 export class GetFilteredOffers {
     static readonly type: string = '[Filtered Offers] Get Filtered Offers'

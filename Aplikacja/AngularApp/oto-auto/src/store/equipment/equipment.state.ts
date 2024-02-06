@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
-import { EquipmentStateModel } from "../model/equipment-state.model";
+import { EquipmentStateModel } from "./equipment-state.model";
 import { GetEquipmentResponse } from "src/api/models/get-equipments-response";
-import { GetEquipmentTypes, GetEquipmentTypesFailure, GetEquipmentTypesSuccess } from "../actions/equipment-actions";
+import { GetEquipmentTypes, GetEquipmentTypesFailure, GetEquipmentTypesSuccess } from "./equipment-actions";
 import { EquimpentRestService } from "src/api/rest-service/equipment.rest-service";
 import { catchError, map } from "rxjs";
 

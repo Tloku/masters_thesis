@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { OfferActivityComponentModel, OfferCardComponentModel } from "src/store/model/offer-card-component.model";
+import { OfferActivityComponentModel, OfferCardComponentModel } from "src/store/offer/offer-card-component.model";
 import { CreateOfferFormStateModel } from "../models/form/create-offer-form";
 import { CreateOfferResponse } from "../models/create-offer-response";
-import { OfferPreview } from "src/store/model/filtered-offers-state.model";
+import { OfferPreview } from "src/store/filtered-offer/filtered-offers-state.model";
 
 @Injectable()
 export class OfferRestService {

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { OfferActivityComponentModel } from "src/store/model/offer-card-component.model";
+import { OfferActivityComponentModel } from "src/store/offer/offer-card-component.model";
 
 
 @Component({
