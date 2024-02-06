@@ -1,3 +1,8 @@
 <div class="wrapper">
-    <filtered-offer-card></filtered-offer-card>
+
+    <div class="offers">
+        <ng-container *ngFor="let filteredOffer of filteredOffers$ | async">
+            <filtered-offer-card [offer]="filteredOffer" (click)="navigateToOffer(filteredOffer.offerId)"></filtered-offer-card>
+        </ng-container>
+    </div>
 </div>

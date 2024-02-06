@@ -58,12 +58,13 @@
 .offer-basic-info {
     font-size: 0.8em;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     margin: 15px 0 !important;
 } 
 
 .offer-basic-info > span {
     display: flex;
+    gap: 5px;
     align-items: center;
 }
 

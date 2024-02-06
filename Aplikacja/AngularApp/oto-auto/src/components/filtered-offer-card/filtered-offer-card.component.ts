@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { OfferPreview } from "src/store/filtered-offer/filtered-offers-state.model";
 import { OfferActivityComponentModel } from "src/store/offer/offer-card-component.model";
 
 
@@ -9,6 +10,7 @@ import { OfferActivityComponentModel } from "src/store/offer/offer-card-componen
 })
 export class FilteredOfferCardComponent {
     
-    public offer!: any;
+    @Input()
+    offer: OfferPreview | undefined;
 
 }

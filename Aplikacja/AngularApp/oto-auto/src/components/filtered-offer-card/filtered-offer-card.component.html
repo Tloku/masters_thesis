@@ -1,27 +1,23 @@
 <div class="wrapper">
     
-    <div class="offer-preview">
+    <div class="offer-preview" *ngIf="offer">
         <div>
             <img 
-            class="car-pic"
-            src="../../assets/car-pic.jpg"
-            alt="car pic">
+                class="car-pic"
+                src="{{'data:image/jpg;base64,' + offer.offerImage.imageBytes}}" 
+                alt="car">
         </div>
 
         <div class="offer-info">
-            <h2>Offer title</h2>
-            <!-- <h2>{{ offer.offerTitle }}</h2> -->
+            <h2>{{ offer.title }}</h2>
         
             <p class="under-title">
-                <span> 2000 cm3 </span>
-                <span> 254 KM </span>
-                <span> 320i </span>
-                  <!-- <span> {{ offer.engineCapacity + "cm3" }} </span>
+                  <span> {{ offer.engineCapacity + "cm3" }} </span>
                 <span> {{ offer.horsePower + "KM" }} </span>
-                <span> {{ offer.model }} </span> -->
+                <span> {{ offer.model }} </span>
             </p>
 
-            <p *ngIf="true" class="chip">
+            <p *ngIf="offer.highlighted" class="chip">
                 Wyróżnione
             </p>
 
@@ -30,52 +26,46 @@
                     <i class="material-symbols-outlined">
                         add_road
                     </i>
-                    200 000 km 
+                    {{ offer.mileage}}
                 </span>
                 <span> 
                     <i class="material-symbols-outlined">
                         local_gas_station
                     </i>
-                    Benzyna 
+                    {{ offer.fuelType }}
                 </span>
                 <span> 
                     <i class="material-symbols-outlined">
                         auto_transmission
-                    </i>
-                    Automatyczna
+                    </i>                
+                    {{ offer.driveType }}
                  </span>
                 <span>
                     <i class="pi pi-calendar"></i> 
-                    2015 
+                    {{ offer.yearOfProduction }}
                 </span>
-                <!-- <span> {{ offer.mileage + " km" }} </span>
-                <span> {{ offer.fuelType }} </span>
-                <span> {{ offer.driveType }} </span>
-                <span> {{ offer.yearOfProduction }} </span> -->
+
             </p>
 
             <p class="location">
                 Bielany Wrocławskie (Dolnośląskie)
             </p>
             <p class="duration">
-                Podbito 3 dni temu
-                <!-- {{ offer.durationInDays }} -->
+                Podbito {{ offer.duration }} 3 dni
             </p>
 
-            <p class="dealer-type">
+            <p class="dealer-type" *ngIf="offer.isPrivateDealer">
                 Prywatny sprzedawca
-                <!-- {{ offer.isPrivateDealer }} -->
             </p>
 
         </div>
  
         <div class="offer-price">
             <p class="price">
-                75 000 
+                {{ offer.price }}
                 <small>
                     PLN
                 </small>
-                <!-- {{offer.price}} -->
             </p>
 
             <p class="link">Sprawdź możliwość finansowania</p>

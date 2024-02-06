@@ -17,7 +17,6 @@ export class FilteredOffersState {
 
     constructor(private _restService: OfferRestService) {}
 
-
     @Action(GetFilteredOffers)
     getFilteredOffers(ctx: StateContext<GetFilteredOffers>, action: GetFilteredOffers) {
 
@@ -26,7 +25,7 @@ export class FilteredOffersState {
             map((offers: OfferPreview[]) => ctx.dispatch(new GetFilteredOffersSuccess(offers))),
             catchError(error => {
                 console.log(error);
-                 throw error;
+                throw error;
             })
         )
     }

@@ -27,7 +27,7 @@ export class OfferRestService {
     }
 
     getFilteredOffers(): Observable<OfferPreview[]> {
-        return this._http.post<OfferPreview[]>("http://localhost:5252/api/offer/filtered", {}, {'headers': this._headers})
+        return this._http.get<OfferPreview[]>("http://localhost:5252/api/offer/filtered")
     }
 
 }
