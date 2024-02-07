@@ -12,7 +12,7 @@
             <h2>{{ offer.title }}</h2>
         
             <p class="under-title">
-                  <span> {{ offer.engineCapacity + "cm3" }} </span>
+                <span> {{ offer.engineCapacity + "cm3" }} </span>
                 <span> {{ offer.horsePower + "KM" }} </span>
                 <span> {{ offer.model }} </span>
             </p>
@@ -51,7 +51,7 @@
                 Bielany Wrocławskie (Dolnośląskie)
             </p>
             <p class="duration">
-                Podbito {{ offer.duration }} 3 dni
+                Podbito {{ offer.duration }} dni
             </p>
 
             <p class="dealer-type" *ngIf="offer.isPrivateDealer">

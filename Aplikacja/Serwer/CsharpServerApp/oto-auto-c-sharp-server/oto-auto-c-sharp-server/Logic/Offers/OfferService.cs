@@ -56,7 +56,7 @@ public class OfferService
             offer.Vehicle.FuelTypeId.ToString(),
             offer.Vehicle.DriveTypeId.ToString(),
             offer.Vehicle.YearOfProduction,
-            DateTime.Now.Subtract(offer.CreationDate).TotalDays,
+            DateTime.Now.Subtract(offer.CreationDate).Days,
             offer.Dealer.IsPrivate,
             offer.Price
         );

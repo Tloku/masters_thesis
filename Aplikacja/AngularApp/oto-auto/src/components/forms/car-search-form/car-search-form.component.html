@@ -1,26 +1,39 @@
 <div class="car-form-wrapper">
-    <form [formGroup]="formGroup">
+    <form *ngIf="carSearchForm$ | async as carSearchForm" [formGroup]="carSearchForm">
         <div class="car-form-container">
             <span class="p-float-label">
-                <p-dropdown inputId="body-type" [editable]="true">
+                <p-dropdown 
+                    formControlName="bodyType"
+                    inputId="body-type"
+                    [editable]="true">
                 </p-dropdown>
                 <label for="body-type">Typ nadwozia</label>
             </span>
 
             <span class="p-float-label">
-                <p-dropdown inputId="brand" [editable]="true">
-            </p-dropdown>
+                <p-dropdown 
+                    formControlName="brand"
+                    inputId="brand"
+                    [editable]="true"
+                    >
+                </p-dropdown>
                 <label for="brand">Marka pojazdu</label>
             </span>
             
             <span class="p-float-label">
-                <p-dropdown inputId="model" [editable]="true">
+                <p-dropdown
+                    formControlName="model"
+                    inputId="model"
+                    [editable]="true">
                 </p-dropdown>
                 <label for="model">Model pojazdu</label>
             </span>
             
             <span class="p-float-label">
-                <p-dropdown inputId="generation" [editable]="true">
+                <p-dropdown 
+                    formControlName="generation"
+                    inputId="generation"
+                    [editable]="true">
                 </p-dropdown>
                 <label for="generation">Generacja</label>
             </span>
@@ -28,12 +41,20 @@
             <div class="range">
                 <span class="label">Cena</span>
                 <span class="short">
-                    <p-dropdown placeholder="Od" inputId="price-from" [editable]="true">
+                    <p-dropdown 
+                        formControlName="priceFrom"
+                        placeholder="Od"
+                        inputId="price-from"
+                        [editable]="true">
                     </p-dropdown>
                 </span>
                 
                 <span class="short">
-                    <p-dropdown placeholder="Do" class="short"  inputId="price-to" [editable]="true">
+                    <p-dropdown 
+                        formControlName="priceTo"
+                        placeholder="Do" 
+                        inputId="price-to"
+                        [editable]="true">
                     </p-dropdown>
                 </span>
             </div> 
@@ -42,18 +63,29 @@
             <div class="range">
                 <span class="label">Rok produkcji</span>
                 <span class="short">
-                    <p-dropdown placeholder="Od" class="short" inputId="year-from" [editable]="true">
+                    <p-dropdown
+                        formControlName="yearFrom"
+                        placeholder="Od"
+                        inputId="year-from" 
+                        [editable]="true">
                     </p-dropdown>
                 </span>
 
                 <span class="short">
-                    <p-dropdown placeholder="Do" class="short" inputId="year-to" [editable]="true">
+                    <p-dropdown 
+                        formControlName="yearTo"
+                        placeholder="Do"
+                        inputId="year-to"
+                        [editable]="true">
                     </p-dropdown>
                 </span>
             </div>
 
             <span class="p-float-label">
-                <p-dropdown inputId="fuel-type" [editable]="true">
+                <p-dropdown 
+                    formControlName="fuelType"
+                    inputId="fuel-type"
+                    [editable]="true">
                 </p-dropdown>
                 <label for="fuel-type">Rodzaj paliwa</label>
             </span>
@@ -61,12 +93,20 @@
             <div class="range">
                 <span class="label">Przebieg</span>
                 <span class="short">
-                    <p-dropdown placeholder="Od" class="short" inputId="mileage-from" [editable]="true">
+                    <p-dropdown
+                        formControlName="mileageFrom"
+                        placeholder="Od"
+                        inputId="mileage-from" 
+                        [editable]="true">
                     </p-dropdown>
                 </span>
             
                 <span class="short">
-                    <p-dropdown placeholder="Do" class="short" inputId="mileage-to" [editable]="true">
+                    <p-dropdown 
+                        formControlName="mileageTo"
+                        placeholder="Do"
+                        inputId="mileage-to"
+                        [editable]="true">
                     </p-dropdown>
                 </span>
             </div>

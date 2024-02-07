@@ -34,6 +34,7 @@ import { FilteredOfferCardComponent } from 'src/components/filtered-offer-card/f
 import { FilteredOffersComponent } from 'src/components/filtered-offers/filtered-offers.component';
 import { OfferState } from 'src/store/offer/offer.state';
 import { FilteredOffersState } from 'src/store/filtered-offer/filtered-offers.state';
+import { CarSearchFormState } from 'src/store/car-search-form/car-search-form.state';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { FilteredOffersState } from 'src/store/filtered-offer/filtered-offers.st
     BrowserAnimationsModule,
     ButtonModule,
     ToastModule,
-    NgxsModule.forRoot([OfferState, EquipmentState, CreateOfferFormState, FilteredOffersState]),
+    NgxsModule.forRoot([CarSearchFormState, OfferState, EquipmentState, CreateOfferFormState, FilteredOffersState]),
     NgxsFormPluginModule.forRoot()
   ],
   providers: [OfferRestService, EquimpentRestService, MessageService ],

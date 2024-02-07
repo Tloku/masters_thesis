@@ -20,6 +20,7 @@
 
 
 .car-pic {
+    min-width: 220px;
     width: 240px;
     height: 180px;
     margin: 25px;
