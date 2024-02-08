@@ -1,0 +1,15 @@
+.filters-empty-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 70%;
+    }
+    
+    span {
+        text-align: center;
+    }
+}

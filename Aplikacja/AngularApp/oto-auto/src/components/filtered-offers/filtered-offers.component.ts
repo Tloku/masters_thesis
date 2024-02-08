@@ -20,6 +20,9 @@ export class FilteredOffersComponent implements OnInit {
     @Select(FilteredOffersSelector.filteredOffers)
     filteredOffers$!: Observable<OfferPreview[] | undefined>
 
+    showPictureWhenFiltersAreNull: boolean = true;
+
+
     constructor(
         private _store: Store,
         private _router: Router
@@ -31,7 +34,10 @@ export class FilteredOffersComponent implements OnInit {
         if (carSearchForm) {
             let carSearchValues: CarSearchValues = carSearchForm.getRawValue();
             this._store.dispatch(new GetFilteredOffers(carSearchValues))
+            this.showPictureWhenFiltersAreNull = false
+            return;
         }
+        this.showPictureWhenFiltersAreNull = true;
     }
     
     navigateToOffer(offerId: number) {

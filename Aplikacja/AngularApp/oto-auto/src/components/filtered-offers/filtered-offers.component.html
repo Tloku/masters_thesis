@@ -1,6 +1,11 @@
 <div class="wrapper">
 
     <div class="offers">
+
+        <div *ngIf="showPictureWhenFiltersAreNull">
+            <filters-empty></filters-empty>
+        </div>
+
         <ng-container *ngFor="let filteredOffer of filteredOffers$ | async">
             <filtered-offer-card [offer]="filteredOffer" (click)="navigateToOffer(filteredOffer.offerId)"></filtered-offer-card>
         </ng-container>

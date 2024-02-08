@@ -35,6 +35,7 @@ import { FilteredOffersComponent } from 'src/components/filtered-offers/filtered
 import { OfferState } from 'src/store/offer/offer.state';
 import { FilteredOffersState } from 'src/store/filtered-offer/filtered-offers.state';
 import { CarSearchFormState } from 'src/store/car-search-form/car-search-form.state';
+import { FiltersEmptyComponent } from 'src/components/filtered-offers/filters-empty/filters-empty.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CarSearchFormState } from 'src/store/car-search-form/car-search-form.st
     OfferViewPriceComponent,
     FilteredOffersPageComponent,
     FilteredOfferCardComponent,
-    FilteredOffersComponent
+    FilteredOffersComponent,
+    FiltersEmptyComponent
   ],
   imports: [
     BrowserModule,
