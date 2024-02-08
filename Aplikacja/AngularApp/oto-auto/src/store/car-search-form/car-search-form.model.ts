@@ -28,3 +28,17 @@ export interface CarSearchFormDropdownOptions {
     fuelTypeOptions: string[];
     mileageOptions: string[];
 }
+
+export interface CarSearchValues {
+    bodyType: string | null;
+    brand: string | null;
+    model: string | null;
+    generation: string | null;
+    priceFrom: string | null;
+    priceTo: string | null;
+    yearFrom: string | null;
+    yearTo: string | null;
+    fuelType: string | null;
+    mileageFrom: string | null;
+    mileageTo: string | null;
+}

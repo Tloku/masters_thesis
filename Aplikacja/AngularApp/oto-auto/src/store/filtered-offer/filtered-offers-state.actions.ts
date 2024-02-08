@@ -1,8 +1,9 @@
+import { CarSearchValues } from "../car-search-form/car-search-form.model"
 import { OfferPreview } from "./filtered-offers-state.model"
 
 export class GetFilteredOffers {
     static readonly type: string = '[Filtered Offers] Get Filtered Offers'
-    constructor() {}
+    constructor(public carSearchValues: CarSearchValues) {}
 }
 
 export class GetFilteredOffersSuccess {

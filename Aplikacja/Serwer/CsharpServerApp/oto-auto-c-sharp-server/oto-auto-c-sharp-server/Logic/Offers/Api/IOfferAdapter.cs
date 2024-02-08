@@ -1,6 +1,7 @@
 using oto_auto_c_sharp_server.Entities;
 using oto_auto_c_sharp_server.Logic.Offers.Models;
 using oto_auto_c_sharp_server.Logic.Offers.Models.CreateOffer;
+using oto_auto_c_sharp_server.Logic.Offers.Models.FilteredOffers;
 
 namespace oto_auto_c_sharp_server.Logic.Offers.Api;
 
@@ -16,5 +17,5 @@ public interface IOfferAdapter
 
     Task<CreateOfferResponse> CreateOffer(CreateOfferRequest request);
 
-    Task<IEnumerable<OfferPreview>> GetFilteredOffers();
+    Task<IEnumerable<OfferPreview>> GetFilteredOffers(CarSearchValues carSearchValues);
 }

@@ -15,12 +15,12 @@ import { catchError, map } from "rxjs";
 @Injectable()
 export class FilteredOffersState {
 
-    constructor(private _restService: OfferRestService) {}
+    constructor(private _restService: OfferRestService) {} 
 
     @Action(GetFilteredOffers)
-    getFilteredOffers(ctx: StateContext<GetFilteredOffers>, action: GetFilteredOffers) {
+    getFilteredOffers(ctx: StateContext<FilteredOffersStateModel>, action: GetFilteredOffers) {
 
-        return this._restService.getFilteredOffers()
+        return this._restService.getFilteredOffers(action.carSearchValues)
         .pipe(
             map((offers: OfferPreview[]) => ctx.dispatch(new GetFilteredOffersSuccess(offers))),
             catchError(error => {
@@ -31,11 +31,8 @@ export class FilteredOffersState {
     }
 
     @Action(GetFilteredOffersSuccess)
-    getFilteredOffersSuccess(ctx: StateContext<GetFilteredOffers>, action: GetFilteredOffersSuccess) {
-        const state = ctx.getState();
-
-        ctx.setState({
-            ...state,
+    getFilteredOffersSuccess(ctx: StateContext<FilteredOffersStateModel>, action: GetFilteredOffersSuccess) {
+        ctx.patchState({
             filteredOffers: action.filteredOffers
         })
     }

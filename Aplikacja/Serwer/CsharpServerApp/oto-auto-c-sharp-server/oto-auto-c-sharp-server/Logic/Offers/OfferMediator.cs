@@ -6,6 +6,7 @@ using oto_auto_c_sharp_server.Logic.Offers.Api;
 using oto_auto_c_sharp_server.Logic.Offers.Models;
 using oto_auto_c_sharp_server.Logic.Offers.Models.CreateOffer;
 using oto_auto_c_sharp_server.Logic.Offers.Models.CreateOffer.Equipments;
+using oto_auto_c_sharp_server.Logic.Offers.Models.FilteredOffers;
 using oto_auto_c_sharp_server.Logic.Others.Api;
 using oto_auto_c_sharp_server.Repository.BodyType;
 using oto_auto_c_sharp_server.Repository.CarStatus;
@@ -111,9 +112,9 @@ class OfferMediator : IOfferAdapter
         return new CreateOfferResponse(offerId);
     }
 
-    public async Task<IEnumerable<OfferPreview>> GetFilteredOffers()
+    public async Task<IEnumerable<OfferPreview>> GetFilteredOffers(CarSearchValues carSearchValues)
     {
-        var offers = await _offerRepository.GetAwardedOffers(); //TODO temporary solution
+        var offers = await _offerRepository.GetFilteredOffer(carSearchValues);
 
         return offers
             .Select(o => _service.MapOfferToOfferPreview(o))

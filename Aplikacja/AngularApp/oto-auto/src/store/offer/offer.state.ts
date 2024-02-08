@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
 import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../offer/offer-card-component.model";
-import { CacheOfferDetails, CreateOffer, CreateOfferFailure, CreateOfferSuccess, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetCachedOfferByIdSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../offer/offer-actions";
+import { CacheOfferDetails, CreateOffer, CreateOfferFailure, CreateOfferSuccess, EmitRedisError, GetAwardedOffers, GetAwardedOffersFailure, GetAwardedOffersSuccess, GetCachedOfferByIdSuccess, GetOfferById, GetOfferByIdFailure, GetOfferByIdSuccess } from "../offer/offer-actions";
 import { OfferRestService } from "src/api/rest-service/offer.rest-service";
-import { catchError, map, of } from "rxjs";
+import { Observable, catchError, map, of } from "rxjs";
 import { CreateOfferResponse } from "src/api/models/create-offer-response";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/api";
@@ -32,7 +32,8 @@ export enum RedisCacheKeys {
             offerCurrency: "",
             equipments: [],
             vehicleAttributes: []
-        }
+        },
+        redisNotResponding: false
     }
 })
 @Injectable()
@@ -74,6 +75,11 @@ export class OfferState {
     @Action(GetOfferById)
     getOfferById(ctx: StateContext<OfferCardComponentStateModel>, action: GetOfferById) {
         const offerId: number = action.offerId;
+        const state = ctx.getState();
+
+        if (state.redisNotResponding) {
+            return this.getOfferByIdFromServer(ctx, offerId);
+        }
 
         return this._redisCacheService.get<OfferActivityComponentModel>(RedisCacheKeys.OFFER + offerId)
             .pipe(
@@ -81,12 +87,22 @@ export class OfferState {
                     if (redisResponse) {
                         return ctx.dispatch(new GetCachedOfferByIdSuccess(redisResponse))
                     }
-                    return this._restService.getOfferById(offerId)
-                        .pipe(
-                            map((offer: OfferActivityComponentModel) => ctx.dispatch(new GetOfferByIdSuccess(offer))),
-                            catchError(error => ctx.dispatch(new GetOfferByIdFailure(error)))
-                        )
-            }))
+
+                    return this.getOfferByIdFromServer(ctx, offerId);
+                }),
+                catchError(error => {
+                    this._messageService.add({key: 'toast', severity: 'error', summary: 'Błąd podczas wyświetlania oferty'})
+                    throw error;
+                })
+            )
+    }
+
+    private getOfferByIdFromServer(ctx: StateContext<OfferCardComponentStateModel>, offerId: number) {
+        return this._restService.getOfferById(offerId)
+        .pipe(
+            map((offer: OfferActivityComponentModel) => ctx.dispatch(new GetOfferByIdSuccess(offer))),
+            catchError(error => ctx.dispatch(new GetOfferByIdFailure(error)))
+        )
     }
 
     @Action(GetOfferByIdSuccess)
@@ -112,7 +128,13 @@ export class OfferState {
     }
 
     @Action(CacheOfferDetails)
-    cacheOfferDetails(ctx: StateContext<OfferActivityComponentModel>, action: CacheOfferDetails) {
+    cacheOfferDetails(ctx: StateContext<OfferCardComponentStateModel>, action: CacheOfferDetails) {
+        const state = ctx.getState();
+
+        if (state.redisNotResponding) {
+            return;
+        }
+
         return this._redisCacheService.set(RedisCacheKeys.OFFER + action.offer.offerId, action.offer)
             .pipe(
                 map(() => console.log("Successfully cached offer details with offerId: " + action.offer.offerId)),
@@ -143,5 +165,19 @@ export class OfferState {
     createOfferSuccess(ctx: StateContext<OfferCardComponentStateModel>, action: CreateOfferSuccess) {
         this._messageService.add({ key: 'toast', severity: 'success', summary: 'Oferta utworzona', detail: 'Udało się utworzyć twoją ofertę!' });
         this.router.navigateByUrl("/offer/" + action.offerId);
+    }
+
+    @Action(EmitRedisError)
+    emitRedisError(ctx: StateContext<OfferCardComponentStateModel>, action: EmitRedisError) {
+        this._messageService.add({key: 'toast', severity: 'error', summary: "Redis nie odpowiada. Kolejna próba połączenia nastąpi za 5 minut"})
+        ctx.patchState({
+            redisNotResponding: true
+        })
+
+        setTimeout(() => {
+            ctx.patchState({
+                redisNotResponding: false
+            })
+        }, 5 * 60 * 1000)
     }
 }

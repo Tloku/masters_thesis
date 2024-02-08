@@ -44,6 +44,11 @@ public class OfferService
 
     public OfferPreview MapOfferToOfferPreview(Offer offer)
     {
+        if (offer.Vehicle == null)
+        {
+            return null;
+        }
+        
         return new OfferPreview(
             offer.Id,
             GetMainImage(offer.VehicleImages),

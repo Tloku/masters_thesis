@@ -5,6 +5,7 @@
     padding-top: 5vh;
 }
 
-.toast {
-    z-index: 10000000;
+:host ::ng-deep .p-toast {
+    margin-top: 5vh;
+    z-index: 10000 !important;
 }

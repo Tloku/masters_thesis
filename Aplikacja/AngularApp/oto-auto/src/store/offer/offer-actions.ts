@@ -55,3 +55,8 @@ export class GetCachedOfferByIdSuccess {
     static readonly type: string = "[Get Cached Offer By Id] Get Offer by id success"
     constructor(public offer: OfferActivityComponentModel) {}
 }
+
+export class EmitRedisError {
+    static readonly type: string = "[Get Cached Offer By Id] Emit Redis Error";
+    constructor(public error: any) {}
+}

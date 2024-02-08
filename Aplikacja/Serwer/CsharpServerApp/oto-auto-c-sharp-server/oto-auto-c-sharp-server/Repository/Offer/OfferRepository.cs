@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using oto_auto_c_sharp_server.DbContexts;
+using oto_auto_c_sharp_server.Logic.Offers.Models.FilteredOffers;
 
 namespace oto_auto_c_sharp_server.Repository.Offer;
 using Offer = oto_auto_c_sharp_server.Entities.Offer;
@@ -57,6 +58,29 @@ class OfferRepository: IOfferRepository
             .Include(o => o.Vehicle)
             .Include(o => o.Dealer)
             .Include(o => o.VehicleImages)
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<Offer>> GetFilteredOffer(CarSearchValues carSearch)
+    {
+        // Due to bad design of database (storing price etc. in a string) i cannot easily filter data the way i wanted
+        // Sadge
+        return await _replicaContext.Offer
+            // .Where(o => carSearch.PriceFrom != null && int.TryParse(o.Price, out int price) && price >= carSearch.PriceFrom)
+            // .Where(o => carSearch.PriceTo != null && int.Parse(o.Price) <= carSearch.PriceTo)
+            .Include(o => o.Vehicle)
+            // .Where(o => carSearch.BodyType != null && o.Vehicle.BodyType.Type.Contains(carSearch.BodyType, StringComparison.OrdinalIgnoreCase))
+            .Where(o => carSearch.Brand == null || o.Vehicle.Brand.Contains(carSearch.Brand))
+            .Where(o => carSearch.Model == null || o.Vehicle.Model.Contains(carSearch.Model))
+            // .Where(o => o.Vehicle.Generation.Equals(carSearch.Generation))
+            // .Where(o => carSearch.YearFrom != null && int.Parse(o.Vehicle.YearOfProduction) >= carSearch.YearFrom)
+            // .Where(o => carSearch.YearTo != null && int.Parse(o.Vehicle.YearOfProduction) <= carSearch.YearTo)
+            // .Where(o => carSearch.FuelType != null && o.Vehicle.FuelType.Type.Contains(carSearch.FuelType, StringComparison.OrdinalIgnoreCase))
+            // .Where(o => carSearch.MileageFrom != null && int.Parse(o.Vehicle.Mileage) >= carSearch.MileageFrom)
+            // .Where(o => carSearch.MileageTo != null && int.Parse(o.Vehicle.Mileage) <= carSearch.MileageTo)
+            .Include(o => o.Dealer)
+            .Include(o => o.VehicleImages)
+            .Take(10)
             .ToListAsync();
     }
 
