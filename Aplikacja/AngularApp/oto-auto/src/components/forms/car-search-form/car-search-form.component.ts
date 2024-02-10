@@ -21,6 +21,7 @@ export class CarSearchFormComponent {
     private _store: Store,
     private _router: Router
   ) {
+    debugger
     this._store.dispatch(new InitCarSearchForm())
   }
 

@@ -1,0 +1,35 @@
+.car-search-form-extended-wrapper {
+    min-height: 300px;
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    background-color: var(--secondary-200);
+
+    .form form {
+        width: 70%;
+        margin: auto;
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: flex-start;
+
+        .pair {
+            display: inline-flex;
+            gap: 15px;
+        }
+    }
+
+    .form form .p-float-label {
+        width: 200px !important;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .form form .location {
+        width: 200px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+    }
+}

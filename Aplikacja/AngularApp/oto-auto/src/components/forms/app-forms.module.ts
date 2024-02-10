@@ -14,7 +14,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { AccordionModule } from 'primeng/accordion';
 import { AdditionalPropertiesComponent } from './additional-properties/additional-properties.component';
 import { CheckboxModule } from 'primeng/checkbox';
-
+import { CarSearchFormExtendedComponent } from './car-search-form-extended/car-search-form-extended';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { CheckboxModule } from 'primeng/checkbox';
     ImageUploaderComponent,
     ImageDragAndDropDirective,
     AdditionalPropertiesComponent,
+    CarSearchFormExtendedComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +39,7 @@ import { CheckboxModule } from 'primeng/checkbox';
     CheckboxModule,
   ],
   exports: [
+    CarSearchFormExtendedComponent,
     CarSearchFormComponent,
     MotocycleSearchFormComponent,
     CreateOfferFormComponent

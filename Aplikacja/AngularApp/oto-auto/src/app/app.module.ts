@@ -24,7 +24,6 @@ import { EquipmentState } from 'src/store/equipment/equipment.state';
 import { EquimpentRestService } from 'src/api/rest-service/equipment.rest-service';
 import { CreateOfferFooterComponent } from 'src/components/create-offer-footer/create-offer-footer.component';
 import { ButtonModule } from 'primeng/button';
-import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { CreateOfferFormState } from 'src/store/create-offer/create-offer-form.state';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
@@ -68,8 +67,7 @@ import { FiltersEmptyComponent } from 'src/components/filtered-offers/filters-em
     BrowserAnimationsModule,
     ButtonModule,
     ToastModule,
-    NgxsModule.forRoot([CarSearchFormState, OfferState, EquipmentState, CreateOfferFormState, FilteredOffersState]),
-    NgxsFormPluginModule.forRoot()
+    NgxsModule.forRoot([CarSearchFormState, OfferState, EquipmentState, CreateOfferFormState, FilteredOffersState])
   ],
   providers: [OfferRestService, EquimpentRestService, MessageService ],
   bootstrap: [AppComponent],
