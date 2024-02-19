@@ -16,7 +16,9 @@
             font-weight: 500;
         }
    
-        .basic-info {
+        .basic-info,
+        .technical-data,
+        .dealer-data {
             h2 {
                 font-weight: 500;
             }
@@ -34,7 +36,19 @@
                 .p-inputtext {
                     width: 100% !important;
                 }
-            }    
+            }
+        }
+
+        .dealer-data {
+            .half-row {
+                .p-float-label {
+                    width: 50% !important;
+                }
+                
+                .p-inputtext {
+                    width: 100% !important;
+                }
+            }
         }
 
         .main-features  {
@@ -45,7 +59,7 @@
             }
 
             h2 {
-                font-size: 1.1em;
+                font-weight: 500;
             }
 
             .row {
@@ -68,17 +82,46 @@
                     margin-left: auto;
                 }
             }
+        }
 
+        .vehicle-description {
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 3vh;
+            }
+
+            h2 {
+                font-weight: 500;
+            }
+
+            .p-float-label {
+                width: 100% !important;
+            }
             
+            .p-inputtext {
+                width: 100% !important;
+            }
         }
     }
 
+    .price, .additional-properties {
+        h2 {
+            font-weight: 500;
+        }
+    }
     
     .vehicle-description form,
     .price form {
         display: flex;
         flex-direction: column;
         gap: 3vh;
+
+        .price-input-row {
+            width: 50%;
+            display: flex;
+            gap: 1vw;
+        }
     }
     
     .price .row {   
@@ -103,7 +146,8 @@
     .technical-data h2,
     .additional-properties h2,
     .price h2,
-    .dealer-data h2 {
+    .dealer-data h2,
+    .vehicle-description h2 {
         padding-bottom: 2vh;
     }
     
@@ -129,14 +173,6 @@
     .image-form {
         padding-bottom: 2vh;
     }
-    
-    
-    .price-input-row {
-        width: 50%;
-        display: flex;
-        gap: 1vw;
-    }
-
 
     .p-selectbutton .p-button {
         width: 13vw !important;

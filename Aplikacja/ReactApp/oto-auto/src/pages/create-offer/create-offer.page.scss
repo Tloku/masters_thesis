@@ -2,6 +2,7 @@
     display: flex;
     width: 100%;
     height: fit-content;
+    background-color: var(--main-100);
 
 
     .form-component {
@@ -29,7 +30,7 @@
             min-height: 90vh;
             width: 35%;
             height: auto;
-            background-color: var(--main-100);
+            background-color: var(--secondary-100);
         }
     
 }    
