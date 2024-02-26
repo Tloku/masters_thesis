@@ -64,7 +64,7 @@ export interface MainFeaturesForm {
 }
 
 export interface EquipmentValuesForm {
-    values: []
+    values: EquipmentItemsForm[]
 }
 
 export interface EquipmentItemsForm {
@@ -75,7 +75,7 @@ export interface EquipmentItemsForm {
 
 export interface EquipmentForm {
     type: string,
-    equipments: EquipmentItemsForm[],
+    equipments: EquipmentValuesForm,
 }
 
 export interface AdditionalTechnicalDataForm {
@@ -98,4 +98,10 @@ export interface EquipmentType {
 export interface Equipment {
     id: number;
     name: string;
+}
+
+export interface AdditionalPropertiesFormModel {
+    technicalDataForm: TechnicalDataForm | undefined;
+    additionalTechnicalDataForm: AdditionalTechnicalDataForm | undefined;
+    equipmentForm: EquipmentForm | undefined;
 }

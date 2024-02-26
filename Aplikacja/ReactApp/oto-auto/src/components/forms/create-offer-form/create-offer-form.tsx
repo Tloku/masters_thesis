@@ -3,12 +3,13 @@ import { useFormik } from "formik";
 import { InputText } from "primereact/inputtext";
 import { SelectButton } from 'primereact/selectbutton';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { BasicInfoForm, CreateOfferFormStateModel, DealerDataForm, MainFeaturesForm, PriceDataForm, TechnicalDataForm, VehicleDescriptionForm } from "../../../redux/model/create-offer-form.model";
+import { BasicInfoForm, CreateOfferFormStateModel, DealerDataForm, MainFeaturesForm, OfferImagesForm, PriceDataForm, TechnicalDataForm, VehicleDescriptionForm } from "../../../redux/model/create-offer-form.model";
 import { ImageUploader } from '../image-uploader/image-uploader';
+import { AdditionalProperties } from '../additional-properties/additional-properties.component';
 
 const createOfferForm: CreateOfferFormStateModel = {
     dealerDataForm: undefined,
-    offerImages: undefined,
+    offerImages: [],
     priceDataForm:undefined,
     equipmentTypeForm: undefined,
     additionalTechnicalDataForm: undefined,
@@ -38,7 +39,7 @@ export const CreateOfferFormComponent: React.FC = () => {
     const formikVehicleDescriptionValues: VehicleDescriptionForm | undefined = formik.values.createOfferForm.vehicleDescription;
     const formikPriceDataValues: PriceDataForm | undefined = formik.values.createOfferForm.priceDataForm;
     const formikDealerDataForm: DealerDataForm | undefined = formik.values.createOfferForm.dealerDataForm;
-
+    const formikOfferImages: OfferImagesForm[] | undefined = formik.values.createOfferForm.offerImages;
 
     return <div className="create-offer-form-wrapper">
         <div className="title">
@@ -224,7 +225,7 @@ export const CreateOfferFormComponent: React.FC = () => {
 
             <div className="image-form">
                 <h2>Zdjęcia</h2>
-                <ImageUploader></ImageUploader>
+                <ImageUploader form={formikOfferImages}></ImageUploader>
             </div>      
 
             <div className="vehicle-description">
@@ -253,7 +254,7 @@ export const CreateOfferFormComponent: React.FC = () => {
 
             <div className="additional-properties">
                 <h2>Wyświetl dodatkowe szczegóły</h2>
-                {/* <additional-properties></additional-properties> */}
+                <AdditionalProperties></AdditionalProperties>
             </div>
 
             <div className="price">

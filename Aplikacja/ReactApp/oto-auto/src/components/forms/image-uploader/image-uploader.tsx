@@ -1,12 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { RefObject, useEffect, useRef, useState } from 'react';
 import './image-uploader.scss'
+import { OfferImagesForm } from '../../../redux/model/create-offer-form.model';
+
+interface ImageUploaderProps {
+    form: OfferImagesForm[] | undefined
+}
 
 
-
-export const ImageUploader: React.FC = () => {
+export const ImageUploader: React.FC<ImageUploaderProps> = (props) => {
     const [offerImagesData, setOfferImagesData] = useState<string[]>([])
     const dropZone: RefObject<HTMLDivElement> = useRef(null);
+    const dropButton: RefObject<HTMLDivElement> = useRef(null);
 
 
     useEffect(() => {
@@ -14,10 +19,21 @@ export const ImageUploader: React.FC = () => {
             dropZone.current.addEventListener("dragover", handleDragOver)
             dropZone.current.addEventListener("drop", onImageDrop)
         }
+
+        if (dropButton && dropButton.current) {
+            dropButton.current.addEventListener("dragover", handleDragOver)
+            dropButton.current.addEventListener("drop", onImageDrop)
+        }
         
         return () => {
-            dropZone!.current!.removeEventListener("dragover", handleDragOver)
-            dropZone!.current!.removeEventListener("drop", onImageDrop)
+            if (dropZone && dropZone.current) { 
+                dropZone!.current!.removeEventListener("dragover", handleDragOver)
+                dropZone!.current!.removeEventListener("drop", onImageDrop)
+            }
+            if (dropButton && dropButton.current) {
+                dropButton!.current!.removeEventListener("dragover", handleDragOver)
+                dropButton!.current!.removeEventListener("drop", onImageDrop)
+            }
         }
     }, [])
 
@@ -26,9 +42,34 @@ export const ImageUploader: React.FC = () => {
         event.stopPropagation();
 
         const {files} = event.dataTransfer!;
-        console.log(files)
+        importNewImages(files)
     }
     
+    const importNewImages = (files: FileList) => {
+        Array.from(files).forEach((file: File, index: number) => {
+            if (!determineMimeTypeIsImage(file)) {
+              return; //TODO WYŚWIETL KOMUNIKAT 
+            }
+            
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onload = (_event) => {
+              if (reader.result) {
+                setOfferImagesData(prevImagesData => [...prevImagesData, reader.result!.toString()]);
+                addImagesToForm(file, reader.result.toString());
+               }  
+            }
+          })
+    }
+
+    const addImagesToForm = (file: File, blob: string) => {
+        const offerImage: OfferImagesForm = {
+            name: file.name,
+            blob: blob,
+            isMainImage: offerImagesData.length == 1
+          }
+          props.form!.push(offerImage);
+    }
 
     return <div className='image-uploader-wrapper' ref={dropZone}>
         {
@@ -54,7 +95,29 @@ export const ImageUploader: React.FC = () => {
         {
             offerImagesData.length > 0 && 
             <div className="not-empty-image-list">
-                
+                <ol>
+                    {offerImagesData.map((image, index) => (
+                        <li key={index}>
+                            <div className={index === 0 ? "main-image-container" : "image-container"}>
+                                <img 
+                                    className="uploaded-car-pic"
+                                    src={image}
+                                    alt="car"
+                                ></img>
+                            </div>
+                        </li>
+                    ))}
+                    <li>
+                        <div className="upload-file-button" ref={dropButton}>
+                            <input
+                                type="file"
+                                id="fileDropListRef"
+                                multiple
+                            />
+                            <label htmlFor="fileDropListRef">+</label>
+                        </div>
+                    </li>
+                </ol>
             </div>
         }
 

@@ -1,11 +1,13 @@
 
 import { configureStore } from "@reduxjs/toolkit"
 import offerReducer from "../state/offerSlice"
+import equipmentTypeReducer from "../state/equipmentSlice"
 
 
 export const store = configureStore({
     reducer: { 
-        offerCard: offerReducer 
+        offerCard: offerReducer,
+        equipmentType: equipmentTypeReducer
     }
 })
 
