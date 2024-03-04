@@ -103,5 +103,5 @@ export interface Equipment {
 export interface AdditionalPropertiesFormModel {
     technicalDataForm: TechnicalDataForm | undefined;
     additionalTechnicalDataForm: AdditionalTechnicalDataForm | undefined;
-    equipmentForm: EquipmentForm | undefined;
+    equipmentForm: EquipmentForm[] | undefined;
 }

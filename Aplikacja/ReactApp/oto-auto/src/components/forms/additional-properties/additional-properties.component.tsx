@@ -31,10 +31,12 @@ export const AdditionalProperties: React.FC = () => {
         if (!equipmentTypes || equipmentTypes.length == 0) {
             return;
         }
-
+        const equipmentForms: EquipmentForm[] = [];
         equipmentTypes.forEach((equipmentType: EquipmentType) => {
-            const equipmentForm = createEquipmentForm(equipmentType);
+            equipmentForms.push(createEquipmentForm(equipmentType));
         })
+
+        formik.setFieldValue("additionalProperties.equipmentForm", equipmentForms)
     }, [equipmentTypes])
 
     const formik = useFormik({
@@ -45,6 +47,8 @@ export const AdditionalProperties: React.FC = () => {
             formik.resetForm();
         }
     });
+
+    const equipmentFormik: EquipmentForm[] = formik.values.additionalProperties.equipmentForm;
 
     const createEquipmentForm = (equipmentType: EquipmentType) => {
         const equipmentValues: EquipmentValuesForm = {
@@ -65,9 +69,14 @@ export const AdditionalProperties: React.FC = () => {
         })
 
         equipmentValues.values = array
-
-        console.log("equipmentForm", equipmentForm)
         return equipmentForm
+    }
+
+    const handleEquipmentValueChange = (indexForm: number, eqIndex: number, value: boolean) => {
+        const updatedEquipmentFormik = [...equipmentFormik];
+        updatedEquipmentFormik[indexForm].equipments.values[eqIndex].value = value;
+        formik.setFieldValue('additionalProperties.equipmentForm', updatedEquipmentFormik);
+        console.log(formik);
     }
 
     return <div className="additional-properites-wrapper">
@@ -127,10 +136,28 @@ export const AdditionalProperties: React.FC = () => {
             </AccordionTab>
 
             <AccordionTab header="Wyposażenie">
-                <div className="equipmentWrapper">
+                <div className="equipment-wrapper">
                     <form>
-
-
+                        <Accordion multiple>
+                            { equipmentFormik && equipmentFormik.map((eq: EquipmentForm, indexForm: number) => 
+                                <AccordionTab key={indexForm} header={eq.type} >
+                                    <div className="equipment-checkbox-wrap">
+                                        {eq.equipments.values.map((equipment: EquipmentItemsForm, eqIndex: number) => 
+                                            <div key={eqIndex}>
+                                                <input 
+                                                    type='checkbox'
+                                                    checked={equipment.value}
+                                                    onChange={(e) => {handleEquipmentValueChange(indexForm, eqIndex, e.target.checked)}}
+                                                />
+                                                <label>
+                                                    {equipment.name}
+                                                </label>
+                                            </div>
+                                        )}
+                                    </div>
+                                </AccordionTab>
+                            )}
+                        </Accordion>
                     </form>
                 </div>
             </AccordionTab>

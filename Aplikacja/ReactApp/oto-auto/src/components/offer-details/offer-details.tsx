@@ -10,8 +10,8 @@ export const OfferDetailsComponent: React.FC<{vehicleAttributes: VehicleDetailsR
             <div className="vehicle-details-wrapper">
                 {
                     vehicleAttributes && vehicleAttributes.map(
-                        (row: VehicleDetailsRow) => (
-                            <div  className="vehicle-details-row">
+                        (row: VehicleDetailsRow, index: number) => (
+                            <div key={index}  className="vehicle-details-row">
                                 <span className="attribute">{ row.attribute } </span>
                                 <span className="value">{ row.value }</span>
                             </div>   
