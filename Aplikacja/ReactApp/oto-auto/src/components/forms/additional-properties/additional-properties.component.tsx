@@ -1,3 +1,4 @@
+import './additional-properties.component.scss'
 import { useFormik } from 'formik';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import { InputText } from 'primereact/inputtext';
@@ -48,7 +49,7 @@ export const AdditionalProperties: React.FC = () => {
         }
     });
 
-    const equipmentFormik: EquipmentForm[] = formik.values.additionalProperties.equipmentForm;
+    const equipmentFormik: EquipmentForm[] | undefined = formik.values.additionalProperties.equipmentForm;
 
     const createEquipmentForm = (equipmentType: EquipmentType) => {
         const equipmentValues: EquipmentValuesForm = {
@@ -73,10 +74,9 @@ export const AdditionalProperties: React.FC = () => {
     }
 
     const handleEquipmentValueChange = (indexForm: number, eqIndex: number, value: boolean) => {
-        const updatedEquipmentFormik = [...equipmentFormik];
+        const updatedEquipmentFormik = [...equipmentFormik!];
         updatedEquipmentFormik[indexForm].equipments.values[eqIndex].value = value;
         formik.setFieldValue('additionalProperties.equipmentForm', updatedEquipmentFormik);
-        console.log(formik);
     }
 
     return <div className="additional-properites-wrapper">
@@ -141,9 +141,9 @@ export const AdditionalProperties: React.FC = () => {
                         <Accordion multiple>
                             { equipmentFormik && equipmentFormik.map((eq: EquipmentForm, indexForm: number) => 
                                 <AccordionTab key={indexForm} header={eq.type} >
-                                    <div className="equipment-checkbox-wrap">
+                                    <div className="equipment-checkbox-wrapper">
                                         {eq.equipments.values.map((equipment: EquipmentItemsForm, eqIndex: number) => 
-                                            <div key={eqIndex}>
+                                            <div key={eqIndex} className='equipment-checkbox'>
                                                 <input 
                                                     type='checkbox'
                                                     checked={equipment.value}
@@ -161,10 +161,7 @@ export const AdditionalProperties: React.FC = () => {
                     </form>
                 </div>
             </AccordionTab>
-
-
-
-
+            <AccordionTab header="Historia"></AccordionTab>
         </Accordion>
     </div>
 }

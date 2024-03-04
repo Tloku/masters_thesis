@@ -1,0 +1,80 @@
+.p-accordion .p-accordion-header .p-accordion-header-link {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--secondary-300) !important; 
+}
+.p-accordion .p-accordion-content {
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
+    box-shadow: none !important;
+}
+
+.p-accordion .p-accordion-content,
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link,
+.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link,
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
+    background-color: transparent !important;
+}
+
+.technical-data .row {
+    display: flex;
+    padding-bottom: 20px;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--secondary-300);
+
+    h3 {
+        font-size: 1.05em;
+        font-weight: lighter;
+        flex: 0 0 auto;
+        margin-right: auto;
+    }
+
+    .p-selectbutton {
+        margin-left: auto;
+    }
+}
+ 
+
+.additional-technical-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vh;
+    padding: 3vh 0;
+
+    .row {
+        width: 100%;
+        display: flex;
+        gap: 2vw;
+    }    
+}
+
+.equipment-wrapper {
+    height: fit-content;
+}
+
+.equipment-checkbox-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vh;
+}
+
+.equipment-checkbox {
+    width: 48%;
+    border: 1px solid var(--secondary-300);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.p-accordion-header-link {
+    :first-child {
+        order: 2;
+        margin-left: auto;
+        margin-right: 0.5rem;
+    }
+}
