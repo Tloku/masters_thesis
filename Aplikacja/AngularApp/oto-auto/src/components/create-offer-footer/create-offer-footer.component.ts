@@ -1,10 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Select, Store } from "@ngxs/store";
-import { Observable, takeWhile, tap } from "rxjs";
 import { CreateOfferFormStateModel } from "src/api/models/form/create-offer-form";
 import { CreateOffer } from "src/store/offer/offer-actions";
 import { CreateOfferSelector } from "src/store/create-offer/create-offer.selector";
-import { CreateOfferFormState } from "src/store/create-offer/create-offer-form.state";
 
 @Component({
     selector: 'create-offer-footer',

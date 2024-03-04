@@ -27,5 +27,4 @@
 :host ::ng-deep .wrapper .p-button:hover {
     background-color: var(--secondary-100);
     color: var(--main-500);
-
 }

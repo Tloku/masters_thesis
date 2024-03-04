@@ -6,7 +6,7 @@ export interface CarSearchFormStateModel {
 }
 
 
-export interface CarSearchForm {
+export interface CarSearchForm { // This is wrong (see below)
     bodyType: FormControl<string | null>;
     brand: FormControl<string | null>;
     model: FormControl<string | null>;
@@ -29,8 +29,8 @@ export interface CarSearchFormDropdownOptions {
     mileageOptions: string[];
 }
 
-export interface CarSearchValues {
-    bodyType: string | null;
+export interface CarSearchValues { // this is enough, I shouldn't have used
+    bodyType: string | null;       // FormControl<> in object that is used in FormGroup
     brand: string | null;
     model: string | null;
     generation: string | null;
