@@ -6,40 +6,38 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { BasicInfoForm, CreateOfferFormStateModel, DealerDataForm, MainFeaturesForm, OfferImagesForm, PriceDataForm, TechnicalDataForm, VehicleDescriptionForm } from "../../../redux/model/create-offer-form.model";
 import { ImageUploader } from '../image-uploader/image-uploader';
 import { AdditionalProperties } from '../additional-properties/additional-properties.component';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store/store';
+import { useEffect } from 'react';
+import { clearCreateOfferForm, saveFormValues } from '../../../redux/state/create-offer-form.slice';
 
-const createOfferForm: CreateOfferFormStateModel = {
-    dealerDataForm: undefined,
-    offerImages: [],
-    priceDataForm:undefined,
-    equipmentTypeForm: undefined,
-    additionalTechnicalDataForm: undefined,
-    vehicleDescription: undefined,
-    technicalDataForm: undefined,
-    vehicleType: undefined,
-    basicInfo: undefined,
-    mainFeatures: {
-        imported: false,
-        destroyed: false
-    } 
-} 
 const stateOptions = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
 
 export const CreateOfferFormComponent: React.FC = () => {
+    const dispatch = useDispatch()
+    const formDraft: CreateOfferFormStateModel = useSelector((state: RootState) => state.createOfferForm);
+
+
     const formik = useFormik({
-        initialValues: {createOfferForm},
-        validate: () => {
-        },
+        initialValues: formDraft,
         onSubmit: () => {
             formik.resetForm();
+            dispatch(clearCreateOfferForm());
         }
     });
-    const formikBasicInfoValues: BasicInfoForm | undefined = formik.values.createOfferForm.basicInfo;
-    const formikMainFeaturesValues: MainFeaturesForm | undefined = formik.values.createOfferForm.mainFeatures;
-    const formikTechnicalDataValues: TechnicalDataForm | undefined = formik.values.createOfferForm.technicalDataForm;
-    const formikVehicleDescriptionValues: VehicleDescriptionForm | undefined = formik.values.createOfferForm.vehicleDescription;
-    const formikPriceDataValues: PriceDataForm | undefined = formik.values.createOfferForm.priceDataForm;
-    const formikDealerDataForm: DealerDataForm | undefined = formik.values.createOfferForm.dealerDataForm;
-    const formikOfferImages: OfferImagesForm[] | undefined = formik.values.createOfferForm.offerImages;
+
+    useEffect(() => {
+        console.log(formik.values);
+        dispatch(saveFormValues(formik.values))
+    }, [formik.values])
+
+    const formikBasicInfoValues: BasicInfoForm | undefined = formik.values.basicInfo;
+    const formikMainFeaturesValues: MainFeaturesForm | undefined = formik.values.mainFeatures;
+    const formikTechnicalDataValues: TechnicalDataForm | undefined = formik.values.technicalDataForm;
+    const formikVehicleDescriptionValues: VehicleDescriptionForm | undefined = formik.values.vehicleDescription;
+    const formikPriceDataValues: PriceDataForm | undefined = formik.values.priceDataForm;
+    const formikDealerDataForm: DealerDataForm | undefined = formik.values.dealerDataForm;
+    const formikOfferImages: OfferImagesForm[] | undefined = formik.values.offerImages;
 
     return <div className="create-offer-form-wrapper">
         <div className="title">
@@ -58,7 +56,7 @@ export const CreateOfferFormComponent: React.FC = () => {
                             options={stateOptions}
                             value={formikMainFeaturesValues?.destroyed}
                             className='main-feature-button'
-                            onChange={() => formik.setFieldValue('createOfferForm.mainFeatures.destroyed', !formikMainFeaturesValues?.destroyed)}
+                            onChange={() => formik.setFieldValue('mainFeatures.destroyed', !formikMainFeaturesValues?.destroyed)}
                         />
                     </div>
                     <div className="row">
@@ -67,7 +65,7 @@ export const CreateOfferFormComponent: React.FC = () => {
                             options={stateOptions}
                             value={formikMainFeaturesValues?.imported}
                             className='main-feature-button'
-                            onChange={() => formik.setFieldValue('createOfferForm.mainFeatures.imported', !formikMainFeaturesValues?.imported)}
+                            onChange={() => formik.setFieldValue('mainFeatures.imported', !formikMainFeaturesValues?.imported)}
                         />
                     </div>
                 </form>
@@ -266,7 +264,7 @@ export const CreateOfferFormComponent: React.FC = () => {
                             options={stateOptions}
                             value={formikPriceDataValues?.net}
                             className='net-button'
-                            onChange={() => formik.setFieldValue('createOfferForm.priceDataForm.net', !formikPriceDataValues?.net)}
+                            onChange={() => formik.setFieldValue('priceDataForm.net', !formikPriceDataValues?.net)}
                         />
                     </div>
 
