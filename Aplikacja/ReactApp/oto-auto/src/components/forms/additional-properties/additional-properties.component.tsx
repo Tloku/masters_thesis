@@ -3,26 +3,33 @@ import { useFormik } from 'formik';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import { InputText } from 'primereact/inputtext';
 import { SelectButton } from 'primereact/selectbutton';
-import { AdditionalPropertiesFormModel, Equipment, EquipmentForm, EquipmentItemsForm, EquipmentType, EquipmentValuesForm } from '../../../redux/model/create-offer-form.model';
+import { CreateOfferFormStateModel, Equipment, EquipmentForm, EquipmentItemsForm, EquipmentType, EquipmentValuesForm } from '../../../redux/model/create-offer-form.model';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from '@reduxjs/toolkit/react';
 import { RootState } from '../../../redux/store/store';
 import { getEquipmentTypes } from '../../../redux/state/equipmentSlice';
+import { clearCreateOfferForm, saveAdditionalPropertiesValues } from '../../../redux/state/create-offer-form.slice';
 
 const stateOptions: any[] = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
 
-const additionalProperties: AdditionalPropertiesFormModel = {
-    additionalTechnicalDataForm: undefined,
-    equipmentForm: undefined,
-    technicalDataForm: undefined
-} 
-
-
 export const AdditionalProperties: React.FC = () => {
     const equipmentTypes: EquipmentType[] = useSelector((state: RootState) => state.equipmentType.equipmentTypes)
+    const formDraft: CreateOfferFormStateModel = useSelector((state: RootState) => state.createOfferForm);
     const dispatch = useDispatch<ThunkDispatch<RootState, undefined, AnyAction>>();
+
+    const formik = useFormik({
+        initialValues: formDraft,
+        onSubmit: () => {
+            formik.resetForm();
+            dispatch(clearCreateOfferForm());
+        }
+    });
+
+    useEffect(() => {
+        dispatch(saveAdditionalPropertiesValues(formik.values.additionalProperties!))
+    }, [formik.values.additionalProperties])
 
     useEffect(() => {
         dispatch(getEquipmentTypes())
@@ -37,19 +44,11 @@ export const AdditionalProperties: React.FC = () => {
             equipmentForms.push(createEquipmentForm(equipmentType));
         })
 
-        formik.setFieldValue("additionalProperties.equipmentForm", equipmentForms)
+        formik.setFieldValue("additionalProperties.equipmentForm.equipmentTypes", equipmentForms)
     }, [equipmentTypes])
 
-    const formik = useFormik({
-        initialValues: {additionalProperties},
-        validate: () => {
-        },
-        onSubmit: () => {
-            formik.resetForm();
-        }
-    });
 
-    const equipmentFormik: EquipmentForm[] | undefined = formik.values.additionalProperties.equipmentForm;
+    const equipmentFormik: EquipmentForm[] | undefined = formik.values.additionalProperties?.equipmentForm?.equipmentTypes;
 
     const createEquipmentForm = (equipmentType: EquipmentType) => {
         const equipmentValues: EquipmentValuesForm = {
@@ -74,9 +73,20 @@ export const AdditionalProperties: React.FC = () => {
     }
 
     const handleEquipmentValueChange = (indexForm: number, eqIndex: number, value: boolean) => {
-        const updatedEquipmentFormik = [...equipmentFormik!];
-        updatedEquipmentFormik[indexForm].equipments.values[eqIndex].value = value;
-        formik.setFieldValue('additionalProperties.equipmentForm', updatedEquipmentFormik);
+        const updatedEquipmentFormik = equipmentFormik!.map((form: EquipmentForm, idx: number) => {
+            if (idx !== indexForm) return form;
+            
+            const updatedEquipments = {
+                ...form.equipments,
+                values: form.equipments.values.map((eq: EquipmentItemsForm, idx: number) => {
+                    if (idx !== eqIndex) return eq;
+                    return { ...eq, value };
+                })
+            };
+            
+            return { ...form, equipments: updatedEquipments };
+        });
+        formik.setFieldValue('additionalProperties.equipmentForm.equipmentTypes', updatedEquipmentFormik);
     }
 
     return <div className="additional-properites-wrapper">
@@ -100,7 +110,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="drive"
-                                    value={additionalProperties.additionalTechnicalDataForm?.drive}
+                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.drive}
+                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.drive', e.target.value)}
                                 />
                                 <label htmlFor="drive">Napęd</label>
                             </span>
@@ -108,7 +119,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="emission"
-                                    value={additionalProperties.additionalTechnicalDataForm?.emission}
+                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.emission}
+                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.emission', e.target.value)}
                                 />
                                 <label htmlFor="emission">Emisja CO2</label>
                             </span>
@@ -118,7 +130,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="colorType"
-                                    value={additionalProperties.additionalTechnicalDataForm?.colorType}
+                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.colorType}
+                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.colorType', e.target.value)}
                                 />
                                 <label htmlFor="colorType">Rodzaj koloru</label>
                             </span>
@@ -126,7 +139,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="numberOfSeats"
-                                    value={additionalProperties.additionalTechnicalDataForm?.numberOfSeats}
+                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.numberOfSeats}
+                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.numberOfSeats', e.target.value)}
                                 />
                                 <label htmlFor="numberOfSeats">Liczba miejsc</label>
                             </span>

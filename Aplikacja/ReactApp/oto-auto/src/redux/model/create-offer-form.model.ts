@@ -8,7 +8,8 @@ export interface CreateOfferFormStateModel {
     technicalDataForm?: TechnicalDataForm,
     vehicleType?: VehicleTypeForm,
     basicInfo?: BasicInfoForm,
-    mainFeatures?: MainFeaturesForm
+    mainFeatures?: MainFeaturesForm,
+    additionalProperties?: AdditionalPropertiesFormModel
 }
 
 export interface OfferImagesForm {
@@ -86,7 +87,7 @@ export interface AdditionalTechnicalDataForm {
 }
 
 export interface EquipmentTypeForm {
-    equipmentTypes: []
+    equipmentTypes: EquipmentForm[]
 }
 
 
@@ -101,7 +102,6 @@ export interface Equipment {
 }
 
 export interface AdditionalPropertiesFormModel {
-    technicalDataForm: TechnicalDataForm | undefined;
     additionalTechnicalDataForm: AdditionalTechnicalDataForm | undefined;
-    equipmentForm: EquipmentForm[] | undefined;
+    equipmentForm: EquipmentTypeForm | undefined;
 }

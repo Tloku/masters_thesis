@@ -1,18 +1,43 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { RefObject, useEffect, useRef, useState } from 'react';
 import './image-uploader.scss'
-import { OfferImagesForm } from '../../../redux/model/create-offer-form.model';
+import { CreateOfferFormStateModel, OfferImagesForm } from '../../../redux/model/create-offer-form.model';
+import { clearCreateOfferForm, saveImagesValues } from '../../../redux/state/create-offer-form.slice';
+import { useFormik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { RootState } from '../../../redux/store/store';
 
-interface ImageUploaderProps {
-    form: OfferImagesForm[] | undefined
-}
 
 
-export const ImageUploader: React.FC<ImageUploaderProps> = (props) => {
+export const ImageUploader: React.FC = () => {
     const [offerImagesData, setOfferImagesData] = useState<string[]>([])
     const dropZone: RefObject<HTMLDivElement> = useRef(null);
     const dropButton: RefObject<HTMLDivElement> = useRef(null);
+    const formDraft: CreateOfferFormStateModel = useSelector((state: RootState) => state.createOfferForm);
+    const dispatch = useDispatch();
 
+    const formik = useFormik({
+        initialValues: formDraft,
+        onSubmit: () => {
+            formik.resetForm();
+            dispatch(clearCreateOfferForm());
+        }
+    });
+
+    useEffect(() => {
+        dispatch(saveImagesValues(formik.values.offerImages!))
+    }, [formik.values.offerImages])
+
+    useEffect(() => {
+        const offerImages: OfferImagesForm[] = offerImagesData.map((img: string, index: number) => ({
+            name: uuidv4(),
+            blob: img,
+            isMainImage: index === 0
+          }))
+
+          formik.setFieldValue("offerImages", offerImages);
+    }, [offerImagesData])
 
     useEffect(() => {
         if (dropZone && dropZone.current) {
@@ -46,7 +71,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = (props) => {
     }
     
     const importNewImages = (files: FileList) => {
-        Array.from(files).forEach((file: File, index: number) => {
+        Array.from(files).forEach((file: File) => {
             if (!determineMimeTypeIsImage(file)) {
               return; //TODO WYŚWIETL KOMUNIKAT 
             }
@@ -55,21 +80,20 @@ export const ImageUploader: React.FC<ImageUploaderProps> = (props) => {
             reader.readAsDataURL(file)
             reader.onload = (_event) => {
               if (reader.result) {
+                // addImagesToForm(file, reader.result.toString());
                 setOfferImagesData(prevImagesData => [...prevImagesData, reader.result!.toString()]);
-                addImagesToForm(file, reader.result.toString());
                }  
             }
           })
     }
 
-    const addImagesToForm = (file: File, blob: string) => {
-        const offerImage: OfferImagesForm = {
-            name: file.name,
-            blob: blob,
-            isMainImage: offerImagesData.length == 1
-          }
-          props.form!.push(offerImage);
-    }
+    // const addImagesToForm = (file: File, blob: string) => {
+    //     const offerImage: OfferImagesForm = {
+    //         name: file.name,
+    //         blob: blob,
+    //         isMainImage: formik.values.offerImages!.length === 0
+    //       }
+    // }
 
     return <div className='image-uploader-wrapper' ref={dropZone}>
         {

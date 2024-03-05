@@ -27,7 +27,6 @@ export const CreateOfferFormComponent: React.FC = () => {
     });
 
     useEffect(() => {
-        console.log(formik.values);
         dispatch(saveFormValues(formik.values))
     }, [formik.values])
 
@@ -37,15 +36,27 @@ export const CreateOfferFormComponent: React.FC = () => {
     const formikVehicleDescriptionValues: VehicleDescriptionForm | undefined = formik.values.vehicleDescription;
     const formikPriceDataValues: PriceDataForm | undefined = formik.values.priceDataForm;
     const formikDealerDataForm: DealerDataForm | undefined = formik.values.dealerDataForm;
-    const formikOfferImages: OfferImagesForm[] | undefined = formik.values.offerImages;
 
     return <div className="create-offer-form-wrapper">
         <div className="title">
-            
+            <h1>Stwórz ogłoszenie</h1> 
+            <span className="p-float-label">
+                <InputText 
+                    id="type"
+                    name="type"
+                    value={formik.values.vehicleType?.type}
+                    onChange={(e) => {
+                        formik.setFieldValue('vehicleType.type', e.target.value);
+                    }}
+                />
+                <label htmlFor="type">Wybierz rodzaj samochodu</label>
+            </span>
         </div>
 
         <div className="vehicle-details">
             <h1>Dane pojazdu</h1> 
+
+            
 
             <div className="main-features">
                 <form>
@@ -80,6 +91,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="vin"
                                 name="vin"
                                 value={formikBasicInfoValues?.vin}
+                                onChange={(e) => {
+                                    formik.setFieldValue('basicInfo.vin', e.target.value);
+                                }}
                             />
                             <label htmlFor="vin">VIN</label>
                         </span>
@@ -89,6 +103,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="mileage"
                                 name="mileage"
                                 value={formikBasicInfoValues?.mileage}
+                                onChange={(e) => {
+                                    formik.setFieldValue('basicInfo.mileage', e.target.value);
+                                }}
                             />
                             <label htmlFor="mileage">Przebieg</label>
                         </span>
@@ -105,6 +122,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="yearOfProduction"
                                 name="yearOfProduction"
                                 value={formikTechnicalDataValues?.yearOfProduction}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.yearOfProduction', e.target.value);
+                                }}
                             />
                             <label htmlFor="yearOfProduction">Rok produkcji</label>
                         </span>
@@ -114,6 +134,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="brand"
                                 name="brand"
                                 value={formikTechnicalDataValues?.brand}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.brand', e.target.value);
+                                }}
                             />
                             <label htmlFor="brand">Marka pojazdu</label>
                         </span>
@@ -125,6 +148,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="model"
                                 name="model"
                                 value={formikTechnicalDataValues?.model}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.model', e.target.value);
+                                }}
                             />
                             <label htmlFor="model">Model pojazdu</label>
                         </span>
@@ -134,6 +160,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="fuelType"
                                 name="fuelType"
                                 value={formikTechnicalDataValues?.fuelType}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.fuelType', e.target.value);
+                                }}
                             />
                             <label htmlFor="fuelType">Rodzaj paliwa</label>
                         </span>
@@ -145,6 +174,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="horsePower"
                                 name="horsePower"
                                 value={formikTechnicalDataValues?.horsePower}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.horsePower', e.target.value);
+                                }}
                             />
                             <label htmlFor="horsePower">Moc</label>
                         </span>
@@ -154,6 +186,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="engineCapacity"
                                 name="engineCapacity"
                                 value={formikTechnicalDataValues?.engineCapacity}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.engineCapacity', e.target.value);
+                                }}
                             />
                             <label htmlFor="engineCapacity">Pojemność skokowa</label>
                         </span>
@@ -165,6 +200,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="numberOfDoors"
                                 name="numberOfDoors"
                                 value={formikTechnicalDataValues?.numberOfDoors}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.numberOfDoors', e.target.value);
+                                }}
                             />
                             <label htmlFor="numberOfDoors">Liczba drzwi</label>
                         </span>
@@ -174,6 +212,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="transmission"
                                 name="transmission"
                                 value={formikTechnicalDataValues?.transmission}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.transmission', e.target.value);
+                                }}
                             />
                             <label htmlFor="transmission">Skrzynia biegów</label>
                         </span>
@@ -185,6 +226,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="version"
                                 name="version"
                                 value={formikTechnicalDataValues?.version}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.version', e.target.value);
+                                }}
                             />
                             <label htmlFor="version">Wersja</label>
                         </span>
@@ -194,6 +238,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="generation"
                                 name="generation"
                                 value={formikTechnicalDataValues?.generation}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.generation', e.target.value);
+                                }}
                             />
                             <label htmlFor="generation">Generacja</label>
                         </span>
@@ -205,7 +252,10 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="bodyType"
                                 name="bodyType"
                                 value={formikTechnicalDataValues?.bodyType}
-                                />
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.bodyType', e.target.value);
+                                }}
+                            />
                             <label htmlFor="bodyType">Typ nadwozia</label>
                         </span>
 
@@ -214,6 +264,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="color"
                                 name="color"
                                 value={formikTechnicalDataValues?.color}
+                                onChange={(e) => {
+                                    formik.setFieldValue('technicalDataForm.color', e.target.value);
+                                }}
                             />
                             <label htmlFor="color">Kolor</label>
                         </span>
@@ -223,7 +276,7 @@ export const CreateOfferFormComponent: React.FC = () => {
 
             <div className="image-form">
                 <h2>Zdjęcia</h2>
-                <ImageUploader form={formikOfferImages}></ImageUploader>
+                <ImageUploader></ImageUploader>
             </div>      
 
             <div className="vehicle-description">
@@ -234,6 +287,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                             id="title"
                             name="title"
                             value={formikVehicleDescriptionValues?.title}
+                            onChange={(e) => {
+                                formik.setFieldValue('vehicleDescription.title', e.target.value);
+                            }}
                         />
                         <label htmlFor="title">Tytuł ogłoszenia</label>
                     </span>
@@ -244,6 +300,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                             id="description"
                             name="description"
                             value={formikVehicleDescriptionValues?.description}
+                            onChange={(e) => {
+                                formik.setFieldValue('vehicleDescription.description', e.target.value);
+                            }}
                             autoResize />
                         <label htmlFor="description">Opis pojazdu</label>
                     </span>
@@ -274,6 +333,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="price"
                                 name="price"
                                 value={formikPriceDataValues?.price}
+                                onChange={(e) => {
+                                    formik.setFieldValue('priceDataForm.price', e.target.value);
+                                }}
                             />
                             <label htmlFor="price">Cena</label>
                         </span>
@@ -283,6 +345,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="currency"
                                 name="currency"
                                 value={formikPriceDataValues?.currency}
+                                onChange={(e) => {
+                                    formik.setFieldValue('priceDataForm.currency', e.target.value);
+                                }}
                             />
                             <label htmlFor="currency">Waluta</label>
                         </span>
@@ -299,6 +364,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="name"
                                 name="name"
                                 value={formikDealerDataForm?.name}
+                                onChange={(e) => {
+                                    formik.setFieldValue('dealerDataForm.name', e.target.value);
+                                }}
                             />
                             <label htmlFor="currency">Imię</label>
                         </span>
@@ -308,6 +376,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="address"
                                 name="address"
                                 value={formikDealerDataForm?.address}
+                                onChange={(e) => {
+                                    formik.setFieldValue('dealerDataForm.address', e.target.value);
+                                }}
                             />
                             <label htmlFor="currency">Adres</label>
                         </span>
@@ -319,6 +390,9 @@ export const CreateOfferFormComponent: React.FC = () => {
                                 id="phoneNumber"
                                 name="phoneNumber"
                                 value={formikDealerDataForm?.phoneNumber}
+                                onChange={(e) => {
+                                    formik.setFieldValue('dealerDataForm.phoneNumber', e.target.value);
+                                }}
                                 />
                             <label htmlFor="phoneNumber">Numer telefonu</label>
                         </span>

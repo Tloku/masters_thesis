@@ -1,20 +1,64 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { CreateOfferFormStateModel } from "../model/create-offer-form.model";
+import { AdditionalPropertiesFormModel, CreateOfferFormStateModel, OfferImagesForm } from "../model/create-offer-form.model";
 
 const initialCreateOfferFormStateValue: CreateOfferFormStateModel = {
-    dealerDataForm: undefined,
+    dealerDataForm: {
+        name: '',
+        address: '',
+        phoneNumber: '',
+    },
     offerImages: [],
-    priceDataForm:undefined,
-    equipmentTypeForm: undefined,
-    additionalTechnicalDataForm: undefined,
-    vehicleDescription: undefined,
-    technicalDataForm: undefined,
-    vehicleType: undefined,
-    basicInfo: undefined,
+    priceDataForm: {
+        net: false,
+        price: '',
+        currency: '', 
+    },
+    additionalTechnicalDataForm: {
+        drive: '',
+        emission: '',
+        colorType: '',
+        numberOfSeats: '' 
+    },
+    vehicleDescription: {
+        title: '',
+        description: '',
+    },
+    technicalDataForm: {
+        yearOfProduction: '',
+        brand: '',
+        model: '',
+        fuelType: '',
+        horsePower: '',
+        engineCapacity: '',
+        numberOfDoors: '',
+        transmission: '',
+        version: '',
+        generation: '',
+        bodyType: '',
+        color: '',
+    },
+    vehicleType: {
+        type: ''
+    },
+    basicInfo: {
+        vin: '',
+        mileage: '' 
+    },
     mainFeatures: {
         imported: false,
         destroyed: false
-    } 
+    },
+    additionalProperties: {
+        equipmentForm: {
+            equipmentTypes: []
+        },
+        additionalTechnicalDataForm: {
+            drive: '',
+            emission: '',
+            colorType: '',
+            numberOfSeats: '' 
+        }
+    }
 }
 
 const createOfferFormSlice = createSlice({
@@ -22,11 +66,16 @@ const createOfferFormSlice = createSlice({
     initialState: initialCreateOfferFormStateValue,
     reducers: {
         saveFormValues: (state, action: PayloadAction<CreateOfferFormStateModel>) => state = action.payload,
-        getCreateOfferForm: (state) => state,
+        saveImagesValues: (state, action: PayloadAction<OfferImagesForm[]>) => { 
+            state.offerImages! = action.payload
+        },
+        saveAdditionalPropertiesValues: (state, action: PayloadAction<AdditionalPropertiesFormModel>) => {
+            state.additionalProperties = action.payload
+        },
         clearCreateOfferForm: () => initialCreateOfferFormStateValue
     },
 })
 
-export const {saveFormValues, getCreateOfferForm, clearCreateOfferForm} = createOfferFormSlice.actions;
+export const {saveFormValues, saveImagesValues, saveAdditionalPropertiesValues, clearCreateOfferForm} = createOfferFormSlice.actions;
 
 export default createOfferFormSlice.reducer

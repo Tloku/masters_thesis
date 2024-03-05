@@ -47,7 +47,7 @@ public class OfferService
         if (offer.Vehicle == null)
         {
             return null;
-        }o
+        }
         
         return new OfferPreview(
             offer.Id,
