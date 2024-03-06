@@ -1,5 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { OfferActivityComponentModel, OfferCardComponentModel } from "../../redux/model/offer-card-component.model";
+import { CreateOfferFormStateModel } from "../../redux/model/create-offer-form.model";
+import { CreateOfferResponse } from "../models/create-offer-response";
 
 export class OfferRestService {
     private static _http = axios.create({
@@ -9,6 +11,9 @@ export class OfferRestService {
         }
     });
 
+    public static createOffer(form: CreateOfferFormStateModel): Promise<AxiosResponse<CreateOfferResponse>> {
+        return this._http.post<CreateOfferResponse>("http://localhost:5252/api/offer/create", form)
+    }
     
     public static getAwardedOffers(): Promise<AxiosResponse<OfferCardComponentModel[]>> {
         return this._http.get<OfferCardComponentModel[]>('/offer/awarded');

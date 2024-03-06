@@ -10,7 +10,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from '@reduxjs/toolkit/react';
 import { RootState } from '../../../redux/store/store';
 import { getEquipmentTypes } from '../../../redux/state/equipmentSlice';
-import { clearCreateOfferForm, saveAdditionalPropertiesValues } from '../../../redux/state/create-offer-form.slice';
+import { clearCreateOfferForm, saveAdditionalPropertiesValues, saveAdditionalTechnicalData } from '../../../redux/state/create-offer-form.slice';
 
 const stateOptions: any[] = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
 
@@ -29,7 +29,8 @@ export const AdditionalProperties: React.FC = () => {
 
     useEffect(() => {
         dispatch(saveAdditionalPropertiesValues(formik.values.additionalProperties!))
-    }, [formik.values.additionalProperties])
+        dispatch(saveAdditionalTechnicalData(formik.values.additionalTechnicalDataForm!))
+    }, [formik.values.additionalProperties, formik.values.additionalTechnicalDataForm])
 
     useEffect(() => {
         dispatch(getEquipmentTypes())
@@ -57,7 +58,7 @@ export const AdditionalProperties: React.FC = () => {
 
         const equipmentForm: EquipmentForm = {
             type: equipmentType.type,
-            equipments: equipmentValues 
+            equipment: equipmentValues 
         }
         const array: EquipmentItemsForm[] = []
         equipmentType.equipments.forEach((equipment: Equipment) => {
@@ -77,14 +78,14 @@ export const AdditionalProperties: React.FC = () => {
             if (idx !== indexForm) return form;
             
             const updatedEquipments = {
-                ...form.equipments,
-                values: form.equipments.values.map((eq: EquipmentItemsForm, idx: number) => {
+                ...form.equipment,
+                values: form.equipment.values.map((eq: EquipmentItemsForm, idx: number) => {
                     if (idx !== eqIndex) return eq;
                     return { ...eq, value };
                 })
             };
             
-            return { ...form, equipments: updatedEquipments };
+            return { ...form, equipment: updatedEquipments };
         });
         formik.setFieldValue('additionalProperties.equipmentForm.equipmentTypes', updatedEquipmentFormik);
     }
@@ -110,8 +111,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="drive"
-                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.drive}
-                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.drive', e.target.value)}
+                                    value={formik.values.additionalTechnicalDataForm?.drive}
+                                    onChange={(e) => formik.setFieldValue('additionalTechnicalDataForm.drive', e.target.value)}
                                 />
                                 <label htmlFor="drive">Napęd</label>
                             </span>
@@ -119,8 +120,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="emission"
-                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.emission}
-                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.emission', e.target.value)}
+                                    value={formik.values.additionalTechnicalDataForm?.emission}
+                                    onChange={(e) => formik.setFieldValue('additionalTechnicalDataForm.emission', e.target.value)}
                                 />
                                 <label htmlFor="emission">Emisja CO2</label>
                             </span>
@@ -130,8 +131,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="colorType"
-                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.colorType}
-                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.colorType', e.target.value)}
+                                    value={formik.values.additionalTechnicalDataForm?.colorType}
+                                    onChange={(e) => formik.setFieldValue('additionalTechnicalDataForm.colorType', e.target.value)}
                                 />
                                 <label htmlFor="colorType">Rodzaj koloru</label>
                             </span>
@@ -139,8 +140,8 @@ export const AdditionalProperties: React.FC = () => {
                             <span className="p-float-label">
                                 <InputText 
                                     id="numberOfSeats"
-                                    value={formik.values.additionalProperties?.additionalTechnicalDataForm?.numberOfSeats}
-                                    onChange={(e) => formik.setFieldValue('additionalProperties.additionalTechnicalDataForm.numberOfSeats', e.target.value)}
+                                    value={formik.values.additionalTechnicalDataForm?.numberOfSeats}
+                                    onChange={(e) => formik.setFieldValue('additionalTechnicalDataForm.numberOfSeats', e.target.value)}
                                 />
                                 <label htmlFor="numberOfSeats">Liczba miejsc</label>
                             </span>
@@ -156,15 +157,15 @@ export const AdditionalProperties: React.FC = () => {
                             { equipmentFormik && equipmentFormik.map((eq: EquipmentForm, indexForm: number) => 
                                 <AccordionTab key={indexForm} header={eq.type} >
                                     <div className="equipment-checkbox-wrapper">
-                                        {eq.equipments.values.map((equipment: EquipmentItemsForm, eqIndex: number) => 
+                                        {eq.equipment.values.map((item: EquipmentItemsForm, eqIndex: number) => 
                                             <div key={eqIndex} className='equipment-checkbox'>
                                                 <input 
                                                     type='checkbox'
-                                                    checked={equipment.value}
+                                                    checked={item.value}
                                                     onChange={(e) => {handleEquipmentValueChange(indexForm, eqIndex, e.target.checked)}}
                                                 />
                                                 <label>
-                                                    {equipment.name}
+                                                    {item.name}
                                                 </label>
                                             </div>
                                         )}
