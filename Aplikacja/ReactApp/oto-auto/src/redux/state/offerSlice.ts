@@ -18,7 +18,8 @@ const initialOfferStateValue: OfferCardComponentStateModel = {
             offerCurrency: "",
             equipments: [],
             vehicleAttributes: []
-        }   
+        },
+        redisNotResponding: false
     }
 
 
@@ -46,10 +47,24 @@ export const getAwardedOffers = createAsyncThunk(
 
 export const getOfferById = createAsyncThunk(
     'offerCard/getOfferById',
-    async (id: number) => {
+    async (id: number, { getState }) => {
+
+        const state: OfferCardComponentStateModel = getState.offerCard
+
+        if (state.redisNotResponding) {
+            return getOfferByIdFromServer(id)
+        }
+        
+
         const response = await OfferRestService.getOfferById(id);
         return response.data as OfferActivityComponentModel;
     }
 )
+
+
+const getOfferByIdFromServer = async (offerId: number): Promise<OfferActivityComponentModel> => {
+    const response = await OfferRestService.getOfferById(offerId);
+    return response.data as OfferActivityComponentModel;
+}
 
 export default offerSlice.reducer

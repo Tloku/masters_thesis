@@ -32,6 +32,7 @@ export interface OfferCardComponentStateModel {
     offerCardsComponent: OfferCardComponentModel[],
     offer: OfferActivityComponentModel
     offerImages: OfferImage[]
+    redisNotResponding: boolean
 }
 
 export interface OfferImage {

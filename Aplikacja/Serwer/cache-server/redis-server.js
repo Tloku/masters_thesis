@@ -1,4 +1,4 @@
-//This need to be run seperatly using node .\redis-serverr.js command
+//This need to be run seperatly using node .\redis-serverr.js commandn
 
 const express = require("express")
 const redis = require("redis")
