@@ -1,5 +1,5 @@
 import "./offer-view.scss"
-import { useEffect } from "react"
+import { MutableRefObject, useEffect, useRef } from "react"
 import { OfferDetailsComponent } from "../../components/offer-details/offer-details"
 import { VehicleImagesGalleryComponent } from "../../components/vehicle-images-gallery/vehicle-images-gallery"
 import { useParams } from "react-router-dom"
@@ -9,8 +9,10 @@ import { getOfferById } from "../../redux/state/offerSlice"
 import { ThunkDispatch } from "redux-thunk"
 import { RootState } from "../../redux/store/store"
 import { AnyAction } from "@reduxjs/toolkit"
+import { Toast } from 'primereact/toast';
 
 export const OfferViewComponent: React.FC = () => {
+    const toast: MutableRefObject<null> = useRef(null);
     const params = useParams()
     const offer = useSelector((state: RootState) => state.offerCard.offer);
     const dispatch = useDispatch<ThunkDispatch<RootState, undefined, AnyAction>>();
@@ -18,12 +20,12 @@ export const OfferViewComponent: React.FC = () => {
     useEffect(() => {
         if (!params) 
             return
-
         const id: number = parseInt(params.id!);
-        dispatch(getOfferById(id))
+        dispatch(getOfferById({id, toast}))
       }, [params])
 
     return <>
+        <Toast ref={toast} />
         { 
         offer && 
             <div className="offer-view-wrapper">

@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { OfferActivityComponentModel, OfferCardComponentModel, OfferCardComponentStateModel } from "../model/offer-card-component.model";
 import { OfferRestService } from "../../api/rest-service/offer-rest-service";
+import { RedisCacheService } from "../../api/rest-service/redis-cache.service";
+import { AxiosResponse } from "axios";
+
+export enum RedisCacheKeys {
+    OFFER = "offer:"
+}
 
 const initialOfferStateValue: OfferCardComponentStateModel = {
         offerCardsComponent: [],
@@ -32,7 +38,7 @@ const offerSlice = createSlice({
             state.offerCardsComponent = payload
         }),
         builder.addCase(getOfferById.fulfilled, (state, { payload }) => {
-            state.offer = payload
+            state.offer = payload!
         })
     }
 })
@@ -47,20 +53,47 @@ export const getAwardedOffers = createAsyncThunk(
 
 export const getOfferById = createAsyncThunk(
     'offerCard/getOfferById',
-    async (id: number, { getState }) => {
-
-        const state: OfferCardComponentStateModel = getState.offerCard
-
+    async ({id, toast}: {id: number, toast: any}, { getState }) => {
+        const state: OfferCardComponentStateModel = getState() as OfferCardComponentStateModel
         if (state.redisNotResponding) {
             return getOfferByIdFromServer(id)
         }
-        
 
-        const response = await OfferRestService.getOfferById(id);
-        return response.data as OfferActivityComponentModel;
+        try {
+            const redisResp: AxiosResponse<OfferActivityComponentModel | undefined> = await RedisCacheService.get<OfferActivityComponentModel>(RedisCacheKeys.OFFER + id);
+            if (redisResp.data) {
+                return redisResp.data;
+            }
+
+            const offer = await getOfferByIdFromServer(id);
+            cacheOfferDetails(offer, state.redisNotResponding);
+            return offer;
+        } catch (error) {
+            if (!state.redisNotResponding) {
+                toast.current.show({severity:'error', detail: "Redis nie odpowiada. Kolejna próba połączenia nastąpi za 5 minut"});
+            }
+
+            state.redisNotResponding = true;
+            setTimeout(() => {
+                state.redisNotResponding = false;
+            }, 5 * 60 * 1000);
+
+            try {
+               return await getOfferByIdFromServer(id);
+            } catch (e) {
+                toast.current.show({severity:'error', detail:'Błąd podczas wyświetlania oferty'});
+                throw e;
+            }
+        }
     }
 )
 
+const cacheOfferDetails = async (offer: OfferActivityComponentModel, redisNotResponding: boolean) => {
+    if (redisNotResponding) {
+        return;
+    }
+    RedisCacheService.set(RedisCacheKeys.OFFER + offer.offerId, offer);
+}
 
 const getOfferByIdFromServer = async (offerId: number): Promise<OfferActivityComponentModel> => {
     const response = await OfferRestService.getOfferById(offerId);
