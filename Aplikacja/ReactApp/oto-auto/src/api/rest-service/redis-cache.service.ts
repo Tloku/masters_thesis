@@ -1,7 +1,8 @@
+import axios, { AxiosResponse } from "axios";
 
 export interface RedisRequest { 
     key: string,
-    value?: Object
+    value?: object
 }
 
 export class RedisCacheService {
@@ -10,11 +11,11 @@ export class RedisCacheService {
     }); 
 
 
-    set(key: string, value: Object): Promise<AxiosResponse<any>> {
-        return this._http.post<any>(`/set`, {key, value} as RedisRequest)
+    public static set(key: string, value: object): Promise<AxiosResponse> {
+        return this._http.post(`/set`, {key, value} as RedisRequest)
     }
 
-    get<T>(key: string): Promise<AxiosResponse<T | undefined> {
+    public static get<T>(key: string): Promise<AxiosResponse<T | undefined>> {
         return this._http.get<T>(`/get/${key}`)
     }
 }
