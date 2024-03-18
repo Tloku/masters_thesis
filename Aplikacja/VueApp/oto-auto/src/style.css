@@ -1,0 +1,65 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+
+    --main-100: #B4EFD5;
+    --main-200: #a1eccc;
+    --main-300: #82D8B2;
+    --main-400: #5CC295;
+    --main-500: #41B883;
+    --main-600: #2fa36f;
+    --main-700: #228558;
+    --main-800: #155f3e;
+    --main-900: #0e3f29;
+
+    --green-100: #ECFFEB;
+    --green-200: #B9F0B4;
+    --green-300: #89D982;
+    --green-400: #65C25D;
+    --green-500: #4BB841;
+    --green-600: #38992F;
+    --green-700: #25871C;
+    --green-800: #0D5207;
+    --green-900: #053D00;
+
+    --orange-100: #FFEBEB;
+    --orange-200: #F0B4B4;
+    --orange-300: #D98282;
+    --orange-400: #C25D5D;
+    --orange-500: #B84141;
+    --orange-600: #992F2F;
+    --orange-700: #871C1C;
+    --orange-800: #520707;
+    --orange-900: #3D0000;
+
+    --blue-100: #EBF6FF;
+    --blue-200: #B4D7F0;
+    --blue-300: #82B4D9;
+    --blue-400: #5D97C2;
+    --blue-500: #4186B8;
+    --blue-600: #2F6D99;
+    --blue-700: #1C5A87;
+    --blue-800: #073252;
+    --blue-900: #00233D;
+
+    --yellow-100: #FFF3EB;
+    --yellow-200: #F0CDB4;
+    --yellow-300: #D9A682;
+    --yellow-400: #C2875D;
+    --yellow-500: #B87341;
+    --yellow-600: #995C2F;
+    --yellow-700: #87491C;
+    --yellow-800: #522607;
+    --yellow-900: #3D1A00;
+
+    --secondary-100: #EBF5FF;
+    --secondary-200: #B4D1F0;
+    --secondary-300: #82ACD9;
+    --secondary-400: #5D8EC2;
+    --secondary-500: #2F6399;
+    --secondary-600: #1C5087;
+    --secondary-700: #35495E;
+    --secondary-800: #072B52;
+    --secondary-900: #001E3D;
+}

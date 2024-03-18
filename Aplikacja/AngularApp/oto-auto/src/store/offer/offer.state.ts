@@ -13,7 +13,6 @@ export enum RedisCacheKeys {
     OFFER = "offer:"
 }
 
-
 @State<OfferCardComponentStateModel>({
     name: "offerCards",
     defaults: {
