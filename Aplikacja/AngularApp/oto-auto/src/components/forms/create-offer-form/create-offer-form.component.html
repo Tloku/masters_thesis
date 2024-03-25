@@ -2,7 +2,12 @@
     <div class="title">
         <form [formGroup]="vehicleTypeForm">
             <h1>Stwórz ogłoszenie</h1> 
-            <p-dropdown [options]="vehicleTypeOptions" formControlName="type" [style]="{'width':'100%'}"  inputId="vehicleType" placeholder="Wybierz rodzaj pojazdu"></p-dropdown>
+            <p-dropdown
+            [options]="vehicleTypeOptions"
+            formControlName="type" 
+            [style]="{'width':'100%'}" 
+            inputId="vehicleType" 
+            placeholder="Wybierz rodzaj pojazdu"></p-dropdown>
         </form>
     </div>
 
@@ -14,7 +19,10 @@
                 <h2>Cechy główne</h2>
                 <div class="row">
                     <h3>Uszkodzony</h3>
-                    <p-selectButton styleClass="main-feature-button" formControlName="destroyed" [options]="stateOptions"></p-selectButton>
+                    <p-selectButton 
+                    styleClass="main-feature-button"
+                    formControlName="destroyed"
+                    [options]="stateOptions"></p-selectButton>
                 </div>
                 <div class="row">
                     <h3>Importowany</h3>

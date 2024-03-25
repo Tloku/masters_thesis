@@ -11,17 +11,18 @@
 
 <script lang="ts">
     import { OfferCardComponentModel } from '@/src/store/offer/offer-card-component.model';
-    import { defineComponent, ref } from 'vue';
+    import { Suspense, defineComponent} from 'vue';
     import AwardedOffer from '../awarded-offer/AwardedOffer.vue';
+    import { OfferRestService } from '../../api/rest-service/offer-rest-service';
 
     export default defineComponent({
         name: 'AwardedOfferGrid',
         components: {
             AwardedOffer
         },
-        setup() {
-            const offers = ref<OfferCardComponentModel[]>([])
-
+        async setup() {
+            const response = await OfferRestService.getAwardedOffers();
+            const offers: OfferCardComponentModel[] = response.data;
             return { offers }
         }
     })

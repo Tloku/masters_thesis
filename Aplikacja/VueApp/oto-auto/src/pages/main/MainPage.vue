@@ -1,23 +1,34 @@
 <template>
     <div class="container">
         <div class="search-engine">
-            <!-- <main-search-engine></main-search-engine> -->
+            <MainSearchEngine />
         </div>
-
+        
         <div class="awarded-offers">
-            <AwardedOfferGrid />
+            <Suspense>
+                <template #default>
+                    <AwardedOfferGrid />
+                </template>
+                <template #fallback >
+                    Ładowanie...
+                </template>
+            </Suspense>
         </div>
     </div>
+    
+
 </template>
 
 <script lang="ts">
     import AwardedOfferGrid from '../../components/awarded-offer-grid/AwardedOfferGrid.vue'
+    import MainSearchEngine from '../../components/main-search-engine/MainSearchEngine.vue'
     import { defineComponent } from 'vue'
 
     export default defineComponent({
         name: 'MainPage',
         components: {
-            AwardedOfferGrid
+            AwardedOfferGrid,
+            MainSearchEngine
         },
         setup() {
         }
