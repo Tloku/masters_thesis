@@ -7,7 +7,7 @@
         <li>Aktualności</li>
         <li>Obserwowane</li>
         <li>Zaloguj się</li>
-        <li @click="">Wystaw ogłoszenie</li>
+        <li @click="goToCreateOffer()">Wystaw ogłoszenie</li>
     </ul>
 </nav>
 
@@ -17,10 +17,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-
-
     export default defineComponent({
-        name: 'navbar'
+        name: 'navbar',
+        methods: {
+            goToCreateOffer() {
+                this.$router.push("/new-offer")
+            }
+        }
     })
 
 </script>

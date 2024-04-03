@@ -31,12 +31,16 @@
     import { defineComponent } from 'vue';
     import CarIcon from 'vue-material-design-icons/Car.vue'  
     import MotorbikeIcon from 'vue-material-design-icons/Motorbike.vue'  
+    import TabPanel from 'primevue/tabpanel';
+    import TabView from 'primevue/tabview';
 
     export default defineComponent({
         name: 'MainSearchEngine',
         components: {
             CarIcon,
-            MotorbikeIcon
+            MotorbikeIcon,
+            TabPanel,
+            TabView
         },
         setup() {
 

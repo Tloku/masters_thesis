@@ -24,7 +24,7 @@
 
 <script lang="ts">
     import { PropType, defineComponent } from 'vue';
-    import { OfferCardComponentModel } from '@/src/store/offer/offer-card-component.model';
+    import { OfferCardComponentModel } from '../../store/offer/offer-card-component.model';
 
     export default defineComponent({
         name: 'AwardedOffer',

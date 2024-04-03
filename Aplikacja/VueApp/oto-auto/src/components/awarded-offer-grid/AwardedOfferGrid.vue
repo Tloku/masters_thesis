@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts">
-    import { OfferCardComponentModel } from '@/src/store/offer/offer-card-component.model';
-    import { Suspense, defineComponent} from 'vue';
+    import { OfferCardComponentModel } from '../../store/offer/offer-card-component.model';
+    import { defineComponent} from 'vue';
     import AwardedOffer from '../awarded-offer/AwardedOffer.vue';
     import { OfferRestService } from '../../api/rest-service/offer-rest-service';
 

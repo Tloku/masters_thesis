@@ -18,7 +18,7 @@
 <template>
     <div class="root">
         <Navbar />
-        <MainPage />
+        <router-view />
     </div>
 </template>
 

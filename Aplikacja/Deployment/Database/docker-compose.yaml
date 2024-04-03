@@ -11,6 +11,8 @@ services:
       POSTGRES_DB: oto_auto
     volumes:
       - postgres:/data/postgres
+      - D:\Studia\masters_thesis\Aplikacja\Deployment\Database\SQL_Scripts:/var/SQL_Scripts
+      - D:\Studia\masters_thesis\Aplikacja\Deployment\Database\initdb.sh:/var/SQL_Scripts/initdb.sh
     ports:
       - "8090:5432"
 
@@ -22,7 +24,15 @@ services:
       - redis:/data/redis
     ports:
       - "6379:6379"
-    
+
+  server:
+    image: tloku/oto-auto-server:1.0
+    restart: always
+    volumes:
+      - D:\Studia\masters_thesis\Dodatki\car-images-dataset\Cars_Dataset:/var/cars_dataset
+    ports:
+      - "5252:5000"
+  
 
 networks:
   postgres:
