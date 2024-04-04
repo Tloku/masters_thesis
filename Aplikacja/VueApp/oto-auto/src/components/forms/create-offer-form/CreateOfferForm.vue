@@ -70,12 +70,12 @@
             <form>
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="vin"/>
-                        <label for="vin">VIN</label>
+                        <InputText id="vin" :style="{width: '100%'}"/>
+                        <label for="vin">VIN</label>    
                     </FloatLabel>
 
                     <FloatLabel>
-                        <InputText id="mileage"/>
+                        <InputText id="mileage" :style="{width: '100%'}"/>
                         <label for="mileage">Przebieg</label>
                     </FloatLabel>
                 </div>
@@ -87,72 +87,72 @@
             <form>
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="yearOfProduction" />
+                        <InputText id="yearOfProduction" :style="{width: '100%'}"/>
                         <label for="yearOfProduction">Rok produkcji</label>
                     </FloatLabel>
 
                     <FloatLabel>
-                        <InputText id="brand" />
+                        <InputText id="brand" :style="{width: '100%'}"/>
                         <label for="brand">Marka pojazdu</label>
                     </FloatLabel>
                 </div>
 
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="model" />
+                        <InputText id="model" :style="{width: '100%'}"/>
                         <label for="model">Model</label>
                     </FloatLabel>
 
                     <FloatLabel>
-                        <InputText id="fuelType" />
+                        <InputText id="fuelType" :style="{width: '100%'}"/>
                         <label for="fuelType">Rodzaj paliwa</label>
                     </FloatLabel>
                 </div>
 
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="horsepower" />
+                        <InputText id="horsepower" :style="{width: '100%'}"/>
                         <label for="horsepower">Moc</label>
                     </FloatLabel>
 
                     <FloatLabel>
-                        <InputText id="engineCapacity" />
+                        <InputText id="engineCapacity" :style="{width: '100%'}"/>
                         <label for="engineCapacity">Pojemność skokowa</label>
                     </FloatLabel>
                 </div>
 
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="numberOfDoors" />
+                        <InputText id="numberOfDoors" :style="{width: '100%'}"/>
                         <label for="numberOfDoors">Liczba drzwi</label>
                     </FloatLabel>
 
                     <FloatLabel>
-                        <InputText id="transmission" />
+                        <InputText id="transmission" :style="{width: '100%'}"/>
                         <label for="transmission">Skrzynia biegów</label>
                     </FloatLabel>
                 </div>
 
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="version"/>
+                        <InputText id="version" :style="{width: '100%'}"/>
                         <label for="version">Wersja</label>
                     </FloatLabel>
 
                     <FloatLabel>
-                        <InputText id="generation"/>
+                        <InputText id="generation" :style="{width: '100%'}"/>
                         <label for="generation">Generacja</label>
                     </FloatLabel>
                 </div>
 
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="bodyType"/>
+                        <InputText id="bodyType" :style="{width: '100%'}"/>
                         <label for="bodyType">Typ nadwozia</label>
                     </FloatLabel>
 
                     <FloatLabel>
-                        <InputText id="color"/>
+                        <InputText id="color" :style="{width: '100%'}"/>
                         <label for="color">Kolor</label>
                     </FloatLabel>
                 </div>
@@ -169,12 +169,12 @@
 
             <form>
                 <FloatLabel>
-                    <InputText id="title"/>
+                    <InputText id="title" :style="{width: '100%'}"/>
                     <label for="title">Tytuł</label>
                 </FloatLabel>
 
                 <FloatLabel>
-                    <TextArea :rows="8" :auto-resize="true" id="description"/>
+                    <TextArea :rows="8" :auto-resize="true" id="description" :style="{width: '100%'}"/>
                     <label for="description">Opis</label>
                 </FloatLabel>
             </form>
@@ -196,11 +196,11 @@
 
                 <div class="price-input-row">
                     <FloatLabel>
-                        <InputText id="price"/>
+                        <InputText id="price" :style="{width: '100%'}"/>
                         <label for="price">Cena</label>
                     </FloatLabel>
                     <FloatLabel>
-                        <InputText id="currency"/>
+                        <InputText id="currency" :style="{width: '100%'}"/>
                         <label for="currency">Waluta</label>
                     </FloatLabel>
                 </div>
@@ -212,12 +212,12 @@
             <form>
                 <div class="row">
                     <FloatLabel>
-                        <InputText id="name"/>
+                        <InputText id="name" :style="{width: '100%'}"/>
                         <label for="name">Twoje imię</label>
                     </FloatLabel>
                     
                     <FloatLabel>
-                        <InputText id="address"/>
+                        <InputText id="address" :style="{width: '100%'}"/>
                         <label for="address">Adres</label>
                     </FloatLabel>
                 </div>
@@ -225,7 +225,7 @@
                 <div class="half-row">
                     <FloatLabel>
                         <FloatLabel>
-                            <InputText id="phoneNumber"/>
+                            <InputText id="phoneNumber" :style="{width: '100%'}"/>
                             <label for="phoneNumber">Numer telefonu</label>
                         </FloatLabel>
                     </FloatLabel>

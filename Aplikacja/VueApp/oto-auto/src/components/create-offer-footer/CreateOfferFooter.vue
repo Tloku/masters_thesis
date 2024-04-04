@@ -6,6 +6,11 @@
         name: 'createOfferFooter',
         component: {
             Button
+        },
+        methods: {
+            createOffer() {
+
+            }
         }
     })
 
@@ -13,11 +18,13 @@
 
 <template>
     <div class="wrapper">
-        <Button
-            :click="() => {}"
+        <div class="button-wrapper">
+            <Button
+            :click="createOffer()"
             label="Dodaj ogłoszenie"
             class="create-offer"
-        ></Button>
+            ></Button>
+        </div>
     </div>
 
 </template>
