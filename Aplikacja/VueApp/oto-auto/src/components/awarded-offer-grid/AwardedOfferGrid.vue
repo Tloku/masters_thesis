@@ -2,7 +2,7 @@
 <div class="wrapper">
     <span class="awarded-offers-label">Wyróżnione oferty</span>
     <div class="offers">
-        <div v-for="offer in offers">
+        <div v-for="offer in awardedOffers">
             <AwardedOffer :offer="offer" :key="offer.offerId"></AwardedOffer>
         </div>
     </div>
@@ -10,21 +10,27 @@
 </template>
 
 <script lang="ts">
-    import { OfferCardComponentModel } from '../../store/offer/offer-card-component.model';
-    import { defineComponent} from 'vue';
+    import { computed, defineComponent} from 'vue';
     import AwardedOffer from '../awarded-offer/AwardedOffer.vue';
-    import { OfferRestService } from '../../api/rest-service/offer-rest-service';
+    import { useStore } from 'vuex';
 
+    
     export default defineComponent({
         name: 'AwardedOfferGrid',
         components: {
             AwardedOffer
         },
         async setup() {
-            const response = await OfferRestService.getAwardedOffers();
-            const offers: OfferCardComponentModel[] = response.data;
-            return { offers }
-        }
+            const store = useStore()
+
+            const awardedOffers = computed(() => {
+                return store.getters.awardedOffers;
+            });
+
+            store.dispatch('getAwardedOffers')
+            store.dispatch('getOfferById', 1);
+            return { awardedOffers, store}
+        },
     })
 
 </script>

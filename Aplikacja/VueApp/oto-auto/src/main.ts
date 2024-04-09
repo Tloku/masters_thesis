@@ -7,6 +7,7 @@ import OfferViewPage from './pages/offer-view/OfferViewPage.vue';
 import MainPage from './pages/main/MainPage.vue';
 import CreateOfferPage from './pages/create-offer/CreateOfferPage.vue';
 import { createMemoryHistory, createRouter } from 'vue-router';
+import store from './store/store';
 
 const routes = [
     { path: '/', component: MainPage, name: "MainPage"},
@@ -23,5 +24,6 @@ const router = createRouter({
 const app = createApp(App)
 app.use(PrimeVue)
 app.use(router)
+app.use(store)
 
 app.mount('#app')

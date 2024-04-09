@@ -98,4 +98,4 @@
     }
 
 
-</style>
+</style>../../store/model/offer-card-component.model

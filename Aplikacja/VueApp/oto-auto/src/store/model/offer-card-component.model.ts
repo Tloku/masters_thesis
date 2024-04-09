@@ -29,7 +29,7 @@ export interface OfferActivityComponentModel {
     vehicleAttributes: VehicleDetailsRow[]
 }
 
-export interface OfferCardComponentStateModel {
+export default interface OfferCardComponentStateModel {
     offerCardsComponent: OfferCardComponentModel[],
     offer: OfferActivityComponentModel
     offerImages: OfferImage[]
