@@ -1,6 +1,6 @@
 import OfferCardComponentStateModel, { OfferActivityComponentModel, OfferCardComponentModel } from '../model/offer-card-component.model.ts'
 import { OfferRestService } from '../..//api/rest-service/offer-rest-service.ts' 
-import { RedisCacheService } from '@/src/api/rest-service/redis-cache.service.ts';
+import { RedisCacheService } from '../../api/rest-service/redis-cache.service.ts';
 import { AxiosResponse } from 'axios';
 
 export enum RedisCacheKeys {
@@ -78,7 +78,7 @@ const offerCardModule = {
                     context.commit('getOfferById', await getOfferByIdFromServer(id));
                  } catch (e) {
                     //  toast.current.show({severity:'error', detail:'Błąd podczas wyświetlania oferty'});
-                     throw e;
+                    throw e;
                  }
             }
         }  

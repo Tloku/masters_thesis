@@ -28,7 +28,6 @@
             });
 
             store.dispatch('getAwardedOffers')
-            store.dispatch('getOfferById', 1);
             return { awardedOffers, store}
         },
     })
