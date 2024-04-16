@@ -6,6 +6,7 @@
     import InputText from 'primevue/inputtext'
     import SelectButton from 'primevue/selectbutton'
     import TextArea from 'primevue/textarea'
+import ImageUploader from '../image-uploader/ImageUploader.vue';
 
 
     export default defineComponent({
@@ -16,7 +17,8 @@
             FloatLabel,
             InputText,
             SelectButton,
-            TextArea
+            TextArea,
+            ImageUploader
         },
         setup() {
             const stateOptions = ref([
@@ -166,7 +168,7 @@
 
         <div class="image-form">
             <h2>Zdjęcia</h2>
-            <span></span> 
+            <ImageUploader></ImageUploader>
         </div>
 
         <div class="vehicle-description">
@@ -422,7 +424,7 @@
             padding-bottom: 2vh;
         }
 
-        ::v-deep .p-selectbutton .p-button{
+        :deep .p-selectbutton .p-button{
             width: 13vw !important;
             height: 30px !important;
             background-color: var(--main-300);
@@ -432,34 +434,34 @@
             box-shadow: none;
         }
 
-        ::v-deep .p-selectbutton .p-button .p-button-label  {
+        :deep .p-selectbutton .p-button .p-button-label  {
             font-weight: light !important;
         }
 
-        ::v-deep  .p-selectbutton.p-button:first-of-type {
+        :deep  .p-selectbutton.p-button:first-of-type {
             margin-right: 0.5vw !important;
         }
   
-        ::v-deep .p-buttonset.p-button :not(:last-child) { 
+        :deep .p-buttonset.p-button :not(:last-child) { 
             border: 1px solid #ced4da !important;
             border-top-right-radius: 6px;
             border-bottom-right-radius: 6px;
             border-color: var(--main-300) !important;
         }
 
-        ::v-deep .p-buttonset .p-button :last-of-type {
+        :deep .p-buttonset .p-button :last-of-type {
             border-top-left-radius: 6px;
             border-bottom-left-radius: 6px;
         }
 
-        ::v-deep .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
+        :deep .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
             background-color: var(--main-100) !important;
             border-color: var(--main-300) !important;
             color: var(--secondary-500) !important;
         }
 
-        ::v-deep .p-selectbutton .p-button .p-highlight:hover,
-        ::v-deep .p-selectbutton .p-button .p-highlight {
+        :deep .p-selectbutton .p-button .p-highlight:hover,
+        :deep .p-selectbutton .p-button .p-highlight {
             background-color: var(--main-200) !important; 
         } 
         
