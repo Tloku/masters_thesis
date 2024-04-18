@@ -12,12 +12,13 @@
             FloatLabel
         },
         setup() {
-
+            const goToBrowserPage = () => {}
+            const filterOffers = () => {}
+            
+            return { goToBrowserPage, filterOffers }
         }
     })
 </script>
-
-
 
 <template>
     <div class="car-form-wrapper">
@@ -133,9 +134,9 @@
                     </span>
                 </div>
 
-                <Button (onClick)="goToBrowserPage()"  class="advanced-search" label="Wyszukiwanie zaawansowane"></Button>
+                <Button :click="goToBrowserPage()"  class="advanced-search" label="Wyszukiwanie zaawansowane"></Button>
 
-                <Button (onClick)="filterOffers()" class="show-offers" label="Pokaż ogłoszenia"></Button>
+                <Button :click="filterOffers()" class="show-offers" label="Pokaż ogłoszenia"></Button>
 
             </div>
         </form>
@@ -145,6 +146,77 @@
 
 
 <style lang="scss">
+
+
+.car-form-wrapper {
+    margin: 3px;
+    padding:3px;
+    width: 100%;
+
+    .car-form-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 30px;
+        margin-left: 2px;
+
+            
+        .p-float-label {
+            display: block !important;
+            width: 250px !important;
+        }
+    }
+
+    
+    .car-form-container .range {
+        display: flex;
+        gap: 30px;
+    }
+    
+    .short {
+        width: 110px;
+    }
+    
+    .p-dropdown {
+        border-color: transparent;
+        background-color: var(--secondary-100);
+        box-shadow: 0 0 0 1px var(--main-800);
+    }
+    
+    .p-dropdown:not(.p-disabled):hover {
+        border-color: var(--main-200);
+    }
+    
+    .p-dropdown:not(.p-disabled).p-focus {
+        box-shadow: 0 0 0 0.2rem var(--main-100);
+        border-color: var(--main-300);
+    }
+    
+    .range .label {
+        font-size: 0.75em;
+        position: absolute;
+        transform: translateY(-21px) translateX(8px);
+        z-index: 1000;
+        color: gray;
+    }
+    
+    
+    .advanced-search {
+        background-color: transparent;
+        color: var(--main-500);
+        border: none;
+    }
+    
+    
+    .advanced-search:hover {
+        background-color: var(--secondary-200) !important;
+        color: var(--main-600) !important;
+    }
+    
+    .show-offers {
+        background-color: var(--main-500) !important;
+    }
+}
 
 
 </style>

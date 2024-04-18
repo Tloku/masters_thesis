@@ -4,13 +4,13 @@
 
     export default defineComponent({
         name: 'createOfferFooter',
-        component: {
+        components: {
             Button
         },
-        methods: {
-            createOffer() {
-
-            }
+        setup() {
+            const createOffer = () => {}
+            
+            return { createOffer }
         }
     })
 
@@ -20,9 +20,9 @@
     <div class="wrapper">
         <div class="button-wrapper">
             <Button
-            :click="createOffer()"
-            label="Dodaj ogłoszenie"
-            class="create-offer"
+                :click="createOffer()"
+                label="Dodaj ogłoszenie"
+                class="create-offer"
             ></Button>
         </div>
     </div>

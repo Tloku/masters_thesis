@@ -11,7 +11,7 @@
                         </div>
                     </template>
 
-                    <!-- <CarSearchForm /> -->
+                    <CarSearchForm></CarSearchForm>
                 </TabPanel>
                 <TabPanel>
                     <template #header>
@@ -33,6 +33,8 @@
     import MotorbikeIcon from 'vue-material-design-icons/Motorbike.vue'  
     import TabPanel from 'primevue/tabpanel';
     import TabView from 'primevue/tabview';
+    import CarSearchForm from '../forms/car-search-form/CarSearchForm.vue';
+
 
     export default defineComponent({
         name: 'MainSearchEngine',
@@ -40,7 +42,8 @@
             CarIcon,
             MotorbikeIcon,
             TabPanel,
-            TabView
+            TabView,
+            CarSearchForm
         },
         setup() {
 

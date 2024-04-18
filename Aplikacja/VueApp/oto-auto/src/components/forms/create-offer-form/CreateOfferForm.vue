@@ -7,6 +7,7 @@
     import SelectButton from 'primevue/selectbutton'
     import TextArea from 'primevue/textarea'
 import ImageUploader from '../image-uploader/ImageUploader.vue';
+import AdditionalProperties from '../additional-properties/AdditionalProperties.vue';
 
 
     export default defineComponent({
@@ -18,7 +19,8 @@ import ImageUploader from '../image-uploader/ImageUploader.vue';
             InputText,
             SelectButton,
             TextArea,
-            ImageUploader
+            ImageUploader,
+            AdditionalProperties
         },
         setup() {
             const stateOptions = ref([
@@ -189,7 +191,14 @@ import ImageUploader from '../image-uploader/ImageUploader.vue';
 
         <div class="additional-properties">
             <h2>Wyświetl dodatkowe szczegóły</h2>
-            additional-properties
+            <Suspense>
+                <template #default>
+                    <AdditionalProperties></AdditionalProperties>
+                </template>
+                <template #fallback >
+                    Ładowanie...
+                </template>
+            </Suspense>
         </div>
 
         <div class="price">
