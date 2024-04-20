@@ -81,67 +81,58 @@
     </div>
 </template>
 
-<script lang="ts">
-import { ComputedRef, computed, defineComponent } from 'vue';
-import Accordion from 'primevue/accordion';
-import AccordionTab from 'primevue/accordiontab';
-import InputText from 'primevue/inputtext';
-import { useStore } from 'vuex';
-import { EquipmentType } from '@/src/api/models/equipment-type';
-import SelectButton from 'primevue/selectbutton';
-import { Equipment, EquipmentForm, EquipmentItemsForm, EquipmentValuesForm } from '@/src/store/model/create-offer-form.model';
+<script setup lang="ts">
+    import { ComputedRef, computed, defineComponent, watch } from 'vue';
+    import Accordion from 'primevue/accordion';
+    import AccordionTab from 'primevue/accordiontab';
+    import InputText from 'primevue/inputtext';
+    import { useStore } from 'vuex';
+    import { EquipmentType } from '../../../api/models/equipment-type';
+    import SelectButton from 'primevue/selectbutton';
+    import { Equipment, EquipmentForm, EquipmentItemsForm, EquipmentValuesForm } from '../../../store/model/create-offer-form.model';
 
 
-    export default defineComponent({
-        name: 'AdditionalProperties',
-        components: {
-            Accordion,
-            AccordionTab,
-            InputText,
-            SelectButton
-        },
-        async setup() {
-            const stateOptions: any[] = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
-            const store = useStore()
-            const equipmentTypes: ComputedRef<EquipmentForm[]> = computed(
-                    () => {
-                        const equipmentTypes = store.getters.equipmentTypes;
-                        if (!equipmentTypes || equipmentTypes.length == 0) {
-                            return [];
-                        }
-                        const equipmentForms: EquipmentForm[] = [];
-                        equipmentTypes.forEach((equipmentType: EquipmentType) => {
-                            equipmentForms.push(createEquipmentForm(equipmentType));
-                        })
-
-                        return equipmentForms
-                })
-
-            const createEquipmentForm = (equipmentType: EquipmentType) => {
-                const equipmentValues: EquipmentValuesForm = {
-                    values: []
-                }
-
-                const equipmentForm: EquipmentForm = {
-                    type: equipmentType.type,
-                    equipment: equipmentValues 
-                }
-                const array: EquipmentItemsForm[] = []
-                equipmentType.equipments.forEach((equipment: Equipment) => {
-                    array.push({
-                        id: equipment.id,
-                        name: equipment.name,
-                        value: false
-                    })
-                })
-
-                equipmentValues.values = array
-                return equipmentForm
+    const stateOptions: any[] = [{label: 'Nie', value: false}, {label: 'Tak', value: true}];
+    const store = useStore()
+    const equipmentTypes: ComputedRef<EquipmentForm[]> = computed(() => {
+            const equipmentTypes = store.getters.equipmentTypes;
+            if (!equipmentTypes || equipmentTypes.length == 0) {
+                return [];
             }
-            store.dispatch('getEquipmentTypes')
-            return { equipmentTypes, stateOptions, store, }
-        }
+            const equipmentForms: EquipmentForm[] = [];
+            equipmentTypes.forEach((equipmentType: EquipmentType) => {
+                equipmentForms.push(createEquipmentForm(equipmentType));
+            })
+
+            return equipmentForms
     })
+
+    watch(equipmentTypes, async (changedEquipmentType: EquipmentForm[]) => {
+        console.log(changedEquipmentType)
+    })
+
+    const createEquipmentForm = (equipmentType: EquipmentType) => {
+        const equipmentValues: EquipmentValuesForm = {
+            values: []
+        }
+
+        const equipmentForm: EquipmentForm = {
+            type: equipmentType.type,
+            equipment: equipmentValues 
+        }
+        const array: EquipmentItemsForm[] = []
+        equipmentType.equipments.forEach((equipment: Equipment) => {
+            array.push({
+                id: equipment.id,
+                name: equipment.name,
+                value: false
+            })
+        })
+
+        equipmentValues.values = array
+        return equipmentForm
+    }
+    store.dispatch('getEquipmentTypes')
 </script>
 
 <style lang="scss" scoped>
