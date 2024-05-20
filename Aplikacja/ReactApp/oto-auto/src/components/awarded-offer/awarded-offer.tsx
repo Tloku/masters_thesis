@@ -2,7 +2,7 @@ import { NavigateFunction, useNavigate } from 'react-router-dom'
 import { OfferCardComponentModel } from '../../redux/model/offer-card-component.model'
 import './awarded-offer.scss'
 
-export const AwardedOffer: React.FC<{offer:OfferCardComponentModel}> = ({key, offer}) => {
+export const AwardedOffer: React.FC<{offer:OfferCardComponentModel}> = ({offer}) => {
     const navigate: NavigateFunction = useNavigate();
     
     if (!offer) {

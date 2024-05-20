@@ -7,21 +7,21 @@ using CarStatus  = oto_auto_c_sharp_server.Entities.CarStatus;
 public class CarStatusRepository: ICarStatusRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
-    public CarStatusRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    private readonly ApplicationContext _applicationContext;
+    public CarStatusRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
     }
 
     public async Task<IEnumerable<CarStatus>> GetCarStatuses()
     {
-        return await _replicaContext.CarStatus.ToListAsync();
+        return await _applicationContext.CarStatus.ToListAsync();
     }
 
     public async Task<CarStatus?> GetCarStatus(string status)
     {
-        return await _replicaContext.CarStatus
+        return await _applicationContext.CarStatus
             .Where(cs => cs.Status.Equals(status))
             .FirstOrDefaultAsync();
     }

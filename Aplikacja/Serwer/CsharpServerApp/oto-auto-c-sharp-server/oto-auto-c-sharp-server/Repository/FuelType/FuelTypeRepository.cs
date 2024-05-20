@@ -7,23 +7,23 @@ using FuelType = oto_auto_c_sharp_server.Entities.FuelType;
 class FuelTypeRepository: IFuelTypeRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
+    private readonly ApplicationContext _applicationContext;
 
-    public FuelTypeRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    public FuelTypeRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
     }
 
     public async Task<FuelType?> GetFuelTypeByType(string type)
     {
-        return await _replicaContext.FuelType
+        return await _applicationContext.FuelType
             .Where(ft => ft.Type.Equals(type))
             .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<FuelType>> GetFuelTypes()
     {
-        return await _replicaContext.FuelType.ToListAsync();
+        return await _applicationContext.FuelType.ToListAsync();
     }
 }

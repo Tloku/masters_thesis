@@ -3,35 +3,30 @@
     <span class="awarded-offers-label">Wyróżnione oferty</span>
     <div class="offers">
         <div v-for="offer in awardedOffers">
-            <AwardedOffer :offer="offer" :key="offer.offerId"></AwardedOffer>
+            <AwardedOffer @click="goToOfferDetails(offer.offerId)" :offer="offer" :key="offer.offerId"></AwardedOffer>
         </div>
     </div>
 </div>
 </template>
 
-<script lang="ts">
-    import { computed, defineComponent} from 'vue';
+<script setup lang="ts">
+    import { computed, } from 'vue';
     import AwardedOffer from '../awarded-offer/AwardedOffer.vue';
     import { useStore } from 'vuex';
+    import { useRouter } from 'vue-router';
+    const router = useRouter()
+    const store = useStore()
 
+    const awardedOffers = computed(() => {
+        return store.getters.awardedOffers;
+    });
+
+    store.dispatch('getAwardedOffers')
     
-    export default defineComponent({
-        name: 'AwardedOfferGrid',
-        components: {
-            AwardedOffer
-        },
-        async setup() {
-            const store = useStore()
 
-            const awardedOffers = computed(() => {
-                return store.getters.awardedOffers;
-            });
-
-            store.dispatch('getAwardedOffers')
-            return { awardedOffers, store}
-        },
-    })
-
+    const goToOfferDetails = (id: number) => {
+        router.push({ name: 'offer', params: { id: id }});
+    }
 </script>
 
 <style scoped>

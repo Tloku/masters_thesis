@@ -9,9 +9,9 @@ public class MasterContext : OtoAutoContext<MasterContext>
     public MasterContext(DbContextOptions<MasterContext> options) : base(options) { }
 }
 
-public class ReplicaContext : OtoAutoContext<ReplicaContext>
+public class ApplicationContext : OtoAutoContext<ApplicationContext>
 {
-    public ReplicaContext(DbContextOptions<ReplicaContext> options) : base(options) { }
+    public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 }
 
 public class OtoAutoContext<T> : DbContext where T : DbContext

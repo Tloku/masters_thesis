@@ -7,16 +7,16 @@ using Equipment = oto_auto_c_sharp_server.Entities.Equipment;
 class EquipmentRepository: IEquipmentRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
+    private readonly ApplicationContext _applicationContext;
 
-    public EquipmentRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    public EquipmentRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
     }
 
     public async Task<IEnumerable<Equipment>> GetEquipments()
     {
-        return await _replicaContext.Equipment.ToListAsync();
+        return await _applicationContext.Equipment.ToListAsync();
     }
 }

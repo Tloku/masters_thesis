@@ -2,7 +2,7 @@
 import './main-search-engine.scss'
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import { TabView, TabPanel } from 'primereact/tabview';
+import { TabView, TabPanel, TabPanelHeaderTemplateOptions } from 'primereact/tabview';
 import { useState } from 'react';
 import { classNames } from 'primereact/utils';
 import { CarSearchForm } from '../forms/car-search-form/car-search-form';
@@ -11,7 +11,8 @@ export const MainSearchEngineComponent: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
 
-    const carHeaderTemplate = (options) => {
+    const carHeaderTemplate = (options: TabPanelHeaderTemplateOptions) => {
+        console.log(typeof options);
         const combinedClassName = classNames(options.className, 'header');
         return (
             <div onClick={options.onClick} className={combinedClassName} >
@@ -21,7 +22,7 @@ export const MainSearchEngineComponent: React.FC = () => {
         );
     };
 
-    const motorcycleHeaderTemplate = (options) => {
+    const motorcycleHeaderTemplate = (options: TabPanelHeaderTemplateOptions) => {
         const combinedClassName = classNames(options.className, 'header');
         return (
             <div onClick={options.onClick} className={combinedClassName}>

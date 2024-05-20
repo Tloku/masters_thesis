@@ -7,23 +7,23 @@ using TransmissionType = oto_auto_c_sharp_server.Entities.TransmissionType;
 class TransmissionTypeRepository: ITransmissionTypeRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
+    private readonly ApplicationContext _applicationContext;
 
-    public TransmissionTypeRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    public TransmissionTypeRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
     }
 
     public async Task<TransmissionType?> GetTransmissionTypeByType(string type)
     {
-        return await _replicaContext.TransmissionType
+        return await _applicationContext.TransmissionType
             .Where(tt => tt.Type.Equals(type))
             .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<TransmissionType>> GetTransmissionTypes()
     {
-        return await _replicaContext.TransmissionType.ToListAsync();
+        return await _applicationContext.TransmissionType.ToListAsync();
     }
 }

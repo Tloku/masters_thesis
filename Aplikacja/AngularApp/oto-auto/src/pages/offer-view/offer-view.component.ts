@@ -19,6 +19,4 @@ export class OfferViewComponent implements OnInit {
         const offerId: string | null = this._activatedRoute.snapshot.paramMap.get('offerId'); 
         this._store.dispatch(new GetOfferById(+offerId!!))
     }
-
-
 }

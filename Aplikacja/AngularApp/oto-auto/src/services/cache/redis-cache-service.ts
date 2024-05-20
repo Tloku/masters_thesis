@@ -14,7 +14,7 @@ export interface RedisRequest {
     providedIn: "root"
 })
 export class RedisCacheService {
-    private _redisServerUrl: string = "http://localhost:3500";
+    private _redisServerUrl: string = "http://165.232.117.222:3500";
 
     constructor(
         private _http: HttpClient,

@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { InputText } from "primereact/inputtext";
 import { SelectButton } from 'primereact/selectbutton';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { BasicInfoForm, CreateOfferFormStateModel, DealerDataForm, MainFeaturesForm, OfferImagesForm, PriceDataForm, TechnicalDataForm, VehicleDescriptionForm } from "../../../redux/model/create-offer-form.model";
+import { BasicInfoForm, CreateOfferFormStateModel, DealerDataForm, MainFeaturesForm, PriceDataForm, TechnicalDataForm, VehicleDescriptionForm } from "../../../redux/model/create-offer-form.model";
 import { ImageUploader } from '../image-uploader/image-uploader';
 import { AdditionalProperties } from '../additional-properties/additional-properties.component';
 import { useDispatch, useSelector } from 'react-redux';

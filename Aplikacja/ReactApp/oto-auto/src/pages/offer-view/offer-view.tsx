@@ -40,7 +40,6 @@ export const OfferViewComponent: React.FC = () => {
                     <OfferViewPriceComponent offer={offer} />
                 </div>
             </div>
-        
         }
     </>
 }

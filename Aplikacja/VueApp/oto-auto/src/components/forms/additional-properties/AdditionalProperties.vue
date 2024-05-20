@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-    import { ComputedRef, computed, defineComponent, watch } from 'vue';
+    import { ComputedRef, computed, watch } from 'vue';
     import Accordion from 'primevue/accordion';
     import AccordionTab from 'primevue/accordiontab';
     import InputText from 'primevue/inputtext';

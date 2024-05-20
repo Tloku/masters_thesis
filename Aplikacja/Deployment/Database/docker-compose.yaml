@@ -1,6 +1,24 @@
 version: '3.1'
 
 services:
+  angular_oto_auto:
+    image: tloku/angular-oto-auto:1.0
+    restart: always
+    ports: 
+      - "4200:80"
+
+  react_oto_auto:
+    image: tloku/react-oto-auto:1.0
+    restart: always
+    ports: 
+      - "4300:80"
+
+  vue_oto_auto:
+    image: tloku/vue-oto-auto:1.0
+    restart: always
+    ports: 
+      - "4400:80"
+
   postgres:
     image: postgres:15.4
     restart: always
@@ -11,8 +29,7 @@ services:
       POSTGRES_DB: oto_auto
     volumes:
       - postgres:/data/postgres
-      - D:\Studia\Magisterka\Aplikacja\Deployment\Database\SQL_Scripts:/var/SQL_Scripts
-      - D:\Studia\Magisterka\Aplikacja\Deployment\Database\initdb.sh:/var/SQL_Scripts/initdb.sh
+      - /app/SQL_Scripts:/var/SQL_Scripts
     ports:
       - "8090:5432"
 
@@ -29,15 +46,25 @@ services:
     image: tloku/oto-auto-server:1.0
     restart: always
     volumes:
-      - D:\Studia\Magisterka\Dodatki\car-images-dataset\Cars_Dataset:/var/cars_dataset
+      - /Cars_Dataset:/var/cars_dataset
     ports:
-      - "5252:5000"
+      - "5000:5000"
+
+  cache_server:
+    image: tloku/cache-server:1.0
+    restart: always
+    ports:
+      - "3500:3500"
   
 
 networks:
   postgres:
     driver: bridge
   redis:
+    driver: bridge
+  cache_server:
+    driver: bridge
+  angular_oto_auto:
     driver: bridge
 
 volumes:

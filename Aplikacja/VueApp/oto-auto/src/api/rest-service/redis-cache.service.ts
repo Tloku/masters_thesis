@@ -7,7 +7,7 @@ export interface RedisRequest {
 
 export class RedisCacheService {
     private static _http = axios.create({
-        baseURL: "http://localhost:3500",
+        baseURL: "http://165.232.117.222:3500",
     }); 
 
 

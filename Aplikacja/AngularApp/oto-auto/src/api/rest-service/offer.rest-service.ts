@@ -16,19 +16,19 @@ export class OfferRestService {
     constructor(private _http: HttpClient) {}
 
     getAwardedOffers(): Observable<OfferCardComponentModel[]> {
-        return this._http.get<OfferCardComponentModel[]>("http://localhost:5252/api/offer/awarded");
+        return this._http.get<OfferCardComponentModel[]>("http://165.232.117.222:5000/api/offer/awarded");
     }
 
     getOfferById(offerId: number): Observable<OfferActivityComponentModel> {
-        return this._http.get<OfferActivityComponentModel>("http://localhost:5252/api/offer/" + offerId)
+        return this._http.get<OfferActivityComponentModel>("http://165.232.117.222:5000/api/offer/" + offerId)
     }
 
     createOffer(form: CreateOfferFormStateModel): Observable<CreateOfferResponse> {
-        return this._http.post<CreateOfferResponse>("http://localhost:5252/api/offer/create", form, {'headers': this._headers} )
+        return this._http.post<CreateOfferResponse>("http://165.232.117.222:5000/api/offer/create", form, {'headers': this._headers} )
     }
 
     getFilteredOffers(carSearchValues: CarSearchValues): Observable<OfferPreview[]> {
-        return this._http.post<OfferPreview[]>("http://localhost:5252/api/offer/filtered", carSearchValues, {'headers': this._headers})
+        return this._http.post<OfferPreview[]>("http://165.232.117.222:5000/api/offer/filtered", carSearchValues, {'headers': this._headers})
     }
 
 }

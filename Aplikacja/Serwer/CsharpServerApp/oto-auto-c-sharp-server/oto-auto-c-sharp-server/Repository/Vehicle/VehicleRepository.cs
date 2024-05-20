@@ -7,22 +7,22 @@ public class VehicleRepository: IVehicleRepository
 {
 
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
+    private readonly ApplicationContext _applicationContext;
 
-    public VehicleRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    public VehicleRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
     }
     
     public async Task<IEnumerable<Vehicle>> GetVehiclesAsync()
     {
-        return await _replicaContext.Vehicle.ToListAsync();
+        return await _applicationContext.Vehicle.ToListAsync();
     }
 
     public async Task<IEnumerable<Vehicle>> GetVehiclesByBrandAsync(string brand)
     {
-        return await _replicaContext.Vehicle
+        return await _applicationContext.Vehicle
             .Where(vehicle => vehicle.Brand.ToLower().Equals(brand.ToLower()))
             .ToListAsync();
     }

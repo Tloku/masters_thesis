@@ -7,23 +7,23 @@ using BodyType  = oto_auto_c_sharp_server.Entities.BodyType;
 public class BodyTypeRepository: IBodyTypeRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
+    private readonly ApplicationContext _applicationContext;
     
-    public BodyTypeRepository(ReplicaContext replicaContext, MasterContext masterContext)
+    public BodyTypeRepository(ApplicationContext applicationContext, MasterContext masterContext)
     {
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
         _masterContext = masterContext;
     }
 
     public async Task<BodyType?> GetBodyTypeByType(string bodyType)
     {
-        return await _replicaContext.BodyType
+        return await _applicationContext.BodyType
             .Where(bt => bt.Type.Equals(bodyType))
             .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<BodyType>> GetBodyTypes()
     {
-        return await _replicaContext.BodyType.ToListAsync();
+        return await _applicationContext.BodyType.ToListAsync();
     }
 }

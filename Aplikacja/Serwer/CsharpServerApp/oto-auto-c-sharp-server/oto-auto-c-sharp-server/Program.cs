@@ -49,8 +49,8 @@ builder.Services.AddDbContext<MasterContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("MasterConnection"))
     );
 
-builder.Services.AddDbContext<ReplicaContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ReplicaConnection"))
+builder.Services.AddDbContext<ApplicationContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Connection"))
 );
 
 builder.Services.AddScoped<IVehicleAdapter, VehicleMediator>();

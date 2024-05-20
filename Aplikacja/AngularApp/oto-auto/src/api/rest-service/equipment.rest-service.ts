@@ -9,7 +9,7 @@ export class EquimpentRestService {
     constructor(private _http: HttpClient) {}
 
     getEquipmentTypes(): Observable<GetEquipmentResponse> {
-        return this._http.get<GetEquipmentResponse>("http://localhost:5252/api/types/equipment_types")
+        return this._http.get<GetEquipmentResponse>("http://165.232.117.222:5000/api/types/equipment_types")
     }
 
 }

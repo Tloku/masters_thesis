@@ -1,10 +1,9 @@
+import { OfferActivityComponentModel, OfferCardComponentModel } from "@/src/store/model/offer-card-component.model";
 import axios, { AxiosResponse } from "axios";
-import { OfferActivityComponentModel, OfferCardComponentModel } from "../../redux/model/offer-card-component.model";
-import { CreateOfferResponse } from "../models/create-offer-response";
 
 export class OfferRestService {
     private static _http = axios.create({
-        baseURL: "http://localhost:5252/api",
+        baseURL: "http://165.232.117.222:5000/api",
         headers: {
           "Content-type": "application/json"
         }
@@ -19,7 +18,7 @@ export class OfferRestService {
     }
 
     public static getOfferById(offerId: number): Promise<AxiosResponse<OfferActivityComponentModel>> {
-        return this._http.get<OfferActivityComponentModel>("http://localhost:5252/api/offer/" + offerId)
+        return this._http.get<OfferActivityComponentModel>("http://165.232.117.222:5000/api/offer/" + offerId)
     }
 }
 

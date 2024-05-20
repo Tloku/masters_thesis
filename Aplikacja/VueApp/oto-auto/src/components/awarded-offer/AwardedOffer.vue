@@ -1,7 +1,6 @@
 <template>
     <div class="offer-content"
-        v-if="offer"
-        @click="onOfferClick">
+        v-if="offer">
         <img 
             class="car-pic"
             :src="'data:image/jpg;base64,' + offer.offerMainImage.imageBytes" 
@@ -23,8 +22,8 @@
 </template>
 
 <script lang="ts">
+    import { OfferCardComponentModel } from '@/src/store/model/offer-card-component.model';
     import { PropType, defineComponent } from 'vue';
-    import { OfferCardComponentModel } from '../../store/offer/offer-card-component.model';
 
     export default defineComponent({
         name: 'AwardedOffer',
@@ -34,12 +33,6 @@
                 type: Object as PropType<OfferCardComponentModel>
             }
         },
-        methods: {
-            onOfferClick(): void {
-
-            }
-        }
-
     })
 </script>
 

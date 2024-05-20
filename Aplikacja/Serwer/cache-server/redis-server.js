@@ -8,9 +8,7 @@ const app = express()
 const port  = 3500;
 
 const client = redis.createClient({
-    password: '12345',
-    host: 'localhost',
-    port: 6379
+    url: 'redis://default:12345@redis:6379'
 })
 
 client.on('error', (err) => console.log("Couldn't connect to redis server", err))
@@ -25,7 +23,6 @@ app.use(cors());
 
 app.post('/set', (request, resp) => {
     console.log("Set Request", request.body.key);
-
     client.set(request.body.key, JSON.stringify(request.body.value), {EX: 60*5})
 })
 

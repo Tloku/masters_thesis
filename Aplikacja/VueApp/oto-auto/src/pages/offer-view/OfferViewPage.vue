@@ -1,11 +1,4 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-
-    export default defineComponent({
-        name: "OfferViewPage",
-        components: {}
-    })
+<script setup lang="ts">
 </script>
 
 <template>

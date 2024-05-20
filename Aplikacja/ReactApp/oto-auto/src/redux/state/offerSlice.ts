@@ -39,7 +39,7 @@ const offerSlice = createSlice({
         }),
         builder.addCase(getOfferById.fulfilled, (state, { payload }) => {
             state.offer = payload!
-        })
+        })  
     }
 })
 

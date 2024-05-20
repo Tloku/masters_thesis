@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  react_empty_test_app:
+    image: tloku/react-test-app:1.0
+    restart: always
+    ports: 
+      - "4700:80"
+  react_test_app:
+    image: tloku/react-test-app:2.0
+    restart: always
+    ports: 
+      - "4800:80"

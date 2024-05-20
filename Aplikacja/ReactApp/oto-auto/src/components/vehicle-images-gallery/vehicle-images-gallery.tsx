@@ -1,12 +1,9 @@
-import { useEffect, useState } from 'react';
 import './vehicle-images-gallery.scss'
 import { Galleria } from 'primereact/galleria';
 import { OfferImage } from '../../models/offer-image';
 
 
 export const VehicleImagesGalleryComponent: React.FC<{vehicleImages: OfferImage[]}> = ({vehicleImages}) => {
-    // const [vehicleImages, setVehicleImages] = useState<OfferImage[]>([])
-
     const itemTemplate = (item: OfferImage) => {
         return <img className='main-gallery-image' src={'data:image/jpg;base64,' + item.imageBytes } style={{ width: '550px', height: '400px' }} />
     }

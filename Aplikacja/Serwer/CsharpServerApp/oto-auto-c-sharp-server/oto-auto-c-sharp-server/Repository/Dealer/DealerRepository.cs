@@ -9,11 +9,11 @@ using Dealer = oto_auto_c_sharp_server.Entities.Dealer;
 class DealerRepository: IDealerRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
-    public DealerRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    private readonly ApplicationContext _applicationContext;
+    public DealerRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
     }
 
     public async Task<int> CreateDealer(DealerDataForm dealerDataForm)
@@ -39,19 +39,19 @@ class DealerRepository: IDealerRepository
 
     public async Task<Dealer?> GetDealerByPhoneNumber(string phoneNumber)
     {
-        return await _replicaContext.Dealer
+        return await _applicationContext.Dealer
             .Where(d => d.PhoneNumber.Equals(phoneNumber))
             .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<Dealer?>> GetAllDealers()
     {
-        return await _replicaContext.Dealer.ToListAsync();
+        return await _applicationContext.Dealer.ToListAsync();
     }
 
     public async Task<Dealer?> GetDealerById(int id)
     {
-        return await _replicaContext.Dealer
+        return await _applicationContext.Dealer
             .Where(dealer => dealer.Id == id)
             .FirstOrDefaultAsync();
     }

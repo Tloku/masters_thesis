@@ -22,6 +22,7 @@ const createOfferModule = {
             state.additionalTechnicalDataForm = action
         },
         clearCreateOfferForm (state: CreateOfferFormStateModel) {
+            console.log(state);
             state = initialCreateOfferFormStateValue
         }
     },

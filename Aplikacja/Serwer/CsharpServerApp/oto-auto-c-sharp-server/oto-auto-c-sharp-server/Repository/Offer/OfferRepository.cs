@@ -9,12 +9,12 @@ using Offer = oto_auto_c_sharp_server.Entities.Offer;
 class OfferRepository: IOfferRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
+    private readonly ApplicationContext _context;
 
-    public OfferRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    public OfferRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _context = applicationContext;
     }
 
     public async Task<int> CreateOffer(Offer offer)
@@ -26,12 +26,12 @@ class OfferRepository: IOfferRepository
 
     public async Task<IEnumerable<Offer>> GetAllOffers()
     {
-        return await _replicaContext.Offer.ToListAsync();
+        return await _context.Offer.ToListAsync();
     }
 
     public async Task<Offer?> GetOfferWithVehicleByOfferId(int offerId)
     {
-        return await _replicaContext.Offer
+        return await _context.Offer
             .Include(o => o.Vehicle)
             .Include(o => o.VehicleImages)
             .Where(o => o.Id == offerId)
@@ -40,7 +40,7 @@ class OfferRepository: IOfferRepository
 
     public async Task<IEnumerable<Offer>> GetOffersWithVehicles()
     {
-        return await _replicaContext.Offer
+        return await _context.Offer
             .Include(o => o.Vehicle)
             .Include(o => o.VehicleImages)
             .ToListAsync();
@@ -48,11 +48,11 @@ class OfferRepository: IOfferRepository
 
     public async Task<IEnumerable<Offer>> GetAwardedOffers()
     {
-        var total = _replicaContext.Offer.Count();
+        var total = _context.Offer.Count();
         Random r = new Random();
         var offset = r.Next(0, total - 10);
        
-        return await _replicaContext.Offer
+        return await _context.Offer
             .Skip(offset)
             .Take(10)
             .Include(o => o.Vehicle)
@@ -65,7 +65,7 @@ class OfferRepository: IOfferRepository
     {
         // Due to bad design of database (storing price etc. in a string) i cannot easily filter data the way i wanted
         // Sadge
-        return await _replicaContext.Offer
+        return await _context.Offer
             // .Where(o => carSearch.PriceFrom != null && int.TryParse(o.Price, out int price) && price >= carSearch.PriceFrom)
             // .Where(o => carSearch.PriceTo != null && int.Parse(o.Price) <= carSearch.PriceTo)
             .Include(o => o.Vehicle)
@@ -86,7 +86,7 @@ class OfferRepository: IOfferRepository
 
     public async Task<Offer?> GetOfferById(int offerId)
     {
-        return await _replicaContext.Offer
+        return await _context.Offer
             .Where(o => o.Id == offerId)
             .Include(o => o.Vehicle)
             .Include(o => o.VehicleImages)

@@ -5,12 +5,12 @@ namespace oto_auto_c_sharp_server.Repository.VehicleImage;
 public class VehicleImageRepository: IVehicleImageRepository
 {
     private readonly MasterContext _masterContext;
-    private readonly ReplicaContext _replicaContext;
+    private readonly ApplicationContext _applicationContext;
 
-    public VehicleImageRepository(MasterContext masterContext, ReplicaContext replicaContext)
+    public VehicleImageRepository(MasterContext masterContext, ApplicationContext applicationContext)
     {
         _masterContext = masterContext;
-        _replicaContext = replicaContext;
+        _applicationContext = applicationContext;
     }
 
     public async Task CreateVehicleImages(IEnumerable<Entities.VehicleImage> vehicleImages)
