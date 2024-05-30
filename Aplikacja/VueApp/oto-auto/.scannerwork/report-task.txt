@@ -1,0 +1,6 @@
+projectKey=vue_oto_auto
+serverUrl=http://172.18.16.1:9000
+serverVersion=10.5.1.90531
+dashboardUrl=http://172.18.16.1:9000/dashboard?id=vue_oto_auto
+ceTaskId=2633cc7d-85a0-4fae-8832-086a5b8ba908
+ceTaskUrl=http://172.18.16.1:9000/api/ce/task?id=2633cc7d-85a0-4fae-8832-086a5b8ba908
