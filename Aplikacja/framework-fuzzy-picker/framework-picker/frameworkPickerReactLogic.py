@@ -104,9 +104,79 @@ class ReactPickLogic:
                 self.__security['implemented'] & (self.__learning_curve['easy'] | self.__learning_curve['medium']) & self.__performance['good'],
                 self.__react['choose']),
             ctrl.Rule(self.__package_size['large'] & self.__security['implemented'], self.__react['not_choose']),
-            ctrl.Rule(self.__package_size['small'] & self.__security['none'], self.__react['choose'])
+            ctrl.Rule(self.__package_size['small'] & self.__security['none'], self.__react['choose']),
+
         ]
 
+        self.__react_rules.extend([
+            ctrl.Rule(
+                self.__performance['good'] & self.__package_size['medium'] & self.__large_data_dom_performance['good'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__large_data_dom_performance['good'] & self.__learning_curve['easy'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__package_size['small'] & self.__learning_curve['easy'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__package_size['small'] & self.__large_data_dom_performance[
+                    'good'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__flexibility['medium'] & self.__large_data_dom_performance['good'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__large_data_dom_performance['good'] & self.__learning_curve['easy'] & self.__popularity[
+                    'increasing'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__package_size['medium'] & self.__security['none'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__flexibility['flex'] & self.__large_data_dom_performance['good'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__popularity['increasing'] & self.__learning_curve['medium'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__package_size['medium'] & self.__flexibility['flex'],
+                self.__react['choose']),
+        ])
+        self.__react_rules.extend([
+            ctrl.Rule(
+                self.__performance['good'] & self.__package_size['small'] & self.__large_data_dom_performance[
+                    'average'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__flexibility['flex'] & self.__learning_curve['easy'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__popularity['increasing'] & self.__flexibility['flex'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__large_data_dom_performance['good'] & self.__security['none'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__large_data_dom_performance['average'] & self.__learning_curve['easy'] & self.__flexibility[
+                    'flex'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__flexibility['medium'] & self.__popularity['increasing'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__package_size['small'] & self.__popularity['increasing'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__large_data_dom_performance['good'] & self.__security['none'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__large_data_dom_performance['good'] & self.__popularity[
+                    'increasing'],
+                self.__react['choose']),
+            ctrl.Rule(
+                self.__performance['good'] & self.__learning_curve['medium'] & self.__flexibility['flex'],
+                self.__react['choose']),
+        ])
 
     def simulation_compute(self, performance, large_data_performance, package_size, dom_performance,
                            large_data_dom_performance, learning_curve, security, popularity, flexibility) -> float:

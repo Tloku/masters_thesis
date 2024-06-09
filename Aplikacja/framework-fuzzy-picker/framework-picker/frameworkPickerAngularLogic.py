@@ -94,6 +94,86 @@ class AngularPickLogic:
             ctrl.Rule(self.__package_size['small'] & self.__security['none'], self.__angular['not_choose'])
         ]
 
+        self.__angular_rules.extend([
+            ctrl.Rule(
+                self.__performance['bad'] & self.__large_data_performance['average'] & self.__package_size['medium'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__large_data_performance['average'] & self.__package_size['large'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__dom_performance['good'] & self.__security['implemented'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__dom_performance['good'] & self.__security['implemented'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__package_size['medium'] & self.__popularity['stale'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__flexibility['medium'] & self.__learning_curve['medium'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__flexibility['stiff'] & self.__learning_curve['hard'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__package_size['large'] & self.__security['implemented'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__large_data_performance['average'] & self.__learning_curve['hard'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__flexibility['medium'] & self.__security['implemented'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__package_size['large'] & self.__learning_curve['medium'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__large_data_performance['average'] & self.__dom_performance[
+                    'good'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__dom_performance['good'] & self.__popularity['stale'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__large_data_performance['average'] & self.__flexibility['medium'],
+                self.__angular['choose']),
+        ])
+        self.__angular_rules.extend([
+            ctrl.Rule(
+                self.__performance['bad'] & self.__package_size['large'] & self.__dom_performance['good'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__large_data_performance['average'] & self.__learning_curve[
+                    'hard'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__flexibility['stiff'] & self.__popularity['stale'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__security['implemented'] & self.__learning_curve['medium'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__large_data_performance['average'] & self.__flexibility['stiff'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__package_size['large'] & self.__flexibility['medium'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__large_data_performance['average'] & self.__dom_performance['good'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__security['implemented'] & self.__flexibility['medium'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['bad'] & self.__popularity['stale'] & self.__flexibility['stiff'],
+                self.__angular['choose']),
+            ctrl.Rule(
+                self.__performance['average'] & self.__large_data_performance['average'] & self.__learning_curve[
+                    'hard'],
+                self.__angular['choose']),
+        ])
+
     def visualize_membership_functions(self):
         variables = [
             (self.__performance, 'Performance'),

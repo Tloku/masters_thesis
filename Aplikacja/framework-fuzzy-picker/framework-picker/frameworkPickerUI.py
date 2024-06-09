@@ -1,5 +1,5 @@
 import tkinter as tk
-from random import random
+import random
 from tkinter import ttk
 
 winner_framework = None
@@ -130,12 +130,13 @@ def run_simulation(angular, react, vue, performance,
         'Vue': vue_score
     }
 
-    winning_framework = max(scores, key=scores.get)
-    winning_score = scores[winning_framework]
+    max_score = max(scores.values())
+    winning_frameworks = [framework for framework, score in scores.items() if score == max_score]
 
-    if winning_score == 0.0:
-        print("rand")
-        winning_framework = random.choice(list(scores.keys()))
+    if len(winning_frameworks) > 1:
+        winning_framework = random.choice(winning_frameworks)
+    else:
+        winning_framework = winning_frameworks[0]
 
     print(winning_framework)
     winner_label.config(text=f'Najlepszy framework to {winning_framework}.')

@@ -10,4 +10,3 @@ react = ReactPickLogic()
 vue = VuePickLogic()
 
 launch(angular, react, vue)
-
