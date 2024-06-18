@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    // "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    // "module": "ESNext",
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -15,11 +15,23 @@
     "jsx": "react-jsx",
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
+    // "strict": false,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    "target": "es5",
+    "module": "commonjs",
+    "strict": false, // Wyłącza cały tryb ścisły
+    "strictNullChecks": false, // Wyłącza tylko sprawdzanie null/undefined
+    "noImplicitAny": false, // Pozwala na używanie typu `any` bez ostrzeżeń
+    "strictFunctionTypes": false, // Wyłącza ścisłe sprawdzanie typów funkcji
+    "strictBindCallApply": false, // Wyłącza ścisłe sprawdzanie metod `bind`, `call` i `apply`
+    "strictPropertyInitialization": false, // Wyłącza wymaganie inicjalizacji właściwości
+    "noImplicitThis": false, // Pozwala na niejawne użycie `this`
+    "alwaysStrict": false, // Nie dodaje `use strict` do każdego pliku
   },
   "include": ["src"],
+  "types": ["node", "jest", "@testing-library/jest-dom"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -54,7 +54,9 @@ class OfferMediator : IOfferAdapter
         IBodyTypeRepository bodyTypeRepository,
         IDriveTypeRepository driveTypeRepository, 
         ICarStatusRepository carStatusRepository, 
-        IVehicleEquipmentRepository vehicleEquipmentRepository, IVehicleImageRepository vehicleImageRepository)
+        IVehicleEquipmentRepository vehicleEquipmentRepository,
+        IVehicleImageRepository vehicleImageRepository
+        )
     {
         _offerRepository = offerRepository;
         _mapper = mapper;

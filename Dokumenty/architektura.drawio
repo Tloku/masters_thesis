@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net" modified="2024-06-17T00:45:30.144Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="_nDkB7CKO-ZrLmwoc5sh" version="24.2.8" type="device">
+  <diagram name="Strona-1" id="eJ8BLxbieU3_OrppZywn">
+    <mxGraphModel dx="1195" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gwyow5MtaUIVZEf5d32r-11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;curved=0;endArrow=none;endFill=0;" edge="1" parent="1" source="gwyow5MtaUIVZEf5d32r-1" target="gwyow5MtaUIVZEf5d32r-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="240" />
+              <mxPoint x="280" y="330" />
+              <mxPoint x="388" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;endArrow=none;endFill=0;" edge="1" parent="1" source="gwyow5MtaUIVZEf5d32r-1" target="gwyow5MtaUIVZEf5d32r-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="240" />
+              <mxPoint x="280" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-1" value="Aplikacja&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Angular&lt;/span&gt;" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.computer" vertex="1" parent="1">
+          <mxGeometry x="80" y="190" width="110" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;endArrow=none;endFill=0;curved=0;" edge="1" parent="1" source="gwyow5MtaUIVZEf5d32r-4" target="gwyow5MtaUIVZEf5d32r-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="380" />
+              <mxPoint x="280" y="330" />
+              <mxPoint x="388" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;endArrow=none;endFill=0;" edge="1" parent="1" source="gwyow5MtaUIVZEf5d32r-4" target="gwyow5MtaUIVZEf5d32r-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="380" />
+              <mxPoint x="280" y="520" />
+              <mxPoint x="385" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-4" value="Aplikacja React&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.computer" vertex="1" parent="1">
+          <mxGeometry x="80" y="330" width="110" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" target="gwyow5MtaUIVZEf5d32r-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="518.35" as="sourcePoint" />
+            <mxPoint x="385.00000121658536" y="520.65" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;curved=0;" edge="1" parent="1" source="gwyow5MtaUIVZEf5d32r-5" target="gwyow5MtaUIVZEf5d32r-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="520" />
+              <mxPoint x="280" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-5" value="Aplikacja Vue" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.computer" vertex="1" parent="1">
+          <mxGeometry x="80" y="470" width="110" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeColor=default;curved=0;" edge="1" parent="1" source="gwyow5MtaUIVZEf5d32r-6" target="gwyow5MtaUIVZEf5d32r-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-6" value="C#, ASP.NET Core" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;" vertex="1" parent="1">
+          <mxGeometry x="385" y="257.72" width="58" height="103.57" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-7" value="express" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;" vertex="1" parent="1">
+          <mxGeometry x="385" y="470" width="58" height="103.57" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-8" value="PostgreSQL&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="590" y="259.75" width="90" height="99.51" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-10" value="Redis" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="590" y="471.79" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gwyow5MtaUIVZEf5d32r-19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;curved=0;endArrow=none;endFill=0;" edge="1" parent="1" source="gwyow5MtaUIVZEf5d32r-7" target="gwyow5MtaUIVZEf5d32r-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

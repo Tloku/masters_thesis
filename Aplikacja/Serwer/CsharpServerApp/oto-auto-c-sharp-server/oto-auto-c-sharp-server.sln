@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oto-auto-c-sharp-server", "oto-auto-c-sharp-server\oto-auto-c-sharp-server.csproj", "{B21E369A-EDE7-4D3F-A1D7-8B8C90E64697}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oto-auto-c-sharp-server.Tests", "oto-auto-c-sharp-server.Tests\oto-auto-c-sharp-server.Tests.csproj", "{839F677B-EA8D-4693-8B65-327A1E3FD18A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{B21E369A-EDE7-4D3F-A1D7-8B8C90E64697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B21E369A-EDE7-4D3F-A1D7-8B8C90E64697}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B21E369A-EDE7-4D3F-A1D7-8B8C90E64697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839F677B-EA8D-4693-8B65-327A1E3FD18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839F677B-EA8D-4693-8B65-327A1E3FD18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839F677B-EA8D-4693-8B65-327A1E3FD18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839F677B-EA8D-4693-8B65-327A1E3FD18A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
